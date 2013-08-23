@@ -1,0 +1,59 @@
+﻿<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Neptuo</title>
+
+        <link href="~/Content/bootstrap/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/Content/bootstrap/bootstrap-theme.min.css" rel="stylesheet" />
+        <link href="~/Content/common.css" rel="stylesheet" />
+        <link href="~/Content/design.css" rel="stylesheet" />
+        <link href="~/Content/responsivness.css" rel="stylesheet" />
+    </head>
+    <body>
+
+        <nav class="navbar navbar-fixed-top" role="navigation">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="Content/Images/Logo.png" alt="Neptuo logo" height="80" />
+                </a>
+                <ul>
+                    <li>
+                        <a href="/hello">Hello!</a>
+                    </li>
+                    <li>
+                        <a href="/projects">Projects</a>
+                    </li>
+                    <li>
+                        <a href="/webs">Webs</a>
+                    </li>
+                    <li>
+                        <a href="/work">Work</a>
+                    </li>
+                    <li>
+                        <a href="/me">Me</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="body container">
+
+            @RenderBody()
+
+        </div>
+
+        <div class="foot">
+            <div class="foot-in container">
+                <div class="left">
+                    Neptuo &copy; 2010 - 2013
+                </div>
+                <div class="right">
+                    Created by <a target="_blank" href="http://people.neptuo.com/mara">Marek Fišera</a>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+
+    </body>
+</html>

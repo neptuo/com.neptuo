@@ -1,0 +1,11 @@
+﻿@media (max-width: 768px) {
+
+    .navbar-brand img {
+        height: 60px;
+    }
+
+    .navbar ul li a {
+        font-size: 45px;
+    }
+
+}
