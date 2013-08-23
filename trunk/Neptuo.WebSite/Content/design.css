@@ -1,0 +1,147 @@
+﻿body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Segoe UI', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;
+    background: #E8E8E8;
+}
+
+.container {
+    width: 890px;
+}
+
+.navbar {
+    position: fixed;
+    overflow: hidden;
+    padding-bottom: 2px;
+    /*background: #333333;*/
+    background: #E8E8E8 url('Images/Background.png') repeat-x 0 bottom;
+    border: none;
+    border-radius: 0;
+}
+
+.navbar .container {
+    padding: 0;
+}
+
+.navbar a {
+    color: white;
+}
+
+.navbar a:hover, .navbar a:focus {
+    background: #157FCC;
+}
+
+.navbar-brand {
+    padding: 0 10px;
+}
+
+.navbar > .container .navbar-brand {
+    margin: 0;
+}
+
+.navbar-brand img {
+    height: 80px;
+}
+
+.navbar-brand, .navbar ul, .navbar ul li {
+    display: block;
+    float: left;
+}
+
+.navbar ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    float: right;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    padding: 0px 10px;
+    font-size: 56px;
+    font-family: "Gabriola";
+    margin: 0 0 0 10px;
+    color: white;
+    display: block;
+}
+
+
+
+
+.body {
+    margin-top: 100px;
+    margin-bottom: 20px;
+}
+
+
+
+
+.folder {
+    margin: 10px;
+    padding: 10px 15px 15px 15px;
+    color: #444444;
+    background: white;
+    border: 1px solid #C0C0C0;
+}
+
+.folder-heading {
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    color: #999999;
+    border-bottom: 1px solid #C0C0C0;
+}
+
+.folder-heading h1, .folder-heading h2, .folder-heading h3, .folder-heading h4, .folder-heading h5, .folder-heading h6 {
+    margin: 0;
+    padding: 0;
+}
+
+.folder-separator {
+    margin: 5px 0;
+    border-top: 1px solid #C0C0C0;
+}
+
+.folder-foot {
+    margin-top: 5px;
+    padding-top: 5px;
+    color: #999999;
+    border-top: 1px solid #C0C0C0;
+}
+
+.folder .col-md-6 {
+    padding-left: 0;
+    padding-right: 15px;
+}
+
+.folder .col-md-right {
+    padding-right: 0px;
+}
+
+
+
+
+
+
+
+
+
+.foot {
+    background: url('Images/FootBackground.png') repeat-x left top;
+}
+
+.foot-in, .foot-in a {
+    color: #666666;
+}
+
+.foot-in a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.foot-in a:hover {
+    text-decoration: underline;
+}
+
+.foot-in .left, .foot-in .right {
+    padding: 10px 10px;
+}

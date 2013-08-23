@@ -13,10 +13,15 @@ namespace Neptuo.WebSite
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            //Old urls
+            
+
+            //Custom routes
+
             routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                name: "ContentFallBack",
+                url: "{*path}",
+                defaults: new { controller = "Content", action = "Index" }
             );
         }
     }
