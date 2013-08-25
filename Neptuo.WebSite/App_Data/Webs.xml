@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Webs>
+  <Web>
+    <Title>ZŠ a ZUŠ Libochovice</Title>
+    <Link>http://www.skolylibochovice.cz</Link>
+    <PreviewLink />
+    <Descriptions>
+      <Description>
+        <Cs>...</Cs>
+        <En>...</En>
+      </Description>
+    </Descriptions>
+  </Web>
+  <Web>
+    <Title>ASK Lovosice</Title>
+    <Link>http://www.lfplovosice.cz</Link>
+    <PreviewLink>http://is4wfw.neptuo.com/file.php?rid=53</PreviewLink>
+    <Descriptions>
+      <Description>
+        <Cs>...</Cs>
+        <En>...</En>
+      </Description>
+    </Descriptions>
+  </Web>
+  <Web>
+    <Title>Superliga LFP</Title>
+    <Link>http://www.superligalfp.cz</Link>
+    <PreviewLink>http://is4wfw.neptuo.com/file.php?rid=54</PreviewLink>
+    <Descriptions>
+      <Description>
+        <Cs>...</Cs>
+        <En>...</En>
+      </Description>
+    </Descriptions>
+  </Web>
+  <Web>
+    <Title>HotProject</Title>
+    <Link>http://www.hotproject.cz</Link>
+    <PreviewLink>http://is4wfw.neptuo.com/file.php?rid=35</PreviewLink>
+    <Descriptions>
+      <Description>
+        <Cs>Webová prezentace, jedna jazyková mutace.</Cs>
+        <En>Web presentation, single language version.</En>
+      </Description>
+      <Description>
+        <Cs>Grafický podklad dodaný externě.</Cs>
+        <En>Graphics outsourced.</En>
+      </Description>
+      <Description>
+        <Cs>Uživatelská správa textových obsahů a galerie.</Cs>
+        <En>Custom management for static content and photogallery.</En>
+      </Description>
+      <Description>
+        <Cs>Redakční systém is4wfw.</Cs>
+        <En>Content management system is4wfw.</En>
+      </Description>
+    </Descriptions>
+  </Web>
+  <Web>
+    <Title>AMS s.r.o.</Title>
+    <Link>http://www.ams.cz</Link>
+    <PreviewLink>http://is4wfw.neptuo.com/file.php?rid=34</PreviewLink>
+    <Descriptions>
+      <Description>
+        <Cs>Webová prezentace, jedna jazyková mutace, včetně grafických podkladů.</Cs>
+        <En>Web presentation, single language version, including graphics.</En>
+      </Description>
+      <Description>
+        <Cs>Uživatelská správa textových obsahů, konfiguravatelná slideshow v záhlaví.</Cs>
+        <En>Custom management for static content and photogallery, configuration for slideshow in heading.</En>
+      </Description>
+      <Description>
+        <Cs>Redakční systém is4wfw.</Cs>
+        <En>Content management system is4wfw.</En>
+      </Description>
+    </Descriptions>
+  </Web>
+</Webs>

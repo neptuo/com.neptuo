@@ -14,9 +14,15 @@ namespace Neptuo.WebSite
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             //Old urls
-            
+
 
             //Custom routes
+
+            routes.MapRoute(
+                name: "Webs",
+                url: "webs",
+                defaults: new { controller = "Content", action = "Webs" }
+            );
 
             routes.MapRoute(
                 name: "ContentFallBack",
