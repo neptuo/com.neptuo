@@ -14,29 +14,29 @@
 
         <nav class="navbar navbar-fixed-top" role="navigation">
             <div class="container">
-                <a class="navbar-brand  @(Request.AppRelativeCurrentExecutionFilePath == "~/" ? "active" : null)" href="~/">
+                <a class="navbar-brand  @Request.ActiveCssClass("~/", true)" href="~/">
                     <img src="Content/Images/Logo.png" alt="Neptuo logo" height="80" />
                 </a>
                 <ul>
-                    <li class="disabled">
+                    <li class="disabled @Request.ActiveCssClass("~/projects")">
                         <a href="~/projects">
                             Projects
                             <span class="glyphicon glyphicon-play"></span>
                         </a>
                     </li>
-                    <li class="@(Request.AppRelativeCurrentExecutionFilePath == "~/webs" ? "active" : null)">
+                    <li class="@Request.ActiveCssClass("~/webs")">
                         <a href="~/webs">
                             Webs
                             <span class="glyphicon glyphicon-globe"></span>
                         </a>
                     </li>
-                    <li class="disabled">
+                    <li class="disabled @Request.ActiveCssClass("~/work")">
                         <a href="~/work">
                             Work
-                            <span class="glyphicon glyphicon-usd"></span>
+                            <span class="glyphicon glyphicon-cloud"></span>
                         </a>
                     </li>
-                    <li class="@(Request.AppRelativeCurrentExecutionFilePath == "~/me" ? "active" : null)">
+                    <li class="@Request.ActiveCssClass("~/me")">
                         <a href="~/me">
                             Me
                             <span class="glyphicon glyphicon-user"></span>
