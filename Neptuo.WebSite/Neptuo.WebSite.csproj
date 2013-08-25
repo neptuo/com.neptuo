@@ -118,6 +118,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\HttpRequestBaseExtensions.cs" />
     <Compile Include="Models\MenuItem.cs" />
     <Compile Include="Models\Webs\DescriptionItemModel.cs" />
     <Compile Include="Models\Webs\WebModel.cs" />
@@ -134,6 +135,7 @@
     <Content Include="Content\bootstrap\bootstrap.css" />
     <Content Include="Content\bootstrap\bootstrap.min.css" />
     <Content Include="Content\common.css" />
+    <Content Include="Content\Images\mnau.jpg" />
     <Content Include="Content\responsivness.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\design.css" />
