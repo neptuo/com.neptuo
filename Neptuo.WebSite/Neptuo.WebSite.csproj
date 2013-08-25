@@ -159,6 +159,7 @@
     <Content Include="Views\Content\Hello.cshtml" />
     <Content Include="Views\Content\NotFound.cshtml" />
     <Content Include="Views\Content\Me.cshtml" />
+    <Content Include="Views\Content\Webs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

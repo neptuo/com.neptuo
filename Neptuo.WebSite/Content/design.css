@@ -6,7 +6,7 @@
 }
 
 .container {
-    width: 890px;
+    width: 920px;
 }
 
 .navbar {
@@ -29,6 +29,11 @@
 
 .navbar a:hover, .navbar a:focus {
     background: #157FCC;
+}
+
+.navbar a .glyphicon {
+    font-size: 35px;
+    opacity: 0.5;
 }
 
 .navbar-brand {
@@ -63,6 +68,12 @@
     margin: 0 0 0 10px;
     color: white;
     display: block;
+}
+
+.navbar ul li.disabled a {
+    cursor: not-allowed;
+    color: #737578;
+    background: transparent;
 }
 
 
@@ -117,6 +128,12 @@
     padding-right: 0px;
 }
 
+.folder.lang-cs {
+    background: white url('http://forms.neptuo.com/Design/Images/Langs/cs.png') no-repeat -8px -8px;
+}
+.folder.lang-en {
+    background: white url('http://forms.neptuo.com/Design/Images/Langs/en.png') no-repeat -8px -8px;
+}
 
 
 
@@ -144,4 +161,41 @@
 
 .foot-in .left, .foot-in .right {
     padding: 10px 10px;
+}
+
+
+
+
+
+
+
+.lang {
+    margin: 80px 0 0 20px;
+}
+
+.lang div {
+    float: left;
+    padding: 4px;
+    /*color: white;*/
+    background: url('Images/FootBackground.png');
+    border-radius: 0 0 3px 3px;
+    border: 1px solid #78797C;
+    border-top: none;
+}
+
+.lang div label {
+    margin: 0;
+    font-weight: normal;
+}
+
+#lang-cs, #lang-en {
+    display: none;
+}
+
+#lang-cs:checked ~ * .lang-en, #lang-en:checked ~ * .lang-cs {
+    opacity: 0.2;
+}
+
+#lang-cs:checked ~ * label[for=lang-cs], #lang-en:checked ~ * label[for=lang-en] {
+    color: red;
 }
