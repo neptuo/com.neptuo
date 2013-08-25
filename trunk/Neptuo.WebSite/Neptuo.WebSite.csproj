@@ -119,12 +119,16 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\MenuItem.cs" />
+    <Compile Include="Models\Webs\DescriptionItemModel.cs" />
+    <Compile Include="Models\Webs\WebModel.cs" />
+    <Compile Include="Models\Webs\WebDataService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="App_Data\Webs.xml" />
     <Content Include="Content\bootstrap\bootstrap-theme.css" />
     <Content Include="Content\bootstrap\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap\bootstrap.css" />
@@ -162,7 +166,7 @@
     <Content Include="Views\Content\Webs.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="Models\Projects\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
