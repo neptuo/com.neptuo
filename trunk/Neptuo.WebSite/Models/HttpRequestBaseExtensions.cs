@@ -23,5 +23,13 @@ namespace System.Web
         {
             return IsActive(request, url, exact) ? "active" : null;
         }
+
+        public static string ResolveUrl(this HttpRequestBase request, string url)
+        {
+            if (!url.StartsWith("~/"))
+                return url;
+
+            return VirtualPathUtility.ToAbsolute(url);
+        }
     }
 }

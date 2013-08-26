@@ -217,14 +217,22 @@
 
 
 
-
-.image-left {
+.image-left, .image-right {
     float: left;
-    margin: 10px 0 10px 10px;
+}
+
+.image-left img, .image-right img {
+    display: block;
     background: url('http://www.votocvohoz.cz/assets/default/loading16.gif') no-repeat center center;
 }
+
+.image-left img + img, .image-right img + img {
+    margin-top: 10px;
+}
+
+.image-left {
+    margin: 10px 0 10px 10px;
+}
 .image-right {
-    float: left;
     margin: 10px 10px 10px 0px;
-    background: url('http://www.votocvohoz.cz/assets/default/loading16.gif') no-repeat center center;
 }

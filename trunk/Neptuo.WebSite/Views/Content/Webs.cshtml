@@ -13,10 +13,13 @@
         <a target="_blank" href="@web.Link">@web.LinkName</a>
         }
     </h2>
-    @if (!String.IsNullOrEmpty(web.PreviewLink)) 
+    @if (web.Previews.Any()) 
     { 
     <div class="image-left">
-        <img src="@web.PreviewLink" title="@web.Title" width="127" height="90" />
+        @foreach (var image in web.Previews)
+	    {
+        <img src="@Request.ResolveUrl(image.Link)" title="@web.Title" width="@image.Width" height="@image.Height" />
+	    }
     </div>
     }
     <div class="col-md-5 lang-cs">

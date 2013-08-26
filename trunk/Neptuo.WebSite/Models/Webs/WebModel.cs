@@ -14,7 +14,10 @@ namespace Neptuo.WebSite.Models.Webs
 
         public string Title { get; set; }
         public string Link { get; set; }
-        public string PreviewLink { get; set; }
+
+        [XmlArray("Previews")]
+        [XmlArrayItem("Preview")]
+        public List<ImageModel> Previews { get; set; }
 
         public string LinkName
         {
