@@ -221,7 +221,7 @@
     float: left;
 }
 
-.image-left img, .image-right img {
+.image-left img, .image-right img, img.image-left, img.image-right {
     display: block;
     background: url('http://www.votocvohoz.cz/assets/default/loading16.gif') no-repeat center center;
 }

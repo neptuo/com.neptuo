@@ -137,6 +137,10 @@
     <Content Include="Content\bootstrap\bootstrap.min.css" />
     <Content Include="Content\common.css" />
     <Content Include="Content\Images\mnau.jpg" />
+    <Content Include="Content\Images\References\jm.jpg" />
+    <Content Include="Content\Images\References\jmold.jpg" />
+    <Content Include="Content\Images\References\kamelibo.jpg" />
+    <Content Include="Content\Images\References\school.jpg" />
     <Content Include="Content\Images\References\zs.jpg" />
     <Content Include="Content\Images\References\zus.jpg" />
     <Content Include="Content\responsivness.css" />
