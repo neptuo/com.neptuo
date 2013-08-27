@@ -3,7 +3,7 @@
     ViewBag.Title = "Not found!";
 }
 
-@foreach (var web in Model)
+@foreach (var web in Model.Where(w => !w.IsOld))
 {
 <div class="folder">
     <h2 class="folder-heading">
@@ -53,11 +53,18 @@
         <span class="lang-en right">And some older projects</span>
     </h2>
     
-    <img class="image-left" src="http://is4wfw.neptuo.com/file.php?rid=55" width="127" height="90" />
-    <img class="image-left" src="http://is4wfw.neptuo.com/file.php?rid=34" width="127" height="90" />
-    <img class="image-left" src="http://is4wfw.neptuo.com/file.php?rid=35" width="127" height="90" />
-    <img class="image-left" src="http://is4wfw.neptuo.com/file.php?rid=34" width="127" height="90" />
-    <img class="image-left" src="http://is4wfw.neptuo.com/file.php?rid=35" width="127" height="90" />
-    <img class="image-left" src="http://is4wfw.neptuo.com/file.php?rid=34" width="127" height="90" />
+    @foreach (var web in Model.Where(w => w.IsOld))
+    {
+        if(web.Previews.Any()) {
+            var image = web.Previews.First();
+            @: <img class="image-left" src="@Request.ResolveUrl(image.Link)" title="@web.Title" width="@image.Width" height="@image.Height" />
+        }
+    }
+    @*<img class="image-left" src="http://is4wfw.neptuo.com/file.php?rid=55" width="127" height="90" />
+    <img class="image-left" src="~/Content/Images/References/jm.jpg" width="127" height="90" />
+    <img class="image-left" src="~/Content/Images/References/kamelibo.jpg" width="127" height="90" />
+    <img class="image-left" src="~/Content/Images/References/jmold.jpg" width="127" height="90" />
+    <img class="image-left" src="http://is4wfw.neptuo.com/file.php?rid=56" width="127" height="90" />
+    <img class="image-left" src="~/Content/Images/References/school.jpg" width="127" height="90" />*@
     <div class="clear"></div>
 </div>

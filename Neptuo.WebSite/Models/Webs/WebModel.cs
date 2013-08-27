@@ -12,6 +12,9 @@ namespace Neptuo.WebSite.Models.Webs
     {
         private const string HttpPregix = "http://";
 
+        [XmlAttribute]
+        public bool IsOld { get; set; }
+
         public string Title { get; set; }
         public string Link { get; set; }
 
