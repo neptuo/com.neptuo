@@ -38,8 +38,20 @@
     </Previews>
     <Descriptions>
       <Description>
-        <Cs>...</Cs>
-        <En>...</En>
+        <Cs>Webová prezentance včetně grafického podkladu.</Cs>
+        <En>Web presentation including graphics</En>
+      </Description>
+      <Description>
+        <Cs>Správa statického obsahu a článků, s omezením do jednotlivých řad článků podle příslušnosti k jednotlivým družstvům.</Cs>
+        <En>Custom management for static content and articles, including privilege check according to membership to each team.</En>
+      </Description>
+      <Description>
+        <Cs>Správa galerie pro každé družstvo.</Cs>
+        <En>Management for photogallery for each team.</En>
+      </Description>
+      <Description>
+        <Cs>Redakční systém is4wfw.</Cs>
+        <En>Content management system is4wfw.</En>
       </Description>
     </Descriptions>
   </Web>
@@ -51,8 +63,20 @@
     </Previews>
     <Descriptions>
       <Description>
-        <Cs>...</Cs>
-        <En>...</En>
+        <Cs>Webová prezentance včetně grafického podkladu.</Cs>
+        <En>Web presentation including graphics</En>
+      </Description>
+      <Description>
+        <Cs>Několik řad článků.</Cs>
+        <En>Several article lines.</En>
+      </Description>
+      <Description>
+        <Cs>Použití sportovní knihovny pro zaznamenání výsledků, tabulek a hráčských (florbalových) statistik. Historie od roku 2010.</Cs>
+        <En>Use of the sport library for storing match statistics, tables and (florball) player statistics. History from 2010.</En>
+      </Description>
+      <Description>
+        <Cs>Redakční systém is4wfw.</Cs>
+        <En>Content management system is4wfw.</En>
       </Description>
     </Descriptions>
   </Web>

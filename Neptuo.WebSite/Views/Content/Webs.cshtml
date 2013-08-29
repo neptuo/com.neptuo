@@ -57,7 +57,16 @@
     {
         if(web.Previews.Any()) {
             var image = web.Previews.First();
-            @: <img class="image-left" src="@Request.ResolveUrl(image.Link)" title="@web.Title" width="@image.Width" height="@image.Height" />
+            
+            if (!String.IsNullOrEmpty(web.Link))
+            {
+                @: <a target="_blank" href="@Request.ResolveUrl(web.Link)">
+            }
+            <img class="image-left" src="@Request.ResolveUrl(image.Link)" title="@web.Title" width="@image.Width" height="@image.Height" />
+            if (!String.IsNullOrEmpty(web.Link))
+            {
+                @: </a>
+            }
         }
     }
     @*<img class="image-left" src="http://is4wfw.neptuo.com/file.php?rid=55" width="127" height="90" />
