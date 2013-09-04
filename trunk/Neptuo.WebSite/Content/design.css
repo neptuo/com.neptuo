@@ -128,16 +128,12 @@
     padding-right: 0px;
 }
 
-.folder.lang-cs {
+/*.folder.lang-cs {
     background: white url('http://forms.neptuo.com/Design/Images/Langs/cs.png') no-repeat -8px -8px;
 }
 .folder.lang-en {
     background: white url('http://forms.neptuo.com/Design/Images/Langs/en.png') no-repeat -8px -8px;
-}
-
-.folder .folder-heading a {
-    float: right;
-}
+}*/
 
 .folder .folder-heading a[href^="http://"]:after {
     content: "\e164";
@@ -206,8 +202,10 @@
     display: none;
 }
 
-#lang-cs:checked ~ * .lang-en, #lang-en:checked ~ * .lang-cs {
-    opacity: 0.2;
+#lang-cs:checked ~ * .lang-en, #lang-cs:checked ~ .lang-en *, 
+#lang-en:checked ~ * .lang-cs, #lang-en:checked ~ .lang-cs * {
+    /*opacity: 0.2;*/
+    color: #E4E4E4 !important;
 }
 
 #lang-cs:checked ~ * label[for=lang-cs], #lang-en:checked ~ * label[for=lang-en] {

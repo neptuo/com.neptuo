@@ -25,6 +25,12 @@ namespace Neptuo.WebSite
             );
 
             routes.MapRoute(
+                name: "Home",
+                url: "",
+                defaults: new { controller = "Content", action = "Home" }
+            );
+
+            routes.MapRoute(
                 name: "ContentFallBack",
                 url: "{*path}",
                 defaults: new { controller = "Content", action = "Index" }

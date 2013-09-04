@@ -119,6 +119,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\HttpRequestBaseExtensions.cs" />
+    <Compile Include="Models\Index\HomeModel.cs" />
     <Compile Include="Models\MenuItem.cs" />
     <Compile Include="Models\Webs\DescriptionItemModel.cs" />
     <Compile Include="Models\Webs\ImageModel.cs" />
@@ -169,10 +170,11 @@
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Content\Hello.cshtml" />
+    <Content Include="Views\Content\Home.cshtml" />
     <Content Include="Views\Content\NotFound.cshtml" />
     <Content Include="Views\Content\Me.cshtml" />
     <Content Include="Views\Content\Webs.cshtml" />
+    <Content Include="Views\Shared\ShortWebs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\Projects\" />

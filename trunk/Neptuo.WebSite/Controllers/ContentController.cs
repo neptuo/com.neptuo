@@ -1,4 +1,5 @@
-﻿using Neptuo.WebSite.Models.Webs;
+﻿using Neptuo.WebSite.Models.Index;
+using Neptuo.WebSite.Models.Webs;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -20,6 +21,12 @@ namespace Neptuo.WebSite.Controllers
                 pathValue = "NotFound";
 
             return View(pathValue);
+        }
+
+        public ActionResult Home()
+        {
+            WebDataService webDataService = new WebDataService(Request.MapPath(WebDataService.DataUri));
+            return View(new HomeModel(webDataService.Get().Take(6)));
         }
 
         public ActionResult Webs()
