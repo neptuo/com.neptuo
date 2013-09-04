@@ -10,7 +10,7 @@
         @web.Title
         @if (!String.IsNullOrEmpty(web.Link)) 
         { 
-        <a target="_blank" href="@web.Link">@web.LinkName</a>
+        <a target="_blank" class="right" href="@web.Link">@web.LinkName</a>
         }
     </h2>
     @if (web.Previews.Any()) 
@@ -53,27 +53,6 @@
         <span class="lang-en right">And some older projects</span>
     </h2>
     
-    @foreach (var web in Model.Where(w => w.IsOld))
-    {
-        if(web.Previews.Any()) {
-            var image = web.Previews.First();
-            
-            if (!String.IsNullOrEmpty(web.Link))
-            {
-                @: <a target="_blank" href="@Request.ResolveUrl(web.Link)">
-            }
-            <img class="image-left" src="@Request.ResolveUrl(image.Link)" title="@web.Title" width="@image.Width" height="@image.Height" />
-            if (!String.IsNullOrEmpty(web.Link))
-            {
-                @: </a>
-            }
-        }
-    }
-    @*<img class="image-left" src="http://is4wfw.neptuo.com/file.php?rid=55" width="127" height="90" />
-    <img class="image-left" src="~/Content/Images/References/jm.jpg" width="127" height="90" />
-    <img class="image-left" src="~/Content/Images/References/kamelibo.jpg" width="127" height="90" />
-    <img class="image-left" src="~/Content/Images/References/jmold.jpg" width="127" height="90" />
-    <img class="image-left" src="http://is4wfw.neptuo.com/file.php?rid=56" width="127" height="90" />
-    <img class="image-left" src="~/Content/Images/References/school.jpg" width="127" height="90" />*@
+    @Html.Partial("ShortWebs", Model.Where(w => w.IsOld))
     <div class="clear"></div>
 </div>

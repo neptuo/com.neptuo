@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Neptuo.WebSite.Models.Webs.WebModel>
+
+@foreach (var web in Model)
+{
+    if(web.Previews.Any()) {
+        var image = web.Previews.First();
+            
+        if (!String.IsNullOrEmpty(web.Link))
+        {
+            @: <a target="_blank" href="@Request.ResolveUrl(web.Link)">
+        }
+        <img class="image-left" src="@Request.ResolveUrl(image.Link)" title="@web.Title" width="@image.Width" height="@image.Height" />
+        if (!String.IsNullOrEmpty(web.Link))
+        {
+            @: </a>
+        }
+    }
+}
