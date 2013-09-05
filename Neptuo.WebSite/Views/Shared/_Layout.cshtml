@@ -21,25 +21,28 @@
                     <li class="disabled @Request.ActiveCssClass("~/projects")">
                         <a href="~/projects">
                             Projects
-                            <span class="glyphicon glyphicon-play"></span>
+                            <span class="glyphicon glyphicon-cloud"></span>
+                            <span class="subtext">Projects we are working on</span>
                         </a>
                     </li>
-                    <li class="@Request.ActiveCssClass("~/webs")">
-                        <a href="~/webs">
-                            Webs
+                    <li class="@Request.ActiveCssClass("~/services")">
+                        <a href="~/services">
+                            Services
                             <span class="glyphicon glyphicon-globe"></span>
+                            <span class="subtext">Our services and references</span>
                         </a>
                     </li>
-                    <li class="disabled @Request.ActiveCssClass("~/work")">
+                    @*<li class="disabled @Request.ActiveCssClass("~/work")">
                         <a href="~/work">
                             Work
                             <span class="glyphicon glyphicon-cloud"></span>
                         </a>
-                    </li>
+                    </li>*@
                     <li class="@Request.ActiveCssClass("~/me")">
                         <a href="~/me">
                             Me
                             <span class="glyphicon glyphicon-user"></span>
+                            <span class="subtext">About me</span>
                         </a>
                     </li>
                 </ul>

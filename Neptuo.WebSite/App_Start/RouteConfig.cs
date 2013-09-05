@@ -19,9 +19,9 @@ namespace Neptuo.WebSite
             //Custom routes
 
             routes.MapRoute(
-                name: "Webs",
-                url: "webs",
-                defaults: new { controller = "Content", action = "Webs" }
+                name: "Services",
+                url: "services",
+                defaults: new { controller = "Content", action = "Services" }
             );
 
             routes.MapRoute(

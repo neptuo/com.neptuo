@@ -29,7 +29,7 @@ namespace Neptuo.WebSite.Controllers
             return View(new HomeModel(webDataService.Get().Take(6)));
         }
 
-        public ActionResult Webs()
+        public ActionResult Services()
         {
             WebDataService webDataService = new WebDataService(Request.MapPath(WebDataService.DataUri));
             return View(webDataService.Get());

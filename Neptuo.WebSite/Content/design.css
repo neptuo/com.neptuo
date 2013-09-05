@@ -2,7 +2,7 @@
     padding: 0;
     margin: 0;
     font-family: 'Segoe UI', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;
-    font-size: 18px;
+    /*font-size: 18px;*/
     background: #E8E8E8;
 }
 
@@ -38,7 +38,7 @@
 }
 
 .navbar-brand {
-    padding: 0 10px;
+    padding: 5px 0px 6px 7px;
 }
 
 .navbar > .container .navbar-brand {
@@ -46,7 +46,7 @@
 }
 
 .navbar-brand img {
-    height: 80px;
+    height: 90px;
 }
 
 .navbar-brand, .navbar ul, .navbar ul li {
@@ -63,7 +63,7 @@
 
 .navbar ul li a {
     text-decoration: none;
-    padding: 0px 10px;
+    padding: 0px 30px 10px 30px;
     font-size: 56px;
     font-family: "Gabriola";
     margin: 0 0 0 10px;
@@ -77,6 +77,11 @@
     background: transparent;
 }
 
+.navbar ul li a .subtext {
+    display: block;
+    font-size: 22px;
+    margin-top: -20px;
+}
 
 
 .intro {
@@ -103,6 +108,7 @@
     padding-left: 8px;
     color: white;
     font-size: 40px;
+    text-align: left;
 }
 
 
