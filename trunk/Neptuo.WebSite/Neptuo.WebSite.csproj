@@ -173,7 +173,7 @@
     <Content Include="Views\Content\Home.cshtml" />
     <Content Include="Views\Content\NotFound.cshtml" />
     <Content Include="Views\Content\Me.cshtml" />
-    <Content Include="Views\Content\Webs.cshtml" />
+    <Content Include="Views\Content\Services.cshtml" />
     <Content Include="Views\Shared\ShortWebs.cshtml" />
   </ItemGroup>
   <ItemGroup>
