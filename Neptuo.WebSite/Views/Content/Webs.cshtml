@@ -3,56 +3,67 @@
     ViewBag.Title = "Not found!";
 }
 
-@foreach (var web in Model.Where(w => !w.IsOld))
-{
-<div class="folder">
-    <h2 class="folder-heading">
-        @web.Title
-        @if (!String.IsNullOrEmpty(web.Link)) 
+<div class="intro">
+    <div class="intro-content container">
+        <h1>Webs!</h1>
+        <p>
+            We have realised some websites. Here they are...
+        </p>
+    </div>
+</div>
+
+<div class="container">
+    @foreach (var web in Model.Where(w => !w.IsOld))
+    {
+    <div class="folder">
+        <h2 class="folder-heading">
+            @web.Title
+            @if (!String.IsNullOrEmpty(web.Link)) 
+            { 
+            <a target="_blank" class="right" href="@web.Link">@web.LinkName</a>
+            }
+        </h2>
+        @if (web.Previews.Any()) 
         { 
-        <a target="_blank" class="right" href="@web.Link">@web.LinkName</a>
+        <div class="image-left">
+            @foreach (var image in web.Previews)
+	        {
+            <img src="@Request.ResolveUrl(image.Link)" title="@web.Title" width="@image.Width" height="@image.Height" />
+	        }
+        </div>
         }
-    </h2>
-    @if (web.Previews.Any()) 
-    { 
-    <div class="image-left">
-        @foreach (var image in web.Previews)
-	    {
-        <img src="@Request.ResolveUrl(image.Link)" title="@web.Title" width="@image.Width" height="@image.Height" />
-	    }
+        <div class="col-md-5 lang-cs">
+            <ul>
+                @foreach (var description in web.Descriptions)
+                {
+                    if (!String.IsNullOrEmpty(description.Cs)) 
+                    { 
+                    <li>@description.Cs</li>
+                    }
+                }
+            </ul>
+        </div>
+        <div class="col-md-5 lang-en">
+            <ul>
+                @foreach (var description in web.Descriptions)
+                {
+                    if (!String.IsNullOrEmpty(description.En)) 
+                    { 
+                    <li>@description.En</li>
+                    }
+                }
+            </ul>
+        </div>
+        <div class="clear"></div>
     </div>
     }
-    <div class="col-md-5 lang-cs">
-        <ul>
-            @foreach (var description in web.Descriptions)
-            {
-                if (!String.IsNullOrEmpty(description.Cs)) 
-                { 
-                <li>@description.Cs</li>
-                }
-            }
-        </ul>
-    </div>
-    <div class="col-md-5 lang-en">
-        <ul>
-            @foreach (var description in web.Descriptions)
-            {
-                if (!String.IsNullOrEmpty(description.En)) 
-                { 
-                <li>@description.En</li>
-                }
-            }
-        </ul>
-    </div>
-    <div class="clear"></div>
-</div>
-}
-<div class="folder">
-    <h2 class="folder-heading">
-        <span class="lang-cs">A několik starších projektů</span>
-        <span class="lang-en right">And some older projects</span>
-    </h2>
+    <div class="folder">
+        <h2 class="folder-heading">
+            <span class="lang-cs">A několik starších projektů</span>
+            <span class="lang-en right">And some older projects</span>
+        </h2>
     
-    @Html.Partial("ShortWebs", Model.Where(w => w.IsOld))
-    <div class="clear"></div>
+        @Html.Partial("ShortWebs", Model.Where(w => w.IsOld))
+        <div class="clear"></div>
+    </div>
 </div>
