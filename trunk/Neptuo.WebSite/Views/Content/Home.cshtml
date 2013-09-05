@@ -1,87 +1,98 @@
 ﻿@model Neptuo.WebSite.Models.Index.HomeModel
 
-<div class="col-md-6 lang-cs">
-    <div class="folder">
-        <h1>Vítejte!</h1>
-        <p class="first">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dignissim dui quis sem rutrum, sit amet dapibus urna interdum. 
-            Donec ut gravida sem, sed ullamcorper nunc. Nullam id turpis in risus rutrum condimentum quis nec sem. Nam sollicitudin libero lorem. 
-            Aenean tincidunt tortor in tincidunt semper. Nunc lobortis nisl nisi, et varius erat ultrices nec. 
-        </p>
-    </div>
-    <div class="folder">
-        <p class="first">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dignissim dui quis sem rutrum, sit amet dapibus urna interdum. 
-            Donec ut gravida sem, sed ullamcorper nunc. Nullam id turpis in risus rutrum condimentum quis nec sem. Nam sollicitudin libero lorem. 
-            Aenean tincidunt tortor in tincidunt semper. Nunc lobortis nisl nisi, et varius erat ultrices nec. 
-            Praesent fermentum odio ac dolor congue, eu ultricies lacus tristique. Nam a lacus id turpis sodales fringilla. 
-        </p>
-    </div>
-</div>
-<div class="col-md-6 lang-en">
-    <div class="folder">
+<div class="intro">
+    <div class="intro-content container">
         <h1>Hello!</h1>
-        <p class="first">
-            Cras congue volutpat dolor, vel commodo nisi consequat at. Duis turpis libero, ornare eu nulla nec, feugiat tempor massa. 
-            Quisque ac augue non risus viverra volutpat vitae vel sapien. Etiam tristique erat vel tempus venenatis. 
-            Maecenas nec nisi lacus. Fusce quis ullamcorper orci, ultrices facilisis libero. Phasellus interdum varius convallis.
+        <p>
+            Welcome to neptuo web. We are offering websites, desktop and web applications and we are making it well!
         </p>
     </div>
+</div>
+
+<div class="container">
+    <div class="col-md-6 lang-cs">
+        <div class="folder">
+            <h1>Vítejte!</h1>
+            <p class="first">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dignissim dui quis sem rutrum, sit amet dapibus urna interdum. 
+                Donec ut gravida sem, sed ullamcorper nunc. Nullam id turpis in risus rutrum condimentum quis nec sem. Nam sollicitudin libero lorem. 
+                Aenean tincidunt tortor in tincidunt semper. Nunc lobortis nisl nisi, et varius erat ultrices nec. 
+            </p>
+        </div>
+        <div class="folder">
+            <p class="first">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dignissim dui quis sem rutrum, sit amet dapibus urna interdum. 
+                Donec ut gravida sem, sed ullamcorper nunc. Nullam id turpis in risus rutrum condimentum quis nec sem. Nam sollicitudin libero lorem. 
+                Aenean tincidunt tortor in tincidunt semper. Nunc lobortis nisl nisi, et varius erat ultrices nec. 
+                Praesent fermentum odio ac dolor congue, eu ultricies lacus tristique. Nam a lacus id turpis sodales fringilla. 
+            </p>
+        </div>
+    </div>
+    <div class="col-md-6 lang-en">
+        <div class="folder">
+            <h1>Hello!</h1>
+            <p class="first">
+                Cras congue volutpat dolor, vel commodo nisi consequat at. Duis turpis libero, ornare eu nulla nec, feugiat tempor massa. 
+                Quisque ac augue non risus viverra volutpat vitae vel sapien. Etiam tristique erat vel tempus venenatis. 
+                Maecenas nec nisi lacus. Fusce quis ullamcorper orci, ultrices facilisis libero. Phasellus interdum varius convallis.
+            </p>
+        </div>
+        <div class="folder">
+            <p class="first">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dignissim dui quis sem rutrum, sit amet dapibus urna interdum. 
+                Donec ut gravida sem, sed ullamcorper nunc. Nullam id turpis in risus rutrum condimentum quis nec sem. Nam sollicitudin libero lorem. 
+                Aenean tincidunt tortor in tincidunt semper. Nunc lobortis nisl nisi, et varius erat ultrices nec. 
+                Praesent fermentum odio ac dolor congue, eu ultricies lacus tristique. Nam a lacus id turpis sodales fringilla. 
+            </p>
+        </div>
+    </div>
+    <div class="clear"></div>
+
     <div class="folder">
-        <p class="first">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dignissim dui quis sem rutrum, sit amet dapibus urna interdum. 
-            Donec ut gravida sem, sed ullamcorper nunc. Nullam id turpis in risus rutrum condimentum quis nec sem. Nam sollicitudin libero lorem. 
-            Aenean tincidunt tortor in tincidunt semper. Nunc lobortis nisl nisi, et varius erat ultrices nec. 
-            Praesent fermentum odio ac dolor congue, eu ultricies lacus tristique. Nam a lacus id turpis sodales fringilla. 
-        </p>
+        <h2 class="folder-heading">
+            <a href="@Url.Action("Webs")" class="lang-cs">Weby, které jsme realizovali</a>
+            <a href="@Url.Action("Webs")" class="lang-en right">Webs made by us</a>
+        </h2>
+        <div class="col-md-6 lang-cs">
+            <p class="first">
+                Nabízíme realizaci webových stránek ušitých namíru. Pro správu obsahuje využíváme redakční systém, 
+                ve kterém je možné spravovat jak statický obsah, tak dynamicky generovaný obsah. Ať už tento obsah 
+                pochází v článků, galerií nebo formulářů postavených na míru. Ke každému tomuto zdroji dat je 
+                navíc možné nastavit opravnění a omezit tak přístup uživatelů jen k určitým částem. 
+                Více o našem redakčním systému pod projektem is4wfw.
+            </p>
+        </div>
+        <div class="col-md-6 lang-en">
+            <p class="first">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dignissim dui quis sem rutrum, sit amet dapibus urna interdum. 
+                Donec ut gravida sem, sed ullamcorper nunc. Nullam id turpis in risus rutrum condimentum quis nec sem. Nam sollicitudin libero lorem. 
+                Aenean tincidunt tortor in tincidunt semper. Nunc lobortis nisl nisi, et varius erat ultrices nec. 
+                Praesent fermentum odio ac dolor congue, eu ultricies lacus tristique. Nam a lacus id turpis sodales fringilla. 
+            </p>
+        </div>
+        @Html.Partial("ShortWebs", Model.Webs)
+        <div class="clear"></div>
     </div>
-</div>
-<div class="clear"></div>
 
-<div class="folder">
-    <h2 class="folder-heading">
-        <a href="@Url.Action("Webs")" class="lang-cs">Weby, které jsme realizovali</a>
-        <a href="@Url.Action("Webs")" class="lang-en right">Webs made by us</a>
-    </h2>
-    <div class="col-md-6 lang-cs">
-        <p class="first">
-            Nabízíme realizaci webových stránek ušitých namíru. Pro správu obsahuje využíváme redakční systém, 
-            ve kterém je možné spravovat jak statický obsah, tak dynamicky generovaný obsah. Ať už tento obsah 
-            pochází v článků, galerií nebo formulářů postavených na míru. Ke každému tomuto zdroji dat je 
-            navíc možné nastavit opravnění a omezit tak přístup uživatelů jen k určitým částem. 
-            Více o našem redakčním systému pod projektem is4wfw.
-        </p>
+    <div class="folder">
+        <h2 class="folder-heading">
+            <a href="@Url.Action("Webs")" class="lang-cs">Projekty, na kterých pracujeme</a>
+            <a href="@Url.Action("Webs")" class="lang-en right">Projects in progress</a>
+        </h2>
+        <div class="col-md-6 lang-cs">
+            <p class="first">
+                Mimo tvorby webů také nabízíme realizaci desktopových a webových aplikací.
+            </p>
+        </div>
+        <div class="col-md-6 lang-en">
+            <p class="first">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dignissim dui quis sem rutrum, sit amet dapibus urna interdum. 
+                Donec ut gravida sem, sed ullamcorper nunc. Nullam id turpis in risus rutrum condimentum quis nec sem. Nam sollicitudin libero lorem. 
+                Aenean tincidunt tortor in tincidunt semper. Nunc lobortis nisl nisi, et varius erat ultrices nec. 
+                Praesent fermentum odio ac dolor congue, eu ultricies lacus tristique. Nam a lacus id turpis sodales fringilla. 
+            </p>
+        </div>
+        @Html.Partial("ShortWebs", Model.Webs)
+        <div class="clear"></div>
     </div>
-    <div class="col-md-6 lang-en">
-        <p class="first">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dignissim dui quis sem rutrum, sit amet dapibus urna interdum. 
-            Donec ut gravida sem, sed ullamcorper nunc. Nullam id turpis in risus rutrum condimentum quis nec sem. Nam sollicitudin libero lorem. 
-            Aenean tincidunt tortor in tincidunt semper. Nunc lobortis nisl nisi, et varius erat ultrices nec. 
-            Praesent fermentum odio ac dolor congue, eu ultricies lacus tristique. Nam a lacus id turpis sodales fringilla. 
-        </p>
-    </div>
-    @Html.Partial("ShortWebs", Model.Webs)
-    <div class="clear"></div>
-</div>
-
-<div class="folder">
-    <h2 class="folder-heading">
-        <a href="@Url.Action("Webs")" class="lang-cs">Projekty, na kterých pracujeme</a>
-        <a href="@Url.Action("Webs")" class="lang-en right">Projects in progress</a>
-    </h2>
-    <div class="col-md-6 lang-cs">
-        <p class="first">
-            Mimo tvorby webů také nabízíme realizaci desktopových a webových aplikací.
-        </p>
-    </div>
-    <div class="col-md-6 lang-en">
-        <p class="first">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dignissim dui quis sem rutrum, sit amet dapibus urna interdum. 
-            Donec ut gravida sem, sed ullamcorper nunc. Nullam id turpis in risus rutrum condimentum quis nec sem. Nam sollicitudin libero lorem. 
-            Aenean tincidunt tortor in tincidunt semper. Nunc lobortis nisl nisi, et varius erat ultrices nec. 
-            Praesent fermentum odio ac dolor congue, eu ultricies lacus tristique. Nam a lacus id turpis sodales fringilla. 
-        </p>
-    </div>
-    @Html.Partial("ShortWebs", Model.Webs)
-    <div class="clear"></div>
 </div>

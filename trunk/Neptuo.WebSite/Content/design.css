@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     font-family: 'Segoe UI', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;
+    font-size: 18px;
     background: #E8E8E8;
 }
 
@@ -12,9 +13,9 @@
 .navbar {
     position: fixed;
     overflow: hidden;
-    padding-bottom: 2px;
+    /*padding-bottom: 2px;*/
     /*background: #333333;*/
-    background: #E8E8E8 url('Images/Background.png') repeat-x 0 bottom;
+    background: #E8E8E8 url('Images/BackgroundSingle.png') repeat 0 bottom;
     border: none;
     border-radius: 0;
 }
@@ -78,9 +79,38 @@
 
 
 
+.intro {
+    padding: 40px 0;
+    margin-bottom: 20px;
+    background: #E8E8E8 url('Images/BackgroundSingle.png') repeat 0 bottom;
+    /*background: black;*/
+}
+.intro .intro-content {
+    padding: 0 30px;
+}
+.intro h1 {
+    font-family: "Gabriola", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 160px;
+    line-height: 1;
+    letter-spacing: -2px;
+    text-rendering: optimizelegibility;
+    color: white;
+    margin-bottom: -5px;
+}
+.intro p {
+    font-family: "Gabriola", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    width: 800px;
+    padding-left: 8px;
+    color: white;
+    font-size: 40px;
+}
+
+
+
+
 
 .body {
-    margin-top: 100px;
+    margin-top: 80px;
     margin-bottom: 20px;
 }
 
