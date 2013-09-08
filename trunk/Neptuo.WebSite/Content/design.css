@@ -2,7 +2,7 @@
     padding: 0;
     margin: 0;
     font-family: 'Segoe UI', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;
-    /*font-size: 18px;*/
+    font-size: 18px;
     background: #E8E8E8;
 }
 
@@ -187,24 +187,25 @@
 
 
 
-.foot {
+footer {
     background: url('Images/FootBackground.png') repeat-x left top;
 }
 
-.foot-in, .foot-in a {
+footer, footer a {
     color: #666666;
 }
 
-.foot-in a {
+footer a {
     text-decoration: none;
     font-weight: bold;
 }
 
-.foot-in a:hover {
+footer a:hover {
     text-decoration: underline;
+    color: #666666;
 }
 
-.foot-in .left, .foot-in .right {
+footer .left, footer .right {
     padding: 10px 10px;
 }
 
@@ -269,4 +270,12 @@
 }
 .image-right {
     margin: 10px 10px 10px 0px;
+}
+
+
+
+
+
+.dog-image {
+    margin-right: 15px;
 }
