@@ -34,7 +34,11 @@ namespace Neptuo.WebSite.Controllers
         public ActionResult Project(string type, string project)
         {
             ProjectDataService dataService = new ProjectDataService(Request.MapPath(ProjectDataService.DataUri));
-            return View(dataService.Get());
+            return View(dataService
+                .Get()
+                .Where(p => String.IsNullOrEmpty(type) || p.Type.ToLowerInvariant() == type.ToLowerInvariant())
+                .Where(p => String.IsNullOrEmpty(project) || p.LocalUrl.ToLowerInvariant() == project.ToLowerInvariant())
+            );
         }
 
         public ActionResult Service()

@@ -40,4 +40,64 @@
         <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
         <DocumentationUrl>https://github.com/neptuo/Framework/wiki/EventSourcing</DocumentationUrl>
     </Project>
+    <Project>
+        <Name>Neptuo.EventSourcing.Domains</Name>
+        <Description>CQRS+ES support library with base classes for commands, events and AggregateRoots.</Description>
+        <Type>dev</Type>
+        <LocalUrl>neptuo.eventsourcing.domains</LocalUrl>
+        <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+        <Licence>Apache License, Version 2.0</Licence>
+        <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+        <DocumentationUrl>https://github.com/neptuo/Framework/wiki/EventSourcing</DocumentationUrl>
+    </Project>
+    <Project>
+        <Name>Neptuo.Formatters</Name>
+        <Description>Abstractions for serializing and deserializing objects.</Description>
+        <Type>dev</Type>
+        <LocalUrl>neptuo.formatters</LocalUrl>
+        <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+        <Licence>Apache License, Version 2.0</Licence>
+        <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+        <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Formatters</DocumentationUrl>
+    </Project>
+    <Project>
+        <Name>Neptuo.Formatters.Composite</Name>
+        <Description>Serialized and deserializer with support for versioning and immutable objects created by constructors.</Description>
+        <Type>dev</Type>
+        <LocalUrl>neptuo.formatters.composite</LocalUrl>
+        <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+        <Licence>Apache License, Version 2.0</Licence>
+        <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+        <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Formatters</DocumentationUrl>
+    </Project>
+    <Project>
+        <Name>Neptuo.Formatters.Composite.Json</Name>
+        <Description>JSON implementation of composite storage for Neptuo.Formatters.Composite.</Description>
+        <Type>dev</Type>
+        <LocalUrl>neptuo.formatters.composite.json</LocalUrl>
+        <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+        <Licence>Apache License, Version 2.0</Licence>
+        <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+        <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Formatters</DocumentationUrl>
+    </Project>
+    <Project>
+        <Name>Neptuo.Formatters.Composite.Metadata</Name>
+        <Description>Attributes and metadata for composite model description..</Description>
+        <Type>dev</Type>
+        <LocalUrl>neptuo.formatters.composite.metadata</LocalUrl>
+        <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+        <Licence>Apache License, Version 2.0</Licence>
+        <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+        <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Formatters</DocumentationUrl>
+    </Project>
+    <Project>
+        <Name>Neptuo.Models</Name>
+        <Description>Support for creating and accessing anemic and domain models..</Description>
+        <Type>dev</Type>
+        <LocalUrl>neptuo.models</LocalUrl>
+        <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+        <Licence>Apache License, Version 2.0</Licence>
+        <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+        <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Models</DocumentationUrl>
+    </Project>
 </Projects>

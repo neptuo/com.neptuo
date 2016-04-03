@@ -34,7 +34,7 @@
     <Title>ASK Lovosice</Title>
     <Link>http://www.lfplovosice.cz</Link>
     <Previews>
-      <Preview Link="http://is4wfw.neptuo.com/file.php?rid=53" />
+      <Preview Link="~/Content/Images/References/lfplovo.jpg" />
     </Previews>
     <Descriptions>
       <Description>
@@ -59,7 +59,7 @@
     <Title>Superliga LFP</Title>
     <Link>http://www.superligalfp.cz</Link>
     <Previews>
-      <Preview Link="http://is4wfw.neptuo.com/file.php?rid=54" />
+      <Preview Link="~/Content/Images/References/superliga.jpg" />
     </Previews>
     <Descriptions>
       <Description>
@@ -84,7 +84,7 @@
     <Title>HotProject</Title>
     <Link>http://www.hotproject.cz</Link>
     <Previews>
-      <Preview Link="http://is4wfw.neptuo.com/file.php?rid=35" />
+      <Preview Link="~/Content/Images/References/hotproject.jpg" />
     </Previews>
     <Descriptions>
       <Description>
@@ -105,12 +105,9 @@
       </Description>
     </Descriptions>
   </Web>
-  <Web>
+  <!--<Web>
     <Title>AMS s.r.o.</Title>
     <Link>http://www.ams.cz</Link>
-    <Previews>
-      <Preview Link="http://is4wfw.neptuo.com/file.php?rid=34" />
-    </Previews>
     <Descriptions>
       <Description>
         <Cs>Webová prezentace, jedna jazyková mutace, včetně grafických podkladů.</Cs>
@@ -125,12 +122,12 @@
         <En>Content management system is4wfw.</En>
       </Description>
     </Descriptions>
-  </Web>
+  </Web>-->
   <Web IsOld="true">
     <Title>PAPAYA Team</Title>
     <Link>http://www.papayateam.cz</Link>
     <Previews>
-      <Preview Link="http://is4wfw.neptuo.com/file.php?rid=55" />
+      <Preview Link="~/Content/Images/References/papayateam.jpg" />
     </Previews>
     <Descriptions />
   </Web>
@@ -155,13 +152,6 @@
     <Link>http://www.josiemaran.wz.cz/</Link>
     <Previews>
       <Preview Link="~/Content/Images/References/jmold.jpg" />
-    </Previews>
-    <Descriptions />
-  </Web>
-  <Web IsOld="true">
-    <Title>DEV Neptuo</Title>
-    <Previews>
-      <Preview Link="http://is4wfw.neptuo.com/file.php?rid=56" />
     </Previews>
     <Descriptions />
   </Web>

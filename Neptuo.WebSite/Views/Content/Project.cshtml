@@ -13,29 +13,11 @@
 </div>
 
 <div class="container">
-    <div class="folder">
-        
-    </div>
-
     @foreach (var project in Model)
     {
     <div class="folder">
         <h2 class="folder-heading">
             <a href="@Url.RouteUrl("Project", new { type = project.Type, project = project.LocalUrl })">@project.Name</a>
-
-            @if (!String.IsNullOrEmpty(project.ProjectUrl))
-            {
-                <a target="_blank" class="right" href="@project.ProjectUrl">
-                    @if (project.ProjectUrl.StartsWith("http://"))
-                    {
-                        @project.ProjectUrl.Substring("http://".Length)
-                    }
-                    else
-                    {
-                        @project.ProjectUrl
-                    }
-                </a>
-            }
         </h2>
         <div class="col-md-10">
             <ul>
@@ -53,6 +35,26 @@
                         <a target="_blank" href="@project.DocumentationUrl">Project documentation.</a>
                     </li>
                 }
+                
+                @if (!String.IsNullOrEmpty(project.ProjectUrl))
+                {
+                    <li>
+                        Source code at 
+                        <a target="_blank" href="@project.ProjectUrl">
+                            @if (project.ProjectUrl.StartsWith("http://"))
+                            {
+                                @project.ProjectUrl.Substring("http://".Length)
+                            }
+                            else
+                            {
+                                @project.ProjectUrl
+                            }</a>.
+                    </li>
+                }
+                
+                <li>
+                    Current version on NuGet at <a target="_blank" href="https://www.nuget.org/packages/@project.Name">nuget.org/packages/@project.Name</a>.
+                </li>
             </ul>
         </div>
         <div class="clear"></div>
