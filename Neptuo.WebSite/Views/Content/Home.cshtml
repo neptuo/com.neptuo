@@ -10,14 +10,12 @@
     
     <div class="folder">
         <h2 class="folder-heading">
-            <a href="@Url.Action("service")">Webs made by us</a>
+            <a href="@Url.Action("service")">Web sites made by us</a>
         </h2>
         <p class="first">
-            Nabízíme realizaci webových stránek ušitých namíru. Pro správu obsahuje využíváme redakční systém, 
-            ve kterém je možné spravovat jak statický obsah, tak dynamicky generovaný obsah. Ať už tento obsah 
-            pochází v článků, galerií nebo formulářů postavených na míru. Ke každému tomuto zdroji dat je 
-            navíc možné nastavit opravnění a omezit tak přístup uživatelů jen k určitým částem. 
-            Více o našem redakčním systému pod projektem is4wfw.
+            We are building customer web sites. Our customers are able to manage content of their web site
+            thanks to CMS we are using. Our CMS is multi tenant, so many web sites can be hosted in a single instance.
+            Thanks to access control, each user can have access only to small part of the whole system.
         </p>
 
         @Html.Partial("ShortWebs", Model.Webs)
