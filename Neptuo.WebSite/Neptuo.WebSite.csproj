@@ -123,6 +123,7 @@
     <Compile Include="Models\MenuItem.cs" />
     <Compile Include="Models\Projects\ProjectDataService.cs" />
     <Compile Include="Models\Projects\ProjectModel.cs" />
+    <Compile Include="Models\Projects\ProjectVersionModel.cs" />
     <Compile Include="Models\Webs\DescriptionItemModel.cs" />
     <Compile Include="Models\Webs\ImageModel.cs" />
     <Compile Include="Models\Webs\WebModel.cs" />

@@ -4,9 +4,21 @@
         <Name>Neptuo</Name>
         <Description>Basic utilities and extensions for System.Core.</Description>
         <Type>dev</Type>
-        <UrlPart>neptuo</UrlPart>
+        <LocalUrl>neptuo</LocalUrl>
         <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
         <Licence>Apache License, Version 2.0</Licence>
         <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+
+        <DocumentationUrl>https://github.com/neptuo/Framework/wiki</DocumentationUrl>
+
+        <Versions>
+            <Version>
+                <Name>5.0.1</Name>
+                <ChangeLog>
+                    <Change>Split verzi 4 to more assemblies.</Change>
+                    <Change>Moved events and commands to separate assemblies.</Change>
+                </ChangeLog>
+            </Version>
+        </Versions>
     </Project>
 </Projects>

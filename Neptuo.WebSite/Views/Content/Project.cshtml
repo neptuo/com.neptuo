@@ -21,7 +21,7 @@
     {
     <div class="folder">
         <h2 class="folder-heading">
-            <a href="@Url.RouteUrl("Project", new { type = project.Type, project = project.UrlPart })">@project.Name</a>
+            <a href="@Url.RouteUrl("Project", new { type = project.Type, project = project.LocalUrl })">@project.Name</a>
 
             @if (!String.IsNullOrEmpty(project.ProjectUrl))
             {
@@ -44,6 +44,13 @@
                 {
                     <li>
                         <a target="_blank" href="@project.LicenceUrl">Licensed under @project.Licence.</a>
+                    </li>
+                }
+                
+                @if (!String.IsNullOrEmpty(project.DocumentationUrl))
+                {
+                    <li>
+                        <a target="_blank" href="@project.DocumentationUrl">Project documentation.</a>
                     </li>
                 }
             </ul>

@@ -10,6 +10,7 @@ namespace Neptuo.WebSite.Models.Projects
     public class ProjectDataService
     {
         public const string DataUri = "~/App_Data/Projects.xml";
+
         private ProjectList models;
 
         public ProjectDataService(string dataUri)
@@ -23,7 +24,7 @@ namespace Neptuo.WebSite.Models.Projects
 
         public IEnumerable<ProjectModel> Get()
         {
-            return models;
+            return models.OrderBy(p => p.Name);
         }
     }
 
