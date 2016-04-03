@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Projects>
+    <Project>
+        <Name>Neptuo</Name>
+        <Description>Basic utilities and extensions for System.Core.</Description>
+        <Type>dev</Type>
+        <UrlPart>neptuo</UrlPart>
+        <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+        <Licence>Apache License, Version 2.0</Licence>
+        <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    </Project>
+</Projects>

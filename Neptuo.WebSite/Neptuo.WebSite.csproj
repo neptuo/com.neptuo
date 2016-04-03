@@ -121,6 +121,8 @@
     <Compile Include="Models\HttpRequestBaseExtensions.cs" />
     <Compile Include="Models\Index\HomeModel.cs" />
     <Compile Include="Models\MenuItem.cs" />
+    <Compile Include="Models\Projects\ProjectDataService.cs" />
+    <Compile Include="Models\Projects\ProjectModel.cs" />
     <Compile Include="Models\Webs\DescriptionItemModel.cs" />
     <Compile Include="Models\Webs\ImageModel.cs" />
     <Compile Include="Models\Webs\WebModel.cs" />
@@ -131,6 +133,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="App_Data\Projects.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="App_Data\Webs.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -175,12 +180,11 @@
     <Content Include="Views\Content\Home.cshtml" />
     <Content Include="Views\Content\NotFound.cshtml" />
     <Content Include="Views\Content\Me.cshtml" />
-    <Content Include="Views\Content\Services.cshtml" />
+    <Content Include="Views\Content\Service.cshtml" />
     <Content Include="Views\Shared\ShortWebs.cshtml" />
+    <Content Include="Views\Content\Project.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\Projects\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

@@ -1,4 +1,5 @@
 ﻿using Neptuo.WebSite.Models.Index;
+using Neptuo.WebSite.Models.Projects;
 using Neptuo.WebSite.Models.Webs;
 using System;
 using System.Collections.Generic;
@@ -29,7 +30,13 @@ namespace Neptuo.WebSite.Controllers
             return View(new HomeModel(webDataService.Get().Take(6)));
         }
 
-        public ActionResult Services()
+        public ActionResult Project(string type, string project)
+        {
+            ProjectDataService dataService = new ProjectDataService(Request.MapPath(ProjectDataService.DataUri));
+            return View(dataService.Get());
+        }
+
+        public ActionResult Service()
         {
             WebDataService webDataService = new WebDataService(Request.MapPath(WebDataService.DataUri));
             return View(webDataService.Get());

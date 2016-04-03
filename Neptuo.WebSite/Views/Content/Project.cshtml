@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Neptuo.WebSite.Models.Projects.ProjectModel>
+@{
+    ViewBag.Title = "Our libraries, tools &amp; utilities that helps during development!";
+}
+
+<div class="intro">
+    <div class="intro-content container">
+        <h1>Our projects!</h1>
+        <p>
+            Our libraries, tools &amp; utilities that helps during development
+        </p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="folder">
+        
+    </div>
+
+    @foreach (var project in Model)
+    {
+    <div class="folder">
+        <h2 class="folder-heading">
+            <a href="@Url.RouteUrl("Project", new { type = project.Type, project = project.UrlPart })">@project.Name</a>
+
+            @if (!String.IsNullOrEmpty(project.ProjectUrl))
+            {
+                <a target="_blank" class="right" href="@project.ProjectUrl">
+                    @if (project.ProjectUrl.StartsWith("http://"))
+                    {
+                        @project.ProjectUrl.Substring("http://".Length)
+                    }
+                    else
+                    {
+                        @project.ProjectUrl
+                    }
+                </a>
+            }
+        </h2>
+        <div class="col-md-10">
+            <ul>
+                <li>@project.Description</li>
+                @if (!String.IsNullOrEmpty(project.Licence))
+                {
+                    <li>
+                        <a target="_blank" href="@project.LicenceUrl">Licensed under @project.Licence.</a>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="clear"></div>
+    </div>
+    }
+</div>

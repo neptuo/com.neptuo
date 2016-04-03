@@ -15,18 +15,18 @@
         <nav class="navbar navbar-fixed-top" role="navigation">
             <div class="container">
                 <a class="navbar-brand  @Request.ActiveCssClass("~/", true)" href="~/">
-                    <img src="Content/Images/Logo.png" alt="Neptuo logo" height="80" />
+                    <img src="~/Content/Images/Logo.png" alt="Neptuo logo" height="80" />
                 </a>
                 <ul>
-                    <li class="disabled @Request.ActiveCssClass("~/projects")">
-                        <a href="~/projects">
+                    <li class="@Request.ActiveCssClass("~/project")">
+                        <a href="~/project">
                             Projects
                             <span class="glyphicon glyphicon-cloud"></span>
                             <span class="subtext">Projects we are working on</span>
                         </a>
                     </li>
-                    <li class="@Request.ActiveCssClass("~/services")">
-                        <a href="~/services">
+                    <li class="@Request.ActiveCssClass("~/service")">
+                        <a href="~/service">
                             Services
                             <span class="glyphicon glyphicon-globe"></span>
                             <span class="subtext">Our services and references</span>
@@ -51,15 +51,6 @@
 
         <div class="body">
             <form>
-                <input type="radio" name="lang" id="lang-cs" value="cs" checked="checked" />
-                <input type="radio" name="lang" id="lang-en" value="en" />
-                
-                <div class="lang navbar-fixed-top">
-                    <div>
-                        <label for="lang-cs">Česky</label>
-                        <label for="lang-en">English</label>
-                    </div>
-                </div>
 
                 @RenderBody()
 
@@ -69,7 +60,7 @@
         <footer>
             <div class="container">
                 <div class="left">
-                    Neptuo &copy; 2010 - 2013
+                    Neptuo &copy; 2010 - 2016
                 </div>
                 <div class="right">
                     Created by <a href="~/me">Marek Fišera</a>
