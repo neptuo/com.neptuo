@@ -27,7 +27,8 @@ namespace Neptuo.WebSite.Controllers
         public ActionResult Home()
         {
             WebDataService webDataService = new WebDataService(Request.MapPath(WebDataService.DataUri));
-            return View(new HomeModel(webDataService.Get().Take(6)));
+            ProjectDataService projectDataService = new ProjectDataService(Request.MapPath(ProjectDataService.DataUri));
+            return View(new HomeModel(webDataService.Get().Take(6), projectDataService.Get().Take(10)));
         }
 
         public ActionResult Project(string type, string project)
