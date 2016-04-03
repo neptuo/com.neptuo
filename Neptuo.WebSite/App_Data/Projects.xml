@@ -8,17 +8,36 @@
         <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
         <Licence>Apache License, Version 2.0</Licence>
         <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
-
         <DocumentationUrl>https://github.com/neptuo/Framework/wiki</DocumentationUrl>
-
-        <Versions>
-            <Version>
-                <Name>5.0.1</Name>
-                <ChangeLog>
-                    <Change>Split verzi 4 to more assemblies.</Change>
-                    <Change>Moved events and commands to separate assemblies.</Change>
-                </ChangeLog>
-            </Version>
-        </Versions>
+    </Project>
+    <Project>
+        <Name>Neptuo.Commands</Name>
+        <Description>Command (input) part of the CQRS system.</Description>
+        <Type>dev</Type>
+        <LocalUrl>neptuo.commands</LocalUrl>
+        <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+        <Licence>Apache License, Version 2.0</Licence>
+        <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+        <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Commands</DocumentationUrl>
+    </Project>
+    <Project>
+        <Name>Neptuo.Events</Name>
+        <Description>Event (output) part of the CQRS system.</Description>
+        <Type>dev</Type>
+        <LocalUrl>neptuo.events</LocalUrl>
+        <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+        <Licence>Apache License, Version 2.0</Licence>
+        <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+        <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Events</DocumentationUrl>
+    </Project>
+    <Project>
+        <Name>Neptuo.EventSourcing</Name>
+        <Description>Support libraries to merging whole CQRS and EventSoursing system together.</Description>
+        <Type>dev</Type>
+        <LocalUrl>neptuo.eventsourcing</LocalUrl>
+        <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+        <Licence>Apache License, Version 2.0</Licence>
+        <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+        <DocumentationUrl>https://github.com/neptuo/Framework/wiki/EventSourcing</DocumentationUrl>
     </Project>
 </Projects>
