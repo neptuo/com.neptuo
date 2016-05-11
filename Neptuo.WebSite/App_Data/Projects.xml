@@ -51,6 +51,36 @@
         <DocumentationUrl>https://github.com/neptuo/Framework/wiki/EventSourcing</DocumentationUrl>
     </Project>
     <Project>
+        <Name>Neptuo.EventSourcing.Formatters.Composite</Name>
+        <Description>Composite formatters support for EventSourcing.</Description>
+        <Type>dev</Type>
+        <LocalUrl>neptuo.eventsourcing.formatters.composite</LocalUrl>
+        <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+        <Licence>Apache License, Version 2.0</Licence>
+        <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+        <DocumentationUrl>https://github.com/neptuo/Framework/wiki/EventSourcing</DocumentationUrl>
+    </Project>
+    <Project>
+        <Name>Neptuo.EventSourcing.Formatters.Composite.Json</Name>
+        <Description>JSON Composite formatters support for EventSourcing.</Description>
+        <Type>dev</Type>
+        <LocalUrl>neptuo.eventsourcing.formatters.composite.json</LocalUrl>
+        <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+        <Licence>Apache License, Version 2.0</Licence>
+        <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+        <DocumentationUrl>https://github.com/neptuo/Framework/wiki/EventSourcing</DocumentationUrl>
+    </Project>
+    <Project>
+        <Name>Neptuo.Exceptions</Name>
+        <Description>Generic exception handling mainly for asynchronous processing.</Description>
+        <Type>dev</Type>
+        <LocalUrl>neptuo.exceptions</LocalUrl>
+        <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+        <Licence>Apache License, Version 2.0</Licence>
+        <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+        <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Exceptions</DocumentationUrl>
+    </Project>
+    <Project>
         <Name>Neptuo.Formatters</Name>
         <Description>Abstractions for serializing and deserializing objects.</Description>
         <Type>dev</Type>
@@ -82,7 +112,7 @@
     </Project>
     <Project>
         <Name>Neptuo.Formatters.Composite.Metadata</Name>
-        <Description>Attributes and metadata for composite model description..</Description>
+        <Description>Attributes and metadata for composite model description.</Description>
         <Type>dev</Type>
         <LocalUrl>neptuo.formatters.composite.metadata</LocalUrl>
         <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
@@ -92,7 +122,7 @@
     </Project>
     <Project>
         <Name>Neptuo.Models</Name>
-        <Description>Support for creating and accessing anemic and domain models..</Description>
+        <Description>Support for creating and accessing anemic and domain models.</Description>
         <Type>dev</Type>
         <LocalUrl>neptuo.models</LocalUrl>
         <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
