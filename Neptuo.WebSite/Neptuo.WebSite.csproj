@@ -184,6 +184,7 @@
     <Content Include="Views\Content\Service.cshtml" />
     <Content Include="Views\Shared\ShortWebs.cshtml" />
     <Content Include="Views\Content\Project.cshtml" />
+    <Content Include="Views\Content\ProjectOverview.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

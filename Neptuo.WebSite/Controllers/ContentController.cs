@@ -33,6 +33,9 @@ namespace Neptuo.WebSite.Controllers
 
         public ActionResult Project(string type, string project)
         {
+            if (String.IsNullOrEmpty(type))
+                return View("ProjectOverview");
+
             ProjectDataService dataService = new ProjectDataService(Request.MapPath(ProjectDataService.DataUri));
             return View(dataService
                 .Get()
