@@ -181,8 +181,15 @@
     color: black;
 }
 
+input.folder {
+    width: 870px;
+    padding-top: 15px;
+}
 
-
+input[type=text]:focus {
+    outline: none;
+    border-color: #428bca;
+}
 
 
 
