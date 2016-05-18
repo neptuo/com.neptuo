@@ -13,12 +13,24 @@
 </div>
 
 <div class="container">
-    <input id="search" type="text" class="folder" placeholder="Search (@Model.Count()) projects..." />
+    @if (Model.Count() > 1) 
+    { 
+        <input id="search" type="text" class="folder" placeholder="Search (@Model.Count()) projects..." />
+    }
 
     @foreach (var project in Model)
     {
     <div class="folder" data-search="@project.Name.ToLowerInvariant()">
         <h2 class="folder-heading">
+            @if (project.Type == "dev")
+            {
+                <img src="http://robertmjordan.com/Content/theme/img/technologies/nuget-icon.png" height="30" style="position: relative; top: -5px;" />
+            }
+            else if (project.Type == "vsix")
+            {
+                <img src="https://mygetwww-2e16.kxcdn.com/Content/images/packageDefaultIcon_vsix.png?c=Mi4xLjAuMjEwNw==" height="30" />
+            }
+
             <a href="@Url.RouteUrl("Project", new { type = project.Type, project = project.LocalUrl })">@project.Name</a>
         </h2>
         <div class="col-md-10">
@@ -54,9 +66,18 @@
                     </li>
                 }
                 
-                <li>
-                    Current version on NuGet at <a target="_blank" href="https://www.nuget.org/packages/@project.Name">nuget.org/packages/@project.Name</a>.
-                </li>
+                @if (project.Type == "dev") 
+                { 
+                    <li>
+                        Current version on NuGet at <a target="_blank" href="https://www.nuget.org/packages/@project.Name">nuget.org/packages/@project.Name</a>.
+                    </li>
+                }
+                else if (project.Type == "vsix")
+                {
+                    <li>
+                        Current version can be downloaded from <a target="_blank" href="https://www.myget.org/F/neptuo-dev/vsix/">MyGet VSIX Feed</a>.
+                    </li>
+                }
             </ul>
         </div>
         <div class="clear"></div>
@@ -64,6 +85,8 @@
     }
 </div>
 
+@if (Model.Count() > 1)
+{
 <script type="text/javascript">
 
     var folders = document.querySelectorAll('.folder[data-search]');
@@ -83,6 +106,23 @@
             else
                 folder.style.display = 'none';
         }
+
+        //if ('history' in window) {
+        //    window.history.pushState({ q: value }, "Searching '" + value + "'", getSearchUrl(value));
+        //}
     });
 
+    //function getSearchUrl(value) {
+    //    var origin = null;
+    //    if ('origin' in window.location) {
+    //        origin = window.location.origin;
+    //    } else {
+    //        origin = window.location.protocol + "//" + window.location.host;
+    //    }
+
+    //    var url = window.location.origin + window.location.pathname + "?q=" + encodeURIComponent(value);
+    //    return url;
+    //}
+
 </script>
+}
