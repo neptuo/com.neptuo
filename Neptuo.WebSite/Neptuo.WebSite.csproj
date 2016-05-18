@@ -122,7 +122,10 @@
     <Compile Include="Models\Index\HomeModel.cs" />
     <Compile Include="Models\MenuItem.cs" />
     <Compile Include="Models\Projects\ProjectDataService.cs" />
+    <Compile Include="Models\Projects\ProjectImageModel.cs" />
     <Compile Include="Models\Projects\ProjectModel.cs" />
+    <Compile Include="Models\Projects\ProjectModelViewModel.cs" />
+    <Compile Include="Models\Projects\ProjectVersionDescriptionModel.cs" />
     <Compile Include="Models\Projects\ProjectVersionModel.cs" />
     <Compile Include="Models\Webs\DescriptionItemModel.cs" />
     <Compile Include="Models\Webs\ImageModel.cs" />

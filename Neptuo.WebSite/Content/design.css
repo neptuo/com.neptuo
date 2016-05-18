@@ -281,8 +281,37 @@ footer .left, footer .right {
 }
 
 
+img.main-image {
+    max-width: 100%;
+    margin: 10px auto;
+    display: block;
+}
+
+img.additional-image {
+    height: 150px;
+    margin: 0px 10px 10px 0;
+    float: left;
+    display: block;
+}
 
 
+ul.version {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+ul.version li {
+    margin: 20px 0;
+}
+
+ul.version ul {
+    list-style-type: disc;
+}
+
+ul.version li li {
+    margin: 0;
+}
 
 .dog-image {
     margin-right: 15px;

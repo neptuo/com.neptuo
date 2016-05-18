@@ -37,11 +37,18 @@ namespace Neptuo.WebSite.Controllers
                 return View("ProjectOverview");
 
             ProjectDataService dataService = new ProjectDataService(Request.MapPath(ProjectDataService.DataUri));
-            return View(dataService
+
+            ProjectModelViewModel viewModel = new ProjectModelViewModel()
+            {
+                IsDetail = !String.IsNullOrEmpty(project)
+            };
+            viewModel.AddRange(dataService
                 .Get()
                 .Where(p => String.IsNullOrEmpty(type) || p.Type.ToLowerInvariant() == type.ToLowerInvariant())
                 .Where(p => String.IsNullOrEmpty(project) || p.LocalUrl.ToLowerInvariant() == project.ToLowerInvariant())
             );
+
+            return View(viewModel);
         }
 
         public ActionResult Service()

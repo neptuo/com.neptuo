@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Neptuo.WebSite.Models.Projects.ProjectModel>
+﻿@model Neptuo.WebSite.Models.Projects.ProjectModelViewModel
 @{
     ViewBag.Title = "Our libraries, tools &amp; utilities that helps during development!";
 }
@@ -13,116 +13,182 @@
 </div>
 
 <div class="container">
-    @if (Model.Count() > 1) 
-    { 
+    @if (Model.Count > 1)
+    {
         <input id="search" type="text" class="folder" placeholder="Search (@Model.Count()) projects..." />
     }
 
     @foreach (var project in Model)
     {
-    <div class="folder" data-search="@project.Name.ToLowerInvariant()">
-        <h2 class="folder-heading">
-            @if (project.Type == "dev")
-            {
-                <img src="http://robertmjordan.com/Content/theme/img/technologies/nuget-icon.png" height="30" style="position: relative; top: -5px;" />
-            }
-            else if (project.Type == "vsix")
-            {
-                <img src="https://mygetwww-2e16.kxcdn.com/Content/images/packageDefaultIcon_vsix.png?c=Mi4xLjAuMjEwNw==" height="30" />
-            }
-
-            <a href="@Url.RouteUrl("Project", new { type = project.Type, project = project.LocalUrl })">@project.Name</a>
-        </h2>
-        <div class="col-md-10">
-            <ul>
-                <li>@project.Description</li>
-                @if (!String.IsNullOrEmpty(project.Licence))
+        <div class="folder" data-search="@project.Name.ToLowerInvariant()">
+            <h2 class="folder-heading">
+                @if (project.Type == "dev")
                 {
-                    <li>
-                        <a target="_blank" href="@project.LicenceUrl">Licensed under @project.Licence.</a>
-                    </li>
-                }
-                
-                @if (!String.IsNullOrEmpty(project.DocumentationUrl))
-                {
-                    <li>
-                        <a target="_blank" href="@project.DocumentationUrl">Project documentation.</a>
-                    </li>
-                }
-                
-                @if (!String.IsNullOrEmpty(project.ProjectUrl))
-                {
-                    <li>
-                        Source code at 
-                        <a target="_blank" href="@project.ProjectUrl">
-                            @if (project.ProjectUrl.StartsWith("http://"))
-                            {
-                                @project.ProjectUrl.Substring("http://".Length)
-                            }
-                            else
-                            {
-                                @project.ProjectUrl
-                            }</a>.
-                    </li>
-                }
-                
-                @if (project.Type == "dev") 
-                { 
-                    <li>
-                        Current version on NuGet at <a target="_blank" href="https://www.nuget.org/packages/@project.Name">nuget.org/packages/@project.Name</a>.
-                    </li>
+                    <img src="http://robertmjordan.com/Content/theme/img/technologies/nuget-icon.png" height="30" style="position: relative; top: -5px;" />
                 }
                 else if (project.Type == "vsix")
                 {
-                    <li>
-                        Current version can be downloaded from <a target="_blank" href="https://www.myget.org/F/neptuo-dev/vsix/">MyGet VSIX Feed</a>.
-                    </li>
+                    <img src="https://mygetwww-2e16.kxcdn.com/Content/images/packageDefaultIcon_vsix.png?c=Mi4xLjAuMjEwNw==" height="30" />
                 }
-            </ul>
+
+                <a href="@Url.RouteUrl("Project", new { type = project.Type, project = project.LocalUrl })">@project.Name</a>
+            </h2>
+            <article>
+                <ul>
+                    <li>@project.Description</li>
+                    @if (!String.IsNullOrEmpty(project.Licence))
+                    {
+                        <li>
+                            <a target="_blank" href="@project.LicenceUrl">Licensed under @project.Licence.</a>
+                        </li>
+                    }
+
+                    @if (!String.IsNullOrEmpty(project.DocumentationUrl))
+                    {
+                        <li>
+                            <a target="_blank" href="@project.DocumentationUrl">Project documentation.</a>
+                        </li>
+                    }
+
+                    @if (!String.IsNullOrEmpty(project.ProjectUrl))
+                    {
+                        <li>
+                            Source code at
+                            <a target="_blank" href="@project.ProjectUrl">
+                                @if (project.ProjectUrl.StartsWith("http://"))
+                                {
+                                    @project.ProjectUrl.Substring("http://".Length)
+                                }
+                                else
+                                {
+                                    @project.ProjectUrl
+                                }
+                            </a>.
+                        </li>
+                    }
+                    
+                    @if (!String.IsNullOrEmpty(project.DownloadUrl))
+                    {
+                        <li>
+                            Release of the <a target="_blank" href="@project.DownloadUrl">@project.Name @(project.Versions.Any() ? project.Versions.First().Name : "") to download</a>.
+                        </li>
+                    }
+
+                    @if (project.Type == "dev")
+                    {
+                        <li>
+                            Current version on NuGet at <a target="_blank" href="https://www.nuget.org/packages/@project.Name">nuget.org/packages/@project.Name</a>.
+                        </li>
+                    }
+                    else if (project.Type == "vsix")
+                    {
+                        <li>
+                            Current version can be downloaded from <a target="_blank" href="https://www.myget.org/F/neptuo-dev/vsix/">MyGet VSIX Feed</a>.
+                        </li>
+                    }
+                </ul>
+            </article>
+            <div class="clear"></div>
         </div>
-        <div class="clear"></div>
-    </div>
+
+        if (Model.IsDetail)
+        {
+            if (project.Images != null)
+            {
+                <div class="folder">
+                    <h2 class="folder-heading">Previews</h2>
+                    @if (project.Images.Main != null) 
+                    { 
+                        <img class="main-image" src="@Request.ResolveUrl(project.Images.Main)" />
+                    }
+                    <div class="additional-image-list">
+                        @foreach (string imageUrl in project.Images.Additional)
+                        {
+                            <img class="additional-image" src="@Request.ResolveUrl(imageUrl)" />
+                        }
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            }
+
+            if (project.Versions.Count > 0)
+            {
+                <div class="folder">
+                    <h2 class="folder-heading">Version history</h2>
+                    <ul class="version">
+                        @foreach (var version in project.Versions)
+                        {
+                            <li>
+                                <strong>@version.Name</strong>
+                                @if (version.Descriptions.Count > 0)
+                                {
+                                    <ul>
+                                        @foreach (var description in version.Descriptions)
+                                        {
+                                            <li>
+                                                @description.Content
+                                                @if (description.Descriptions.Count > 0)
+                                                {
+                                                    <ul>
+                                                        @foreach (var description2 in description.Descriptions)
+                                                        {
+                                                            <li>
+                                                                @description2.Content
+                                                            </li>
+                                                        }
+                                                    </ul>
+                                                }
+                                            </li>
+                                        }
+                                    </ul>
+                                }
+                            </li>
+                        }
+                    </ul>
+                </div>
+            }
+        }
     }
 </div>
 
 @if (Model.Count() > 1)
 {
-<script type="text/javascript">
+    <script type="text/javascript">
 
-    var folders = document.querySelectorAll('.folder[data-search]');
+        var folders = document.querySelectorAll('.folder[data-search]');
 
-    var searchBox = document.getElementById('search');
-    searchBox.addEventListener('keyup', function (e) {
-        var box = e.target;
-        var value = box.value.toLowerCase();
-        
-        for (var i = 0; i < folders.length; i++) {
-            var folder = folders[i];
+        var searchBox = document.getElementById('search');
+        searchBox.addEventListener('keyup', function (e) {
+            var box = e.target;
+            var value = box.value.toLowerCase();
 
-            var name = folder.dataset['search'];
-            var index = name.indexOf(value);
-            if (index > -1)
-                folder.style.display = 'block';
-            else
-                folder.style.display = 'none';
-        }
+            for (var i = 0; i < folders.length; i++) {
+                var folder = folders[i];
 
-        //if ('history' in window) {
-        //    window.history.pushState({ q: value }, "Searching '" + value + "'", getSearchUrl(value));
+                var name = folder.dataset['search'];
+                var index = name.indexOf(value);
+                if (index > -1)
+                    folder.style.display = 'block';
+                else
+                    folder.style.display = 'none';
+            }
+
+            //if ('history' in window) {
+            //    window.history.pushState({ q: value }, "Searching '" + value + "'", getSearchUrl(value));
+            //}
+        });
+
+        //function getSearchUrl(value) {
+        //    var origin = null;
+        //    if ('origin' in window.location) {
+        //        origin = window.location.origin;
+        //    } else {
+        //        origin = window.location.protocol + "//" + window.location.host;
+        //    }
+
+        //    var url = window.location.origin + window.location.pathname + "?q=" + encodeURIComponent(value);
+        //    return url;
         //}
-    });
 
-    //function getSearchUrl(value) {
-    //    var origin = null;
-    //    if ('origin' in window.location) {
-    //        origin = window.location.origin;
-    //    } else {
-    //        origin = window.location.protocol + "//" + window.location.host;
-    //    }
-
-    //    var url = window.location.origin + window.location.pathname + "?q=" + encodeURIComponent(value);
-    //    return url;
-    //}
-
-</script>
+    </script>
 }

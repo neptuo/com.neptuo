@@ -6,15 +6,16 @@ using System.Xml.Serialization;
 
 namespace Neptuo.WebSite.Models.Projects
 {
-    [XmlType("Version")]
-    public class ProjectVersionModel
+    [XmlType("Description")]
+    public class ProjectVersionDescriptionModel
     {
-        public string Name { get; set; }
+        [XmlText]
+        public string Content { get; set; }
 
         [XmlElement("Description")]
         public List<ProjectVersionDescriptionModel> Descriptions { get; private set; }
 
-        public ProjectVersionModel()
+        public ProjectVersionDescriptionModel()
         {
             Descriptions = new List<ProjectVersionDescriptionModel>();
         }

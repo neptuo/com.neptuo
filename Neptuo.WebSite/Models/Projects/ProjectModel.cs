@@ -18,12 +18,21 @@ namespace Neptuo.WebSite.Models.Projects
         public string ProjectUrl { get; set; }
 
         public string DocumentationUrl { get; set; }
+        public string DownloadUrl { get; set; }
 
         public string Licence { get; set; }
         public string LicenceUrl { get; set; }
 
+        public ProjectImageModel Images { get; set; }
+
+        [XmlElement("Version")]
         //[XmlArray("Versions")]
         //[XmlArrayItem("Version")]
-        //public ProjectVersionModel Versions { get; set; }
+        public List<ProjectVersionModel> Versions { get; private set; }
+
+        public ProjectModel()
+        {
+            Versions = new List<ProjectVersionModel>();
+        }
     }
 }
