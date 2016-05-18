@@ -1,7 +1,4 @@
-﻿@{
-    var meLink = "http://mara.neptuo.com";
-}
-<!doctype html>
+﻿<!doctype html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -42,10 +39,10 @@
                         </a>
                     </li>*@
                     <li class="@Request.ActiveCssClass("~/me")">
-                        <a target="_blank" href="@meLink">
-                            Me
-                            <span class="glyphicon glyphicon-user"></span>
-                            <span class="subtext">About me</span>
+                        <a href="~/blog">
+                            Blog
+                            <span class="glyphicon glyphicon-bookmark"></span>
+                            <span class="subtext">Thoughts to share</span>
                         </a>
                     </li>
                 </ul>
@@ -66,7 +63,7 @@
                     Neptuo &copy; 2010 - 2016
                 </div>
                 <div class="right">
-                    Created by <a target="_blank" href="@meLink">Marek Fišera</a>
+                    Created by <a target="_blank" href="http://mara.neptuo.com">Marek Fišera</a>
                 </div>
                 <div class="clear"></div>
             </div>
