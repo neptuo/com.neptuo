@@ -162,7 +162,10 @@
         searchBox.addEventListener('keyup', function (e) {
             var box = e.target;
             var value = box.value.toLowerCase();
+            filterFolders(value);
+        });
 
+        function filterFolders(value) {
             for (var i = 0; i < folders.length; i++) {
                 var folder = folders[i];
 
@@ -190,7 +193,7 @@
 
                 method.call(window.history, { q: value }, "Searching '" + value + "'", getSearchUrl(value));
             }
-        });
+        }
 
         function getSearchUrl(value) {
             var origin = null;
@@ -200,8 +203,27 @@
                 origin = window.location.protocol + "//" + window.location.host;
             }
 
-            var url = window.location.origin + window.location.pathname + "?q=" + encodeURIComponent(value);
+            var url = window.location.origin + window.location.pathname
+            if (value != "") {
+                url += "?q=" + encodeURIComponent(value);
+            }
+
             return url;
+        }
+
+        var queryString = window.location.search;
+        if (queryString != '') {
+            var params = queryString.substr(1, queryString.length - 1).split('&');
+            for (var i = 0; i < params.length; i++) {
+                var keyValue = params[i].split('=');
+                if (keyValue[0] == 'q') {
+                    var value = keyValue[1];
+                    if (value != '') {
+                        searchBox.value = value;
+                        filterFolders(value);
+                    }
+                }
+            }
         }
 
     </script>
