@@ -155,6 +155,7 @@
 {
     <script type="text/javascript">
 
+        var isNewStateRequired = true;
         var folders = document.querySelectorAll('.folder[data-search]');
 
         var searchBox = document.getElementById('search');
@@ -173,22 +174,35 @@
                     folder.style.display = 'none';
             }
 
-            //if ('history' in window) {
-            //    window.history.pushState({ q: value }, "Searching '" + value + "'", getSearchUrl(value));
-            //}
+            if (value == '') {
+                isNewStateRequired = true;
+            }
+
+            if ('history' in window) {
+                var method = null;
+                if (isNewStateRequired) {
+                    method = window.history.pushState;
+                    isNewStateRequired = false;
+                }
+                else {
+                    method = window.history.replaceState;
+                }
+
+                method.call(window.history, { q: value }, "Searching '" + value + "'", getSearchUrl(value));
+            }
         });
 
-        //function getSearchUrl(value) {
-        //    var origin = null;
-        //    if ('origin' in window.location) {
-        //        origin = window.location.origin;
-        //    } else {
-        //        origin = window.location.protocol + "//" + window.location.host;
-        //    }
+        function getSearchUrl(value) {
+            var origin = null;
+            if ('origin' in window.location) {
+                origin = window.location.origin;
+            } else {
+                origin = window.location.protocol + "//" + window.location.host;
+            }
 
-        //    var url = window.location.origin + window.location.pathname + "?q=" + encodeURIComponent(value);
-        //    return url;
-        //}
+            var url = window.location.origin + window.location.pathname + "?q=" + encodeURIComponent(value);
+            return url;
+        }
 
     </script>
 }
