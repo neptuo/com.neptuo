@@ -69,5 +69,19 @@
             </div>
         </footer>
 
+        <script>
+
+            function onSwitcherClicked(e) {
+                var folder = this.parentElement.parentElement;
+                folder.classList.toggle('folder-collapsed');
+            }
+
+            var switchers = document.querySelectorAll('.folder-switch');
+            for (var i = 0; i < switchers.length; i++) {
+                var switcher = switchers[i];
+                switcher.addEventListener('click', onSwitcherClicked);
+            }
+
+        </script>
     </body>
 </html>

@@ -181,6 +181,37 @@
     color: black;
 }
 
+
+.folder-switch {
+    cursor: pointer;
+    float: right;
+}
+
+.folder-switch:before {
+    content: "\e113";
+}
+
+.folder-collapsed .folder-switch {
+    padding-top: 5px;
+}
+
+.folder-collapsed .folder-switch:before {
+    content: "\e114";
+}
+
+
+.folder-collapsed .folder-heading {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+.folder-collapsed .folder-content {
+    display: none;
+}
+
+
+
 input.folder {
     width: 870px;
     padding-top: 15px;
