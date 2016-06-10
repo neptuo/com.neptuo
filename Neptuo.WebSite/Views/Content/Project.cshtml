@@ -155,6 +155,7 @@
 {
     <script type="text/javascript">
 
+        var isHistorySupported = 'history' in window;
         var isNewStateRequired = true;
         var folders = document.querySelectorAll('.folder[data-search]');
 
@@ -165,7 +166,28 @@
             filterFolders(value);
         });
 
+        if (isHistorySupported) {
+            window.addEventListener('popstate', function (e) {
+                var search = null;
+                if (e.state != null) {
+                    search = e.state.q;
+                }
+
+                searchBox.value = search;
+                filterFolders(search);
+            });
+        }
+
         function filterFolders(value) {
+            if (value == null) {
+                for (var i = 0; i < folders.length; i++) {
+                    var folder = folders[i];
+                    folder.style.display = 'block';
+                }
+
+                return;
+            }
+
             for (var i = 0; i < folders.length; i++) {
                 var folder = folders[i];
 
@@ -181,7 +203,7 @@
                 isNewStateRequired = true;
             }
 
-            if ('history' in window) {
+            if (isHistorySupported) {
                 var method = null;
                 if (isNewStateRequired) {
                     method = window.history.pushState;
