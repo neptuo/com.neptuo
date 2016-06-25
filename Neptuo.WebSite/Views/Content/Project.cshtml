@@ -35,7 +35,11 @@
             </h2>
             <article>
                 <ul>
-                    <li>@project.Description</li>
+                    @if (!Model.IsDetail || project.Text == null)
+                    {
+                        <li>@project.Description</li>
+                    }
+
                     @if (!String.IsNullOrEmpty(project.Licence))
                     {
                         <li>
@@ -62,8 +66,7 @@
                                 else
                                 {
                                     @project.ProjectUrl
-                                }
-                            </a>.
+                                }</a>.
                         </li>
                     }
                     
@@ -93,6 +96,17 @@
 
         if (Model.IsDetail)
         {
+            if (project.Text != null)
+            {
+                <div class="folder">
+                    @foreach (string textLine in project.Text.Paragraphs)
+                    {
+                        <p>@textLine</p>
+                    }
+                </div>
+            }
+
+
             if (project.Images != null)
             {
                 <div class="folder">

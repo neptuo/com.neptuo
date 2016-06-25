@@ -1,274 +1,334 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Projects>
-    <Project>
-        <Name>Neptuo</Name>
-        <Description>Basic utilities and extensions for System.Core.</Description>
-        <Type>dev</Type>
-        <LocalUrl>neptuo</LocalUrl>
-        <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
-        <Licence>Apache License, Version 2.0</Licence>
-        <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
-        <DocumentationUrl>https://github.com/neptuo/Framework/wiki</DocumentationUrl>
-    </Project>
-    <Project>
-        <Name>Neptuo.Commands</Name>
-        <Description>Command (input) part of the CQRS system.</Description>
-        <Type>dev</Type>
-        <LocalUrl>neptuo.commands</LocalUrl>
-        <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
-        <Licence>Apache License, Version 2.0</Licence>
-        <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
-        <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Commands</DocumentationUrl>
-    </Project>
-    <Project>
-        <Name>Neptuo.Events</Name>
-        <Description>Event (output) part of the CQRS system.</Description>
-        <Type>dev</Type>
-        <LocalUrl>neptuo.events</LocalUrl>
-        <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
-        <Licence>Apache License, Version 2.0</Licence>
-        <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
-        <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Events</DocumentationUrl>
-    </Project>
-    <Project>
-        <Name>Neptuo.EventSourcing</Name>
-        <Description>Support libraries to merging whole CQRS and EventSoursing system together.</Description>
-        <Type>dev</Type>
-        <LocalUrl>neptuo.eventsourcing</LocalUrl>
-        <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
-        <Licence>Apache License, Version 2.0</Licence>
-        <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
-        <DocumentationUrl>https://github.com/neptuo/Framework/wiki/EventSourcing</DocumentationUrl>
-    </Project>
-    <Project>
-        <Name>Neptuo.EventSourcing.Domains</Name>
-        <Description>CQRS+ES support library with base classes for commands, events and AggregateRoots.</Description>
-        <Type>dev</Type>
-        <LocalUrl>neptuo.eventsourcing.domains</LocalUrl>
-        <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
-        <Licence>Apache License, Version 2.0</Licence>
-        <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
-        <DocumentationUrl>https://github.com/neptuo/Framework/wiki/EventSourcing</DocumentationUrl>
-    </Project>
-    <Project>
-        <Name>Neptuo.EventSourcing.Formatters.Composite</Name>
-        <Description>Composite formatters support for EventSourcing.</Description>
-        <Type>dev</Type>
-        <LocalUrl>neptuo.eventsourcing.formatters.composite</LocalUrl>
-        <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
-        <Licence>Apache License, Version 2.0</Licence>
-        <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
-        <DocumentationUrl>https://github.com/neptuo/Framework/wiki/EventSourcing</DocumentationUrl>
-    </Project>
-    <Project>
-        <Name>Neptuo.EventSourcing.Formatters.Composite.Json</Name>
-        <Description>JSON Composite formatters support for EventSourcing.</Description>
-        <Type>dev</Type>
-        <LocalUrl>neptuo.eventsourcing.formatters.composite.json</LocalUrl>
-        <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
-        <Licence>Apache License, Version 2.0</Licence>
-        <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
-        <DocumentationUrl>https://github.com/neptuo/Framework/wiki/EventSourcing</DocumentationUrl>
-    </Project>
-    <Project>
-        <Name>Neptuo.Exceptions</Name>
-        <Description>Generic exception handling mainly for asynchronous processing.</Description>
-        <Type>dev</Type>
-        <LocalUrl>neptuo.exceptions</LocalUrl>
-        <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
-        <Licence>Apache License, Version 2.0</Licence>
-        <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
-        <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Exceptions</DocumentationUrl>
-    </Project>
-    <Project>
-        <Name>Neptuo.Formatters</Name>
-        <Description>Abstractions for serializing and deserializing objects.</Description>
-        <Type>dev</Type>
-        <LocalUrl>neptuo.formatters</LocalUrl>
-        <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
-        <Licence>Apache License, Version 2.0</Licence>
-        <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
-        <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Formatters</DocumentationUrl>
-    </Project>
-    <Project>
-        <Name>Neptuo.Formatters.Composite</Name>
-        <Description>Serialized and deserializer with support for versioning and immutable objects created by constructors.</Description>
-        <Type>dev</Type>
-        <LocalUrl>neptuo.formatters.composite</LocalUrl>
-        <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
-        <Licence>Apache License, Version 2.0</Licence>
-        <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
-        <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Formatters</DocumentationUrl>
-    </Project>
-    <Project>
-        <Name>Neptuo.Formatters.Composite.Json</Name>
-        <Description>JSON implementation of composite storage for Neptuo.Formatters.Composite.</Description>
-        <Type>dev</Type>
-        <LocalUrl>neptuo.formatters.composite.json</LocalUrl>
-        <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
-        <Licence>Apache License, Version 2.0</Licence>
-        <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
-        <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Formatters</DocumentationUrl>
-    </Project>
-    <Project>
-        <Name>Neptuo.Formatters.Composite.Metadata</Name>
-        <Description>Attributes and metadata for composite model description.</Description>
-        <Type>dev</Type>
-        <LocalUrl>neptuo.formatters.composite.metadata</LocalUrl>
-        <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
-        <Licence>Apache License, Version 2.0</Licence>
-        <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
-        <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Formatters</DocumentationUrl>
-    </Project>
-    <Project>
-        <Name>Neptuo.Models</Name>
-        <Description>Support for creating and accessing anemic and domain models.</Description>
-        <Type>dev</Type>
-        <LocalUrl>neptuo.models</LocalUrl>
-        <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
-        <Licence>Apache License, Version 2.0</Licence>
-        <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
-        <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Models</DocumentationUrl>
-    </Project>
+  <Project>
+    <Name>Neptuo</Name>
+    <Description>Basic utilities and extensions for System.Core.</Description>
+    <Type>dev</Type>
+    <LocalUrl>neptuo</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Framework/wiki</DocumentationUrl>
+  </Project>
+  <Project>
+    <Name>Neptuo.Commands</Name>
+    <Description>Command (input) part of the CQRS system.</Description>
+    <Type>dev</Type>
+    <LocalUrl>neptuo.commands</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Commands</DocumentationUrl>
+  </Project>
+  <Project>
+    <Name>Neptuo.Events</Name>
+    <Description>Event (output) part of the CQRS system.</Description>
+    <Type>dev</Type>
+    <LocalUrl>neptuo.events</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Events</DocumentationUrl>
+  </Project>
+  <Project>
+    <Name>Neptuo.EventSourcing</Name>
+    <Description>Support libraries to merging whole CQRS and EventSoursing system together.</Description>
+    <Type>dev</Type>
+    <LocalUrl>neptuo.eventsourcing</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Framework/wiki/EventSourcing</DocumentationUrl>
+  </Project>
+  <Project>
+    <Name>Neptuo.EventSourcing.Domains</Name>
+    <Description>CQRS+ES support library with base classes for commands, events and AggregateRoots.</Description>
+    <Type>dev</Type>
+    <LocalUrl>neptuo.eventsourcing.domains</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Framework/wiki/EventSourcing</DocumentationUrl>
+  </Project>
+  <Project>
+    <Name>Neptuo.EventSourcing.Formatters.Composite</Name>
+    <Description>Composite formatters support for EventSourcing.</Description>
+    <Type>dev</Type>
+    <LocalUrl>neptuo.eventsourcing.formatters.composite</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Framework/wiki/EventSourcing</DocumentationUrl>
+  </Project>
+  <Project>
+    <Name>Neptuo.EventSourcing.Formatters.Composite.Json</Name>
+    <Description>JSON Composite formatters support for EventSourcing.</Description>
+    <Type>dev</Type>
+    <LocalUrl>neptuo.eventsourcing.formatters.composite.json</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Framework/wiki/EventSourcing</DocumentationUrl>
+  </Project>
+  <Project>
+    <Name>Neptuo.Exceptions</Name>
+    <Description>Generic exception handling mainly for asynchronous processing.</Description>
+    <Type>dev</Type>
+    <LocalUrl>neptuo.exceptions</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Exceptions</DocumentationUrl>
+  </Project>
+  <Project>
+    <Name>Neptuo.Formatters</Name>
+    <Description>Abstractions for serializing and deserializing objects.</Description>
+    <Type>dev</Type>
+    <LocalUrl>neptuo.formatters</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Formatters</DocumentationUrl>
+  </Project>
+  <Project>
+    <Name>Neptuo.Formatters.Composite</Name>
+    <Description>Serialized and deserializer with support for versioning and immutable objects created by constructors.</Description>
+    <Type>dev</Type>
+    <LocalUrl>neptuo.formatters.composite</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Formatters</DocumentationUrl>
+  </Project>
+  <Project>
+    <Name>Neptuo.Formatters.Composite.Json</Name>
+    <Description>JSON implementation of composite storage for Neptuo.Formatters.Composite.</Description>
+    <Type>dev</Type>
+    <LocalUrl>neptuo.formatters.composite.json</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Formatters</DocumentationUrl>
+  </Project>
+  <Project>
+    <Name>Neptuo.Formatters.Composite.Metadata</Name>
+    <Description>Attributes and metadata for composite model description.</Description>
+    <Type>dev</Type>
+    <LocalUrl>neptuo.formatters.composite.metadata</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Formatters</DocumentationUrl>
+  </Project>
+  <Project>
+    <Name>Neptuo.Models</Name>
+    <Description>Support for creating and accessing anemic and domain models.</Description>
+    <Type>dev</Type>
+    <LocalUrl>neptuo.models</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Models</DocumentationUrl>
+  </Project>
 
-    <!-- VSIX -->
-    <Project>
-        <Name>Neptuo.Productivity</Name>
-        <Description>A set of productivity features: Line duplication, cancel build on first error, build times or show start page after solution closed. All configurable.</Description>
-        <Type>vsix</Type>
-        <LocalUrl>neptuo.productivity</LocalUrl>
-        <ProjectUrl>https://github.com/neptuo/Productivity</ProjectUrl>
-        <Licence>Apache License, Version 2.0</Licence>
-        <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
-        <DocumentationUrl>https://github.com/neptuo/Productivity/releases</DocumentationUrl>
-    </Project>
+  <!-- VSIX -->
+  <Project>
+    <Name>Neptuo.Productivity</Name>
+    <Description>A set of productivity features: Line duplication, cancel build on first error, build times or show start page after solution closed. All configurable.</Description>
+    <Type>vsix</Type>
+    <LocalUrl>neptuo.productivity</LocalUrl>
+    <ProjectUrl>https://github.com/neptuo/Productivity</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Productivity/releases</DocumentationUrl>
+  </Project>
 
-    <!-- Windows -->
-    <Project>
-        <Name>Windows Dock</Name>
-        <Type>desktop</Type>
-        <Description>
-            WindowsDock is OSX-like application launcher. It has many layout and keyboard configurations to suit most users needs. 
-            Beside application shortcuts, dock can host user notes with alarms, simple directory and desktop browser and custom command line scripts.
-        </Description>
-        <LocalUrl>windowsdock</LocalUrl>
-        <ProjectUrl>https://github.com/maraf/WindowsDock</ProjectUrl>
-        <DownloadUrl>https://github.com/maraf/WindowsDock/releases</DownloadUrl>
-        <Images>
-            <Main>~/Content/Images/Projects/windows-dock-01.jpg</Main>
-            <Additional>~/Content/Images/Projects/windows-dock-02.png</Additional>
-            <Additional>~/Content/Images/Projects/windows-dock-03.png</Additional>
-            <Additional>~/Content/Images/Projects/windows-dock-04.png</Additional>
-            <Additional>~/Content/Images/Projects/windows-dock-05.png</Additional>
-        </Images>
-        
-        <Version>
-            <Name>v1.2.22</Name>
-            <Description>Minor fix (that ugly border around shortcut on main panel vanished).</Description>
-        </Version>
-        <Version>
-            <Name>v1.2.21</Name>
-            <Description>Global hotkeys for shortcuts (for only in combination with Windows key).</Description>
-        </Version>
-        <Version>
-            <Name>v1.1.20</Name>
-            <Description>Configuration for small bubbles on top of shortcuts on main panel.</Description>
-            <Description>Basic setting for shortcut icon size.</Description>
-        </Version>
-        <Version>
-            <Name>v1.0.19</Name>
-            <Description>Taskbar height + posibility to use this as offset from bottom.</Description>
-        </Version>
-        <Version>
-            <Name>v1.0.18</Name>
-            <Description>Dockable WindowsDock, you can dock main panel to one edge of screen and make it always visible.</Description>
-            <Description>Some minor fixes.</Description>
-        </Version>
-        <Version>
-            <Name>v1.0.17</Name>
-            <Description>Colors for application buttons (Config+Close).</Description>
-            <Description>Posibility to hide them from main panel.</Description>
-            <Description>Context menu on main panel as substitute from these buttons.</Description>
-        </Version>
-        <Version>
-            <Name>v1.0.16</Name>
-            <Description>KeyShortcut to show desktop in Explorer.</Description>
-        </Version>
-        <Version>
-            <Name>v1.0.15</Name>
-            <Description>Added support for pin to right and bottom edge of primary screen.</Description>
-        </Version>
-        <Version>
-            <Name>v1.0.14</Name>
-            <Description>Posibility to configure activation key (Win+selected key).</Description>
-            <Description>App restart after locale change nearly not needed (with exception for some resources - like datetime pattern).</Description>
-            <Description>Partial internal configuration changes.</Description>
-        </Version>
-        <Version>
-            <Name>v1.0.13</Name>
-            <Description>FIXED: Program doesn't crash when one instance is running and you try to run another (caused by binding global hotkey).</Description>
-            <Description>Minor internal changes.</Description>
-        </Version>
-        <Version>
-            <Name>v1.0.12</Name>
-            <Description>Translated items in configuration dropdown lists.</Description>
-        </Version>
-        <Version>
-            <Name>v1.0.11</Name>
-            <Description>FIXED: Restart not needed after position change (left,top).</Description>
-            <Description>Minor configuration changes.</Description>
-        </Version>
-        <Version>
-            <Name>v1.0.10</Name>
-            <Description>Add support for setuping border, thickness and color.</Description>
-            <Description>Border radius can also be set from configuration window.</Description>
-        </Version>
-        <Version>
-            <Name>v1.0.9</Name>
-            <Description>Added possibility to change (or disable) application hotkeys (Win+W remains as application activation key, but yout can change T,S,B,D,X and Z keys to run extensions and etc.</Description>
-        </Version>
-        <Version>
-            <Name>v1.0.8</Name>
-            <Description>Added possibility to place dock on left edge of primary screen.</Description>
-            <Description>Added window align to screen edge + offset setup.</Description>
-        </Version>
-        <Version>
-            <Name>v1.0.7</Name>
-            <Description>
-                Add support for localization, right now we support Czech and English, but you can easily add support for another language,
-                simply open application installation folder, go to Resources a then copy one of files there and name it 'Resources' + underscore + language (and country) code,
-                like 'Resources_cs.txt' or 'Resources_fr-FR.txt'. If you do so, please send to me localized file and will add it to the application.
-            </Description>
-        </Version>
-        <Version>
-            <Name>v1.0.6</Name>
-            <Description>Space added as posible key to shortcut assignment.</Description>
-            <Description>Some minor fixes.</Description>
-        </Version>
-        <Version>
-            <Name>v1.0.5</Name>
-            <Description>Fix of show/hide bug</Description>
-            <Description>Removed opacity (use alpha channel in background color</Description>
-            <Description>After start "autohide"</Description>
-        </Version>
-        <Version>
-            <Name>v1.0.3</Name>
-            <Description>
-                Hotkeys in Shortcuts edit
-                <Description>ENTER for opening shortcut detail (also DOUBLECLICK works).</Description>
-                <Description>DELETE for deleting shortcut.</Description>
-                <Description>SHIFT+UP/DOWN for moving shortcut.</Description>
-                <Description>Working directory can be set for shortcut+script (defaults to file directory).</Description>
-            </Description>
-        </Version>
-        <Version>
-            <Name>v1.0.0</Name>
-            <Description>
-                Hotkeys
-                <Description>Dock can be activated pressing Win+W.</Description>
-                <Description>Each shortcut can have hotkey (letters+num) to run that shortcut.</Description>
-                <Description>Shortcuts can share same hotkey to run multiple programs pressing single key.</Description>
-            </Description>
-        </Version>
-    </Project>
+  <!-- Windows -->
+  <Project>
+    <Name>Solution Runner</Name>
+    <Type>desktop</Type>
+    <Description>
+      Keyboard-only designed application for simple and fast opening of Visual Studio solution files. 
+    </Description>
+    <Text>
+      <p>
+        Keyboard-only designed application for simple and fast opening of Visual Studio solution files. 
+        Configuration takes single folder where to look for *.sln files with the option to set prefered Visual Studio version installed on your computer and global (Windows wide) shortcut.
+      </p>
+      <p>
+        After setting required configuration, main window will open. Here you can filter solution files from your hard drive and manage favourite ones. 
+        By pressing enter, you run a new instance of selected Visual Studio version with the selected solution.
+      </p>
+      <p>
+        When global hotkey is set, the application is only minimized after opening the solution. So, to update it must first kill it from process list.
+      </p>
+      <p>
+        To start the application after sign in to the Windows, simple create shortcut in startup folder. We are currentling implementing this as feature, along with minimized startup.
+      </p>
+    </Text>
+    <LocalUrl>solutionrunner</LocalUrl>
+    <ProjectUrl>https://github.com/neptuo/Productivity.SolutionRunner</ProjectUrl>
+    <DownloadUrl>http://apps.neptuo.com/solution-runner</DownloadUrl>
+    <Images>
+      <Additional>~/Content/Images/Projects/solution-runner-01.png</Additional>
+      <Additional>~/Content/Images/Projects/solution-runner-02.png</Additional>
+      <Additional>~/Content/Images/Projects/solution-runner-03.png</Additional>
+    </Images>
+  
+    <Version>
+      <Name>v1.3</Name>
+      <Description>Double click on the application starts new instance without file.</Description>
+      <Description>Added support for Home and End navigation keys in the list of solution files.</Description>
+      <Description>Added support for hiding/closing main window after loosing focus/deactivating.</Description>
+      <Description>Dropped throtling delay when showing pinned files for empty search.</Description>
+      <Description>Added support for saving last used application as prefered.</Description>
+      <Description>Added detection of single running instance.</Description>
+      <Description>Fix: Double click on item opens the file like pressing enter.</Description>
+      <Description>Fix: Color of a file path in the selected item.</Description>
+    </Version>
+    <Version>
+      <Name>v1.2</Name>
+      <Description>Extend searching in contains mode to support space separated tokens that are matched in the whole solution path.</Description>
+    </Version>
+    <Version>
+      <Name>v1.1</Name>
+      <Description>Configuration property for suggestion count.</Description>
+      <Description>Configuration property for searching by 'StartsWith' or 'Contains'.</Description>
+      <Description>Added command line parameter '--hidden' for starting application hidden.</Description>
+      <Description>Configuration property whether to save or not last searched phrase.</Description>
+      <Description>Fix: Selecting first suggested item when this one is the only one.</Description>
+    </Version>
+    <Version>
+      <Name>v1.0</Name>
+      <Description>Favourite solution list.</Description>
+      <Description>Global hotkey.</Description>
+    </Version>
+  </Project>
+  <Project>
+    <Name>Windows Dock</Name>
+    <Type>desktop</Type>
+    <Description>
+      WindowsDock is OSX-like application launcher. It has many layout and keyboard configurations to suit most users needs.
+      Beside application shortcuts, dock can host user notes with alarms, simple directory and desktop browser and custom command line scripts.
+    </Description>
+    <LocalUrl>windowsdock</LocalUrl>
+    <ProjectUrl>https://github.com/maraf/WindowsDock</ProjectUrl>
+    <DownloadUrl>https://github.com/maraf/WindowsDock/releases</DownloadUrl>
+    <Images>
+      <Main>~/Content/Images/Projects/windows-dock-01.jpg</Main>
+      <Additional>~/Content/Images/Projects/windows-dock-02.png</Additional>
+      <Additional>~/Content/Images/Projects/windows-dock-03.png</Additional>
+      <Additional>~/Content/Images/Projects/windows-dock-04.png</Additional>
+      <Additional>~/Content/Images/Projects/windows-dock-05.png</Additional>
+    </Images>
+
+    <Version>
+      <Name>v1.2.22</Name>
+      <Description>Minor fix (that ugly border around shortcut on main panel vanished).</Description>
+    </Version>
+    <Version>
+      <Name>v1.2.21</Name>
+      <Description>Global hotkeys for shortcuts (for only in combination with Windows key).</Description>
+    </Version>
+    <Version>
+      <Name>v1.1.20</Name>
+      <Description>Configuration for small bubbles on top of shortcuts on main panel.</Description>
+      <Description>Basic setting for shortcut icon size.</Description>
+    </Version>
+    <Version>
+      <Name>v1.0.19</Name>
+      <Description>Taskbar height + posibility to use this as offset from bottom.</Description>
+    </Version>
+    <Version>
+      <Name>v1.0.18</Name>
+      <Description>Dockable WindowsDock, you can dock main panel to one edge of screen and make it always visible.</Description>
+      <Description>Some minor fixes.</Description>
+    </Version>
+    <Version>
+      <Name>v1.0.17</Name>
+      <Description>Colors for application buttons (Config+Close).</Description>
+      <Description>Posibility to hide them from main panel.</Description>
+      <Description>Context menu on main panel as substitute from these buttons.</Description>
+    </Version>
+    <Version>
+      <Name>v1.0.16</Name>
+      <Description>KeyShortcut to show desktop in Explorer.</Description>
+    </Version>
+    <Version>
+      <Name>v1.0.15</Name>
+      <Description>Added support for pin to right and bottom edge of primary screen.</Description>
+    </Version>
+    <Version>
+      <Name>v1.0.14</Name>
+      <Description>Posibility to configure activation key (Win+selected key).</Description>
+      <Description>App restart after locale change nearly not needed (with exception for some resources - like datetime pattern).</Description>
+      <Description>Partial internal configuration changes.</Description>
+    </Version>
+    <Version>
+      <Name>v1.0.13</Name>
+      <Description>FIXED: Program doesn't crash when one instance is running and you try to run another (caused by binding global hotkey).</Description>
+      <Description>Minor internal changes.</Description>
+    </Version>
+    <Version>
+      <Name>v1.0.12</Name>
+      <Description>Translated items in configuration dropdown lists.</Description>
+    </Version>
+    <Version>
+      <Name>v1.0.11</Name>
+      <Description>FIXED: Restart not needed after position change (left,top).</Description>
+      <Description>Minor configuration changes.</Description>
+    </Version>
+    <Version>
+      <Name>v1.0.10</Name>
+      <Description>Add support for setuping border, thickness and color.</Description>
+      <Description>Border radius can also be set from configuration window.</Description>
+    </Version>
+    <Version>
+      <Name>v1.0.9</Name>
+      <Description>Added possibility to change (or disable) application hotkeys (Win+W remains as application activation key, but yout can change T,S,B,D,X and Z keys to run extensions and etc.</Description>
+    </Version>
+    <Version>
+      <Name>v1.0.8</Name>
+      <Description>Added possibility to place dock on left edge of primary screen.</Description>
+      <Description>Added window align to screen edge + offset setup.</Description>
+    </Version>
+    <Version>
+      <Name>v1.0.7</Name>
+      <Description>
+        Add support for localization, right now we support Czech and English, but you can easily add support for another language,
+        simply open application installation folder, go to Resources a then copy one of files there and name it 'Resources' + underscore + language (and country) code,
+        like 'Resources_cs.txt' or 'Resources_fr-FR.txt'. If you do so, please send to me localized file and will add it to the application.
+      </Description>
+    </Version>
+    <Version>
+      <Name>v1.0.6</Name>
+      <Description>Space added as posible key to shortcut assignment.</Description>
+      <Description>Some minor fixes.</Description>
+    </Version>
+    <Version>
+      <Name>v1.0.5</Name>
+      <Description>Fix of show/hide bug</Description>
+      <Description>Removed opacity (use alpha channel in background color</Description>
+      <Description>After start "autohide"</Description>
+    </Version>
+    <Version>
+      <Name>v1.0.3</Name>
+      <Description>
+        Hotkeys in Shortcuts edit
+        <Description>ENTER for opening shortcut detail (also DOUBLECLICK works).</Description>
+        <Description>DELETE for deleting shortcut.</Description>
+        <Description>SHIFT+UP/DOWN for moving shortcut.</Description>
+        <Description>Working directory can be set for shortcut+script (defaults to file directory).</Description>
+      </Description>
+    </Version>
+    <Version>
+      <Name>v1.0.0</Name>
+      <Description>
+        Hotkeys
+        <Description>Dock can be activated pressing Win+W.</Description>
+        <Description>Each shortcut can have hotkey (letters+num) to run that shortcut.</Description>
+        <Description>Shortcuts can share same hotkey to run multiple programs pressing single key.</Description>
+      </Description>
+    </Version>
+  </Project>
 </Projects>

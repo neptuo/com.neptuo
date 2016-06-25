@@ -12,6 +12,9 @@ namespace Neptuo.WebSite.Models.Projects
     {
         public string Name { get; set; }
         public string Description { get; set; }
+
+        //[XmlArray("Text")]
+        public ProjectTextModel Text { get; set; }
         public string Type { get; set; }
         public string LocalUrl { get; set; }
 
