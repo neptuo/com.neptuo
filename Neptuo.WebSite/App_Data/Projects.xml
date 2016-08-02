@@ -176,6 +176,12 @@
     </Images>
   
     <Version>
+      <Name>v1.4</Name>
+      <Description>Added support for custom application defined in the configuration window.</Description>
+      <Description>Added configuration option to enable auto selecting Visual Studio version according to the solution file version.</Description>
+      <Description>Fix: Duplicated entries after renaming directory.</Description>
+    </Version>
+    <Version>
       <Name>v1.3</Name>
       <Description>Double click on the application starts new instance without file.</Description>
       <Description>Added support for Home and End navigation keys in the list of solution files.</Description>
