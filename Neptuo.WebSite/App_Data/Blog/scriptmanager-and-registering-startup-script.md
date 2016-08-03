@@ -5,4 +5,18 @@ XXX. The last one dramatically changes the behavior.
 
 > The behavior described in the post is about registering startup script placed in the UpdatePanel.
 
-When parameter `addScriptTags` is `true`, everything works as expected, at least to me. The passed script is encoded and registered inside `&lt;script&gt;` tag created by the ASP.NET. There is also no limit for the length of the script.
+When parameter `addScriptTags` is `true`, everything works as expected, at least to me. The passed script is encoded and registered inside `<script>` tag created by the ASP.NET. There is also no limit for the length of the script.
+
+But strange things happen when to register startup script with the `false` value for parameter `addScriptTags`. Without changing anything in the script (except adding `<script>` tag) the page stop working. The end user doesn't see anything, except the missing update of the UpdatePanel. When you dig a little and open the browser developer console, you can see javascript error
+
+```
+
+```
+
+also, if you are logging unhandled exceptions in the web application, you get
+
+```
+
+```
+
+So, why does register startup script use JavascriptSerializer?
