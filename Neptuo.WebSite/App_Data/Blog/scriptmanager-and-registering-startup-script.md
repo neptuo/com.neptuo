@@ -29,6 +29,6 @@ TODO: Part of the source code from the reference source.
 
 After registering script (including script tags) the ASP.NET parses out these tags. Than it creates dictionary with single item `text`=`your script` and uses JavascriptSerializer to serialize the collection. At this point, the above mentioned exception can raise. JavascriptSerializer is created with the default maxJsonLength, which can be overriden by the appSettings with key `aspnet:UpdatePanelMaxScriptLength`.
 
-> This appSetting is parsed as `Int32`, which can be found at [http://referencesource.microsoft.com/#System.Web/Util/AppSettings.cs]. There you can also found other 'hidden' ASP.NET appSettings.
+> This appSetting is parsed as `Int32`, which can be found at http://referencesource.microsoft.com/#System.Web/Util/AppSettings.cs. There are also other 'hidden' ASP.NET appSettings.
 
 The serialized dictionary is then placed in the ajax response, deserialized at the client and run. As if it was registered without own script tags.
