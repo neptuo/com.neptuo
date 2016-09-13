@@ -39,7 +39,14 @@ TODO: The exception from the browser's developer console.
 Also, when logging unhandled exceptions in the web application (`HttpApplication.Error`), you got following
 
 ```
-TODO: The exception from the HttpApplication.
+System.Web.HttpUnhandledException (0x80004005): ... Error during serialization or deserialization using the JSON JavaScriptSerializer. The length of the string exceeds the value set on the maxJsonLength property.
+   at System.Web.Script.Serialization.JavaScriptSerializer.Serialize(Object obj, StringBuilder output, SerializationFormat serializationFormat)
+   at System.Web.Script.Serialization.JavaScriptSerializer.Serialize(Object obj, SerializationFormat serializationFormat)
+   at System.Web.Script.Serialization.JavaScriptSerializer.Serialize(Object obj)
+   at System.Web.UI.ScriptRegistrationManager.WriteScriptWithTags(HtmlTextWriter writer, String token, RegisteredScript activeRegistration)
+   at System.Web.UI.ScriptRegistrationManager.RenderActiveScriptBlocks(List`1 updatePanels, HtmlTextWriter writer, String token, List`1 scriptRegistrations)
+   at System.Web.UI.ScriptRegistrationManager.RenderActiveScripts(List`1 updatePanels, HtmlTextWriter writer)
+   ...
 ```
 
 So, the ASP.NET starts using `JavascriptSerializer` when `addScriptTags` is changed to `false`. Why?
