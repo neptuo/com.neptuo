@@ -20,9 +20,11 @@ This blog post is about registering startup script in the ASP.NET WebForms with 
 
 The last one entirely changes the behavior and leads to some unexpected behavior.
 
+```C#
 //   addScriptTags:
 //     true to enclose the script block with <script> and </script> tags; otherwise,
 //     false.
+```
 
 When the parameter `addScriptTags` is `true`, everything works as expected, at least to me. The passed script is encoded and registered inside `<script>` tag created by the ASP.NET.
 
