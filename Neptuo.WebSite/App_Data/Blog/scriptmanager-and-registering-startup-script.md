@@ -26,6 +26,8 @@ The last one entirely changes the behavior and leads to some unexpected behavior
 //     false.
 ```
 
+### What happens?
+
 When the parameter `addScriptTags` is `true`, everything works as expected, at least to me. The passed script is encoded and registered inside `<script>` tag created by the ASP.NET.
 
 Strange things happen when we register startup script with`false` value for the parameter `addScriptTags`. Without changing anything in the script (except adding `<script>` tag) the page stops working. The end user doesn't see anything, except the missing update of the UpdatePanel. 
@@ -52,6 +54,8 @@ System.Web.HttpUnhandledException (0x80004005): ... Error during serialization o
 So, the ASP.NET starts using `JavascriptSerializer` when `addScriptTags` is changed to `false`. Why?
 
 I did not find any answer for this question, but I do have found what is happening. 
+
+### The implementation
 
 ```C#
 TODO: Part of the source code from the reference source.
