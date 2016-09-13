@@ -33,7 +33,7 @@ Strange things happen when we register startup script with`false` value for the 
 When you dig a little and open the browser developer console, you can see javascript error
 
 ```
-TODO: The exception from the browser's developer console.
+0x800a139e - JavaScript runtime error: Sys.WebForms.PageRequestManagerServerErrorException: Error during serialization or deserialization using the JSON JavaScriptSerializer. The length of the string exceeds the value set on the maxJsonLength property.
 ```
 
 Also, when logging unhandled exceptions in the web application (`HttpApplication.Error`), you got following
