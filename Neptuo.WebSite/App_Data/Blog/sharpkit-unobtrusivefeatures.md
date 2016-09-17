@@ -1,6 +1,6 @@
 # SharpKit extension called UnobtrusiveFeatures
 
-We really like developing client-side (web) applications using the same tools as the server-side. This started with (GWT)[http://www.gwtproject.org/]. After moving to C# we found [SharpKit](http://sharpkit.net), which allows compiling C# to javascript.
+We really like developing client-side (web) applications using the same tools as the server-side. This started with [GWT](http://www.gwtproject.org/). After moving to C# we found [SharpKit](http://sharpkit.net), which allows compiling C# to javascript.
 
 SharpKit is super, not as GWT, but still super. But there are somethings that irritate me and its the need for referencing SharpKit libraries for defining export behavior. 
 
