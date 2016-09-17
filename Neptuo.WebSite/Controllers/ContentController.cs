@@ -71,7 +71,7 @@ namespace Neptuo.WebSite.Controllers
                 return View("NotFound");
 
             string content = dataService.GetContent(post, Request.MapPath);
-            return View("BlogPost", new PostViewModel(post, ));
+            return View("BlogPost", new PostViewModel(post, content));
         }
     }
 }

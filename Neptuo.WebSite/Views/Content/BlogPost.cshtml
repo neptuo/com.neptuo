@@ -3,7 +3,7 @@
     ViewBag.Title = Model.Title;
 }
 
-<div class="intro">
+<div class="intro blog">
     <div class="intro-content container">
         <h1>@Model.Title</h1>
         <p>
@@ -12,6 +12,18 @@
     </div>
 </div>
 
-<div class="folder">
-    @Model.Content
+<div class="container blog">
+    <div class="folder">
+        @Html.Raw(Model.Content)
+    </div>
+
+    <div class="folder">
+        <div class="left">
+            Released at @Model.Model.ReleaseDate.ToShortDateString()
+        </div>
+        <div class="right">
+            Written by Maraf
+        </div>
+        <div class="clear"></div>
+    </div>
 </div>

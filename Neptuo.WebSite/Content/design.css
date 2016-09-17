@@ -3,6 +3,7 @@
     margin: 0;
     font-family: 'Segoe UI', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;
     font-size: 18px;
+    color: #333;
     background: #E8E8E8;
 }
 
@@ -346,4 +347,16 @@ ul.version li li {
 
 .dog-image {
     margin-right: 15px;
+}
+
+.intro.blog h1 {
+    font-size: 100px;
+}
+
+.intro.blog p {
+    font-size: 30px;
+}
+
+.container.blog h2 {
+    margin: 40px 0 10px 0;
 }

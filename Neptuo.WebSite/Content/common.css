@@ -6,8 +6,8 @@ a img {
     border: none;
 }
 
-p {
-    text-align: justify;
+body {
+    line-height: 1.5;
 }
 
 p.first {

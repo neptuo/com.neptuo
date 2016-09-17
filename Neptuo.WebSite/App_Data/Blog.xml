@@ -6,7 +6,7 @@
       SharpKit, the C# to javascript compiler, is super, but there are some things that irritate me and one them is the export definition.
     </Description>
     <Url>sharpkit-unobtrusivefeatures</Url>
-    <File>~/App_Data/Blog/sharpkit-unobtrusivefeatures.md</File>
+    <FilePath>~/App_Data/Blog/sharpkit-unobtrusivefeatures.md</FilePath>
     <ReleaseDate>2016-09-17</ReleaseDate>
   </Post>
 </Posts>

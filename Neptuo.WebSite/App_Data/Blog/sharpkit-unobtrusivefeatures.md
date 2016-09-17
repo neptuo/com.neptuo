@@ -1,5 +1,3 @@
-# SharpKit extension called UnobtrusiveFeatures
-
 We really like developing client-side (web) applications using the same tools as the server-side. This started with [GWT](http://www.gwtproject.org/). After moving to C# we found [SharpKit](http://sharpkit.net), which allows compiling C# to javascript.
 
 SharpKit is super, not as GWT, but still super. But there are some things that irritate me and one of them is the need for referencing SharpKit libraries for defining export behavior. Also you can't simply share export location for the whole solution. When some assembly is exported to more than one file, you must decorate every type with `JsTypeAttribute` and define `Filename`.
@@ -88,4 +86,4 @@ var TestSharpKit$UI$Presenter = {
 
 So, export plugin simplifies javascript compilation. The constructor definitions are useful for IoC container or for reflection uses. The `IsAbstract` flag is always good to have. When talking about IoC container, [in the Neptuo framework repository there is one (SharpKit and javascript compatible) implemented](https://github.com/neptuo/Framework/tree/master/src/Neptuo.Activators.Simple). It supports both property and constructor injection.
 
-The `SharpKit.UnobtrusiveFeatures` is developed as open-source at [GitHub repo SharpKit.UnobtrusiveFeatures](http://github.com/maraf/SharpKit.UnobtrusiveFeatures) where you can find more documentation.
+The `SharpKit.UnobtrusiveFeatures` is developed as open-source at [GitHub repo UnobtrusiveFeatures](http://github.com/maraf/SharpKit.UnobtrusiveFeatures) where you can find more documentation.

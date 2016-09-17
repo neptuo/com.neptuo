@@ -41,10 +41,10 @@ namespace Neptuo.WebSite.Models.Blogging
         public string GetContent(PostModel model, Func<string, string> pathMapper)
         {
             string path = pathMapper(model.FilePath);
+            string fileContent = File.ReadAllText(path);
 
-
-
-            return null;
+            string html = CommonMark.CommonMarkConverter.Convert(fileContent);
+            return html;
         }
     }
 }
