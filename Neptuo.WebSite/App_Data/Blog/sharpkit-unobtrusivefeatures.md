@@ -81,3 +81,9 @@ var TestSharpKit$UI$Presenter = {
     ...
 }
 ```
+
+## Summary
+
+TODO: Some more text here :)
+
+`SharpKit.UnobtrusiveFeatures` is developed as open-source at [GitHub repo SharpKit.UnobtrusiveFeatures](http://github.com/maraf/SharpKit.UnobtrusiveFeatures) where you can find more documentation.
