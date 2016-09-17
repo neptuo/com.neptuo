@@ -119,6 +119,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Blogging\PostDataService.cs" />
+    <Compile Include="Models\Blogging\PostList.cs" />
+    <Compile Include="Models\Blogging\PostModel.cs" />
+    <Compile Include="Models\Blogging\PostViewModel.cs" />
     <Compile Include="Models\HttpRequestBaseExtensions.cs" />
     <Compile Include="Models\Index\HomeModel.cs" />
     <Compile Include="Models\MenuItem.cs" />
@@ -139,6 +143,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="App_Data\Blog.xml" />
     <Content Include="App_Data\Projects.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -193,6 +198,8 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="App_Data\Blog\scriptmanager-and-registering-startup-script.md" />
+    <Content Include="App_Data\Blog\sharpkit-unobtrusivefeatures.md" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -216,6 +223,8 @@
     <Content Include="Views\Shared\ShortWebs.cshtml" />
     <Content Include="Views\Content\Project.cshtml" />
     <Content Include="Views\Content\ProjectOverview.cshtml" />
+    <Content Include="Views\Content\Blog.cshtml" />
+    <Content Include="Views\Content\BlogPost.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

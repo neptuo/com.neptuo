@@ -1,0 +1,17 @@
+﻿@model Neptuo.WebSite.Models.Blogging.PostViewModel
+@{
+    ViewBag.Title = Model.Title;
+}
+
+<div class="intro">
+    <div class="intro-content container">
+        <h1>@Model.Title</h1>
+        <p>
+            @Model.Description
+        </p>
+    </div>
+</div>
+
+<div class="folder">
+    @Model.Content
+</div>

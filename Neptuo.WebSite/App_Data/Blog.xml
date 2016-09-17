@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Posts>
+  <Post>
+    <Title>SharpKit extension/plugin called UnobtrusiveFeatures</Title>
+    <Description>
+      SharpKit, the C# to javascript compiler, is super, but there are some things that irritate me and one them is the export definition.
+    </Description>
+    <Url>sharpkit-unobtrusivefeatures</Url>
+    <File>~/App_Data/Blog/sharpkit-unobtrusivefeatures.md</File>
+    <ReleaseDate>2016-09-17</ReleaseDate>
+  </Post>
+</Posts>

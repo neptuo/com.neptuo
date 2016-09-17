@@ -1,4 +1,5 @@
-﻿using Neptuo.WebSite.Models.Index;
+﻿using Neptuo.WebSite.Models.Blogging;
+using Neptuo.WebSite.Models.Index;
 using Neptuo.WebSite.Models.Projects;
 using Neptuo.WebSite.Models.Webs;
 using System;
@@ -42,6 +43,7 @@ namespace Neptuo.WebSite.Controllers
             {
                 IsDetail = !String.IsNullOrEmpty(project)
             };
+
             viewModel.AddRange(dataService
                 .Get()
                 .Where(p => String.IsNullOrEmpty(type) || p.Type.ToLowerInvariant() == type.ToLowerInvariant())
@@ -53,8 +55,23 @@ namespace Neptuo.WebSite.Controllers
 
         public ActionResult Service()
         {
-            WebDataService webDataService = new WebDataService(Request.MapPath(WebDataService.DataUri));
-            return View(webDataService.Get());
+            WebDataService dataService = new WebDataService(Request.MapPath(WebDataService.DataUri));
+            return View(dataService.Get());
+        }
+
+        public ActionResult Blog(DateTime? releaseDate, string slug)
+        {
+            PostDataService dataService = new PostDataService(Request.MapPath(PostDataService.DataUri));
+
+            if (releaseDate == null || slug == null)
+                return View(dataService.Get());
+
+            PostModel post = dataService.Find(releaseDate.Value, slug);
+            if (post == null)
+                return View("NotFound");
+
+            string content = dataService.GetContent(post, Request.MapPath);
+            return View("BlogPost", new PostViewModel(post, ));
         }
     }
 }
