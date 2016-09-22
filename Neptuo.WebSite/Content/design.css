@@ -21,22 +21,22 @@
     border-radius: 0;
 }
 
-.navbar .container {
-    padding: 0;
-}
+    .navbar .container {
+        padding: 0;
+    }
 
-.navbar a {
-    color: white;
-}
+    .navbar a {
+        color: white;
+    }
 
-.navbar a:hover, .navbar a:focus, .navbar li.active a, .navbar a.active {
-    background: #157FCC;
-}
+        .navbar a:hover, .navbar a:focus, .navbar li.active a, .navbar a.active {
+            background: #157FCC;
+        }
 
-.navbar a .glyphicon {
-    font-size: 35px;
-    opacity: 0.5;
-}
+        .navbar a .glyphicon {
+            font-size: 35px;
+            opacity: 0.5;
+        }
 
 .navbar-brand {
     padding: 5px 0px 6px 7px;
@@ -63,27 +63,27 @@
     float: right;
 }
 
-.navbar ul li a {
-    text-decoration: none;
-    padding: 0px 25px 10px 25px;
-    font-size: 56px;
-    font-family: "Gabriola";
-    margin: 0 0 0 10px;
-    color: white;
-    display: block;
-}
+    .navbar ul li a {
+        text-decoration: none;
+        padding: 0px 25px 10px 25px;
+        font-size: 56px;
+        font-family: "Gabriola";
+        margin: 0 0 0 10px;
+        color: white;
+        display: block;
+    }
 
-.navbar ul li.disabled a {
-    cursor: not-allowed;
-    color: #737578;
-    background: transparent;
-}
+    .navbar ul li.disabled a {
+        cursor: not-allowed;
+        color: #737578;
+        background: transparent;
+    }
 
-.navbar ul li a .subtext {
-    display: block;
-    font-size: 22px;
-    margin-top: -20px;
-}
+    .navbar ul li a .subtext {
+        display: block;
+        font-size: 22px;
+        margin-top: -20px;
+    }
 
 
 .intro {
@@ -92,26 +92,29 @@
     background: #E8E8E8 url('Images/BackgroundSingle.png') repeat 0 bottom;
     /*background: black;*/
 }
-.intro .intro-content {
-    padding: 0 30px;
-}
-.intro h1 {
-    font-family: "Gabriola", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 160px;
-    line-height: 1;
-    letter-spacing: -2px;
-    text-rendering: optimizelegibility;
-    color: white;
-    margin-bottom: -5px;
-}
-.intro p {
-    font-family: "Gabriola", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    width: 800px;
-    padding-left: 8px;
-    color: white;
-    font-size: 40px;
-    text-align: left;
-}
+
+    .intro .intro-content {
+        padding: 0 30px;
+    }
+
+    .intro h1 {
+        font-family: "Gabriola", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 160px;
+        line-height: 1;
+        letter-spacing: -2px;
+        text-rendering: optimizelegibility;
+        color: white;
+        margin-bottom: -5px;
+    }
+
+    .intro p {
+        font-family: "Gabriola", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        width: 800px;
+        padding-left: 8px;
+        color: white;
+        font-size: 40px;
+        text-align: left;
+    }
 
 
 
@@ -140,10 +143,10 @@
     border-bottom: 1px solid #C0C0C0;
 }
 
-.folder-heading h1, .folder-heading h2, .folder-heading h3, .folder-heading h4, .folder-heading h5, .folder-heading h6 {
-    margin: 0;
-    padding: 0;
-}
+    .folder-heading h1, .folder-heading h2, .folder-heading h3, .folder-heading h4, .folder-heading h5, .folder-heading h6 {
+        margin: 0;
+        padding: 0;
+    }
 
 .folder-separator {
     margin: 5px 0;
@@ -188,17 +191,17 @@
     float: right;
 }
 
-.folder-switch:before {
-    content: "\e113";
-}
+    .folder-switch:before {
+        content: "\e113";
+    }
 
 .folder-collapsed .folder-switch {
     padding-top: 5px;
 }
 
-.folder-collapsed .folder-switch:before {
-    content: "\e114";
-}
+    .folder-collapsed .folder-switch:before {
+        content: "\e114";
+    }
 
 
 .folder-collapsed .folder-heading {
@@ -231,23 +234,23 @@ footer {
     background: url('Images/FootBackground.png') repeat-x left top;
 }
 
-footer, footer a {
-    color: #666666;
-}
+    footer, footer a {
+        color: #666666;
+    }
 
-footer a {
-    text-decoration: none;
-    font-weight: bold;
-}
+        footer a {
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-footer a:hover {
-    text-decoration: underline;
-    color: #666666;
-}
+            footer a:hover {
+                text-decoration: underline;
+                color: #666666;
+            }
 
-footer .left, footer .right {
-    padding: 10px 10px;
-}
+        footer .left, footer .right {
+            padding: 10px 10px;
+        }
 
 
 
@@ -259,35 +262,35 @@ footer .left, footer .right {
     margin: 81px 0 0 20px;
 }
 
-.lang div {
-    float: left;
-    padding: 4px;
-    /*color: white;*/
-    background: url('Images/FootBackground.png');
-    border-radius: 0 0 3px 3px;
-    border: 1px solid #78797C;
-    border-top: none;
-}
+    .lang div {
+        float: left;
+        padding: 4px;
+        /*color: white;*/
+        background: url('Images/FootBackground.png');
+        border-radius: 0 0 3px 3px;
+        border: 1px solid #78797C;
+        border-top: none;
+    }
 
-.lang div label {
-    margin: 0;
-    font-weight: normal;
-    cursor: pointer;
-}
+        .lang div label {
+            margin: 0;
+            font-weight: normal;
+            cursor: pointer;
+        }
 
 #lang-cs, #lang-en {
     display: none;
 }
 
-#lang-cs:checked ~ * .lang-en, #lang-cs:checked ~ .lang-en *, 
-#lang-en:checked ~ * .lang-cs, #lang-en:checked ~ .lang-cs * {
-    /*opacity: 0.2;*/
-    color: #E4E4E4 !important;
-}
+    #lang-cs:checked ~ * .lang-en, #lang-cs:checked ~ .lang-en *,
+    #lang-en:checked ~ * .lang-cs, #lang-en:checked ~ .lang-cs * {
+        /*opacity: 0.2;*/
+        color: #E4E4E4 !important;
+    }
 
-#lang-cs:checked ~ * label[for=lang-cs], #lang-en:checked ~ * label[for=lang-en] {
-    color: red;
-}
+    #lang-cs:checked ~ * label[for=lang-cs], #lang-en:checked ~ * label[for=lang-en] {
+        color: red;
+    }
 
 
 
@@ -296,18 +299,19 @@ footer .left, footer .right {
     float: left;
 }
 
-.image-left img, .image-right img, img.image-left, img.image-right {
-    display: block;
-    background: url('http://www.votocvohoz.cz/assets/default/loading16.gif') no-repeat center center;
-}
+    .image-left img, .image-right img, img.image-left, img.image-right {
+        display: block;
+        background: url('http://www.votocvohoz.cz/assets/default/loading16.gif') no-repeat center center;
+    }
 
-.image-left img + img, .image-right img + img {
-    margin-top: 10px;
-}
+        .image-left img + img, .image-right img + img {
+            margin-top: 10px;
+        }
 
 .image-left {
     margin: 10px 0 10px 10px;
 }
+
 .image-right {
     margin: 10px 10px 10px 0px;
 }
@@ -333,30 +337,51 @@ ul.version {
     list-style: none;
 }
 
-ul.version li {
-    margin: 20px 0;
-}
+    ul.version li {
+        margin: 20px 0;
+    }
 
-ul.version ul {
-    list-style-type: disc;
-}
+    ul.version ul {
+        list-style-type: disc;
+    }
 
-ul.version li li {
-    margin: 0;
-}
+    ul.version li li {
+        margin: 0;
+    }
 
 .dog-image {
     margin-right: 15px;
 }
 
-.intro.blog h1 {
+.intro.blogpost h1 {
     font-size: 100px;
 }
 
-.intro.blog p {
+.intro.blogpost p {
     font-size: 30px;
 }
 
-.container.blog h2 {
+.container.blogpost h2 {
     margin: 40px 0 10px 0;
+}
+
+.blog .date {
+    float: left;
+    width: 80px;
+    height: 80px;
+    margin: 0 15px 15px 0;
+}
+
+    .blog .date .day, .date .month {
+        text-align: center;
+    }
+
+    .blog .date .day {
+        font-weight: bold;
+        font-size: 40px;
+    }
+
+.blog .folder-content {
+    float: left;
+    width: 740px;
 }

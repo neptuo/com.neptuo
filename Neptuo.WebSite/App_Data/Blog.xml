@@ -9,4 +9,13 @@
     <FilePath>~/App_Data/Blog/sharpkit-unobtrusivefeatures.md</FilePath>
     <ReleaseDate>2016-09-17</ReleaseDate>
   </Post>
+  <!--<Post>
+    <Title>Technology behind this site</Title>
+    <Description>
+      Here is a list of technology and workflow behind this website.
+    </Description>
+    <Url>website-introduction</Url>
+    <FilePath>~/App_Data/Blog/website-introduction.md</FilePath>
+    <ReleaseDate>2016-08-01</ReleaseDate>
+  </Post>-->
 </Posts>
