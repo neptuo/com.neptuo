@@ -43,9 +43,11 @@ Which reminds that it is always good to have some backup, for all of your code. 
 
 So, the GitHub, I don't want to talk about features lime markdown, or wiki, or issues, or the newly added projects, but I do want to talk about hosting static pages with github.
 
-> A side note: If you like Jekyll, you can setup a static site generator that does the work described here in a GitHub repo. But we, as we don't like that much bash, we even don't like that much Jekyll. So we don't use it and do the work manually. It has pros and cons, but we like the idea that we are to bound to a technology we do not like. End of side note.
+> A side note: If you like Jekyll, you can setup a static site generator that does the work described here in a GitHub repo. But we, as we don't like that much bash, we even don't like that much Jekyll. So we don't use it and do the work manually. It has pros and cons, but we like the idea that we are not to bound to a technology we do not like. End of side note.
 
-TODO: Describe hosting static pages on the github. 
+Hosting a static web site on GitHub is very simple. Create a new repository and in the Settings, in the Static site section, select a branch to use as a website. If you a custom domain, create a CNAME in the of your branch a place the of your domain in it, then change your DNS settings to point to the github.com. That's all. 
+
+You can even use single repository to contain your source codes, probably in the master branch, and static pregenerate site in the gh-pages branch.
 
 ## My desired solution
 
