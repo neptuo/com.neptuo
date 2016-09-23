@@ -51,4 +51,12 @@ You can even use single repository to contain your source codes, probably in the
 
 ## My desired solution
 
-TODO: The ideal pipeline (inspired by CQRS) with rpi for processing inputs/commands, hosted on 'hidden' domain, pregenerating static sites and pushing them to the github/static site hosting.
+As mentioned, the current pipeline is not ideal in our eyes. We would like to make the deplyment process automatic. We would like to have option to process some inputs. Our current vision is to split reading (displaying content) and writing (processing input). This design is inspired by the CQRS architecture, which scales differently write side and read side.
+
+Our ideal CMS would generate as much of the content as possible directly after making a change. It could push changed HTML to production server. Such CMS will be hidden on a 'not-so-public' domain and will processs only write side requests and than redirects user back to the static site. In some cases, the user will see the newly pregenerated page, in other cases, he will noticed that the request is processing and to try to reload the page in a moment.
+
+We don't have a CMS in a moment and we didn't even found some, capable of such worflow...
+
+## Summary
+
+Today, you can quite simply have web site, which is always on, runs on your domain and it costs you nothing. It is, simply, awsome!
