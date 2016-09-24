@@ -210,6 +210,7 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="App_Data\Blog\scriptmanager-and-registering-startup-script.md" />
     <Content Include="App_Data\Blog\sharpkit-unobtrusivefeatures.md" />
+    <Content Include="App_Data\Blog\website-introduction.md" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
