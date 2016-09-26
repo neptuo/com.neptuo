@@ -1,0 +1,95 @@
+﻿.highlight.csharp {
+    color: #333;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+    .highlight.csharp .identifier {
+        color: #795da3;
+    }
+
+    .highlight.csharp .keyword {
+        color: #a71d5d;
+    }
+
+    .highlight.csharp .comment {
+        color: #969896;
+    }
+
+    .highlight.csharp .string {
+        color: #df5000;
+    }
+
+    .highlight.csharp .constant {
+        color: #0086b3;
+    }
+
+.highlight.xml {
+    color: #333;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+    .highlight.xml .cdata {
+        color: #df5000;
+    }
+
+    .highlight.xml .cdatavalue {
+        color: #df5000;
+    }
+
+    .highlight.xml .element {
+        color: #63a35c;
+    }
+
+    .highlight.xml .attribute {
+        color: #795da3;
+    }
+
+    .highlight.xml .string {
+        color: #df5000;
+    }
+
+    .highlight.xml .quot {
+        color: #df5000;
+    }
+
+    .highlight.xml .comment {
+        color: #969896;
+    }
+
+.highlight.javascript {
+    color: #333;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+    .highlight.javascript .keyword {
+        color: #a71d5d;
+    }
+
+    .highlight.javascript .constant {
+        color: #0086b3;
+    }
+
+    .highlight.javascript .string {
+        color: #df5000;
+    }
+
+.highlight.json {
+    color: #333;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+    .highlight.json .keyword {
+        color: #a71d5d;
+    }
+
+    .highlight.json .constant {
+        color: #0086b3;
+    }
+
+    .highlight.json .string {
+        color: #df5000;
+    }

@@ -1,1 +1,1 @@
-This source code of website running at <http://www.neptuo.com>. The website is backed by ASP.NET MVC web application which is crawled to the static HTML files hosted using GitHub pages.
+This is statically pregenerated site from master branch. It can viewed at www.neptuo.com.
