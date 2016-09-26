@@ -7,23 +7,23 @@ namespace Neptuo.WebSite.Models.Blogging
 {
     public class PostViewModel
     {
-        public PostModel Model { get; private set; }
-        public string Content { get; private set; }
+        public PostModel Post { get; private set; }
+        public string HtmlContent { get; private set; }
 
         public string Title
         {
-            get { return Model.Title; }
+            get { return Post.Title; }
         }
 
         public string Description
         {
-            get { return Model.Description; }
+            get { return Post.Description; }
         }
 
         public PostViewModel(PostModel model, string content)
         {
-            Model = model;
-            Content = content;
+            Post = model;
+            HtmlContent = content;
         }
     }
 }

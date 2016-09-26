@@ -12,17 +12,18 @@
     </div>
 </div>
 
+
 <div class="container blogpost">
     <div class="folder">
-        @Html.Raw(Model.Content)
+        @Html.Raw(Model.HtmlContent)
     </div>
 
     <div class="folder">
         <div class="left">
-            Published at @Model.Model.ReleaseDate.ToShortDateString()
+            Posted on @Model.Post.ReleaseDate.ToShortDateString()
         </div>
         <div class="right">
-            Written by Maraf
+            Written by <a target="_blank" rel="nofollow" href="https://github.com/@Model.Post.Author.ToLowerInvariant()">@Model.Post.Author</a>
         </div>
         <div class="clear"></div>
     </div>

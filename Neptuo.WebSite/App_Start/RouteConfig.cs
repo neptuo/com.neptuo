@@ -32,8 +32,8 @@ namespace Neptuo.WebSite
 
             routes.MapRoute(
                 name: "BlogPost",
-                url: "blog/{releaseDate}/{slug}",
-                defaults: new { controller = "Content", action = "Blog", releaseDate = (DateTime?)null, slug = (string)null }
+                url: "blog/{year}/{month}/{day}/{slug}",
+                defaults: new { controller = "Content", action = "Blog", year = (int?)null, month = (int?)null, day = (int?)null, slug = (string)null }
             );
 
             routes.MapRoute(

@@ -1,4 +1,5 @@
-﻿using Neptuo;
+﻿using CommonMark;
+using Neptuo;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -28,6 +29,25 @@ namespace Neptuo.WebSite.Models.Blogging
             return models;
         }
 
+        public IEnumerable<PostModel> Get(int? year, int? month, int? day)
+        {
+            IEnumerable<PostModel> result = models;
+            if (year != null)
+            {
+                result = result.Where(p => p.ReleaseDate.Year == year.Value);
+
+                if (month != null)
+                {
+                    result = result.Where(p => p.ReleaseDate.Month == month.Value);
+
+                    if (day != null)
+                        result = result.Where(p => p.ReleaseDate.Day == day.Value);
+                }
+            }
+
+            return result.OrderByDescending(p => p.ReleaseDate);
+        }
+
         public PostModel Find(DateTime releaseDate, string url)
         {
             releaseDate = releaseDate.Date;
@@ -43,7 +63,10 @@ namespace Neptuo.WebSite.Models.Blogging
             string path = pathMapper(model.FilePath);
             string fileContent = File.ReadAllText(path);
 
-            string html = CommonMark.CommonMarkConverter.Convert(fileContent);
+            CommonMarkSettings.Default.OutputDelegate = (doc, output, settings) =>
+                new HtmlFormatter(output, settings).WriteDocument(doc);
+
+            string html = CommonMarkConverter.Convert(fileContent);
             return html;
         }
     }

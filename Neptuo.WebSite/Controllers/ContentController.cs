@@ -59,14 +59,14 @@ namespace Neptuo.WebSite.Controllers
             return View(dataService.Get());
         }
 
-        public ActionResult Blog(DateTime? releaseDate, string slug)
+        public ActionResult Blog(int? year, int? month, int? day, string slug)
         {
             PostDataService dataService = new PostDataService(Request.MapPath(PostDataService.DataUri));
 
-            if (releaseDate == null || slug == null)
-                return View(dataService.Get());
+            if (slug == null)
+                return View(dataService.Get(year, month, day));
 
-            PostModel post = dataService.Find(releaseDate.Value, slug);
+            PostModel post = dataService.Find(new DateTime(year.Value, month.Value, day.Value), slug);
             if (post == null)
                 return View("NotFound");
 

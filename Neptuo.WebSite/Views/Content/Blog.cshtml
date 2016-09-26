@@ -7,26 +7,31 @@
     <div class="intro-content container">
         <h1>Blog...</h1>
         <p>
-            Ideas to share. Leasons learned.
+            Ideas to share. Lessons learned.
         </p>
     </div>
 </div>
 
 <div class="container blog">
-    @foreach (var post in Model)
+    @foreach (var yearGroup in Model.GroupBy(p => p.ReleaseDate.Year))
     {
-        <div class="folder">
-            <div class="date">
-                <div class="day">@post.ReleaseDate.Day</div>
-                <div class="month">@post.ReleaseDate.ToString("MMM")</div>
+        <div class="year">@yearGroup.Key</div>
+
+        foreach (var post in yearGroup)
+        {
+            <div class="folder">
+                <div class="date">
+                    <div class="day">@post.ReleaseDate.Day</div>
+                    <div class="month">@post.ReleaseDate.ToString("MMM")</div>
+                </div>
+                <div class="folder-content">
+                    <h2 class="folder-heading">
+                        <a href="@Url.RouteUrl("BlogPost", new { year = post.ReleaseDate.Year, month = post.ReleaseDate.Month, day = post.ReleaseDate.Day, slug = post.Url })">@post.Title</a>
+                    </h2>
+                    <article>@post.Description</article>
+                </div>
+                <div class="clear"></div>
             </div>
-            <div class="folder-content">
-                <h2 class="folder-heading">
-                    <a href="@Url.RouteUrl("BlogPost", new { releaseDate = post.ReleaseDate.ToString("yyyy-MM-dd"), slug = post.Url })">@post.Title</a>
-                </h2>
-                <article>@post.Description</article>
-            </div>
-            <div class="clear"></div>
-        </div>
+        }
     }
 </div>

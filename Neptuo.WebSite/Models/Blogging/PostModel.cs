@@ -15,5 +15,6 @@ namespace Neptuo.WebSite.Models.Blogging
         public string Url { get; set; }
         public string FilePath { get; set; }
         public DateTime ReleaseDate { get; set; }
+        public string Author { get; set; }
     }
 }

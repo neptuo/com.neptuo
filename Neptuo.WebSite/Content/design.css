@@ -51,6 +51,10 @@
     height: 90px;
 }
 
+.navbar a {
+    height: 100px;
+}
+
 .navbar-brand, .navbar ul, .navbar ul li {
     display: block;
     float: left;
@@ -63,7 +67,7 @@
     float: right;
 }
 
-    .navbar ul li a {
+    /*.navbar ul li a {
         text-decoration: none;
         padding: 0px 25px 10px 25px;
         font-size: 56px;
@@ -71,18 +75,31 @@
         margin: 0 0 0 10px;
         color: white;
         display: block;
+    }*/
+    .navbar ul li a {
+        text-decoration: none;
+        padding: 15px 25px 10px 25px;
+        font-size: 56px;
+        font-family: "Gabriola";
+        margin: 0 0 0 10px;
+        color: white;
+        display: block;
     }
-
     .navbar ul li.disabled a {
         cursor: not-allowed;
         color: #737578;
         background: transparent;
     }
+    
+    .navbar ul li a .maintext {
+        line-height: 1;
+    }
 
     .navbar ul li a .subtext {
         display: block;
         font-size: 22px;
-        margin-top: -20px;
+        line-height: 1;
+        /*margin-top: -20px;*/
     }
 
 
@@ -363,6 +380,13 @@ ul.version {
 
 .container.blogpost h2 {
     margin: 40px 0 10px 0;
+    /*border-bottom: 1px solid #eee;*/
+    padding-bottom: 5px;
+}
+
+.blog .year {
+    margin: 0 20px 10px 20px;
+    font-weight: bold;
 }
 
 .blog .date {
