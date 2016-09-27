@@ -28,7 +28,7 @@ function render(response) {
                         + '<img src="' + comment.user.avatar_url + '" />'
                     + '</a>'
                 + '</div>'
-                + comment.body
+                + comment.body.replace(/\r\n/g, '<br />').replace(/\n/g, '<br />')
                 + '<div class="author">'
                     + '<div class="left">'
                         + 'Commented on '

@@ -9,7 +9,6 @@
     <FilePath>~/App_Data/Blog/sharpkit-unobtrusivefeatures.md</FilePath>
     <ReleaseDate>2016-09-26</ReleaseDate>
     <Author>Maraf</Author>
-    <GitHubCommentPath>maraf/Playground/issues/1</GitHubCommentPath>
   </Post>
   <Post>
     <Title>Technology behind this site</Title>
@@ -20,5 +19,6 @@
     <FilePath>~/App_Data/Blog/website-introduction.md</FilePath>
     <ReleaseDate>2016-09-01</ReleaseDate>
     <Author>Maraf</Author>
+    <GitHubCommentPath>neptuo/WebSite/issues/12</GitHubCommentPath>
   </Post>
 </Posts>
