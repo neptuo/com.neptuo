@@ -7,31 +7,48 @@
 </div>
 
 <div class="container">
-    
-    <div class="folder">
-        <h2>What can we offer?</h2>
 
-        <p class="first">
-            We are building web sites, web applications
-            TODO: Continue..
-        </p>
+    <div class="folder">
+        <h2>What can we do for you?</h2>
+        <span>Would you like destkop application? Do you prefer web application with rich user interface?</span>
     </div>
 
     <div class="home-services">
-        <div class="col-md-9">
+        <div class="col-md-4">
             <div class="folder home-service">
                 <div class="folder-heading">
                     <span class="glyphicon glyphicon-usd"></span>
-                    <h2>Business applications</h2>
+                    <h2>Business apps</h2>
                 </div>
-                <p class="first">
-                    We specialize on building business applications for realizing customers workflow.
-                    These can be web-based with rich user interface.
-                    When web is not the option, we can offer destop applications on Windows OS.
+                <p>
+                    Applications based on customers requirements, tailored for his needs,
+                    based on our infrastructure for lowering costs.
                 </p>
                 <p>
-                    We have also experiences from creating mobile applications on Windows or Android platform.
-                    Most recently we have experiences using UWP for creating applications that can run on Mobile, Desktop and IoT.
+                    Build for web, mobile or desktop platform for optimal use.
+                </p>
+
+                @*<p class="first">
+                        We specialize on building business applications for realizing customers workflow.
+                        These can be web-based with rich user interface.
+                        When web is not the option, we can offer destop applications on Windows OS.
+                    </p>
+                    <p>
+                        We have also experiences from creating mobile applications on Windows or Android platform.
+                        Most recently we have experiences using UWP for creating applications that can run on Mobile, Desktop and IoT.
+                    </p>*@
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="folder home-service">
+                <div class="folder-heading">
+                    <span class="glyphicon glyphicon-globe"></span>
+                    <h2>Web sites</h2>
+                </div>
+                <p class="first">
+                    We are building customer web sites. Our customers are able to manage content of their web site
+                    thanks to CMS we are using. Our CMS is multi tenant, so many web sites can be hosted in a single instance.
+                    Thanks to access control, each user can have access only to small part of the whole system.
                 </p>
             </div>
         </div>
@@ -43,20 +60,6 @@
                 </div>
                 <p class="first">
                     We are available for hire, to share our experiences, skills and knowledge.
-                </p>
-            </div>
-        </div>
-        <div class="clear"></div>
-        <div class="col-md-7">
-            <div class="folder home-service">
-                <div class="folder-heading">
-                    <span class="glyphicon glyphicon-globe"></span>
-                    <h2>Web sites</h2>
-                </div>
-                <p class="first">
-                    We are building customer web sites. Our customers are able to manage content of their web site
-                    thanks to CMS we are using. Our CMS is multi tenant, so many web sites can be hosted in a single instance.
-                    Thanks to access control, each user can have access only to small part of the whole system.
                 </p>
             </div>
         </div>
@@ -98,10 +101,10 @@
         </p>
 
         @if (Model.Projects.Any())
-        {
+            {
             <ul>
                 @foreach (var project in Model.Projects)
-	            {
+                {
                     <li>
                         <a href="@Url.RouteUrl("project", new { type = project.Type, project = project.LocalUrl })">@project.Name</a>
                     </li>
