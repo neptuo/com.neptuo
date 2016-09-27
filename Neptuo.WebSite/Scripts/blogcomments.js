@@ -1,15 +1,33 @@
 ﻿/// <reference path="jquery-1.9.1.intellisense.js" />
 
 function load(url) {
-    $.getJSON(url).done(render);
+    if ('fetch' in window) {
+        fetch(url).then(parseJson);
+    } else {
+        document.getElementById("comments").innerHTML = ''
+            + '<div class="folder-separator comment">'
+                + 'As your browser doesn\'t support fetch API, please visit the link to inserting comments also to display them.'
+            + '</div>'
+        ;
+    }
+}
+
+function parseJson(response) {
+    response.json().then(render);
 }
 
 function render(response) {
+    var html = '';
     for (var i = 0; i < response.length; i++) {
         var comment = response[i];
 
-        $("#comments").append(
-            '<div class="folder-separator comment">'
+        html += ''
+            + '<div class="folder-separator comment">'
+                + '<div class="left">'
+                    + '<a target="_blank" rel="nofollow" href="' + comment.user.html_url + '" title="' + comment.user.login + '">'
+                        + '<img src="' + comment.user.avatar_url + '" />'
+                    + '</a>'
+                + '</div>'
                 + comment.body
                 + '<div class="author">'
                     + '<div class="left">'
@@ -23,6 +41,8 @@ function render(response) {
                     + '<div class="clear"></div>'
                 + '</div>'
             + '</div>'
-        );
+        ;
     }
+
+    document.getElementById("comments").innerHTML = html;
 }
