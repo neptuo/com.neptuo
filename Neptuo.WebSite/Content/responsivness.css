@@ -1,5 +1,9 @@
 ﻿@media (max-width: 992px) {
 
+    .body {
+        margin-top: 70px;
+    }
+
     .navbar-brand img {
         height: 60px;
     }
