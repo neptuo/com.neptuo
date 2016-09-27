@@ -209,6 +209,7 @@
     <Content Include="App_Data\Blog\sharpkit-unobtrusivefeatures.md" />
     <Content Include="App_Data\Blog\website-introduction.md" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\blogcomments.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />

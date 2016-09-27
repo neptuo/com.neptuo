@@ -9,6 +9,7 @@
     <FilePath>~/App_Data/Blog/sharpkit-unobtrusivefeatures.md</FilePath>
     <ReleaseDate>2016-09-26</ReleaseDate>
     <Author>Maraf</Author>
+    <GitHubCommentPath>maraf/Playground/issues/1</GitHubCommentPath>
   </Post>
   <Post>
     <Title>Technology behind this site</Title>

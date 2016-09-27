@@ -378,7 +378,7 @@ ul.version {
     font-size: 30px;
 }
 
-.container.blogpost h2 {
+.blogpost h2 {
     margin: 40px 0 10px 0;
     /*border-bottom: 1px solid #eee;*/
     padding-bottom: 5px;
@@ -408,4 +408,15 @@ ul.version {
 .blog .folder-content {
     float: left;
     width: 740px;
+}
+
+.comment {
+    margin: 15px 0 5px 0;
+    padding: 15px 0 5px 0;
+}
+
+.comment .author {
+    font-size: 80%;
+    line-height: 1;
+    color: #999999;
 }

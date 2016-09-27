@@ -13,8 +13,8 @@
 </div>
 
 
-<div class="container blogpost">
-    <div class="folder">
+<div class="container">
+    <div class="folder blogpost">
         @Html.Raw(Model.HtmlContent)
     </div>
 
@@ -27,4 +27,32 @@
         </div>
         <div class="clear"></div>
     </div>
+
+    @if (Model.Post.GitHubCommentPath != null)
+    {
+        <div id="comments" class="folder">
+            <div>
+                <h3>Comments</h3>
+            
+                To leave a comment, please sign-in at GitHub and
+                <a href="https://github.com/@Model.Post.GitHubCommentPath" target="_blank">
+                    comment on the issue associated with this post.
+                </a>
+            </div>
+        </div>
+    }
 </div>
+
+@section Javascript {
+
+    @if (Model.Post.GitHubCommentPath != null)
+    {
+        <script src="~/Scripts/jquery-1.9.1.js"></script>
+        <script src="~/Scripts/blogcomments.js"></script>
+        <script>
+
+            load("https://api.github.com/repos/@Model.Post.GitHubCommentPath/comments");
+
+        </script>
+    }
+}
