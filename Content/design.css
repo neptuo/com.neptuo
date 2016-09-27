@@ -431,3 +431,16 @@ ul.version {
 .comment-heading {
     text-align: center;
 }
+
+
+.box .folder-heading {
+    text-align: center;
+}
+
+.box span {
+    font-size: 100px;
+}
+
+.box p {
+    text-align: justify;
+}

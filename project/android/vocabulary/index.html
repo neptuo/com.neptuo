@@ -69,24 +69,29 @@
 
 <div class="container">
 
-        <div class="folder" data-search="solution runner">
+        <div class="folder" data-search="vocabulary app">
             <h2 class="folder-heading">
 
-                <a href="/project/desktop/solutionrunner">Solution Runner</a>
+                <a href="/project/android/vocabulary">Vocabulary App</a>
             </h2>
             <article>
                 <ul>
+                        <li>
+      Android application for testing your vocabulary. User can download vocabularies from our API and browse and test phrases placed in it.
+      Vocabularies are splitted into files, so user can download only selected parts of vocabulary.
+      Vocabulary definitions are in testing phase right now, but the client application is fully functional.
+    </li>
 
 
 
                         <li>
                             Source code at
-                            <a target="_blank" href="https://github.com/neptuo/Productivity.SolutionRunner">
-https://github.com/neptuo/Productivity.SolutionRunner</a>.
+                            <a target="_blank" href="https://github.com/maraf/vocabularyapp">
+https://github.com/maraf/vocabularyapp</a>.
                         </li>
                     
                         <li>
-                            Release of the <a target="_blank" href="http://apps.neptuo.com/solution-runner">Solution Runner v1.4 to download</a>.
+                            Release of the <a target="_blank" href="https://github.com/maraf/vocabularyapp/releases/download/v1.2.1/neptuo-vocabularyapp-v1.2.1.apk">Vocabulary App v1.2.1 to download</a>.
                         </li>
 
                 </ul>
@@ -94,28 +99,13 @@ https://github.com/neptuo/Productivity.SolutionRunner</a>.
             <div class="clear"></div>
         </div>
                 <div class="folder">
-                        <p>
-        Keyboard-only designed application for simple and fast opening of Visual Studio solution files. 
-        Configuration takes single folder where to look for *.sln files with the option to set prefered Visual Studio version installed on your computer and global (Windows wide) shortcut.
-      </p>
-                        <p>
-        After setting required configuration, main window will open. Here you can filter solution files from your hard drive and manage favourite ones. 
-        By pressing enter, you run a new instance of selected Visual Studio version with the selected solution.
-      </p>
-                        <p>
-        When global hotkey is set, the application is only minimized after opening the solution. So, to update it must first kill it from process list.
-      </p>
-                        <p>
-        To start the application after sign in to the Windows, simple create shortcut in startup folder. We are currentling implementing this as feature, along with minimized startup.
-      </p>
-                </div>
-                <div class="folder">
                     <h2 class="folder-heading">Previews</h2>
                     <div class="additional-image-list">
-                            <img class="additional-image" src="/Content/Images/Projects/solution-runner-01.png" />
-                            <img class="additional-image" src="/Content/Images/Projects/solution-runner-02.png" />
-                            <img class="additional-image" src="/Content/Images/Projects/solution-runner-03.png" />
-                            <img class="additional-image" src="/Content/Images/Projects/solution-runner-04.png" />
+                            <img class="additional-image" src="/Content/Images/Projects/vocabulary-app-01.png" />
+                            <img class="additional-image" src="/Content/Images/Projects/vocabulary-app-02.png" />
+                            <img class="additional-image" src="/Content/Images/Projects/vocabulary-app-03.png" />
+                            <img class="additional-image" src="/Content/Images/Projects/vocabulary-app-04.png" />
+                            <img class="additional-image" src="/Content/Images/Projects/vocabulary-app-05.png" />
                     </div>
                     <div class="clear"></div>
                 </div>
@@ -123,89 +113,77 @@ https://github.com/neptuo/Productivity.SolutionRunner</a>.
                     <h2 class="folder-heading">Version history</h2>
                     <ul class="version">
                             <li>
-                                <strong>v1.4</strong>
+                                <strong>v1.2.1</strong>
                                     <ul>
+                                            <li>
+                                                <a target="_blank" href="https://github.com/maraf/vocabularyapp/releases/download/v1.2.1/neptuo-vocabularyapp-v1.2.1.apk">Download version v1.2.1</a>.
+                                            </li>
 
                                             <li>
-                                                Added support for custom application defined in the configuration window.
+                                                Fix memory leaks when reading from internal DB using cursor.
                                             </li>
                                             <li>
-                                                Added configuration option to enable auto selecting Visual Studio version according to the solution file version.
-                                            </li>
-                                            <li>
-                                                Fix: Duplicated entries after renaming directory.
+                                                Add toast to display any uncaught exception.
                                             </li>
                                     </ul>
                             </li>
                             <li>
-                                <strong>v1.3</strong>
+                                <strong>v1.2.0</strong>
                                     <ul>
+                                            <li>
+                                                <a target="_blank" href="https://github.com/maraf/vocabularyapp/releases/download/v1.2.0/neptuo-vocabularyapp-v1.2.0.apk">Download version v1.2.0</a>.
+                                            </li>
 
                                             <li>
-                                                Double click on the application starts new instance without file.
+                                                Extended duplicity check to show duplicated items.
                                             </li>
                                             <li>
-                                                Added support for Home and End navigation keys in the list of solution files.
-                                            </li>
-                                            <li>
-                                                Added support for hiding/closing main window after loosing focus/deactivating.
-                                            </li>
-                                            <li>
-                                                Dropped throtling delay when showing pinned files for empty search.
-                                            </li>
-                                            <li>
-                                                Added support for saving last used application as prefered.
-                                            </li>
-                                            <li>
-                                                Added detection of single running instance.
-                                            </li>
-                                            <li>
-                                                Fix: Double click on item opens the file like pressing enter.
-                                            </li>
-                                            <li>
-                                                Fix: Color of a file path in the selected item.
+                                                Selection of difficulty group in phrases translation.
                                             </li>
                                     </ul>
                             </li>
                             <li>
-                                <strong>v1.2</strong>
+                                <strong>v1.1.0</strong>
                                     <ul>
+                                            <li>
+                                                <a target="_blank" href="https://github.com/maraf/vocabularyapp/releases/download/v1.1.0/neptuo-vocabularyapp-v1.1.0.apk">Download version v1.1.0</a>.
+                                            </li>
 
                                             <li>
-                                                Extend searching in contains mode to support space separated tokens that are matched in the whole solution path.
+                                                Add support for tagging phrases.
+                                            </li>
+                                            <li>
+                                                Add base duplicity checks.
+                                            </li>
+                                            <li>
+                                                Fix translating when only one phrase is in the session.
+                                            </li>
+                                            <li>
+                                                Posibility to entry phrase after giving up.
                                             </li>
                                     </ul>
                             </li>
                             <li>
-                                <strong>v1.1</strong>
+                                <strong>v1.0.0</strong>
                                     <ul>
+                                            <li>
+                                                <a target="_blank" href="https://github.com/maraf/vocabularyapp/releases/download/v1.0.0/neptuo-vocabularyapp-v1.0.0.apk">Download version v1.0.0</a>.
+                                            </li>
 
                                             <li>
-                                                Configuration property for suggestion count.
+                                                Downloading XML vocabularies from API v1.
                                             </li>
                                             <li>
-                                                Configuration property for searching by &#39;StartsWith&#39; or &#39;Contains&#39;.
+                                                Local caching of downloaded data.
                                             </li>
                                             <li>
-                                                Added command line parameter &#39;--hidden&#39; for starting application hidden.
+                                                Local storage for user statistics.
                                             </li>
                                             <li>
-                                                Configuration property whether to save or not last searched phrase.
+                                                Browsing downloaded/local vocabularies (with filtering and sorting).
                                             </li>
                                             <li>
-                                                Fix: Selecting first suggested item when this one is the only one.
-                                            </li>
-                                    </ul>
-                            </li>
-                            <li>
-                                <strong>v1.0</strong>
-                                    <ul>
-
-                                            <li>
-                                                Favourite solution list.
-                                            </li>
-                                            <li>
-                                                Global hotkey.
+                                                Translating word.
                                             </li>
                                     </ul>
                             </li>

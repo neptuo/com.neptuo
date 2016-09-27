@@ -68,40 +68,19 @@
 </div>
 
 <div class="container">
-    <div class="folder folder-collapsed">
-        <h2 class="folder-heading">
-            <span class="glyphicon glyphicon-tree-deciduous"></span>
-            TemplateEngine
-            <span class="glyphicon folder-switch"></span>
-        </h2>
-        <div class="folder-content">
-            <p>
-                The TemplateEngine is a proof of concept. It's information system build on UI templates that are compiled to server side .NET assembly
-                and to a javascript. When the user first hits the URL, server-side pre-rendered HTML is loaded and displayed. All the interactions
-                that follows are handled by javascript and so the data transfer between server and the client is minimal (JSON over AJAX).
-            </p>
-            <p>
-                The prototype focuses on "develop once" and run both on server and client. All the UI components, data sources and controllers are designed
-                in a way that there is no difference if the code is run on client using AJAX and so on, or if the interaction is done through standard
-                HTTP requests and responses without any javascript involved.
-            </p>
-        </div>
-    </div>
-
-    <div class="folder folder-collapsed">
-        <h2 class="folder-heading">
-            <img src="http://blog.tech-fellow.net/content/images/2015/08/nuget.png" width="30" height="30" />
-            <a href="/project/dev">.NET libraries/packages</a>
-            <span class="glyphicon folder-switch"></span>
-        </h2>
-        <div class="folder-content">
-            <p>
+    <div class="col-md-6">
+        <div class="folder box">
+            <div class="folder-heading">
+                <span>.NET</span>
+                <h2><a href="/project/dev">NuGet packages</a></h2>
+            </div>
+            <p class="first">
                 We have developed some libraries that simplifies our development and these libraries are mainly
                 opensourced at <a href="http://www.github.com/neptuo">GitHub</a>.
             </p>
             <p>
-                These projects are coded in C# and starts with extensions for System.Core, goes through extensible converters, formatters
-                to complex features like CQRS and EventSourcing implementations.
+                These projects are coded in C# and starts with extensions for System.Core, goes through extensible Converters, Formatters
+                to complex features like CQRS and EventSourcing.
             </p>
             <p>
                 We use GitHub for hosting source codes and release information at <a href="http://github.com/neptuo">github.com/neptuo</a>.
@@ -111,54 +90,75 @@
                 and development binaries can be found on <a href="https://www.myget.org/feed/Packages/neptuo-dev">MyGet feed</a>.
             </p>
         </div>
-    </div>
-    <div class="folder folder-collapsed">
-        <h2 class="folder-heading">
-            <img src="https://mygetwww-2e16.kxcdn.com/Content/images/packageDefaultIcon_vsix.png?c=Mi4xLjAuMjEwNw==" height="30" />
-            <a href="/project/vsix">Visual Studio Extensions</a>
-            <span class="glyphicon folder-switch"></span>
-        </h2>
-        <div class="folder-content">
-            <p>
+        <div class="folder box">
+            <div class="folder-heading">
+                <span>VSIX</span>
+                <h2><a href="/project/vsix">VisualStudio extensions</a></h2>
+            </div>
+            <p class="first">
                 As we love Visual Studio, this section contains some extensions. These extensions currently can't be installed from
                 standart Visual Studio gallery, instead are placed int the public <a href="https://www.myget.org/F/neptuo-dev/vsix/">MyGet Feed</a>.
             </p>
         </div>
+        <div class="folder box">
+            <div class="folder-heading">
+                <span>Android</span>
+                <h2><a href="/project/android">Google Android Mobile</a></h2>
+            </div>
+            <p class="first">
+                To compare mobile platforms we have tried also Android OS and we have developed <a href="/project/android/vocabulary">Vocabulary App</a>.
+            </p>
+        </div>
+        <div class="clear"></div>
     </div>
-    <div class="folder folder-collapsed">
-        <h2 class="folder-heading">
-            <a target="_blank" href="http://apps.neptuo.com/">Windows applications</a>
-            <span class="glyphicon folder-switch"></span>
-        </h2>
-        <div class="folder-content">
+
+    <div class="col-md-6">
+        <div class="folder box">
+            <div class="folder-heading">
+                <span>WPF</span>
+                <h2><a href="/project/desktop">Windows (desktop)</a></h2>
+            </div>
+            <p class="first">
+                Currently the list of applications for Windows is splitted between this site and <a target="_blank" href="http://apps.neptuo.com/">the old one</a>.
+            </p>
             <p>
                 There you can find some applications for extending experience with Windows OS
-                (like <a href="http://apps.neptuo.com/#/winrun">WinRun</a>, <a href="/project/desktop/windowsdock">WindowsDock</a> and
+                (like <a target="_blank" href="http://apps.neptuo.com/#/winrun">WinRun</a>, <a href="/project/desktop/windowsdock">WindowsDock</a> and
                 <a href="/project/desktop/solutionrunner">SolutionRunner</a>
-                or standart desktop applications (like <a href="http://apps.neptuo.com/#/media-library">MediaLibrary</a>).
+                or standart desktop applications (like <a target="_blank" href="http://apps.neptuo.com/#/media-library">MediaLibrary</a>).
             </p>
             <p>
                 These applications are written in .NET, so requires it installed on your machine.
             </p>
         </div>
-    </div>
-    <div class="folder folder-collapsed">
-        <h2 class="folder-heading">
-            is4wfw
-            <span class="glyphicon folder-switch"></span>
-        </h2>
-        <div class="folder-content">
-            <p>
-                The is4wfw is a PHP based content management system. It uses custom XML tags for marking places that should be replaced by a dynamic content.
-                The most custom tags supports templating, so we can generate any content required by the use case.
+        <div class="folder box">
+            <div class="folder-heading">
+                <span>CMS</span>
+                <h2><a href="/project/cms">Web Content Management</a></h2>
+            </div>
+            <p class="first">
+                Here applications we use for creating web presentations and small web applications.
             </p>
             <p>
-                The CMS supports users and roles and allows restricting access to the sections per user.
+                The <a href="/project/cms/templateengine">Template Engine</a> is currently under design and development as a next-generation CMS
+                with low network needs and fast javascript rendering.
             </p>
-            <p>More info coming...</p>
         </div>
+        <div class="folder box">
+            <div class="folder-heading">
+                <span>UWP</span>
+                <h2><a href="/project/universal">Windows (universal)</a></h2>
+            </div>
+            <p class="first">
+                With Windows 10 'Universal Windows Platform' came where applications can be developed once and run everywhere (after compiling for that platform).
+            </p>
+            <p>
+                Our first application in the category can be used as a WebCam server-client for taking photos and downloading them to the clients.
+            </p>
+        </div>
+        <div class="clear"></div>
     </div>
-    
+    <div class="clear"></div>
 </div>
 
         </form>
