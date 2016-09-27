@@ -70,8 +70,8 @@
 </div>
 
 
-<div class="container blogpost">
-    <div class="folder">
+<div class="container">
+    <div class="folder blogpost">
         <p>I always wanted to write a blog, so let's start. Today's topic are the tools behind this website.</p>
 <h2>Static sites</h2>
 <p>After years of using CMS for serving content that was changed once a week, or even less, I found the magic of static sites and came to the opinion that THIS IS GREAT. As nothing, it is not a silver bullet, but it fits for the most of wesites. And when it comes to web applications, some parts always can be pregenerated and served as static HTML.</p>
@@ -125,7 +125,24 @@
         </div>
         <div class="clear"></div>
     </div>
+
+        <div class="folder">
+            <div class="comment-heading">
+                <h3>
+                    <span class="hidden">Comments</span>
+                    <span class="glyphicon glyphicon-comment"></span>
+                </h3>
+            
+                To leave a comment, please sign-in at GitHub and
+                <a href="https://github.com/neptuo/WebSite/issues/12" target="_blank">
+                    comment on the issue associated with this post.
+                </a>
+            </div>
+            <div id="comments"></div>
+        </div>
 </div>
+
+
 
         </form>
     </div>
@@ -167,5 +184,14 @@
         ga('create', 'UA-12031460-1', 'auto');
         ga('send', 'pageview');
     </script>
+    
+
+        <script src="/Scripts/blogcomments.js"></script>
+        <script>
+
+            load("https://api.github.com/repos/neptuo/WebSite/issues/12/comments");
+
+        </script>
+
 </body>
 </html>

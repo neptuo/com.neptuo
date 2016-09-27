@@ -70,8 +70,8 @@
 </div>
 
 
-<div class="container blogpost">
-    <div class="folder">
+<div class="container">
+    <div class="folder blogpost">
         <p>We really like developing client-side (web) applications using the same tools as the server-side. This started with <a href="http://www.gwtproject.org/">GWT</a>. After moving to C# we found <a href="http://sharpkit.net">SharpKit</a>, which allows compiling C# to javascript.</p>
 <p>SharpKit is super, not as GWT, but still super. But there are some things that irritate me and one of them is the need for referencing SharpKit libraries for defining export behavior. Also you can't simply share export location for the whole solution. When some assembly is exported to more than one file, you must decorate every type with <code>JsTypeAttribute</code> and define <code>Filename</code>.</p>
 <p>This plugin enables export to javascript without referencing any SharpKit library. The goal behide is to have reference-clear projects, that are &quot;shared&quot; between server and client.</p>
@@ -156,7 +156,10 @@
         </div>
         <div class="clear"></div>
     </div>
+
 </div>
+
+
 
         </form>
     </div>
@@ -198,5 +201,8 @@
         ga('create', 'UA-12031460-1', 'auto');
         ga('send', 'pageview');
     </script>
+    
+
+
 </body>
 </html>
