@@ -10,6 +10,7 @@ namespace Neptuo.WebSite.Models.Projects
     public class ProjectVersionModel
     {
         public string Name { get; set; }
+        public string DownloadUrl { get; set; }
 
         [XmlElement("Description")]
         public List<ProjectVersionDescriptionModel> Descriptions { get; private set; }

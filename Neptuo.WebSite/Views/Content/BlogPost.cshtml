@@ -20,7 +20,7 @@
 
     <div class="folder">
         <div class="left">
-            Posted on @Model.Post.ReleaseDate.ToShortDateString()
+            Posted on @Model.Post.ReleaseDate.ToString("yyyy-MM-dd")
         </div>
         <div class="right">
             Written by <a target="_blank" rel="nofollow" href="https://github.com/@Model.Post.Author.ToLowerInvariant()">@Model.Post.Author</a>

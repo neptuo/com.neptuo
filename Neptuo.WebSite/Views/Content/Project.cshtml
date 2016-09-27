@@ -134,9 +134,16 @@
                         {
                             <li>
                                 <strong>@version.Name</strong>
-                                @if (version.Descriptions.Count > 0)
+                                @if (version.Descriptions.Count > 0 || !String.IsNullOrEmpty(version.DownloadUrl))
                                 {
                                     <ul>
+                                        @if (!String.IsNullOrEmpty(version.DownloadUrl))
+                                        {
+                                            <li>
+                                                <a target="_blank" href="@version.DownloadUrl">Download version @version.Name</a>.
+                                            </li>
+                                        }
+
                                         @foreach (var description in version.Descriptions)
                                         {
                                             <li>

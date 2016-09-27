@@ -391,4 +391,61 @@
     <LocalUrl>templateengine</LocalUrl>
     <ProjectUrl>https://github.com/neptuo/TemplateEngine</ProjectUrl>
   </Project>
+  <Project>
+    <Name>WebCam Image Collector</Name>
+    <Type>universal</Type>
+    <LocalUrl>webcamimagecollector</LocalUrl>
+    <Description>
+      Client-server HTTP based application for taking photos and downloading them from the server with WebCam to the clients.
+    </Description>
+    <ProjectUrl>https://github.com/maraf/WebCamImageCollector</ProjectUrl>
+  </Project>
+  <Project>
+    <Name>Vocabulary App</Name>
+    <Type>android</Type>
+    <LocalUrl>vocabulary</LocalUrl>
+    <Images>
+      <Additional>~/Content/Images/Projects/vocabulary-app-01.png</Additional>
+      <Additional>~/Content/Images/Projects/vocabulary-app-02.png</Additional>
+      <Additional>~/Content/Images/Projects/vocabulary-app-03.png</Additional>
+      <Additional>~/Content/Images/Projects/vocabulary-app-04.png</Additional>
+      <Additional>~/Content/Images/Projects/vocabulary-app-05.png</Additional>
+    </Images>
+    <Description>
+      Android application for testing your vocabulary. User can download vocabularies from our API and browse and test phrases placed in it.
+      Vocabularies are splitted into files, so user can download only selected parts of vocabulary.
+      Vocabulary definitions are in testing phase right now, but the client application is fully functional.
+    </Description>
+    <ProjectUrl>https://github.com/maraf/vocabularyapp</ProjectUrl>
+    <DownloadUrl>https://github.com/maraf/vocabularyapp/releases/download/v1.2.1/neptuo-vocabularyapp-v1.2.1.apk</DownloadUrl>
+    <Version>
+      <Name>v1.2.1</Name>
+      <DownloadUrl>https://github.com/maraf/vocabularyapp/releases/download/v1.2.1/neptuo-vocabularyapp-v1.2.1.apk</DownloadUrl>
+      <Description>Fix memory leaks when reading from internal DB using cursor.</Description>
+      <Description>Add toast to display any uncaught exception.</Description>
+    </Version>
+    <Version>
+      <Name>v1.2.0</Name>
+      <DownloadUrl>https://github.com/maraf/vocabularyapp/releases/download/v1.2.0/neptuo-vocabularyapp-v1.2.0.apk</DownloadUrl>
+      <Description>Extended duplicity check to show duplicated items.</Description>
+      <Description>Selection of difficulty group in phrases translation.</Description>
+    </Version>
+    <Version>
+      <Name>v1.1.0</Name>
+      <DownloadUrl>https://github.com/maraf/vocabularyapp/releases/download/v1.1.0/neptuo-vocabularyapp-v1.1.0.apk</DownloadUrl>
+      <Description>Add support for tagging phrases.</Description>
+      <Description>Add base duplicity checks.</Description>
+      <Description>Fix translating when only one phrase is in the session.</Description>
+      <Description>Posibility to entry phrase after giving up.</Description>
+    </Version>
+    <Version>
+      <Name>v1.0.0</Name>
+      <DownloadUrl>https://github.com/maraf/vocabularyapp/releases/download/v1.0.0/neptuo-vocabularyapp-v1.0.0.apk</DownloadUrl>
+      <Description>Downloading XML vocabularies from API v1.</Description>
+      <Description>Local caching of downloaded data.</Description>
+      <Description>Local storage for user statistics.</Description>
+      <Description>Browsing downloaded/local vocabularies (with filtering and sorting).</Description>
+      <Description>Translating word.</Description>
+    </Version>
+  </Project>
 </Projects>
