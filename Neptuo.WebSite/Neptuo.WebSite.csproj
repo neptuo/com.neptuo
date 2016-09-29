@@ -201,7 +201,7 @@
     <Content Include="Content\Images\References\zs.jpg" />
     <Content Include="Content\Images\References\zus.jpg" />
     <Content Include="Content\Stylesheet\ie.css" />
-    <Content Include="Content\Stylesheet\responsivness.css" />
+    <Content Include="Content\Stylesheet\responsiveness.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\Stylesheet\design.css" />
     <Content Include="Content\Images\Background.png" />
