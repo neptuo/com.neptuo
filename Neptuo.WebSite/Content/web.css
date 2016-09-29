@@ -176,7 +176,7 @@ body {
 
 .intro p {
     font-family: "Gabriola", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    width: 800px;
+    max-width: 800px;
     padding-left: 8px;
     color: white;
     font-size: 40px;
@@ -184,7 +184,7 @@ body {
 }
 
 .body {
-    margin-top: 80px;
+    margin-top: 100px;
     margin-bottom: 20px;
 }
 
@@ -343,8 +343,23 @@ ul.version li li {
     display: none;
 }
 
-input.folder {
+.folder .folder-icon {
+    height: 30px;
+    position: relative;
+    top: -5px;
+}
+
+/*.folder-wrap {
+    padding: 0;
+}
+
+.folder.folder-wrap input[type=text] {
     width: 870px;
+    padding-top: 15px;
+    border: none;
+}*/
+input.folder {
+    width: calc(100% - 20px);
     padding-top: 15px;
 }
 
@@ -423,16 +438,14 @@ input.folder {
     text-align: center;
 }
 
-@media (max-width: 760px) {
-    .container {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        max-width: 100%;
-    }
-}
-
 @media (max-width: 759px) {
+    body {
+        word-wrap: break-word;
+    }
+    .navbar {
+        position: static;
+        margin-bottom: 0;
+    }
     .navbar ul li {
         float: none;
     }
@@ -443,16 +456,25 @@ input.folder {
         display: block;
     }
     .body {
-        margin-top: 300px;
+        margin-top: 0px;
+    }
+    .intro .intro-content {
+        padding: 0 20px;
+    }
+    .intro h1 {
+        font-size: 56px;
+    }
+    .intro p {
+        font-size: 22px;
+    }
+    .folder .folder-icon {
+        display: none;
     }
 }
 
 @media (max-width: 460px) {
     .navbar ul {
         float: none;
-    }
-    .body {
-        margin-top: 400px;
     }
 }
 
@@ -590,5 +612,17 @@ input.folder {
 
 .highlight.json .string {
     color: #df5000;
+}
+
+@media screen\0 {
+    .navbar {
+        filter: unset;
+    }
+    .navbar ul li a .maintext {
+        line-height: 0.6;
+    }
+    input.folder {
+        padding-top: 10px;
+    }
 }
 

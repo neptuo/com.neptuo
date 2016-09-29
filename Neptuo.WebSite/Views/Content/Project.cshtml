@@ -15,6 +15,9 @@
 <div class="container">
     @if (Model.Count > 1)
     {
+        @*<div class="folder folder-wrap">
+            <input id="search" type="text" placeholder="Search (@Model.Count()) projects..." />
+        </div>*@
         <input id="search" type="text" class="folder" placeholder="Search (@Model.Count()) projects..." />
     }
 
@@ -24,7 +27,7 @@
             <h2 class="folder-heading">
                 @if (project.Type == "dev")
                 {
-                    <img src="http://robertmjordan.com/Content/theme/img/technologies/nuget-icon.png" height="30" style="position: relative; top: -5px;" />
+                    <img src="http://robertmjordan.com/Content/theme/img/technologies/nuget-icon.png" class="folder-icon" />
                 }
                 else if (project.Type == "vsix")
                 {
@@ -181,6 +184,10 @@
         var folders = document.querySelectorAll('.folder[data-search]');
 
         var searchBox = document.getElementById('search');
+        searchBox.addEventListener('keydown', function (e) {
+            if (e.keyCode == 13)
+                e.preventDefault();
+        });
         searchBox.addEventListener('keyup', function (e) {
             var box = e.target;
             var value = box.value.toLowerCase();

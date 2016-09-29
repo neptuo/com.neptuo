@@ -1,13 +1,13 @@
-﻿@media (max-width: 760px) {
-    .container {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        max-width: 100%;
+﻿@media (max-width: 759px) {
+    body {
+        word-wrap: break-word;
     }
-}
 
-@media (max-width: 759px) {
+    .navbar {
+        position: static;
+        margin-bottom: 0;
+    }
+
     .navbar ul li {
         float: none;
     }
@@ -21,17 +21,31 @@
     }
 
     .body {
-        margin-top: 300px;
+        margin-top: 0px;
+    }
+
+    
+    .intro .intro-content {
+        padding: 0 20px;
+    }
+
+    .intro h1 {
+        font-size: 56px;
+    }
+
+    .intro p {
+        font-size: 22px;
+    }
+
+
+    .folder .folder-icon {
+        display: none;
     }
 }
 
 @media (max-width: 460px) {
     .navbar ul {
         float: none;
-    }
-
-    .body {
-        margin-top: 400px;
     }
 }
 

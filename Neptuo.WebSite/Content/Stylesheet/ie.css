@@ -1,0 +1,14 @@
+﻿@media screen\0 {
+    .navbar {
+        filter: unset;
+    }
+
+    .navbar ul li a .maintext {
+        line-height: 0.6;
+    }
+
+
+    input.folder {
+        padding-top: 10px;
+    }
+}
