@@ -163,6 +163,7 @@
     <Content Include="Content\Images\BackgroundSingle.png" />
     <Content Include="Content\Images\Logo-170.png" />
     <Content Include="Content\Images\Logo-220.png" />
+    <Content Include="Content\Stylesheet\blog.responsiveness.css" />
     <Content Include="Content\Stylesheet\common.css" />
     <Content Include="Content\Stylesheet\blog.css" />
     <Content Include="Content\Stylesheet\box.css" />

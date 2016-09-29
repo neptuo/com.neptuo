@@ -1,4 +1,6 @@
-﻿@media (max-width: 759px) {
+﻿/* ====== RESPONSIVENESS ======================================================================= */
+
+@media (max-width: 759px) {
     body {
         word-wrap: break-word;
     }
@@ -21,9 +23,16 @@
     }
 
     .body {
-        margin-top: 0px;
+        margin-top: 0;
+    }
+    
+    .intro {
+        display: none;
     }
 
+    .intro.important {
+        display: block;
+    }
     
     .intro .intro-content {
         padding: 0 20px;
@@ -41,9 +50,7 @@
     .folder .folder-icon {
         display: none;
     }
-}
 
-@media (max-width: 460px) {
     .navbar ul {
         float: none;
     }

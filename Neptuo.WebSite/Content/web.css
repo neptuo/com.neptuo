@@ -1,4 +1,5 @@
-﻿h2, h3 {
+﻿/* ====== COMMON =============================================================================== */
+h2, h3 {
     margin: 0;
 }
 
@@ -156,7 +157,6 @@ body {
 
 .intro {
     padding: 40px 0;
-    margin-bottom: 20px;
     background: #E8E8E8 url("Images/BackgroundSingle.png") repeat 0 bottom;
 }
 
@@ -265,7 +265,7 @@ ul.version li li {
     margin: 0;
 }
 
-/* ============================================================================================= */
+/* ====== FOLDER =============================================================================== */
 .folder {
     margin: 10px;
     padding: 10px 15px 15px 15px;
@@ -363,7 +363,7 @@ input.folder {
     padding-top: 15px;
 }
 
-/* ============================================================================================= */
+/* ====== BOX ================================================================================== */
 .box .folder-heading {
     text-align: center;
 }
@@ -376,15 +376,7 @@ input.folder {
     text-align: justify;
 }
 
-/* ============================================================================================= */
-.intro.blogpost h1 {
-    font-size: 100px;
-}
-
-.intro.blogpost p {
-    font-size: 30px;
-}
-
+/* ====== BLOG ================================================================================= */
 .blogpost h2 {
     margin: 40px 0 10px 0;
     /*border-bottom: 1px solid #eee;*/
@@ -414,7 +406,7 @@ input.folder {
 
 .blog .folder-content {
     float: left;
-    width: 740px;
+    width: calc(100% - 95px);
 }
 
 .comment {
@@ -438,6 +430,7 @@ input.folder {
     text-align: center;
 }
 
+/* ====== RESPONSIVENESS ======================================================================= */
 @media (max-width: 759px) {
     body {
         word-wrap: break-word;
@@ -456,7 +449,13 @@ input.folder {
         display: block;
     }
     .body {
-        margin-top: 0px;
+        margin-top: 0;
+    }
+    .intro {
+        display: none;
+    }
+    .intro.important {
+        display: block;
     }
     .intro .intro-content {
         padding: 0 20px;
@@ -470,9 +469,6 @@ input.folder {
     .folder .folder-icon {
         display: none;
     }
-}
-
-@media (max-width: 460px) {
     .navbar ul {
         float: none;
     }
@@ -518,6 +514,16 @@ input.folder {
     }
 }
 
+@media (min-width: 760px) {
+    .intro.blogpost h1 {
+        font-size: 100px;
+    }
+    .intro.blogpost p {
+        font-size: 30px;
+    }
+}
+
+/* ====== SYNTAX HIGHLIGHTING ================================================================== */
 .highlight.csharp {
     color: #333;
     font-size: 12px;
@@ -614,6 +620,7 @@ input.folder {
     color: #df5000;
 }
 
+/* ====== IE =================================================================================== */
 @media screen\0 {
     .navbar {
         filter: unset;
