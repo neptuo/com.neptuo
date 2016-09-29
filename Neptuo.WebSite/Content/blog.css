@@ -1,0 +1,62 @@
+﻿/* ============================================================================================= */
+
+.intro.blogpost h1 {
+    font-size: 100px;
+}
+
+.intro.blogpost p {
+    font-size: 30px;
+}
+
+.blogpost h2 {
+    margin: 40px 0 10px 0;
+    /*border-bottom: 1px solid #eee;*/
+    padding-bottom: 5px;
+}
+
+.blog .year {
+    margin: 0 20px 10px 20px;
+    font-weight: bold;
+}
+
+.blog .date {
+    float: left;
+    width: 80px;
+    height: 80px;
+    margin: 0 15px 15px 0;
+}
+
+.blog .date .day, .date .month {
+    text-align: center;
+}
+
+.blog .date .day {
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.blog .folder-content {
+    float: left;
+    width: 740px;
+}
+
+.comment {
+    margin: 15px 0 5px 0;
+    padding: 15px 0 5px 0;
+}
+
+.comment .author {
+    font-size: 80%;
+    line-height: 1;
+    color: #999999;
+}
+
+.comment .left img {
+    margin: 5px 10px 0 0;
+    width: 50px;
+    height: 50px;
+}
+
+.comment-heading {
+    text-align: center;
+}
