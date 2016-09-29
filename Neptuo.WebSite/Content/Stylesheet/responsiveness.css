@@ -13,11 +13,11 @@
     .navbar ul li {
         float: none;
     }
-    
+
     .navbar ul.right li a, .navbar ul.left li a {
         margin: 0;
     }
-    
+
     .navbar ul li a .subtext {
         display: block;
     }
@@ -25,7 +25,7 @@
     .body {
         margin-top: 0;
     }
-    
+
     .intro {
         display: none;
     }
@@ -33,7 +33,7 @@
     .intro.important {
         display: block;
     }
-    
+
     .intro .intro-content {
         padding: 0 20px;
     }
@@ -53,6 +53,60 @@
 
     .navbar ul {
         float: none;
+    }
+}
+
+@media (max-width: 459px) {
+    .container {
+        padding: 0;
+    }
+
+    .body {
+        margin-bottom: 0;
+    }
+
+    .folder, input.folder {
+        margin: 0;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+    }
+
+    input.folder {
+        width: 100%;
+    }
+
+    .folder ul {
+        padding: 0;
+        list-style: none;
+    }
+
+    .folder ul li {
+        margin-bottom: 10px;
+    }
+
+    footer {
+        background: none;
+    }
+
+    
+    a[href^='http://github'] span {
+        display: none;
+    }
+    a[href^='http://github']:after {
+        content: "github";
+    }
+    a[href^='https://www.nuget'] span {
+        display: none;
+    }
+    a[href^='https://www.nuget']:after {
+        content: "nuget";
+    }
+    a[href='http://www.apache.org/licenses/LICENSE-2.0'] span {
+        display: none;
+    }
+    a[href='http://www.apache.org/licenses/LICENSE-2.0']:after {
+        content: "Apache 2.0";
     }
 }
 

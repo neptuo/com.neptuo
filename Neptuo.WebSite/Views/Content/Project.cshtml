@@ -46,7 +46,7 @@
                     @if (!String.IsNullOrEmpty(project.Licence))
                     {
                         <li>
-                            <a target="_blank" href="@project.LicenceUrl">Licensed under @project.Licence.</a>
+                            <a target="_blank" href="@project.LicenceUrl"><span>Licensed under @project.Licence.</span></a>
                         </li>
                     }
 
@@ -61,7 +61,7 @@
                     {
                         <li>
                             Source code at
-                            <a target="_blank" href="@project.ProjectUrl">
+                            <a target="_blank" href="@project.ProjectUrl"><span>
                                 @if (project.ProjectUrl.StartsWith("http://"))
                                 {
                                     @project.ProjectUrl.Substring("http://".Length)
@@ -69,7 +69,7 @@
                                 else
                                 {
                                     @project.ProjectUrl
-                                }</a>.
+                                }</span></a>.
                         </li>
                     }
                     
@@ -83,7 +83,7 @@
                     @if (project.Type == "dev")
                     {
                         <li>
-                            Current version on NuGet at <a target="_blank" href="https://www.nuget.org/packages/@project.Name">nuget.org/packages/@project.Name</a>.
+                            Current version on NuGet at <a target="_blank" href="https://www.nuget.org/packages/@project.Name"><span>nuget.org/packages/@project.Name</span></a>.
                         </li>
                     }
                     else if (project.Type == "vsix")
