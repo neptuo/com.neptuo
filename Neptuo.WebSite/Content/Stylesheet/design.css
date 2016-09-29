@@ -9,10 +9,6 @@ body {
     background: #E8E8E8;
 }
 
-.container {
-    width: 920px;
-}
-
 /* ====== TOP MENU & INTRO ===================================================================== */
 
 .navbar {
@@ -40,33 +36,21 @@ body {
     opacity: 0.5;
 }
 
-.navbar-brand {
-    padding: 5px 0px 6px 7px;
-}
-
-.navbar > .container .navbar-brand {
-    width: 250px;
-    margin: 0;
-}
-
-.navbar-brand img {
-    height: 90px;
-}
-
 .navbar a {
     height: 100px;
 }
 
-.navbar-brand, .navbar ul, .navbar ul li {
+.navbar ul, .navbar ul li {
     display: block;
-    float: left;
 }
 
 .navbar ul {
     margin: 0;
     padding: 0;
     list-style: none;
-    float: right;
+}
+.navbar ul li {
+    float:left;
 }
 
 .navbar ul li a {
@@ -74,9 +58,20 @@ body {
     padding: 15px 25px 10px 25px;
     font-size: 56px;
     font-family: "Gabriola";
-    margin: 0 0 0 10px;
     color: white;
     display: block;
+}
+
+.navbar ul.left li a {
+    margin: 0 10px 0 0;
+}
+
+.navbar ul.right li a {
+    margin: 0 0 0 10px;
+}
+
+.navbar ul.right li:first-child a {
+    margin: 0;
 }
 
 .navbar ul li.disabled a {
@@ -94,7 +89,6 @@ body {
     font-size: 22px;
     line-height: 1;
 }
-
 
 .intro {
     padding: 40px 0;
