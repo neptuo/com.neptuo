@@ -43,6 +43,12 @@ namespace Neptuo.WebSite
             );
 
             routes.MapRoute(
+                name: "404",
+                url: "404.html",
+                defaults: new { controller = "Content", action = "Index" }
+            );
+
+            routes.MapRoute(
                 name: "ContentFallBack",
                 url: "{*path}",
                 defaults: new { controller = "Content", action = "Index" }
