@@ -57,6 +57,10 @@
 }
 
 @media (max-width: 459px) {
+    code {
+        white-space: normal;
+    }
+
     .container {
         padding: 0;
     }
@@ -89,22 +93,28 @@
         background: none;
     }
 
-    
+
+
     a[href^='http://github'] span {
         display: none;
     }
+
     a[href^='http://github']:after {
         content: "github";
     }
+
     a[href^='https://www.nuget'] span {
         display: none;
     }
+
     a[href^='https://www.nuget']:after {
         content: "nuget";
     }
+
     a[href='http://www.apache.org/licenses/LICENSE-2.0'] span {
         display: none;
     }
+
     a[href='http://www.apache.org/licenses/LICENSE-2.0']:after {
         content: "Apache 2.0";
     }

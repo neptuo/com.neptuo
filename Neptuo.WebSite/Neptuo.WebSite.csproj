@@ -214,6 +214,9 @@
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
     <Content Include="Content\Stylesheet\_variables.scss" />
+    <Content Include="Content\fonts\gabriola.eot" />
+    <Content Include="Content\fonts\gabriola.ttf" />
+    <Content Include="Content\fonts\gabriola.woff" />
     <None Include="Content\web.scss" />
     <Content Include="Content\web.css">
       <DependentUpon>web.scss</DependentUpon>
