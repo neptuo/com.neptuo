@@ -65,6 +65,12 @@ input[type=text]:focus {
 }
 
 /* ============================================================================================= */
+@font-face {
+    font-family: 'Gabriola';
+    src: url("fonts/gabriola.eot");
+    src: url("fonts/gabriola.eot?#iefix") format("embedded-opentype"), url("fonts/gabriola.woff") format("woff"), url("fonts/gabriola.ttf") format("truetype");
+}
+
 body {
     padding: 0;
     margin: 0;
@@ -122,7 +128,7 @@ body {
     text-decoration: none;
     padding: 15px 25px 10px 25px;
     font-size: 56px;
-    font-family: "Gabriela";
+    font-family: "Gabriola";
     color: white;
     display: block;
 }

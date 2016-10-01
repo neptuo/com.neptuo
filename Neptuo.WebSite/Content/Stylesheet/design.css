@@ -2,8 +2,8 @@
 
 @font-face {
   font-family: 'Gabriola';
-  src: url('../fonts/gabriola.eot');
-  src: url('../fonts/gabriola.eot?#iefix') format('embedded-opentype'), url('../fonts/gabriola.woff') format('woff'), url('../fonts/gabriola.ttf') format('truetype');
+  src: url('fonts/gabriola.eot');
+  src: url('fonts/gabriola.eot?#iefix') format('embedded-opentype'), url('fonts/gabriola.woff') format('woff'), url('fonts/gabriola.ttf') format('truetype');
 }
 
 body {
