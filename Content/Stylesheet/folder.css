@@ -1,0 +1,100 @@
+﻿/* ====== FOLDER =============================================================================== */
+
+.folder {
+    margin: 10px;
+    padding: 10px 15px 15px 15px;
+    color: #444444;
+    background: white;
+    border: 1px solid #C0C0C0;
+}
+
+.folder-heading {
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    color: #999999;
+    border-bottom: 1px solid #C0C0C0;
+}
+
+.folder-heading h1, .folder-heading h2, .folder-heading h3, .folder-heading h4, .folder-heading h5, .folder-heading h6 {
+    margin: 0;
+    padding: 0;
+}
+
+.folder-separator {
+    margin: 5px 0;
+    border-top: 1px solid #C0C0C0;
+}
+
+.folder-foot {
+    margin-top: 5px;
+    padding-top: 5px;
+    color: #999999;
+    border-top: 1px solid #C0C0C0;
+}
+
+.folder .col-md-6 {
+    padding-left: 0;
+    padding-right: 15px;
+}
+
+.folder .col-md-right {
+    padding-right: 0px;
+}
+
+.folder .folder-heading a[href^="http://"]:after {
+    content: "\e164";
+    font-family: 'Glyphicons Halflings';
+    padding-left: 5px;
+    font-size: 60%;
+    opacity: 0.4;
+    color: black;
+}
+
+.folder-switch {
+    cursor: pointer;
+    float: right;
+}
+
+.folder-switch:before {
+    content: "\e113";
+}
+
+.folder-collapsed .folder-switch {
+    padding-top: 5px;
+}
+
+.folder-collapsed .folder-switch:before {
+    content: "\e114";
+}
+
+
+.folder-collapsed .folder-heading {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+.folder-collapsed .folder-content {
+    display: none;
+}
+
+.folder .folder-icon {
+    height: 30px;
+    position: relative;
+    top: -5px;
+}
+
+/*.folder-wrap {
+    padding: 0;
+}
+
+.folder.folder-wrap input[type=text] {
+    width: 870px;
+    padding-top: 15px;
+    border: none;
+}*/
+
+input.folder {
+    width: calc(100% - 20px);
+    padding-top: 15px;
+}

@@ -1,4 +1,6 @@
-﻿h2, h3 {
+﻿/* ====== COMMON =============================================================================== */
+
+h2, h3 {
     margin: 0;
 }
 
@@ -42,11 +44,6 @@ p.last {
     font-weight: bold;
 }
 
-
-.col-md-2, .col-md-3, .col-md-4, .col-md-6, .col-md-7, .col-md-8 {
-    padding: 0;
-}
-
 pre {
     font: 14px Consolas, "Liberation Mono", Menlo, Courier, monospace;
     line-height: 1.5;
@@ -57,4 +54,14 @@ pre {
 code {
     color: #333;
     background: #eee;
+}
+
+input[type=text]:focus {
+    outline: none;
+    border-color: #428bca;
+}
+
+
+.col-md-2, .col-md-3, .col-md-4, .col-md-6, .col-md-7, .col-md-8 {
+    padding: 0;
 }

@@ -2,23 +2,35 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Neptuo</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
 
-    <link href="/Content/bootstrap/bootstrap.min.css" rel="stylesheet" />
-    <link href="/Content/bootstrap/bootstrap-theme.min.css" rel="stylesheet" />
-    <link href="/Content/common.css" rel="stylesheet" />
-    <link href="/Content/design.css" rel="stylesheet" />
-    <link href="/Content/responsivness.css" rel="stylesheet" />
-    <link href="/Content/syntax.css" rel="stylesheet" />
+    <title>Neptuo</title>
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="/Content/web.css" rel="stylesheet" />
 </head>
 <body>
 
     <nav class="navbar navbar-fixed-top" role="navigation">
         <div class="container">
-            <a class="navbar-brand  active" href="/">
-                <img src="/Content/Images/Logo.png" alt="Neptuo logo" height="80" />
-            </a>
-            <ul>
+            <button class="navbar-toggle">
+                <span class="glyphicon glyphicon-menu-hamburger"></span>
+            </button>
+
+            <ul class="left">
+                    <li class="active">
+        <a href="/">
+            <div class="maintext">
+                Home
+                <span class="glyphicon glyphicon-home"></span>
+            </div>
+            <div class="subtext">How can we help you?</div>
+        </a>
+    </li>
+
+            </ul>
+            <ul class="right">
                     <li>
         <a href="/project">
             <div class="maintext">
@@ -166,6 +178,14 @@
         for (var i = 0; i < switchers.length; i++) {
             var switcher = switchers[i];
             switcher.addEventListener('click', onSwitcherClicked);
+        }
+
+        var navbarToggle = document.querySelector("button.navbar-toggle");
+        if (navbarToggle != null) {
+            navbarToggle.addEventListener('click', function (e) {
+                var navbar = document.querySelector("nav");
+                navbar.classList.toggle('navbar-expanded');
+            });
         }
 
     </script>

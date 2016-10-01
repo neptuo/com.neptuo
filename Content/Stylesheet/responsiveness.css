@@ -1,0 +1,172 @@
+﻿/* ====== RESPONSIVENESS ======================================================================= */
+
+@media (max-width: 759px) {
+    body {
+        word-wrap: break-word;
+    }
+
+    .navbar {
+        position: static;
+        margin-bottom: 0;
+    }
+
+    .navbar ul li {
+        float: none;
+        display: none;
+    }
+
+    .navbar ul li.active, .navbar.navbar-expanded ul li {
+        display: block;
+    }
+
+    .navbar ul.right li a, .navbar ul.left li a {
+        margin: 0;
+    }
+
+    .navbar ul li a .subtext {
+        display: block;
+    }
+
+    .body {
+        margin-top: 0;
+    }
+
+    .intro {
+        display: none;
+    }
+
+    .intro.important {
+        display: block;
+    }
+
+    .intro .intro-content {
+        padding: 0 20px;
+    }
+
+    .intro h1 {
+        font-size: 56px;
+    }
+
+    .intro p {
+        font-size: 22px;
+    }
+
+
+    .folder .folder-icon {
+        display: none;
+    }
+
+    .navbar ul {
+        float: none;
+    }
+}
+
+@media (max-width: 459px) {
+    code {
+        white-space: normal;
+    }
+
+    .container {
+        padding: 0;
+    }
+
+    .body {
+        margin-bottom: 0;
+    }
+
+    .folder, input.folder {
+        margin: 0;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+    }
+
+    input.folder {
+        width: 100%;
+    }
+
+    .folder ul {
+        padding: 0;
+        list-style: none;
+    }
+
+    .folder ul li {
+        margin-bottom: 10px;
+    }
+
+    footer {
+        background: none;
+    }
+
+
+
+    a[href^='http://github'] span {
+        display: none;
+    }
+
+    a[href^='http://github']:after {
+        content: "github";
+    }
+
+    a[href^='https://www.nuget'] span {
+        display: none;
+    }
+
+    a[href^='https://www.nuget']:after {
+        content: "nuget";
+    }
+
+    a[href='http://www.apache.org/licenses/LICENSE-2.0'] span {
+        display: none;
+    }
+
+    a[href='http://www.apache.org/licenses/LICENSE-2.0']:after {
+        content: "Apache 2.0";
+    }
+}
+
+@media (min-width: 760px) and (max-width: 979px) {
+    .body {
+        margin-top: 70px;
+    }
+
+    .navbar ul li a {
+        height: 70px;
+        padding: 10px 20px;
+        font-size: 45px;
+    }
+
+    .navbar ul li a .subtext {
+        display: none;
+    }
+
+    .navbar ul.left li a:first-child {
+        width: 180px;
+        background-image: url('Images/Logo-170.png');
+        background-position-x: center;
+        background-position-y: 5px;
+        background-repeat: no-repeat;
+    }
+
+    .navbar ul.left li a:first-child div {
+        display: none;
+    }
+}
+
+@media (min-width: 980px) {
+    .navbar ul.left li a:first-child {
+        width: 250px;
+        background-image: url('Images/Logo-220.png');
+        background-position-x: center;
+        background-position-y: -5px;
+        background-repeat: no-repeat;
+    }
+
+    .navbar ul.left li a:first-child div.maintext {
+        visibility: hidden;
+    }
+
+    .container {
+        max-width: 920px;
+    }
+}

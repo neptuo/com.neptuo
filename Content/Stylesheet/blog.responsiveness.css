@@ -1,0 +1,9 @@
+﻿@media (min-width: 760px) {
+    .intro.blogpost h1 {
+        font-size: 100px;
+    }
+
+    .intro.blogpost p {
+        font-size: 30px;
+    }
+}

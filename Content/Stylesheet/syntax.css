@@ -1,4 +1,6 @@
-﻿.highlight.csharp {
+﻿/* ====== SYNTAX HIGHLIGHTING ================================================================== */
+
+.highlight.csharp {
     color: #333;
     font-size: 12px;
     line-height: 16px;
