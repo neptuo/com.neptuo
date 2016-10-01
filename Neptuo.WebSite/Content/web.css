@@ -86,6 +86,7 @@ body {
     color: white;
     opacity: 0.7;
     padding: 13px 13px;
+    display: none;
 }
 
 .navbar {
@@ -447,6 +448,9 @@ input.folder {
 @media (max-width: 759px) {
     body {
         word-wrap: break-word;
+    }
+    .navbar-toggle {
+        display: block;
     }
     .navbar {
         position: static;

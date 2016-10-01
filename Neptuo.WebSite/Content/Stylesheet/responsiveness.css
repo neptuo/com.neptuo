@@ -5,6 +5,10 @@
         word-wrap: break-word;
     }
 
+    .navbar-toggle {
+        display: block;
+    }
+
     .navbar {
         position: static;
         margin-bottom: 0;
