@@ -1,9 +1,9 @@
 ﻿/* ============================================================================================= */
 
 @font-face {
-  font-family: 'Gabriola';
-  src: url('fonts/gabriola.eot');
-  src: url('fonts/gabriola.eot?#iefix') format('embedded-opentype'), url('fonts/gabriola.woff') format('woff'), url('fonts/gabriola.ttf') format('truetype');
+    font-family: 'Gabriola';
+    src: url('fonts/gabriola.eot');
+    src: url('fonts/gabriola.eot?#iefix') format('embedded-opentype'), url('fonts/gabriola.woff') format('woff'), url('fonts/gabriola.ttf') format('truetype');
 }
 
 body {
@@ -16,6 +16,13 @@ body {
 }
 
 /* ====== TOP MENU & INTRO ===================================================================== */
+
+.navbar-toggle {
+    font-size: 36px;
+    color: white;
+    opacity: 0.7;
+    padding: 13px 13px;
+}
 
 .navbar {
     position: fixed;
@@ -55,8 +62,9 @@ body {
     padding: 0;
     list-style: none;
 }
+
 .navbar ul li {
-    float:left;
+    float: left;
 }
 
 .navbar ul li a {

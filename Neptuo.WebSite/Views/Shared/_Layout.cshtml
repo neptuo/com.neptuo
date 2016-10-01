@@ -26,6 +26,10 @@
 
     <nav class="navbar navbar-fixed-top" role="navigation">
         <div class="container">
+            <button class="navbar-toggle">
+                <span class="glyphicon glyphicon-menu-hamburger"></span>
+            </button>
+
             <ul class="left">
                 @MenuItem("Home", "What would you like?", "home", "~/", true)
             </ul>
@@ -68,6 +72,14 @@
         for (var i = 0; i < switchers.length; i++) {
             var switcher = switchers[i];
             switcher.addEventListener('click', onSwitcherClicked);
+        }
+
+        var navbarToggle = document.querySelector("button.navbar-toggle");
+        if (navbarToggle != null) {
+            navbarToggle.addEventListener('click', function (e) {
+                var navbar = document.querySelector("nav");
+                navbar.classList.toggle('navbar-expanded');
+            });
         }
 
     </script>

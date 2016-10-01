@@ -81,6 +81,13 @@ body {
 }
 
 /* ====== TOP MENU & INTRO ===================================================================== */
+.navbar-toggle {
+    font-size: 36px;
+    color: white;
+    opacity: 0.7;
+    padding: 13px 13px;
+}
+
 .navbar {
     position: fixed;
     overflow: hidden;
@@ -447,6 +454,10 @@ input.folder {
     }
     .navbar ul li {
         float: none;
+        display: none;
+    }
+    .navbar ul li.active, .navbar.navbar-expanded ul li {
+        display: block;
     }
     .navbar ul.right li a, .navbar ul.left li a {
         margin: 0;

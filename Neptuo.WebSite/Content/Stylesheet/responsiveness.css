@@ -12,6 +12,11 @@
 
     .navbar ul li {
         float: none;
+        display: none;
+    }
+
+    .navbar ul li.active, .navbar.navbar-expanded ul li {
+        display: block;
     }
 
     .navbar ul.right li a, .navbar ul.left li a {
