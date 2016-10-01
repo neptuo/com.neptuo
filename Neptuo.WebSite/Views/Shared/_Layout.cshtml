@@ -18,8 +18,8 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <title>@((ViewBag.Title != null ? ViewBag.Title + " - " : "") + "Neptuo")</title>
-    <link href="~/Content/bootstrap/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/Content/bootstrap/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
     <link href="~/Content/web.css" rel="stylesheet" />
 </head>
 <body>
@@ -31,7 +31,7 @@
             </button>
 
             <ul class="left">
-                @MenuItem("Home", "What would you like?", "home", "~/", true)
+                @MenuItem("Home", "How can we help you?", "home", "~/", true)
             </ul>
             <ul class="right">
                 @MenuItem("Projects", "Projects we are working on", "cloud", "~/project")

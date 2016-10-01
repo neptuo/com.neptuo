@@ -156,10 +156,10 @@
     <Content Include="App_Data\Webs.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Content\bootstrap\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap\bootstrap.css" />
-    <Content Include="Content\bootstrap\bootstrap.min.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\BackgroundSingle.png" />
     <Content Include="Content\Images\Logo-170.png" />
     <Content Include="Content\Images\Logo-220.png" />
@@ -203,7 +203,6 @@
     <Content Include="Content\Images\References\zus.jpg" />
     <Content Include="Content\Stylesheet\ie.css" />
     <Content Include="Content\Stylesheet\responsiveness.css" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\Stylesheet\design.css" />
     <Content Include="Content\Images\Background.png" />
     <Content Include="Content\Images\FootBackground.png" />
@@ -217,6 +216,10 @@
     <Content Include="Content\fonts\gabriola.eot" />
     <Content Include="Content\fonts\gabriola.ttf" />
     <Content Include="Content\fonts\gabriola.woff" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Content\web.scss" />
     <Content Include="Content\web.css">
       <DependentUpon>web.scss</DependentUpon>
@@ -224,13 +227,15 @@
     <Content Include="Content\web.min.css">
       <DependentUpon>web.css</DependentUpon>
     </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="App_Data\Blog\scriptmanager-and-registering-startup-script.md" />
     <Content Include="App_Data\Blog\sharpkit-unobtrusivefeatures.md" />
     <Content Include="App_Data\Blog\website-introduction.md" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\blogcomments.js" />
     <Content Include="Scripts\bootstrap.js" />
