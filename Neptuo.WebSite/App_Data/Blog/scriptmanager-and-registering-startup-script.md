@@ -24,7 +24,7 @@ The last one entirely changes the behavior and leads to some unexpected behavior
 //     false.
 ```
 
-### What happens?
+## What happens?
 
 When the parameter `addScriptTags` is `true`, everything works as expected, at least to me. The script is encoded and registered inside `<script>` tag created by the ASP.NET.
 
@@ -51,7 +51,7 @@ System.Web.HttpUnhandledException (0x80004005): ... Error during serialization o
 
 So, the ASP.NET starts using `JavascriptSerializer` when `addScriptTags` is changed to `false`. I'm not sure why this happens, maybe some kind of encoding? But why they use `JavascriptSerializer` only when script tags are used from our code? After some digging I have found what is happening under the hood.
 
-### The implementation
+## The implementation
 
 > The source is taken from the reference source of the [ScriptRegistrationManager](https://referencesource.microsoft.com/#System.Web.Extensions/UI/ScriptRegistrationManager.cs,646 "ScriptRegistrationManager.WriteScriptWithTags") and shortened for clarity.
 
@@ -98,7 +98,7 @@ After registering a script (including script tags) the ASP.NET parses out all th
 
 The serialized dictionary is then placed in the ajax response, deserialized at the client and executed by the browser.
 
-#### Conclusion
+## Conclusion
 
 There is no limit for the length of the script registered with the `addScriptTags` as `true`. When this is changed, the script is serialized using `JavascriptSerializer` and some length limits apply.
 
