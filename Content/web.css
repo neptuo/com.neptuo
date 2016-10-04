@@ -31,6 +31,10 @@ p.last {
     float: right;
 }
 
+.center {
+    text-align: center;
+}
+
 .inline-form {
     display: inline;
 }
@@ -221,7 +225,7 @@ footer a:hover {
     color: #666666;
 }
 
-footer .left, footer .right {
+footer .left, footer .right, footer .center {
     padding: 10px 10px;
 }
 

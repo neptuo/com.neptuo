@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+    <title>Neptuo Blog</title>
+    <link href="http://www.neptuo.com/blog/atom.xml" rel="self" />
+    <link href="http://www.neptuo.com/blog/" />
+    <updated>2016-10-04 21:38:19</updated>
+    <id>http://www.neptuo.com/blog/</id>
+    <author>
+        <name>maraf</name>
+        <email>mara@neptuo.com</email>
+    </author>
+        <entry>
+            <title>SharpKit extension/plugin called UnobtrusiveFeatures</title>
+            <link href="http://www.neptuo.com/blog/2016/9/26/sharpkit-unobtrusivefeatures" />
+            <updated>2016-09-26</updated>
+            <id>http://www.neptuo.com/blog/2016/9/26/sharpkit-unobtrusivefeatures</id>
+            <content type="html">SharpKit, the C# to javascript compiler, is super, but there are some things that irritate me and one them is the export definition.</content>
+        </entry>
+        <entry>
+            <title>Technology behind this site</title>
+            <link href="http://www.neptuo.com/blog/2016/9/1/website-introduction" />
+            <updated>2016-09-01</updated>
+            <id>http://www.neptuo.com/blog/2016/9/1/website-introduction</id>
+            <content type="html">Here is a technology overrview and workflow behind this website. This site is hosted at GitHub and pregenerated from ASP.NET MVC web application.</content>
+        </entry>
+        <entry>
+            <title>JavascriptSerializer in the RegisterStartupScript</title>
+            <link href="http://www.neptuo.com/blog/2016/10/4/scriptmanager-and-registering-startup-script" />
+            <updated>2016-10-04</updated>
+            <id>http://www.neptuo.com/blog/2016/10/4/scriptmanager-and-registering-startup-script</id>
+            <content type="html">Startup script behavior in the ASP.NET WebForms inside UpdatePanel containing script tags.</content>
+        </entry>
+</feed>
