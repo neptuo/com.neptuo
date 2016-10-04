@@ -22,4 +22,15 @@
     <Author>Maraf</Author>
     <GitHubCommentPath>neptuo/WebSite/issues/12</GitHubCommentPath>
   </Post>
+  <Post>
+    <Title>JavascriptSerializer in the RegisterStartupScript</Title>
+    <Description>
+      Startup script behavior in the ASP.NET WebForms inside UpdatePanel containing script tags.
+    </Description>
+    <Url>scriptmanager-and-registering-startup-script</Url>
+    <FilePath>~/App_Data/Blog/scriptmanager-and-registering-startup-script.md</FilePath>
+    <ReleaseDate>2016-10-04</ReleaseDate>
+    <Author>Maraf</Author>
+    <GitHubCommentPath>neptuo/WebSite/issues/20</GitHubCommentPath>
+  </Post>
 </Posts>

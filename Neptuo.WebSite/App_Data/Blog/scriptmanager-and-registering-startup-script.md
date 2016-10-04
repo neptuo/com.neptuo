@@ -1,5 +1,3 @@
-## ScriptManager.RegisterStartupScript and behavior of the last argument addScriptTags
-
 This post is about registering startup script in the ASP.NET WebForms inside `UpdatePanel`. The method we used `ScriptManager.RegisterStartupScript` takes 5 arguments, four of them are quite obvious. From the documentation:
 
 ```C#
