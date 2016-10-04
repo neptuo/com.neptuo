@@ -73,5 +73,11 @@ namespace Neptuo.WebSite.Controllers
             string content = dataService.GetContent(post, Request.MapPath);
             return View("BlogPost", new PostViewModel(post, content));
         }
+
+        public ActionResult BlogAtom()
+        {
+            PostDataService dataService = new PostDataService(Request.MapPath(PostDataService.DataUri));
+            return View("BlogAtom", dataService.Get());
+        }
     }
 }

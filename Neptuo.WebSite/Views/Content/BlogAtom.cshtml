@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Neptuo.WebSite.Models.Blogging.PostModel>
+@{
+    Layout = null;
+}<?xml version="1.0" encoding="utf-8" ?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+    <title>Neptuo Blog</title>
+    <link href="http://www.neptuo.com/blog/atom.xml" rel="self" />
+    <link href="http://www.neptuo.com/blog/" />
+    <updated>@DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")</updated>
+    <id>http://www.neptuo.com/blog/</id>
+    <author>
+        <name>maraf</name>
+        <email>mara@neptuo.com</email>
+    </author>
+    @foreach (var post in Model)
+    {
+        var url = "http://www.neptuo.com" + Url.RouteUrl("BlogPost", new { year = post.ReleaseDate.Year, month = post.ReleaseDate.Month, day = post.ReleaseDate.Day, slug = post.Url });
+        <entry>
+            <title>@post.Title</title>
+            <link href="@url" />
+            <updated>@post.ReleaseDate.ToString("yyyy-MM-dd")</updated>
+            <id>@url</id>
+            <content type="html">@post.Description.Trim()</content>
+        </entry>
+    }
+</feed>

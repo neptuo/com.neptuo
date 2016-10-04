@@ -262,6 +262,7 @@
     <Content Include="Views\Content\ProjectOverview.cshtml" />
     <Content Include="Views\Content\Blog.cshtml" />
     <Content Include="Views\Content\BlogPost.cshtml" />
+    <Content Include="Views\Content\BlogAtom.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

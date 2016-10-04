@@ -31,6 +31,12 @@ namespace Neptuo.WebSite
             );
 
             routes.MapRoute(
+                name: "BlogAtom",
+                url: "blog/atom.xml",
+                defaults: new { controller = "Content", action = "BlogAtom" }
+            );
+
+            routes.MapRoute(
                 name: "BlogPost",
                 url: "blog/{year}/{month}/{day}/{slug}",
                 defaults: new { controller = "Content", action = "Blog", year = (int?)null, month = (int?)null, day = (int?)null, slug = (string)null }

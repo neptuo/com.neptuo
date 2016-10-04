@@ -52,10 +52,15 @@
     <footer>
         <div class="container">
             <div class="left">
-                Neptuo &copy; 2010 - 2016
+                <span>Neptuo &copy; 2010 - 2016</span>
+                @RenderSection("FooterLeft", false)
             </div>
             <div class="right">
-                Created by <a target="_blank" href="http://mara.neptuo.com">Marek Fišera</a>
+                <span>Created by <a target="_blank" href="http://mara.neptuo.com">Marek Fišera</a></span>
+                @RenderSection("FooterRight", false)
+            </div>
+            <div class="center">
+                @RenderSection("FooterCenter", false)
             </div>
             <div class="clear"></div>
         </div>

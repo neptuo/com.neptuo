@@ -47,6 +47,10 @@
     }
 </div>
 
+@section FooterCenter {
+    <span>@Html.RouteLink("Atom", "BlogAtom")</span>
+}
+
 @section Javascript {
 
     @if (Model.Post.GitHubCommentPath != null)

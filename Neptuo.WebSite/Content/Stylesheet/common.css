@@ -32,6 +32,10 @@ p.last {
     float: right;
 }
 
+.center {
+    text-align: center;
+}
+
 .inline-form {
     display: inline;
 }
