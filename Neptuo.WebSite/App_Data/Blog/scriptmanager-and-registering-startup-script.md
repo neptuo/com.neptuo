@@ -53,19 +53,54 @@ System.Web.HttpUnhandledException (0x80004005): ... Error during serialization o
 
 So, the ASP.NET starts using `JavascriptSerializer` when `addScriptTags` is changed to `false`. Why?
 
-I did not find any answer for this question, but I do have found what is happening. 
+I did not find an answer for this question, but after some digging I have found what is happening under the hood.
 
 ### The implementation
 
+> The source is taken from the reference source of the [ScriptRegistrationManager](https://referencesource.microsoft.com/#System.Web.Extensions/UI/ScriptRegistrationManager.cs,646 "ScriptRegistrationManager.WriteScriptWithTags") and shortened for clarity.
+
 ```C#
-TODO: Part of the source code from the reference source.
+private static void WriteScriptWithTags(HtmlTextWriter writer, string token, RegisteredScript activeRegistration)
+{
+    // If the content already has script tags, we need to parse out the contents
+    // so that the client doesn't have to. The contents may include more than one
+    // script tag, but no other content (such as arbitrary HTML).
+    string scriptContent = activeRegistration.Script;
+
+    // ... walk through all script tags in the scriptContent and for each of them do:
+    for (...)
+    {
+        OrderedDictionary attrs = new OrderedDictionary();
+
+        // ... get content between script tags.
+        string scriptBlockContents = scriptContent.Substring(indexOfEndOfScriptBeginTag, (indexOfScriptEndTag - indexOfEndOfScriptBeginTag));
+        attrs.Add("text", scriptBlockContents);
+        
+        // ... add all attributes defined on the script tag to the attrs dictionary.
+        ...
+        
+        JavaScriptSerializer serializer = new JavaScriptSerializer();
+
+        // Dev10# 877767 - Allow configurable UpdatePanel script block length
+        // The default is JavaScriptSerializer.DefaultMaxJsonLength
+        if (AppSettings.UpdatePanelMaxScriptLength > 0)
+        {
+            serializer.MaxJsonLength = AppSettings.UpdatePanelMaxScriptLength;
+        }
+
+        string attrText = serializer.Serialize(attrs);
+        PageRequestManager.EncodeString(writer, token, "ScriptContentWithTags", attrText);
+    }
+
+    // ...
+}
 ```
 
-After registering script (including script tags) the ASP.NET parses out these tags. Than it creates dictionary with single item (`text`=`your script`) and uses `JavascriptSerializer` (need for some encoding?) to serialize the collection. At this point, the previously mentioned exception can raise. `JavascriptSerializer` is created with the default `maxJsonLength`, which can be overriden by the appSettings with key `aspnet:UpdatePanelMaxScriptLength`. 
+After registering a script (including script tags) the ASP.NET parses out all these tags. For each of the found script tag, it creates a dictionary with the script content (`text`=`your script`), eventually adds attributes from the tag and uses `JavascriptSerializer` to serialize this dictionary. At this point, the previously mentioned exception can raise. `JavascriptSerializer` is created with the default `maxJsonLength`, which can be overriden by the appSettings with key `aspnet:UpdatePanelMaxScriptLength`. 
 
 > This appSetting is parsed as `Int32`, which can be found at http://referencesource.microsoft.com/#System.Web/Util/AppSettings.cs. There are also other 'hidden' ASP.NET appSettings.
 
-The serialized dictionary is then placed in the ajax response, deserialized at the client and run.
+The serialized dictionary is then placed in the ajax response, deserialized at the client and executed by the browser.
 
 #### Conclusion
 
