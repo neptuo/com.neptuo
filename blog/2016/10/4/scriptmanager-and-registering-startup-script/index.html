@@ -108,7 +108,7 @@
 <span class="comment">//     false.</span>
 
 </pre></div>
-<h3>What happens?</h3>
+<h2>What happens?</h2>
 <p>When the parameter <code>addScriptTags</code> is <code>true</code>, everything works as expected, at least to me. The script is encoded and registered inside <code>&lt;script&gt;</code> tag created by the ASP.NET.</p>
 <p>But when we register startup script with<code>false</code> value for the parameter <code>addScriptTags</code>. Without changing anything in the script (except adding <code>&lt;script&gt;</code> tag) the page stops working. The end user doesn't see anything, except the missing update of the UpdatePanel.</p>
 <p>When you dig a little and open the browser developer console, you can see javascript error</p>
@@ -125,7 +125,7 @@
    ...
 </code></pre>
 <p>So, the ASP.NET starts using <code>JavascriptSerializer</code> when <code>addScriptTags</code> is changed to <code>false</code>. I'm not sure why this happens, maybe some kind of encoding? But why they use <code>JavascriptSerializer</code> only when script tags are used from our code? After some digging I have found what is happening under the hood.</p>
-<h3>The implementation</h3>
+<h2>The implementation</h2>
 <blockquote>
 <p>The source is taken from the reference source of the <a href="https://referencesource.microsoft.com/#System.Web.Extensions/UI/ScriptRegistrationManager.cs,646" title="ScriptRegistrationManager.WriteScriptWithTags">ScriptRegistrationManager</a> and shortened for clarity.</p>
 </blockquote>
@@ -171,7 +171,7 @@
 <p>This appSetting is parsed as <code>Int32</code>, which can be found at reference source of the <a href="http://referencesource.microsoft.com/#System.Web/Util/AppSettings.cs" title="System.Web.Util.AppSettings">AppSettings</a>. There are also other 'hidden' ASP.NET appSettings.</p>
 </blockquote>
 <p>The serialized dictionary is then placed in the ajax response, deserialized at the client and executed by the browser.</p>
-<h4>Conclusion</h4>
+<h2>Conclusion</h2>
 <p>There is no limit for the length of the script registered with the <code>addScriptTags</code> as <code>true</code>. When this is changed, the script is serialized using <code>JavascriptSerializer</code> and some length limits apply.</p>
 <p>It is always better to register scripts without tags and let the infrastructure to generate them for you. I even don't known any use-case where I would want to generate them by myself and if you do, please leave a comment. Nevertheless I have found this usage on many places in the customers code base.</p>
 
