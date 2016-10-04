@@ -1,0 +1,266 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <title>JavascriptSerializer in the RegisterStartupScript - Neptuo</title>
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="/Content/web.css" rel="stylesheet" />
+</head>
+<body>
+
+    <nav class="navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+            <button class="navbar-toggle">
+                <span class="glyphicon glyphicon-menu-hamburger"></span>
+            </button>
+
+            <ul class="left">
+                    <li>
+        <a href="/">
+            <div class="maintext">
+                Home
+                <span class="glyphicon glyphicon-home"></span>
+            </div>
+            <div class="subtext">How can we help you?</div>
+        </a>
+    </li>
+
+            </ul>
+            <ul class="right">
+                    <li>
+        <a href="/project">
+            <div class="maintext">
+                Projects
+                <span class="glyphicon glyphicon-cloud"></span>
+            </div>
+            <div class="subtext">Projects we are working on</div>
+        </a>
+    </li>
+
+                    <li>
+        <a href="/service">
+            <div class="maintext">
+                Services
+                <span class="glyphicon glyphicon-globe"></span>
+            </div>
+            <div class="subtext">Our services and references</div>
+        </a>
+    </li>
+
+                    <li class="active">
+        <a href="/blog">
+            <div class="maintext">
+                Blog
+                <span class="glyphicon glyphicon-bookmark"></span>
+            </div>
+            <div class="subtext">Thoughts to share</div>
+        </a>
+    </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="body">
+        <form>
+
+            
+
+<div class="intro important blogpost">
+    <div class="intro-content container">
+        <h1>JavascriptSerializer in the RegisterStartupScript</h1>
+        <p>
+            
+      Startup script behavior in the ASP.NET WebForms inside UpdatePanel containing script tags.
+    
+        </p>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="folder blogpost">
+        <p>This post is about registering startup script in the ASP.NET WebForms inside <code>UpdatePanel</code>. The method we used <code>ScriptManager.RegisterStartupScript</code> takes 5 arguments, four of them are quite obvious. From the documentation:</p>
+<div class="highlight csharp"><pre>
+<span class="comment">//   page:</span>
+<span class="comment">//     The page object that is registering the client script block.</span>
+<span class="comment">//</span>
+<span class="comment">//   type:</span>
+<span class="comment">//     The type of the client script block. This parameter is usually specified by using</span>
+<span class="comment">//     the typeof operator (C#) or the GetType operator (Visual Basic) to retrieve the</span>
+<span class="comment">//     type of the control that is registering the script.</span>
+<span class="comment">//</span>
+<span class="comment">//   key:</span>
+<span class="comment">//     A unique identifier for the script block.</span>
+<span class="comment">//</span>
+<span class="comment">//   script:</span>
+<span class="comment">//     The script to register.</span>
+
+</pre></div>
+<p>The last one entirely changes the behavior and leads to some unexpected behavior and eventually exceptions.</p>
+<div class="highlight csharp"><pre>
+<span class="comment">//   addScriptTags:</span>
+<span class="comment">//     true to enclose the script block with &lt;script&gt; and &lt;/script&gt; tags; otherwise,</span>
+<span class="comment">//     false.</span>
+
+</pre></div>
+<h3>What happens?</h3>
+<p>When the parameter <code>addScriptTags</code> is <code>true</code>, everything works as expected, at least to me. The script is encoded and registered inside <code>&lt;script&gt;</code> tag created by the ASP.NET.</p>
+<p>But when we register startup script with<code>false</code> value for the parameter <code>addScriptTags</code>. Without changing anything in the script (except adding <code>&lt;script&gt;</code> tag) the page stops working. The end user doesn't see anything, except the missing update of the UpdatePanel.</p>
+<p>When you dig a little and open the browser developer console, you can see javascript error</p>
+<pre><code>0x800a139e - JavaScript runtime error: Sys.WebForms.PageRequestManagerServerErrorException: Error during serialization or deserialization using the JSON JavaScriptSerializer. The length of the string exceeds the value set on the maxJsonLength property.
+</code></pre>
+<p>Also, when logging unhandled exceptions in the web application (<code>HttpApplication.Error</code>), you got following</p>
+<pre><code>System.Web.HttpUnhandledException (0x80004005): ... Error during serialization or deserialization using the JSON JavaScriptSerializer. The length of the string exceeds the value set on the maxJsonLength property.
+   at System.Web.Script.Serialization.JavaScriptSerializer.Serialize(Object obj, StringBuilder output, SerializationFormat serializationFormat)
+   at System.Web.Script.Serialization.JavaScriptSerializer.Serialize(Object obj, SerializationFormat serializationFormat)
+   at System.Web.Script.Serialization.JavaScriptSerializer.Serialize(Object obj)
+   at System.Web.UI.ScriptRegistrationManager.WriteScriptWithTags(HtmlTextWriter writer, String token, RegisteredScript activeRegistration)
+   at System.Web.UI.ScriptRegistrationManager.RenderActiveScriptBlocks(List`1 updatePanels, HtmlTextWriter writer, String token, List`1 scriptRegistrations)
+   at System.Web.UI.ScriptRegistrationManager.RenderActiveScripts(List`1 updatePanels, HtmlTextWriter writer)
+   ...
+</code></pre>
+<p>So, the ASP.NET starts using <code>JavascriptSerializer</code> when <code>addScriptTags</code> is changed to <code>false</code>. I'm not sure why this happens, maybe some kind of encoding? But why they use <code>JavascriptSerializer</code> only when script tags are used from our code? After some digging I have found what is happening under the hood.</p>
+<h3>The implementation</h3>
+<blockquote>
+<p>The source is taken from the reference source of the <a href="https://referencesource.microsoft.com/#System.Web.Extensions/UI/ScriptRegistrationManager.cs,646" title="ScriptRegistrationManager.WriteScriptWithTags">ScriptRegistrationManager</a> and shortened for clarity.</p>
+</blockquote>
+<div class="highlight csharp"><pre>
+<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="identifier">WriteScriptWithTags</span>(HtmlTextWriter writer, <span class="keyword">string</span> token, RegisteredScript activeRegistration)
+{
+    <span class="comment">// If the content already has script tags, we need to parse out the contents</span>
+    <span class="comment">// so that the client doesn&#39;t have to. The contents may include more than one</span>
+    <span class="comment">// script tag, but no other content (such as arbitrary HTML).</span>
+    <span class="keyword">string</span> scriptContent = activeRegistration.Script;
+
+    <span class="comment">// ... walk through all script tags in the scriptContent and for each of them do:</span>
+    <span class="keyword">for</span> (...)
+    {
+        OrderedDictionary attrs = <span class="keyword">new</span> OrderedDictionary();
+
+        <span class="comment">// ... get content between script tags.</span>
+        <span class="keyword">string</span> scriptBlockContents = scriptContent.Substring(indexOfEndOfScriptBeginTag, (indexOfScriptEndTag - indexOfEndOfScriptBeginTag));
+        attrs.Add(<span class="string">&quot;text&quot;</span>, scriptBlockContents);
+        
+        <span class="comment">// ... add all attributes defined on the script tag to the attrs dictionary.</span>
+        ...
+        
+        JavaScriptSerializer serializer = <span class="keyword">new</span> JavaScriptSerializer();
+
+        <span class="comment">// Dev10# 877767 - Allow configurable UpdatePanel script block length</span>
+        <span class="comment">// The default is JavaScriptSerializer.DefaultMaxJsonLength</span>
+        <span class="keyword">if</span> (AppSettings.UpdatePanelMaxScriptLength &gt; <span class="constant">0</span>)
+        {
+            serializer.MaxJsonLength = AppSettings.UpdatePanelMaxScriptLength;
+        }
+
+        <span class="keyword">string</span> attrText = serializer.Serialize(attrs);
+        PageRequestManager.EncodeString(writer, token, <span class="string">&quot;ScriptContentWithTags&quot;</span>, attrText);
+    }
+
+    <span class="comment">// ...</span>
+}
+
+</pre></div>
+<p>After registering a script (including script tags) the ASP.NET parses out all these tags. For each of the found script tag, it creates a dictionary with the script content (<code>text</code>=<code>your script</code>), eventually adds attributes from the tag and uses <code>JavascriptSerializer</code> to serialize this dictionary. At this point, the previously mentioned exception can raise. <code>JavascriptSerializer</code> is created with the default <code>maxJsonLength</code>, which can be overriden by the appSettings with key <code>aspnet:UpdatePanelMaxScriptLength</code>.</p>
+<blockquote>
+<p>This appSetting is parsed as <code>Int32</code>, which can be found at reference source of the <a href="http://referencesource.microsoft.com/#System.Web/Util/AppSettings.cs" title="System.Web.Util.AppSettings">AppSettings</a>. There are also other 'hidden' ASP.NET appSettings.</p>
+</blockquote>
+<p>The serialized dictionary is then placed in the ajax response, deserialized at the client and executed by the browser.</p>
+<h4>Conclusion</h4>
+<p>There is no limit for the length of the script registered with the <code>addScriptTags</code> as <code>true</code>. When this is changed, the script is serialized using <code>JavascriptSerializer</code> and some length limits apply.</p>
+<p>It is always better to register scripts without tags and let the infrastructure to generate them for you. I even don't known any use-case where I would want to generate them by myself and if you do, please leave a comment. Nevertheless I have found this usage on many places in the customers code base.</p>
+
+    </div>
+
+    <div class="folder">
+        <div class="left">
+            Posted on 2016-10-04
+        </div>
+        <div class="right">
+            Written by <a target="_blank" rel="nofollow" href="https://github.com/maraf">Maraf</a>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+        <div class="folder">
+            <div class="comment-heading">
+                <h3>
+                    <span class="hidden">Comments</span>
+                    <span class="glyphicon glyphicon-comment"></span>
+                </h3>
+            
+                To leave a comment, please sign-in at GitHub and
+                <a href="https://github.com/neptuo/WebSite/issues/20" target="_blank">
+                    comment on the issue associated with this post.
+                </a>
+            </div>
+            <div id="comments"></div>
+        </div>
+</div>
+
+
+
+        </form>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="left">
+                Neptuo &copy; 2010 - 2016
+            </div>
+            <div class="right">
+                Created by <a target="_blank" href="http://mara.neptuo.com">Marek Fišera</a>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </footer>
+
+    <script>
+
+        function onSwitcherClicked(e) {
+            var folder = this.parentElement.parentElement;
+            folder.classList.toggle('folder-collapsed');
+        }
+
+        var switchers = document.querySelectorAll('.folder-switch');
+        for (var i = 0; i < switchers.length; i++) {
+            var switcher = switchers[i];
+            switcher.addEventListener('click', onSwitcherClicked);
+        }
+
+        var navbarToggle = document.querySelector("button.navbar-toggle");
+        if (navbarToggle != null) {
+            navbarToggle.addEventListener('click', function (e) {
+                var navbar = document.querySelector("nav");
+                navbar.classList.toggle('navbar-expanded');
+            });
+        }
+
+    </script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-12031460-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    
+
+        <script src="/Scripts/blogcomments.js"></script>
+        <script>
+
+            load("https://api.github.com/repos/neptuo/WebSite/issues/20/comments");
+
+        </script>
+
+</body>
+</html>
