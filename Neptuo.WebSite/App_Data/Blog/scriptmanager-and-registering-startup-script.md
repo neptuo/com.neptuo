@@ -104,4 +104,6 @@ The serialized dictionary is then placed in the ajax response, deserialized at t
 
 #### Conclusion
 
-There is also no limit for the length of the script registered with the `addScriptTags` as `true`. When this is changed, the script is serialized using `JavascriptSerializer` and some length limits apply.
+There is no limit for the length of the script registered with the `addScriptTags` as `true`. When this is changed, the script is serialized using `JavascriptSerializer` and some length limits apply.
+
+It is always better to register scripts without tags and let the infrastructure to generate them for you. I even don't known any use-case where I would want to generate them by myself and if you do, please leave a comment. Nevertheless I have found this usage on many places in the customers code base.
