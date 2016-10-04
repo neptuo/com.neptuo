@@ -1,6 +1,6 @@
 ## ScriptManager.RegisterStartupScript and behavior of the last argument addScriptTags
 
-This blog post is about registering startup script in the ASP.NET WebForms with `UpdatePanel`. The method `ScriptManager.RegisterStartupScript` takes 5 arguments, four of them are quite obvious. From the documentation:
+This post is about registering startup script in the ASP.NET WebForms inside `UpdatePanel`. The method we used `ScriptManager.RegisterStartupScript` takes 5 arguments, four of them are quite obvious. From the documentation:
 
 ```C#
 //   page:
@@ -18,7 +18,7 @@ This blog post is about registering startup script in the ASP.NET WebForms with 
 //     The script to register.
 ```
 
-The last one entirely changes the behavior and leads to some unexpected behavior.
+The last one entirely changes the behavior and leads to some unexpected behavior and eventually exceptions.
 
 ```C#
 //   addScriptTags:
@@ -28,9 +28,9 @@ The last one entirely changes the behavior and leads to some unexpected behavior
 
 ### What happens?
 
-When the parameter `addScriptTags` is `true`, everything works as expected, at least to me. The passed script is encoded and registered inside `<script>` tag created by the ASP.NET.
+When the parameter `addScriptTags` is `true`, everything works as expected, at least to me. The script is encoded and registered inside `<script>` tag created by the ASP.NET.
 
-Strange things happen when we register startup script with`false` value for the parameter `addScriptTags`. Without changing anything in the script (except adding `<script>` tag) the page stops working. The end user doesn't see anything, except the missing update of the UpdatePanel. 
+But when we register startup script with`false` value for the parameter `addScriptTags`. Without changing anything in the script (except adding `<script>` tag) the page stops working. The end user doesn't see anything, except the missing update of the UpdatePanel. 
 
 When you dig a little and open the browser developer console, you can see javascript error
 
@@ -51,9 +51,7 @@ System.Web.HttpUnhandledException (0x80004005): ... Error during serialization o
    ...
 ```
 
-So, the ASP.NET starts using `JavascriptSerializer` when `addScriptTags` is changed to `false`. Why?
-
-I did not find an answer for this question, but after some digging I have found what is happening under the hood.
+So, the ASP.NET starts using `JavascriptSerializer` when `addScriptTags` is changed to `false`. I'm not sure why this happens, maybe some kind of encoding? But why they use `JavascriptSerializer` only when script tags are used from our code? After some digging I have found what is happening under the hood.
 
 ### The implementation
 
@@ -98,7 +96,7 @@ private static void WriteScriptWithTags(HtmlTextWriter writer, string token, Reg
 
 After registering a script (including script tags) the ASP.NET parses out all these tags. For each of the found script tag, it creates a dictionary with the script content (`text`=`your script`), eventually adds attributes from the tag and uses `JavascriptSerializer` to serialize this dictionary. At this point, the previously mentioned exception can raise. `JavascriptSerializer` is created with the default `maxJsonLength`, which can be overriden by the appSettings with key `aspnet:UpdatePanelMaxScriptLength`. 
 
-> This appSetting is parsed as `Int32`, which can be found at http://referencesource.microsoft.com/#System.Web/Util/AppSettings.cs. There are also other 'hidden' ASP.NET appSettings.
+> This appSetting is parsed as `Int32`, which can be found at reference source of the [AppSettings](http://referencesource.microsoft.com/#System.Web/Util/AppSettings.cs "System.Web.Util.AppSettings"). There are also other 'hidden' ASP.NET appSettings.
 
 The serialized dictionary is then placed in the ajax response, deserialized at the client and executed by the browser.
 
