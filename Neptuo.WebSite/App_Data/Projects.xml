@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Projects>
+<Projects xmlns="http://schemas.neptuo.com/xsd/neptuo-website-projects.xsd">
   <Project>
     <Name>Neptuo</Name>
-    <Description>Basic utilities and extensions for System.Core.</Description>
     <Type>dev</Type>
+    <Description>Basic utilities and extensions for System.Core.</Description>
     <LocalUrl>neptuo</LocalUrl>
     <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
     <Licence>Apache License, Version 2.0</Licence>
@@ -12,8 +12,8 @@
   </Project>
   <Project>
     <Name>Neptuo.Commands</Name>
-    <Description>Command (input) part of the CQRS system.</Description>
     <Type>dev</Type>
+    <Description>Command (input) part of the CQRS system.</Description>
     <LocalUrl>neptuo.commands</LocalUrl>
     <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
     <Licence>Apache License, Version 2.0</Licence>
@@ -22,8 +22,8 @@
   </Project>
   <Project>
     <Name>Neptuo.Events</Name>
-    <Description>Event (output) part of the CQRS system.</Description>
     <Type>dev</Type>
+    <Description>Event (output) part of the CQRS system.</Description>
     <LocalUrl>neptuo.events</LocalUrl>
     <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
     <Licence>Apache License, Version 2.0</Licence>
@@ -32,8 +32,8 @@
   </Project>
   <Project>
     <Name>Neptuo.EventSourcing</Name>
-    <Description>Support libraries to merging whole CQRS and EventSoursing system together.</Description>
     <Type>dev</Type>
+    <Description>Support libraries to merging whole CQRS and EventSoursing system together.</Description>
     <LocalUrl>neptuo.eventsourcing</LocalUrl>
     <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
     <Licence>Apache License, Version 2.0</Licence>
@@ -42,8 +42,8 @@
   </Project>
   <Project>
     <Name>Neptuo.EventSourcing.Domains</Name>
-    <Description>CQRS+ES support library with base classes for commands, events and AggregateRoots.</Description>
     <Type>dev</Type>
+    <Description>CQRS+ES support library with base classes for commands, events and AggregateRoots.</Description>
     <LocalUrl>neptuo.eventsourcing.domains</LocalUrl>
     <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
     <Licence>Apache License, Version 2.0</Licence>
@@ -52,8 +52,8 @@
   </Project>
   <Project>
     <Name>Neptuo.EventSourcing.Formatters.Composite</Name>
-    <Description>Composite formatters support for EventSourcing.</Description>
     <Type>dev</Type>
+    <Description>Composite formatters support for EventSourcing.</Description>
     <LocalUrl>neptuo.eventsourcing.formatters.composite</LocalUrl>
     <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
     <Licence>Apache License, Version 2.0</Licence>
@@ -62,8 +62,8 @@
   </Project>
   <Project>
     <Name>Neptuo.EventSourcing.Formatters.Composite.Json</Name>
-    <Description>JSON Composite formatters support for EventSourcing.</Description>
     <Type>dev</Type>
+    <Description>JSON Composite formatters support for EventSourcing.</Description>
     <LocalUrl>neptuo.eventsourcing.formatters.composite.json</LocalUrl>
     <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
     <Licence>Apache License, Version 2.0</Licence>
@@ -72,8 +72,8 @@
   </Project>
   <Project>
     <Name>Neptuo.Exceptions</Name>
-    <Description>Generic exception handling mainly for asynchronous processing.</Description>
     <Type>dev</Type>
+    <Description>Generic exception handling mainly for asynchronous processing.</Description>
     <LocalUrl>neptuo.exceptions</LocalUrl>
     <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
     <Licence>Apache License, Version 2.0</Licence>
@@ -82,8 +82,8 @@
   </Project>
   <Project>
     <Name>Neptuo.Formatters</Name>
-    <Description>Abstractions for serializing and deserializing objects.</Description>
     <Type>dev</Type>
+    <Description>Abstractions for serializing and deserializing objects.</Description>
     <LocalUrl>neptuo.formatters</LocalUrl>
     <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
     <Licence>Apache License, Version 2.0</Licence>
@@ -92,8 +92,8 @@
   </Project>
   <Project>
     <Name>Neptuo.Formatters.Composite</Name>
-    <Description>Serialized and deserializer with support for versioning and immutable objects created by constructors.</Description>
     <Type>dev</Type>
+    <Description>Serialized and deserializer with support for versioning and immutable objects created by constructors.</Description>
     <LocalUrl>neptuo.formatters.composite</LocalUrl>
     <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
     <Licence>Apache License, Version 2.0</Licence>
@@ -102,8 +102,8 @@
   </Project>
   <Project>
     <Name>Neptuo.Formatters.Composite.Json</Name>
-    <Description>JSON implementation of composite storage for Neptuo.Formatters.Composite.</Description>
     <Type>dev</Type>
+    <Description>JSON implementation of composite storage for Neptuo.Formatters.Composite.</Description>
     <LocalUrl>neptuo.formatters.composite.json</LocalUrl>
     <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
     <Licence>Apache License, Version 2.0</Licence>
@@ -112,8 +112,8 @@
   </Project>
   <Project>
     <Name>Neptuo.Formatters.Composite.Metadata</Name>
-    <Description>Attributes and metadata for composite model description.</Description>
     <Type>dev</Type>
+    <Description>Attributes and metadata for composite model description.</Description>
     <LocalUrl>neptuo.formatters.composite.metadata</LocalUrl>
     <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
     <Licence>Apache License, Version 2.0</Licence>
@@ -122,8 +122,8 @@
   </Project>
   <Project>
     <Name>Neptuo.Models</Name>
-    <Description>Support for creating and accessing anemic and domain models.</Description>
     <Type>dev</Type>
+    <Description>Support for creating and accessing anemic and domain models.</Description>
     <LocalUrl>neptuo.models</LocalUrl>
     <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
     <Licence>Apache License, Version 2.0</Licence>
@@ -134,8 +134,8 @@
   <!-- VSIX -->
   <Project>
     <Name>Neptuo.Productivity</Name>
-    <Description>A set of productivity features: Line duplication, cancel build on first error, build times or show start page after solution closed. All configurable.</Description>
     <Type>vsix</Type>
+    <Description>A set of productivity features: Line duplication, cancel build on first error, build times or show start page after solution closed. All configurable.</Description>
     <LocalUrl>neptuo.productivity</LocalUrl>
     <ProjectUrl>https://github.com/neptuo/Productivity</ProjectUrl>
     <Licence>Apache License, Version 2.0</Licence>
@@ -147,9 +147,7 @@
   <Project>
     <Name>Solution Runner</Name>
     <Type>desktop</Type>
-    <Description>
-      Keyboard-only designed application for simple and fast opening of Visual Studio solution files. 
-    </Description>
+    <Description>Keyboard-only designed application for simple and fast opening of Visual Studio solution files.</Description>
     <Text>
       <p>
         Keyboard-only designed application for simple and fast opening of Visual Studio solution files. 
@@ -341,14 +339,7 @@
   <Project>
     <Name>is4wfw</Name>
     <Type>cms</Type>
-    <Images>
-      <Additional>~/Content/Images/Projects/is4wfw-02.png</Additional>
-      <Additional>~/Content/Images/Projects/is4wfw-01.png</Additional>
-      <Additional>~/Content/Images/Projects/is4wfw-03.png</Additional>
-    </Images>
-    <Description>
-      PHP-based web content management system.
-    </Description>
+    <Description>PHP-based web content management system.</Description>
     <Text>
       <p>
         The is4wfw is a PHP based content management system. It uses custom XML tags for marking places that should be replaced by a dynamic content.
@@ -361,17 +352,15 @@
     </Text>
     <LocalUrl>is4wfw</LocalUrl>
     <ProjectUrl>https://github.com/maraf/PHP-WebFramework</ProjectUrl>
+    <Images>
+      <Additional>~/Content/Images/Projects/is4wfw-02.png</Additional>
+      <Additional>~/Content/Images/Projects/is4wfw-01.png</Additional>
+      <Additional>~/Content/Images/Projects/is4wfw-03.png</Additional>
+    </Images>
   </Project>
   <Project>
     <Name>Template Engine</Name>
     <Type>cms</Type>
-    <Images>
-      <Main>~/Content/Images/Projects/template-engine-04.png</Main>
-      <Additional>~/Content/Images/Projects/template-engine-01.png</Additional>
-      <Additional>~/Content/Images/Projects/template-engine-02.png</Additional>
-      <Additional>~/Content/Images/Projects/template-engine-03.png</Additional>
-      <Additional>~/Content/Images/Projects/template-engine-05.png</Additional>
-    </Images>
     <Description>
       C# based web application with both server-side and client-size view rendering from shared source.
     </Description>
@@ -390,20 +379,32 @@
     </Text>
     <LocalUrl>templateengine</LocalUrl>
     <ProjectUrl>https://github.com/neptuo/TemplateEngine</ProjectUrl>
+    <Images>
+      <Main>~/Content/Images/Projects/template-engine-04.png</Main>
+      <Additional>~/Content/Images/Projects/template-engine-01.png</Additional>
+      <Additional>~/Content/Images/Projects/template-engine-02.png</Additional>
+      <Additional>~/Content/Images/Projects/template-engine-03.png</Additional>
+      <Additional>~/Content/Images/Projects/template-engine-05.png</Additional>
+    </Images>
   </Project>
   <Project>
     <Name>WebCam Image Collector</Name>
     <Type>universal</Type>
+    <Description>Client-server HTTP based application for taking photos and downloading them from the server with WebCam to the clients.</Description>
     <LocalUrl>webcamimagecollector</LocalUrl>
-    <Description>
-      Client-server HTTP based application for taking photos and downloading them from the server with WebCam to the clients.
-    </Description>
     <ProjectUrl>https://github.com/maraf/WebCamImageCollector</ProjectUrl>
   </Project>
   <Project>
     <Name>Vocabulary App</Name>
     <Type>android</Type>
+    <Description>
+      Android application for testing your vocabulary. User can download vocabularies from our API and browse and test phrases placed in it.
+      Vocabularies are splitted into files, so user can download only selected parts of vocabulary.
+      Vocabulary definitions are in testing phase right now, but the client application is fully functional.
+    </Description>
     <LocalUrl>vocabulary</LocalUrl>
+    <ProjectUrl>https://github.com/maraf/vocabularyapp</ProjectUrl>
+    <DownloadUrl>https://github.com/maraf/vocabularyapp/releases/download/v1.2.1/neptuo-vocabularyapp-v1.2.1.apk</DownloadUrl>
     <Images>
       <Additional>~/Content/Images/Projects/vocabulary-app-01.png</Additional>
       <Additional>~/Content/Images/Projects/vocabulary-app-02.png</Additional>
@@ -411,13 +412,6 @@
       <Additional>~/Content/Images/Projects/vocabulary-app-04.png</Additional>
       <Additional>~/Content/Images/Projects/vocabulary-app-05.png</Additional>
     </Images>
-    <Description>
-      Android application for testing your vocabulary. User can download vocabularies from our API and browse and test phrases placed in it.
-      Vocabularies are splitted into files, so user can download only selected parts of vocabulary.
-      Vocabulary definitions are in testing phase right now, but the client application is fully functional.
-    </Description>
-    <ProjectUrl>https://github.com/maraf/vocabularyapp</ProjectUrl>
-    <DownloadUrl>https://github.com/maraf/vocabularyapp/releases/download/v1.2.1/neptuo-vocabularyapp-v1.2.1.apk</DownloadUrl>
     <Version>
       <Name>v1.2.1</Name>
       <DownloadUrl>https://github.com/maraf/vocabularyapp/releases/download/v1.2.1/neptuo-vocabularyapp-v1.2.1.apk</DownloadUrl>

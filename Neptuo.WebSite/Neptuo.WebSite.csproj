@@ -208,6 +208,12 @@
     <Content Include="Content\Images\FootBackground.png" />
     <Content Include="Content\Images\Logo.png" />
     <Content Include="Content\Stylesheet\syntax.css" />
+    <None Include="App_Data\Xsd\Neptuo.WebSite.Blog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="App_Data\Xsd\Neptuo.WebSite.Projects.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>

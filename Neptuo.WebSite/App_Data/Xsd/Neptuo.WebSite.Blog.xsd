@@ -1,0 +1,32 @@
+﻿<xs:schema id="PresentationModels.ModelDefinition"
+    targetNamespace="http://schemas.neptuo.com/xsd/neptuo-website-blog.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://schemas.neptuo.com/xsd/neptuo-website-blog.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="MetadataType">
+    <xs:attribute name="Key" type="xs:string" use="required" />
+    <xs:attribute name="Value" type="xs:string" use="required" />
+  </xs:complexType>
+
+  <xs:element name="Posts">
+    <xs:complexType>
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Post">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Title" minOccurs="1" maxOccurs="1" />
+              <xs:element name="Description" minOccurs="1" maxOccurs="1" />
+              <xs:element name="Url" minOccurs="1" maxOccurs="1" />
+              <xs:element name="FilePath" minOccurs="1" maxOccurs="1" />
+              <xs:element name="ReleaseDate" minOccurs="1" maxOccurs="1" />
+              <xs:element name="Author" minOccurs="1" maxOccurs="1" />
+              <xs:element name="GitHubCommentPath" minOccurs="1" maxOccurs="1" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Posts>
+<Posts xmlns="http://schemas.neptuo.com/xsd/neptuo-website-blog.xsd">
   <Post>
     <Title>SharpKit extension/plugin called UnobtrusiveFeatures</Title>
     <Description>
