@@ -6,7 +6,7 @@ using System.Xml.Serialization;
 
 namespace Neptuo.WebSite.Models.Blogging
 {
-    [XmlRoot("Posts")]
+    [XmlRoot("Posts", Namespace = "http://schemas.neptuo.com/xsd/neptuo-website-blog.xsd")]
     public class PostList : List<PostModel>
     { }
 }

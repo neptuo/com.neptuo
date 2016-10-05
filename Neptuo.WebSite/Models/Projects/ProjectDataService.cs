@@ -28,7 +28,7 @@ namespace Neptuo.WebSite.Models.Projects
         }
     }
 
-    [XmlRoot("Projects")]
+    [XmlRoot("Projects", Namespace = "http://schemas.neptuo.com/xsd/neptuo-website-projects.xsd")]
     public class ProjectList : List<ProjectModel> 
     { }
 }

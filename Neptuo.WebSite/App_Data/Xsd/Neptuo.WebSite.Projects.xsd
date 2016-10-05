@@ -1,14 +1,8 @@
-﻿<xs:schema id="PresentationModels.ModelDefinition"
+﻿<xs:schema id="Neptuo.WebSite.Projects"
     targetNamespace="http://schemas.neptuo.com/xsd/neptuo-website-projects.xsd"
     elementFormDefault="qualified"
     xmlns="http://schemas.neptuo.com/xsd/neptuo-website-projects.xsd"
     xmlns:xs="http://www.w3.org/2001/XMLSchema">
-
-  <xs:complexType name="MetadataType">
-    <xs:attribute name="Key" type="xs:string" use="required" />
-    <xs:attribute name="Value" type="xs:string" use="required" />
-  </xs:complexType>
-
   <xs:element name="Projects">
     <xs:complexType>
       <xs:sequence minOccurs="0" maxOccurs="unbounded">
