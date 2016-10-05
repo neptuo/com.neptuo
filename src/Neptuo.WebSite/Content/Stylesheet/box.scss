@@ -11,3 +11,15 @@
 .box p {
     text-align: justify;
 }
+
+.folder .box {
+    margin: 0 10px;
+}
+
+.folder .col-md-4:first-child .box {
+    margin-left: 0;
+}
+
+.folder .col-md-4:last-child .box {
+    margin-right: 0;
+}

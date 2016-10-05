@@ -45,7 +45,7 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div>
+            <div class="box">
                 <div class="folder-heading">
                     <span class="glyphicon glyphicon-globe"></span>
                     <h2>Web sites</h2>
@@ -57,7 +57,7 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div>
+            <div class="box">
                 <div class="folder-heading">
                     <span class="glyphicon glyphicon-phone"></span>
                     <h2>Mobile apps</h2>
@@ -71,7 +71,7 @@
         <div class="clear"></div>
 
         <div class="col-md-4">
-            <div>
+            <div class="box">
                 <div class="folder-heading">
                     <span>C#</span>
                     <h2>Most prefered</h2>
@@ -82,7 +82,7 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div>
+            <div class="box">
                 <div class="folder-heading">
                     <span>PHP</span>
                     <h2>Lowcost</h2>
@@ -93,7 +93,7 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div>
+            <div class="box">
                 <div class="folder-heading">
                     <span class="glyphicon glyphicon-thumbs-up"></span>
                     <h2>For hire</h2>
@@ -107,8 +107,28 @@
             </div>
         </div>
         <div class="clear"></div>
-
     </div>
+
+    @*<div class="folder blog">
+        <h2 class="folder-heading">
+            Since this year, we are writing <a href="@Url.Action("blog")">developers blog</a>
+        </h2>
+        <p class="first" style="margin-bottom: 20px;">
+            You can find there various topics from developers life. Most of them will be from C#, JavaScript, compiling C# to JavaScript, architectural thoughs etc.
+        </p>
+
+        <div class="date">
+            <div class="day">@Model.BlogPost.ReleaseDate.Day</div>
+            <div class="month">@Model.BlogPost.ReleaseDate.ToString("MMM")</div>
+        </div>
+        <div class="folder-content">
+            <h2 class="folder-heading">
+                <a href="@Url.RouteUrl("BlogPost", new { year = Model.BlogPost.ReleaseDate.Year, month = Model.BlogPost.ReleaseDate.Month, day = Model.BlogPost.ReleaseDate.Day, slug = Model.BlogPost.Url })">@Model.BlogPost.Title</a>
+            </h2>
+            <article>@Model.BlogPost.Description</article>
+        </div>
+        <div class="clear"></div>
+    </div>*@
 
     <div class="folder">
         <h2 class="folder-heading">
@@ -160,27 +180,6 @@
         
         @Html.Partial("ShortWebs", Model.Webs)
 
-        <div class="clear"></div>
-    </div>
-
-    <div class="folder blog">
-        <h2 class="folder-heading">
-            Since this year, we are writing <a href="@Url.Action("blog")">developers blog</a>
-        </h2>
-        <p class="first" style="margin-bottom: 20px;">
-            You can find there various topics from developers life. Most of them will be from C#, JavaScript, compiling C# to JavaScript, architectural thoughs etc.
-        </p>
-
-        <div class="date">
-            <div class="day">@Model.BlogPost.ReleaseDate.Day</div>
-            <div class="month">@Model.BlogPost.ReleaseDate.ToString("MMM")</div>
-        </div>
-        <div class="folder-content">
-            <h2 class="folder-heading">
-                <a href="@Url.RouteUrl("BlogPost", new { year = Model.BlogPost.ReleaseDate.Year, month = Model.BlogPost.ReleaseDate.Month, day = Model.BlogPost.ReleaseDate.Day, slug = Model.BlogPost.Url })">@Model.BlogPost.Title</a>
-            </h2>
-            <article>@Model.BlogPost.Description</article>
-        </div>
         <div class="clear"></div>
     </div>
 </div>

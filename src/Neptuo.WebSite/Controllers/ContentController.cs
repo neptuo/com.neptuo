@@ -34,7 +34,7 @@ namespace Neptuo.WebSite.Controllers
             return View(new HomeModel(
                 webDataService.Get().Take(6), 
                 projectDataService.Get().Take(10),
-                dataService.Get().First()
+                dataService.Get().Last()
             ));
         }
 
