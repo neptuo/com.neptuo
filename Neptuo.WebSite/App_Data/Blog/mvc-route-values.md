@@ -30,4 +30,46 @@ This was our initial thought. Just create a `PostLink` extension method on the `
 
 Right after that, we would surely needed the same extension method on the `UrlHelper`.
 
-### 2)
+### 2) Shared/partial/model view
+
+We can also use display view for model property.
+
+```Razor
+@Html.DisplayFor(m => m.post, "PostLinkView")
+```
+
+And then create a cshtml view in the `~/Views/Shared/DisplayViews/PostListView.cshtml`. 
+
+I think this is suitable for a link different scenario than the one we challenge here. This is best suited when a more complex HTML is needed, like when we want to share a whole template for the post preview.
+
+![Blog post preview](/Content/Images/Blog/mvc-route-values/blog-post-preview.png)
+
+### 3) Using model, aka C# class
+
+Than we have realized that do object, that is passed to the `RouteLink` or `RouteUrl` could be of any type, and that this type can be hand written class, not just anonymous class generated from `new { ... }`. So we have written a class
+
+```C#
+public class BlogPostRouteValues
+{
+    public int Year { get; private set; }
+    public int Month { get; private set; }
+    public int Day { get; private set; }
+    public string Url { get; private set; }
+
+    public BlogPostRoute(DateTime dateTime, string url)
+    {
+        Year = dateTime.Year;
+        Month = dateTime.Month;
+        Day = dateTime.Day;
+        Url = url;
+    }
+}
+```
+
+And used it in our views
+
+```
+@Url.RouteUrl("BlogPost", new BlogPostRoute(post.ReleaseDate, post.Url))
+```
+
+And we liked it. We liked it vary much, because we can use this class for both `HtmlHelper` methods and `UrlHelper` methods, because it is nothing more then route values class.
