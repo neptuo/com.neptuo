@@ -181,7 +181,7 @@ How this is evaluated?
 * RouteUrl is straightforwardly taken from the `RouteUrlAttribute`.
 * Defaults are defined using `RouteDefaultAttribute`. The `RouteControllerAttribute` is inherited from it and overrides a method for providing key-value pairs used as defaults.
 
-This is bit of reflection that will be used not event when registering routes in the application startup, but every time the URL is needed for such model. It the same as with the class using constants shown previously.
+This is bit of reflection that will be used not even when registering routes in the application startup, but every time the URL is needed for such model. It the same as with the class using constants shown previously.
 
 To avoid this, we have introduced a `IRouteModelCollection` where reflection is used only for the first time the concrete type is used and then the cached model is used. Because there is now simple way to pass this collection the extension methods on the `HtmlHelper` and `UrlHelper`, we use it as single (because it is only a cache that can be shared across whole application) from `RouteModel.Collection`.
 
