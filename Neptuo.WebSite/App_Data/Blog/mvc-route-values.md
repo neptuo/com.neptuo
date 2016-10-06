@@ -22,19 +22,9 @@ I didn't like it when I wrote it, but at the time it was used in a single place.
 
 ### 0) Close your eyes and copy-paste
 
-No, I really do not mean this seriously, but it was the initial solution. Till the time I started on our new homepage where we want a link to the latest blog post...
+No, I really do not mean this seriously, but it was the initial solution. Till the time I started work on our new homepage where we want a link to the latest blog post...
 
-### 1) Create extension method on HtmlHelper
-
-This was our initial thought. Just create a `PostLink` extension method on the `HtmlHelper` and pass in the release date and partial post URL.
-
-```Razor
-@Html.PostLink("View post detail", post.PublishedAt, post.Slug)
-```
-
-Right after that, we would surely needed the same extension method on the `UrlHelper`.
-
-### 2) Shared/partial/model view
+### 1) Shared/partial/model view
 
 We can also use display view for model property.
 
@@ -47,6 +37,16 @@ And then create a cshtml view in the `~/Views/Shared/DisplayViews/PostListView.c
 I think this is suitable for a link different scenario than the one we challenge here. This is best suited when a more complex HTML is needed, like when we want to share a whole template for the post preview.
 
 ![Blog post preview](/Content/Images/Blog/mvc-route-values/blog-post-preview.png)
+
+### 2) Create extension method on HtmlHelper
+
+This was our next thought. Just create a `PostLink` extension method on the `HtmlHelper` and pass in the release date and partial post URL.
+
+```Razor
+@Html.PostLink("View post detail", post.PublishedAt, post.Slug)
+```
+
+Right after that, we would surely needed the same extension method on the `UrlHelper`. Pretty simple solution, but our Projects section has also a bit complicated URL.
 
 ### 3) Using model, aka C# class
 
@@ -70,13 +70,13 @@ public class BlogPostRouteValues
 }
 ```
 
-And used it in our views
+And we used it in our views.
 
 ```
 @Url.RouteUrl("BlogPost", new BlogPostRouteValues(post.ReleaseDate, post.Url))
 ```
 
-And we liked it. We liked it vary much, because we can use this class for both `HtmlHelper` methods and `UrlHelper` methods, because it is nothing more then route values class.
+And we liked it. We liked it vary much, because we can use this class for both `HtmlHelper` methods and `UrlHelper` methods. It is PORVO (Plain-Old-Route-Values-Object) and it can be used everywhere route values for blog post are needed. The constructor does all the dirty work in a one single place.
 
 ## Roots of the AspNet (model) Navigation project
 
@@ -163,7 +163,7 @@ Now we can use these methods for creating links and URLs.
 @Url.ModelUrl(new BlogPostRouteValues(post.ReleaseDate, post.Url))
 ```
 
-This really awsome and simple and it only costs create route values class. Such class shouldn't even contain read-only properties and constructor, it could be simple anemic POCO. So there aren't too much LoC introduced in this pattern.
+This really awsome and simple and it only costs creating route values class. Currently we are linking to blog posts from three places. The number of code lines needed for original solution (with copy-paste) and model-based are the same, except that adding next link is much easier now and we are not copy-pasting, which is always good.
 
 ### Designing the library
 
