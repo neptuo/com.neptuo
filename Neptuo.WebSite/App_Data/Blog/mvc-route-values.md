@@ -18,9 +18,13 @@ A real fun started when I was trying to create a link to the detail of blog post
 
 Because we wanted 'nice' URLs containing year, month, day and post partial url, and our model contains release date as `DateTime`, I had to 'deconstruct' the DateTime object to separate fields. 
 
-I don't like, but when it was used in a single place, it was ok. But this week we have introduced RSS feed and so we needed to generate links to posts again, but in different view. This lead to think, how can we unify this?
+I didn't like it when I wrote it, but at the time it was used in a single place. I have closed my eyes and leave it. But this week we have introduced RSS feed and so we needed to generate links to posts again, but in different view. This lead us to think, how can we unify this?
 
-### 1) Create extension method of HtmlHelper.
+### 0) Close your eyes and copy-paste
+
+No, I really mean this seriously, but it was the initial solution. Till the time I started on our new homepage where we want a link to the latest blog post...
+
+### 1) Create extension method on HtmlHelper
 
 This was our initial thought. Just create a `PostLink` extension method on the `HtmlHelper` and pass in the release date and partial post URL.
 
@@ -74,7 +78,7 @@ And used it in our views
 
 And we liked it. We liked it vary much, because we can use this class for both `HtmlHelper` methods and `UrlHelper` methods, because it is nothing more then route values class.
 
-## Backgrounds of the AspNet (model) Navigation project
+## Roots of the AspNet (model) Navigation project
 
 The hand written route values class inspired us to create a small NuGet package with support for creating links and urls, registering routes and do navigation in MVC projects using classes.
 
