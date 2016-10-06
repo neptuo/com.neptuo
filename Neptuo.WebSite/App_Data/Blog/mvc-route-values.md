@@ -103,7 +103,7 @@ routes.MapRoute(
 
 With a bit of reflection, this can be even simplified to an extension method of `RouteCollection` that requires only type of the route values class.
 
-```
+```C#
 public static Route MapModel<TModel>(this RouteCollection routes)
 {
     FieldInfo routeNameFieldInfo = typeof(TModel).GetField("RouteName", BindingFlags.Static | BindingFlags.Public);
