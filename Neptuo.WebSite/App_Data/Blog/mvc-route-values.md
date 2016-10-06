@@ -46,7 +46,7 @@ I think this is suitable for a link different scenario than the one we challenge
 
 ### 3) Using model, aka C# class
 
-Than we have realized that do object, that is passed to the `RouteLink` or `RouteUrl` could be of any type, and that this type can be hand written class, not just anonymous class generated from `new { ... }`. So we have written a class
+Than we have realized that the object passed to the `RouteLink` or `RouteUrl` could be of any type, and that this type can even be a hand written class, not just anonymous class generated from `new { ... }`. So we have written a class.
 
 ```C#
 public class BlogPostRouteValues
@@ -56,7 +56,7 @@ public class BlogPostRouteValues
     public int Day { get; private set; }
     public string Url { get; private set; }
 
-    public BlogPostRoute(DateTime dateTime, string url)
+    public BlogPostRouteValues(DateTime dateTime, string url)
     {
         Year = dateTime.Year;
         Month = dateTime.Month;
@@ -69,7 +69,92 @@ public class BlogPostRouteValues
 And used it in our views
 
 ```
-@Url.RouteUrl("BlogPost", new BlogPostRoute(post.ReleaseDate, post.Url))
+@Url.RouteUrl("BlogPost", new BlogPostRouteValues(post.ReleaseDate, post.Url))
 ```
 
 And we liked it. We liked it vary much, because we can use this class for both `HtmlHelper` methods and `UrlHelper` methods, because it is nothing more then route values class.
+
+## Backgrounds of the AspNet (model) Navigation project
+
+The hand written route values class inspired us to create a small NuGet package with support for creating links and urls, registering routes and do navigation in MVC projects using classes.
+
+We have realized that a name of the route could be part of the class, as const field or using custom attribute. Also the route URL could be placed here and default values too. So we have added these fields to our `BlogPostRouteValues`.
+
+```C#
+public class BlogPostRouteValues
+{
+    public const string RouteName = "BlogPost";
+    public const string RouteTemplate = "blog/{year}/{month}/{day}/{slug}";
+    public static readonly object Defaults = new { Controller = "Content", Action = "BlogPost" };
+    
+    ...
+}
+```
+
+With this class, we can register the route in our `RouteConfig.cs`.
+
+```C#
+routes.MapRoute(
+    name: BlogPostRouteValues.RouteName,
+    url: BlogPostRouteValues.RouteTemplate,
+    defauls: BlogPostRouteValues.Defaults
+);
+```
+
+With a bit of reflection, this can be even simplified to an extension method of `RouteCollection` that requires only type of the route values class.
+
+```
+public static Route MapModel<TModel>(this RouteCollection routes)
+{
+    FieldInfo routeNameFieldInfo = typeof(TModel).GetField("RouteName", BindingFlags.Static | BindingFlags.Public);
+    FieldInfo urlFieldInfo = typeof(TModel).GetField("RouteTemplate", BindingFlags.Static | BindingFlags.Public);
+    FieldInfo defaultsFieldInfo = typeof(TModel).GetField("Defaults", BindingFlags.Static | BindingFlags.Public);
+
+    string routeName = (string)routeNameFieldInfo.GetRawConstantValue();
+    string url = (string)urlFieldInfo.GetRawConstantValue();
+    object defaults = defaultsFieldInfo.GetValue(null);
+    return routes.MapRoute(routeName, url, defaults);
+}
+```
+
+The registration is now as simple as this single line of code.
+ 
+ ```C#
+ routes.MapModel<BlogPostRouteValues>();
+ ```
+ 
+Now, we have finished the route registration, as I'm not sure if it can be simplified even more.
+
+ > There should some `null` checkes and because not all of these fields are required, the route can be registered with only one static field, the `RouteTemplate`. But lets skip this for now.
+
+### Creating links and URLs
+
+Because route values class now contains both actual route values and name of the route to use, we were able to create another simple extension method, this time on `HtmlHelper` and `UrlHelper`.
+ 
+```C#
+public static string ModelUrl(this UrlHelper url, object route)
+{
+    FieldInfo fieldInfo = route.GetType().GetField("RouteName", BindingFlags.Static | BindingFlags.Public);
+    string routeName = (string)fieldInfo.GetRawConstantValue();
+    return url.RouteUrl(routeName, route);
+}
+
+public static MvcHtmlString ModelLink(this HtmlHelper html, string linkText, object route)
+{
+    FieldInfo fieldInfo = route.GetType().GetField("RouteName", BindingFlags.Static | BindingFlags.Public);
+    string routeName = (string)fieldInfo.GetRawConstantValue();
+    return html.RouteLink(linkText, routeName, route);
+}
+```
+ 
+> Also here the `RouteName` is not required and the reflection can be skipped.
+
+Now we can use these methods for creating links and URLs.
+
+```Razor
+@Html.ModelLink("View post detail", new BlogPostRouteValues(post.ReleaseDate, post.Url))
+...
+@Url.ModelUrl(new BlogPostRouteValues(post.ReleaseDate, post.Url))
+```
+
+This really awsome and simple and it only costs create route values class. Such class shouldn't even contain read-only properties and constructor, it could be simple anemic POCO. So there aren't too much LoC introduced in this pattern.
