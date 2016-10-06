@@ -22,7 +22,7 @@ I didn't like it when I wrote it, but at the time it was used in a single place.
 
 ### 0) Close your eyes and copy-paste
 
-No, I really mean this seriously, but it was the initial solution. Till the time I started on our new homepage where we want a link to the latest blog post...
+No, I really do not mean this seriously, but it was the initial solution. Till the time I started on our new homepage where we want a link to the latest blog post...
 
 ### 1) Create extension method on HtmlHelper
 
