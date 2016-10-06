@@ -125,7 +125,7 @@ The registration is now as simple as this single line of code.
  
 Now, we have finished the route registration, as I'm not sure if it can be simplified even more.
 
- > There should some `null` checkes and because not all of these fields are required, the route can be registered with only one static field, the `RouteTemplate`. But lets skip this for now.
+ > There should some `null` checkes and because not all of these fields are required, the route can be registered with only one static field, the `RouteTemplate`. But let's skip this for now.
 
 ### Creating links and URLs
 
@@ -153,8 +153,44 @@ Now we can use these methods for creating links and URLs.
 
 ```Razor
 @Html.ModelLink("View post detail", new BlogPostRouteValues(post.ReleaseDate, post.Url))
-...
+```
+
+```Razor
 @Url.ModelUrl(new BlogPostRouteValues(post.ReleaseDate, post.Url))
 ```
 
 This really awsome and simple and it only costs create route values class. Such class shouldn't even contain read-only properties and constructor, it could be simple anemic POCO. So there aren't too much LoC introduced in this pattern.
+
+### Designing the library
+
+Constants are boring when they are read by reflection. Let's define them by attributes. Also, defaults are still defined using anonymous classes. Also, the route name can be taken from class name using some conventions.
+
+```C#
+[RouteName]
+[RouteUrl("blog/{year}/{month}/{day}/{slug}")]
+[RouteController("Content", "Blog")]
+public class BlogPostRoute
+{
+    // Instance members only...
+}
+```
+
+How this is evaluated?
+
+* RouteName is taken from the class name, so `BlogPostRoute`. This is because we used the `RouteNameAttribute`, but didn't pass in value. When didn't use it at all, the route will be registered without name.
+* RouteUrl is straightforwardly taken from the `RouteUrlAttribute`.
+* Defaults are defined using `RouteDefaultAttribute`. The `RouteControllerAttribute` is inherited from it and overrides a method for providing key-value pairs used as defaults.
+
+This is bit of reflection that will be used not event when registering routes in the application startup, but every time the URL is needed for such model. It the same as with the class using constants shown previously.
+
+To avoid this, we have introduced a `IRouteModelCollection` where reflection is used only for the first time the concrete type is used and then the cached model is used. Because there is now simple way to pass this collection the extension methods on the `HtmlHelper` and `UrlHelper`, we use it as single (because it is only a cache that can be shared across whole application) from `RouteModel.Collection`.
+
+With this collection (or call it service) we can introduce features like route model validation. We take the route url and test if all tokens have a property with the same name or a default key-value is provided. The validation is executed when the route model is created, so typically in the application startup and only once.
+
+Both the collection and validation can be replaced or extended. The static class `RouteModel` contains method for registering new instance of `IRouteModelCollection` and the default implementation of it takes a `IRouteModelValidator` in the constructor.
+
+## Summary
+
+A simple problem of creating links to posts in the blog lead to a whole new project. This project takes a lot of type-safety to the world of MVC routing. It can work side by side with typical routes, so only those 'hard-ones' can be handled by classes.
+
+Also when these route classes are defined as anemic POCO, with public setters, it easy to use them in the action methods of controllers for reading parameters.
