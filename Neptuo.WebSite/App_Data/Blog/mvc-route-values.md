@@ -34,7 +34,7 @@ We can also use display view for model property.
 
 And then create a cshtml view in the `~/Views/Shared/DisplayViews/PostListView.cshtml`. 
 
-I think this is suitable for a link different scenario than the one we challenge here. This is best suited when a more complex HTML is needed, like when we want to share a whole template for the post preview.
+I think this is suitable for a little different scenario than the one we challenge here. This is best suited when a more complex HTML is needed, like when we want to share a whole template for the post preview.
 
 ![Blog post preview](/Content/Images/Blog/mvc-route-values/blog-post-preview.png)
 
