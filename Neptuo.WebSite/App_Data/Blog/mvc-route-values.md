@@ -194,3 +194,11 @@ Both the collection and validation can be replaced or extended. The static class
 A simple problem of creating links to posts in the blog lead to a whole new project. This project takes a lot of type-safety to the world of MVC routing. It can work side by side with typical routes, so only those 'hard-ones' can be handled by classes.
 
 Also when these route classes are defined as anemic POCO, with public setters, it easy to use them in the action methods of controllers for reading parameters.
+
+### Links
+
+* [Source codes of Neptuo.AspNet.Navigation at GitHub](https://github.com/neptuo/AspNet.Navigation)
+* [Current version of NuGet package for (full) ASP.NET](https://www.nuget.org/packages/Neptuo.AspNet.Navigation)
+* [Current version of NuGet package for ASP.NET Core](https://www.nuget.org/packages/Neptuo.AspNetCore.Navigation)
+
+If you have any problem using the library or find a bug, contact us or leave an issue at GitHub.
