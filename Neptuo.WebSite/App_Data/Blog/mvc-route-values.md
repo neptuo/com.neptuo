@@ -129,7 +129,7 @@ The registration is now as simple as this single line of code.
  
 Now, we have finished the route registration, as I'm not sure if it can be simplified even more.
 
- > There should some `null` checkes and because not all of these fields are required, the route can be registered with only one static field, the `RouteTemplate`. But let's skip this for now.
+ > Because not all of these fields are required, the route can be registered with only single static field, the `RouteTemplate`.
 
 ### Creating links and URLs
 
