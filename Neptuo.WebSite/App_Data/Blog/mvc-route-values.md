@@ -199,7 +199,7 @@ Lastly, we have decided to introduce interfaces for all of the metadata defined 
 
 A simple problem of creating links to posts in the blog lead to a whole new project. This project takes a lot of type-safety to the world of MVC routing. It can work side by side with typical routes, so only those 'hard-ones' can be handled by classes.
 
-Also when these route classes are defined as anemic POCO, with public setters, it easy to use them in the action methods of controllers for reading parameters.
+Also when these route classes are defined as anemic POCO, with public setters, it is easy to use them in the action methods of controllers for reading parameters.
 
 ### Links
 
