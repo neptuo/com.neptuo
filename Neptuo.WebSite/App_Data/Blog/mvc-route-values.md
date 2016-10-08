@@ -187,11 +187,13 @@ How this is evaluated?
 
 This is bit of reflection that will be used not even when registering routes in the application startup, but every time the URL is needed for such model. It the same as with the class using constants shown previously.
 
-To avoid this, we have introduced a `IRouteModelCollection` where reflection is used only for the first time the concrete type is used and then the cached model is used. Because there is now simple way to pass this collection the extension methods on the `HtmlHelper` and `UrlHelper`, we use it as single (because it is only a cache that can be shared across whole application) from `RouteModel.Collection`.
+To avoid this, we have introduced a `IRouteModelProvider` where reflection is used only for the first time the concrete type is used and then the cached model is used. Because there is no simple way to pass this collection to the extension methods on the `HtmlHelper` and `UrlHelper`, we use it as single (because it is only a cache that can be shared across whole application) from `RouteModel.Provider`.
 
 With this collection (or call it service) we can introduce features like route model validation. We take the route url and test if all tokens have a property with the same name or a default key-value is provided. The validation is executed when the route model is created, so typically in the application startup and only once.
 
-Both the collection and validation can be replaced or extended. The static class `RouteModel` contains method for registering new instance of `IRouteModelCollection` and the default implementation of it takes a `IRouteModelValidator` in the constructor.
+Both the collection and validation can be replaced or extended. The static class `RouteModel` contains method for registering new instance of `IRouteModelProvider` and the default implementation of it takes a `IRouteModelValidator` in the constructor.
+
+Lastly, we have decided to introduce interfaces for all of the metadata defined using attributes, so custom attributes can be made and will work the default implementation of `IRouteModelProvider`. Every attribute defined on the route model class is casted to the `IRouteNameProvider`, `IRouteUrlProvider` and `IRouteDefaultProvider`. This way can introduce a single attribute that implements all the interfaces.
 
 ## Summary
 
