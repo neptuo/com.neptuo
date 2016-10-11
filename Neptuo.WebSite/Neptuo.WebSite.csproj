@@ -125,7 +125,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Blogging\HtmlFormatter.cs" />
+    <Compile Include="Models\HtmlFormatter.cs" />
     <Compile Include="Models\Blogging\PostDataService.cs" />
     <Compile Include="Models\Blogging\PostList.cs" />
     <Compile Include="Models\Blogging\PostModel.cs" />

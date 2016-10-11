@@ -7,7 +7,7 @@ using CommonMark;
 using CommonMark.Syntax;
 using Skybrud.SyntaxHighlighter;
 
-namespace Neptuo.WebSite.Models.Blogging
+namespace Neptuo.WebSite.Models
 {
     public class HtmlFormatter : CommonMark.Formatters.HtmlFormatter
     {
