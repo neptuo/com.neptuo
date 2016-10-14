@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neptuo.WebSite", "Neptuo.WebSite\Neptuo.WebSite.csproj", "{7289DEC6-D4A0-45C9-83D4-277FE4B2172C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neptuo.WebSite", "src\Neptuo.WebSite\Neptuo.WebSite.csproj", "{7289DEC6-D4A0-45C9-83D4-277FE4B2172C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{2D3DEA76-CED2-42C1-86E7-7FBFAE1BD1BA}"
 	ProjectSection(SolutionItems) = preProject
