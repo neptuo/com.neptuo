@@ -11,6 +11,15 @@
     <DocumentationUrl>https://github.com/neptuo/Framework/wiki</DocumentationUrl>
   </Project>
   <Project>
+    <Name>Neptuo.AspNet.Navigation</Name>
+    <Type>dev</Type>
+    <Description>Model (class) based navigation and routing for ASP.NET MVC.</Description>
+    <LocalUrl>neptuo.aspnet.navigation</LocalUrl>
+    <ProjectUrl>https://github.com/neptuo/AspNet.Navigation</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+  </Project>
+  <Project>
     <Name>Neptuo.Commands</Name>
     <Type>dev</Type>
     <Description>Command (input) part of the CQRS system.</Description>
