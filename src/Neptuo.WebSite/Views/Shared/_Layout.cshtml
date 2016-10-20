@@ -10,6 +10,9 @@
         </a>
     </li>
 }
+@{ 
+    var blogUrl = "http://www.neptuo.com" + Url.ModelUrl(new BlogAtomRoute());
+}
 <!doctype html>
 <html>
 <head>
@@ -21,6 +24,8 @@
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
     <link href="~/Content/web.css" rel="stylesheet" />
+
+    <link rel="alternate" type="application/rss+xml" title="Neptuo Blog" href="@blogUrl" />
 </head>
 <body>
 
@@ -34,9 +39,9 @@
                 @MenuItem("Home", "How can we help you?", "home", "~/", true)
             </ul>
             <ul class="right">
-                @MenuItem("Projects", "Projects we are working on", "cloud", "~/project")
+                @MenuItem("Projects", "Projects we are working on", "cloud", Url.ModelUrl(new ProjectRoute()))
                 @MenuItem("Services", "Our services and references", "globe", "~/service")
-                @MenuItem("Blog", "Thoughts to share", "bookmark", "~/blog")
+                @MenuItem("Blog", "Thoughts to share", "bookmark", Url.ModelUrl(new BlogRoute()))
             </ul>
         </div>
     </nav>

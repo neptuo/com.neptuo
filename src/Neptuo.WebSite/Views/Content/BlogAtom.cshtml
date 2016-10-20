@@ -15,7 +15,7 @@
     </author>
     @foreach (var post in Model)
     {
-        var url = "http://www.neptuo.com" + Url.ModelUrl(new BlogPostRoute(post.ReleaseDatepost.Url));
+        var url = "http://www.neptuo.com" + Url.ModelUrl(new BlogPostRoute(post.ReleaseDate, post.Url));
         <entry>
             <title>@post.Title</title>
             <link href="@url" />

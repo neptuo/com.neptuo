@@ -19,6 +19,9 @@ namespace Neptuo.WebSite.Navigation
         public string Type { get; private set; }
         public string Project { get; private set; }
 
+        public ProjectRoute()
+        { }
+
         public ProjectRoute(ProjectModel model)
         {
             Ensure.NotNull(model, "model");
