@@ -205,6 +205,5 @@ Also when these route classes are defined as anemic POCO, with public setters, i
 
 * [Source codes of Neptuo.AspNet.Navigation at GitHub](https://github.com/neptuo/AspNet.Navigation)
 * [Current version of NuGet package for (full) ASP.NET](https://www.nuget.org/packages/Neptuo.AspNet.Navigation)
-* [Current version of NuGet package for ASP.NET Core](https://www.nuget.org/packages/Neptuo.AspNetCore.Navigation)
 
 If you have any problem using the library or find a bug, contact us or leave an issue at GitHub.

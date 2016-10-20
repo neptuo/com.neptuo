@@ -219,6 +219,9 @@
     <Content Include="Content\Images\FootBackground.png" />
     <Content Include="Content\Images\Logo.png" />
     <Content Include="Content\Stylesheet\syntax.css" />
+    <Content Include="App_Data\Blog\building-processing-pipeline-with-behaviors.md" />
+    <Content Include="App_Data\Blog\mvc-route-values.md" />
+    <Content Include="App_Data\Blog\naming-things.md" />
     <None Include="App_Data\Xsd\Neptuo.WebSite.Blog.xsd">
       <SubType>Designer</SubType>
     </None>
