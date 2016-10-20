@@ -10,7 +10,7 @@ namespace System.Web
         public static bool IsActive(this HttpRequestBase request, string url, bool exact = false)
         {
             string targetUrl = request.AppRelativeCurrentExecutionFilePath;
-            if (url.StartsWith("http"))
+            if (url.StartsWith("/"))
                 targetUrl = request.RawUrl;
 
             if (exact)

@@ -1,7 +1,8 @@
-﻿@helper MenuItem(string text, string subtext, string icon, string url, bool isExactUrlMatched = false)
+﻿@helper MenuItem(string text, string subtext, string icon, object route, bool isExactUrlMatched = false)
 {
+    var url = Url.ModelUrl(route);
     <li class="@Request.ActiveCssClass(url, isExactUrlMatched)">
-        <a href="@Request.ResolveUrl(url)">
+        <a href="@url">
             <div class="maintext">
                 @text
                 <span class="glyphicon glyphicon-@icon"></span>
@@ -36,12 +37,12 @@
             </button>
 
             <ul class="left">
-                @MenuItem("Home", "How can we help you?", "home", "~/", true)
+                @MenuItem("Home", "How can we help you?", "home", new HomeRoute(), true)
             </ul>
             <ul class="right">
-                @MenuItem("Projects", "Projects we are working on", "cloud", Url.ModelUrl(new ProjectRoute()))
-                @MenuItem("Services", "Our services and references", "globe", "~/service")
-                @MenuItem("Blog", "Thoughts to share", "bookmark", Url.ModelUrl(new BlogRoute()))
+                @MenuItem("Projects", "Projects we are working on", "cloud", new ProjectRoute())
+                @MenuItem("Services", "Our services and references", "globe", new ServiceRoute())
+                @MenuItem("Blog", "Thoughts to share", "bookmark", new BlogRoute())
             </ul>
         </div>
     </nav>

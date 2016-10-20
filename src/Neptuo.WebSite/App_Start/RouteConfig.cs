@@ -19,22 +19,12 @@ namespace Neptuo.WebSite
 
             //Custom routes
 
-            routes.MapRoute(
-                name: "Service",
-                url: "service",
-                defaults: new { controller = "Content", action = "Service" }
-            );
-            
+            routes.MapModel<ServiceRoute>();
             routes.MapModel<ProjectRoute>();
             routes.MapModel<BlogAtomRoute>();
             routes.MapModel<BlogPostRoute>();
             routes.MapModel<BlogRoute>();
-
-            routes.MapRoute(
-                name: "Home",
-                url: "",
-                defaults: new { controller = "Content", action = "Home" }
-            );
+            routes.MapModel<HomeRoute>();
 
             routes.MapRoute(
                 name: "404",

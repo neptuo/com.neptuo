@@ -59,7 +59,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Neptuo.AspNet.Navigation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Neptuo.AspNet.Navigation.1.0.0-beta1\lib\net461\Neptuo.AspNet.Navigation.dll</HintPath>
+      <HintPath>..\..\packages\Neptuo.AspNet.Navigation.1.0.0-beta2\lib\net461\Neptuo.AspNet.Navigation.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -152,7 +152,9 @@
     <Compile Include="Navigation\BlogAtomRoute.cs" />
     <Compile Include="Navigation\BlogRoute.cs" />
     <Compile Include="Navigation\BlogPostRoute.cs" />
+    <Compile Include="Navigation\HomeRoute.cs" />
     <Compile Include="Navigation\ProjectRoute.cs" />
+    <Compile Include="Navigation\ServiceRoute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
