@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Neptuo.WebSite.Navigation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -23,24 +24,11 @@ namespace Neptuo.WebSite
                 url: "service",
                 defaults: new { controller = "Content", action = "Service" }
             );
-
-            routes.MapRoute(
-                name: "Project",
-                url: "project/{type}/{project}",
-                defaults: new { controller = "Content", action = "Project", type = (string)null, project = (string)null }
-            );
-
-            routes.MapRoute(
-                name: "BlogAtom",
-                url: "blog/atom.xml",
-                defaults: new { controller = "Content", action = "BlogAtom" }
-            );
-
-            routes.MapRoute(
-                name: "BlogPost",
-                url: "blog/{year}/{month}/{day}/{slug}",
-                defaults: new { controller = "Content", action = "Blog", year = (int?)null, month = (int?)null, day = (int?)null, slug = (string)null }
-            );
+            
+            routes.MapModel<ProjectRoute>();
+            routes.MapModel<BlogAtomRoute>();
+            routes.MapModel<BlogPostRoute>();
+            routes.MapModel<BlogRoute>();
 
             routes.MapRoute(
                 name: "Home",

@@ -59,25 +59,27 @@ namespace Neptuo.WebSite.Controllers
             return View(dataService.Get());
         }
 
-        public ActionResult Blog(int? year, int? month, int? day, string slug)
+        public ActionResult Blog(int? year, int? month, int? day)
         {
             PostDataService dataService = new PostDataService(Request.MapPath(PostDataService.DataUri));
+            return View(dataService.Get(year, month, day));
+        }
 
-            if (slug == null)
-                return View(dataService.Get(year, month, day));
-
-            PostModel post = dataService.Find(new DateTime(year.Value, month.Value, day.Value), slug);
+        public ActionResult BlogPost(int year, int month, int day, string slug)
+        {
+            PostDataService dataService = new PostDataService(Request.MapPath(PostDataService.DataUri));
+            PostModel post = dataService.Find(new DateTime(year, month, day), slug);
             if (post == null)
                 return View("NotFound");
 
             string content = dataService.GetContent(post, Request.MapPath);
-            return View("BlogPost", new PostViewModel(post, content));
+            return View(new PostViewModel(post, content));
         }
 
         public ActionResult BlogAtom()
         {
             PostDataService dataService = new PostDataService(Request.MapPath(PostDataService.DataUri));
-            return View("BlogAtom", dataService.Get());
+            return View(dataService.Get());
         }
     }
 }

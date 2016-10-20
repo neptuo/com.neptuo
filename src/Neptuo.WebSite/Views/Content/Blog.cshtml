@@ -25,9 +25,7 @@
                     <div class="month">@post.ReleaseDate.ToString("MMM")</div>
                 </div>
                 <div class="folder-content">
-                    <h2 class="folder-heading">
-                        <a href="@Url.RouteUrl("BlogPost", new { year = post.ReleaseDate.Year, month = post.ReleaseDate.Month, day = post.ReleaseDate.Day, slug = post.Url })">@post.Title</a>
-                    </h2>
+                    <h2 class="folder-heading">@Html.ModelLink(post.Title, new BlogPostRoute(post.ReleaseDate, post.Url))</h2>
                     <article>@post.Description</article>
                 </div>
                 <div class="clear"></div>
@@ -37,5 +35,5 @@
 </div>
 
 @section FooterCenter {
-    <span>@Html.RouteLink("Atom", "BlogAtom")</span>
+    <span>@Html.ModelLink("Atom", new BlogAtomRoute())</span>
 }

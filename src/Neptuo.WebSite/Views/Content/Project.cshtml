@@ -34,7 +34,7 @@
                     <img src="https://mygetwww-2e16.kxcdn.com/Content/images/packageDefaultIcon_vsix.png?c=Mi4xLjAuMjEwNw==" height="30" />
                 }
 
-                <a href="@Url.RouteUrl("Project", new { type = project.Type, project = project.LocalUrl })">@project.Name</a>
+                <a href="@Url.ModelUrl(new ProjectRoute(project))">@project.Name</a>
             </h2>
             <article>
                 <ul>
