@@ -160,7 +160,9 @@
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Content Include="App_Data\Blog.xml" />
+    <Content Include="App_Data\Blog.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="App_Data\Projects.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -174,11 +176,11 @@
     <Content Include="Content\Images\BackgroundSingle.png" />
     <Content Include="Content\Images\Logo-170.png" />
     <Content Include="Content\Images\Logo-220.png" />
-    <Content Include="Content\Stylesheet\blog.responsiveness.css" />
-    <Content Include="Content\Stylesheet\common.css" />
-    <Content Include="Content\Stylesheet\blog.css" />
-    <Content Include="Content\Stylesheet\box.css" />
-    <Content Include="Content\Stylesheet\folder.css" />
+    <None Include="Content\Stylesheet\blog.responsiveness.scss" />
+    <None Include="Content\Stylesheet\common.scss" />
+    <None Include="Content\Stylesheet\blog.scss" />
+    <None Include="Content\Stylesheet\box.scss" />
+    <None Include="Content\Stylesheet\folder.scss" />
     <Content Include="Content\Images\mnau.jpg" />
     <Content Include="Content\Images\Projects\chromium-updater-01.png" />
     <Content Include="Content\Images\Projects\chromium-updater-02.png" />
@@ -212,13 +214,13 @@
     <Content Include="Content\Images\References\superliga.jpg" />
     <Content Include="Content\Images\References\zs.jpg" />
     <Content Include="Content\Images\References\zus.jpg" />
-    <Content Include="Content\Stylesheet\ie.css" />
-    <Content Include="Content\Stylesheet\responsiveness.css" />
-    <Content Include="Content\Stylesheet\design.css" />
+    <None Include="Content\Stylesheet\ie.scss" />
+    <None Include="Content\Stylesheet\responsiveness.scss" />
+    <None Include="Content\Stylesheet\design.scss" />
     <Content Include="Content\Images\Background.png" />
     <Content Include="Content\Images\FootBackground.png" />
     <Content Include="Content\Images\Logo.png" />
-    <Content Include="Content\Stylesheet\syntax.css" />
+    <None Include="Content\Stylesheet\syntax.scss" />
     <Content Include="App_Data\Blog\building-processing-pipeline-with-behaviors.md" />
     <Content Include="App_Data\Blog\mvc-route-values.md" />
     <Content Include="App_Data\Blog\naming-things.md" />
@@ -308,7 +310,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:61057/</IISUrl>
+          <IISUrl>http://localhost:7287/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
