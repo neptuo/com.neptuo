@@ -3,18 +3,16 @@
 <div class="intro">
     <div class="intro-content container">
         <h1>Hello!</h1>
-        <p>
-            We known modern technologies and like application development.
-        </p>
     </div>
 </div>
 
 <div class="container">
 
-    <div class="folder">
+    <div class="folder center">
         <h2>What can we do for you?</h2>
         <span>
-            Would you like destkop application or do you prefer web application with rich user interface? Or mobile one?
+            Would you like destkop application or do you prefer web application with rich user interface, or should it be mobile one?
+            We speak all these patforms and technologies.
         </span>
     </div>
 
@@ -26,11 +24,11 @@
                     <h2>Business apps</h2>
                 </div>
                 <p>
-                    Apps based on customers requirements, tailored for his needs,
-                    build on our reusable infrastructure for lowering costs.
+                    Applications based on customer requirements, build on our reusable infrastructure for lowering costs.
+                    The goal is to optimize everyday processes.
                 </p>
                 <p>
-                    Developed as web, mobile or desktop platform for optimal use.
+                    Shipped on web, mobile or desktop platform for optimal use.
                 </p>
 
                 @*<p class="first">
@@ -52,7 +50,7 @@
                 </div>
                 <p class="first">
                     Customers web presentations, using multi tenant CMS, PHP based for lowcost hosting
-                    and with access control, so each user can have access only to small part of the whole system.
+                    and with access control, so each user can have access only to the part of the whole system he needs.
                 </p>
             </div>
         </div>
@@ -63,7 +61,7 @@
                     <h2>Mobile apps</h2>
                 </div>
                 <p class="first">
-                    We have experiences with building Android or Windows Mobile applications.
+                    We have experiences with building Android and Windows Mobile applications.
                     We can use Xamarin for cross platform apps or develope native app for that platform.
                 </p>
             </div>
@@ -77,7 +75,7 @@
                     <h2>Most prefered</h2>
                 </div>
                 <p class="first">
-                    Our most prefered language, running of Windows and WebServers and thanks to the .NET Core also on Linux and MAC OS.
+                    Our most prefered language, running on Windows and thanks to the .NET Core also on Linux and MAC OSX.
                 </p>
             </div>
         </div>
@@ -175,10 +173,18 @@
             <a href="@Url.Action("service")">Lastest web references</a>
         </h2>
         <p>
-            Here are some of the recent web sites we have made. In some cases we have outsourced graphics. Some of the sites are running our CMS.
+            Here are some of the recent web sites we have made. In some cases we have outsourced graphics. Most of the sites are running our CMS.
         </p>
         
         @Html.Partial("ShortWebs", Model.Webs)
+
+        <p>
+            Also we have created some sites (this one included) using pre-generated static sites, hosted on free hostings and periodically or manualy updated.
+            These sites uses advanced WebApplication technologies, like ASP.NET, but only static HTML &amp; assets are published on production server.
+        </p>
+        <p class="right">
+            @Html.ModelLink("More on this topic can be found on our blog", new BlogPostRoute(Model.StaticSitesBlogPost.ReleaseDate, Model.StaticSitesBlogPost.Url)).
+        </p>
 
         <div class="clear"></div>
     </div>

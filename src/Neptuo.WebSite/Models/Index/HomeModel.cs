@@ -12,13 +12,13 @@ namespace Neptuo.WebSite.Models.Index
     {
         public IEnumerable<WebModel> Webs { get; set; }
         public IEnumerable<ProjectModel> Projects { get; set; }
-        public PostModel BlogPost { get; set; }
+        public PostModel StaticSitesBlogPost { get; set; }
 
-        public HomeModel(IEnumerable<WebModel> webs, IEnumerable<ProjectModel> projects, PostModel blogPost)
+        public HomeModel(IEnumerable<WebModel> webs, IEnumerable<ProjectModel> projects, PostModel staticSitesBlogPost)
         {
             Webs = webs;
             Projects = projects;
-            BlogPost = blogPost;
+            StaticSitesBlogPost = staticSitesBlogPost;
         }
     }
 }
