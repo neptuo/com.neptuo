@@ -1,7 +1,7 @@
 ﻿/* ============================================================================================= */
 
 @font-face {
-    font-family: 'Gabriola';
+    font-family: 'Gabriola (web)';
     src: url('../fonts/gabriola.eot');
     src: url('../fonts/gabriola.eot?#iefix') format('embedded-opentype'), url('../fonts/gabriola.woff') format('woff'), url('../fonts/gabriola.ttf') format('truetype');
 }
@@ -115,7 +115,7 @@ body {
 }
 
 .intro h1 {
-    font-family: "Gabriola", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Gabriola", "Gabriola (web)", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 160px;
     line-height: 1;
     letter-spacing: -2px;
@@ -125,7 +125,7 @@ body {
 }
 
 .intro p {
-    font-family: "Gabriola", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Gabriola", "Gabriola (web)", "Helvetica Neue", Helvetica, Arial, sans-serif;
     max-width: 800px;
     padding-left: 8px;
     color: white;
