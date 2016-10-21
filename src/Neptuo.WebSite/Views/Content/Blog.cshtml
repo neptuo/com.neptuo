@@ -15,7 +15,7 @@
 <div class="container blog">
     @foreach (var yearGroup in Model.GroupBy(p => p.ReleaseDate.Year))
     {
-        <div class="year">@yearGroup.Key</div>
+        @*<div class="year">@yearGroup.Key</div>*@
 
         foreach (var post in yearGroup)
         {
