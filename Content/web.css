@@ -183,7 +183,7 @@ body {
 }
 
 .intro h1 {
-    font-family: "Gabriola", "Gabriola (web)", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Gabriola (web)", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 160px;
     line-height: 1;
     letter-spacing: -2px;
@@ -193,7 +193,7 @@ body {
 }
 
 .intro p {
-    font-family: "Gabriola", "Gabriola (web)", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Gabriola (web)", "Helvetica Neue", Helvetica, Arial, sans-serif;
     max-width: 800px;
     padding-left: 8px;
     color: white;
