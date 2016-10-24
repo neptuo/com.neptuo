@@ -32,6 +32,10 @@
     width: calc(100% - 95px);
 }
 
+.blogpost img {
+    max-width: 100%;
+}
+
 .comment {
     margin: 15px 0 5px 0;
     padding: 15px 0 5px 0;
