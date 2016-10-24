@@ -1,0 +1,344 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <title>Creating route links and passing-in values - Neptuo</title>
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="/Content/web.css" rel="stylesheet" />
+
+    <link rel="alternate" type="application/rss+xml" title="Neptuo Blog" href="http://www.neptuo.com/blog/atom.xml" />
+</head>
+<body>
+
+    <nav class="navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+            <button class="navbar-toggle">
+                <span class="glyphicon glyphicon-menu-hamburger"></span>
+            </button>
+
+            <ul class="left">
+                    <li>
+        <a href="/">
+            <div class="maintext">
+                Home
+                <span class="glyphicon glyphicon-home"></span>
+            </div>
+            <div class="subtext">How can we help you?</div>
+        </a>
+    </li>
+
+            </ul>
+            <ul class="right">
+                    <li>
+        <a href="/project">
+            <div class="maintext">
+                Projects
+                <span class="glyphicon glyphicon-cloud"></span>
+            </div>
+            <div class="subtext">Projects we are working on</div>
+        </a>
+    </li>
+
+                    <li>
+        <a href="/service">
+            <div class="maintext">
+                Services
+                <span class="glyphicon glyphicon-globe"></span>
+            </div>
+            <div class="subtext">Our services and references</div>
+        </a>
+    </li>
+
+                    <li class="active">
+        <a href="/blog">
+            <div class="maintext">
+                Blog
+                <span class="glyphicon glyphicon-bookmark"></span>
+            </div>
+            <div class="subtext">Thoughts to share</div>
+        </a>
+    </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="body">
+        <form>
+
+            
+
+<div class="intro important blogpost">
+    <div class="intro-content container">
+        <h1>Creating route links and passing-in values</h1>
+        <p>
+            
+      How hard creating links to blog posts can be and how we make it (from our point of view) easier.
+    
+        </p>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="folder blogpost">
+        <h2>Creating route links and passing-in values</h2>
+<p>I'm not using ASP.NET MVC as much and currently this web site is the only MVC project I'm working on. I was always using <code>new { ... }</code> for passing route values when creating links or URLs.</p>
+<pre><code class="language-Razor">@Html.ActionLink(&quot;View project detail&quot;, &quot;Project&quot;, &quot;Detail&quot;, new { ID = @project.ID })
+</code></pre>
+<p>A real fun started when I was trying to create a link to the detail of blog post.</p>
+<pre><code class="language-Razor">@Html.RouteLink(&quot;View post detail&quot;, &quot;BlogPost&quot;, new { 
+    Year = post.PublishedAt.Year, 
+    Month = post.PublishedAt.Month, 
+    Day = post.PublishedAt.Day, 
+    Slug = post.Slug })
+</code></pre>
+<p>Because we wanted 'nice' URLs containing year, month, day and post partial url, and our model contains release date as <code>DateTime</code>, I had to 'deconstruct' the DateTime object to separate fields.</p>
+<p>I didn't like it when I wrote it, but at the time it was used in a single place. I have closed my eyes and leave it. But this week we have introduced RSS feed and so we needed to generate links to posts again, but in different view. This lead us to think, how can we unify this?</p>
+<h3>0) Close your eyes and copy-paste</h3>
+<p>No, I really do not mean this seriously, but it was the initial solution. Till the time I started work on our new homepage where we want a link to the latest blog post...</p>
+<h3>1) Shared/partial/model view</h3>
+<p>We can also use display view for model property.</p>
+<pre><code class="language-Razor">@Html.DisplayFor(m =&gt; m.post, &quot;PostLinkView&quot;)
+</code></pre>
+<p>And then create a cshtml view in the <code>~/Views/Shared/DisplayViews/PostListView.cshtml</code>.</p>
+<p>I think this is suitable for a little different scenario than the one we challenge here. This is best suited when a more complex HTML is needed, like when we want to share a whole template for the post preview.</p>
+<p><img src="/Content/Images/Blog/mvc-route-values/blog-post-preview.png" alt="Blog post preview" /></p>
+<h3>2) Create extension method on HtmlHelper</h3>
+<p>This was our next thought. Just create a <code>PostLink</code> extension method on the <code>HtmlHelper</code> and pass in the release date and partial post URL.</p>
+<pre><code class="language-Razor">@Html.PostLink(&quot;View post detail&quot;, post.PublishedAt, post.Slug)
+</code></pre>
+<p>Right after that, we would surely needed the same extension method on the <code>UrlHelper</code>. Pretty simple solution, but our Projects section has also a bit complicated URL.</p>
+<h3>3) Using model, aka C# class</h3>
+<p>Than we have realized that the object passed to the <code>RouteLink</code> or <code>RouteUrl</code> could be of any type, and that this type can even be a hand written class, not just anonymous class generated from <code>new { ... }</code>. So we have written a class.</p>
+<div class="highlight csharp"><pre>
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">BlogPostRouteValues</span>
+{
+    <span class="keyword">public</span> <span class="keyword">int</span> <span class="identifier">Year</span> { <span class="keyword">get</span>; <span class="keyword">private</span> <span class="keyword">set</span>; }
+    <span class="keyword">public</span> <span class="keyword">int</span> <span class="identifier">Month</span> { <span class="keyword">get</span>; <span class="keyword">private</span> <span class="keyword">set</span>; }
+    <span class="keyword">public</span> <span class="keyword">int</span> <span class="identifier">Day</span> { <span class="keyword">get</span>; <span class="keyword">private</span> <span class="keyword">set</span>; }
+    <span class="keyword">public</span> <span class="keyword">string</span> Url { <span class="keyword">get</span>; <span class="keyword">private</span> <span class="keyword">set</span>; }
+
+    <span class="keyword">public</span> BlogPostRouteValues(DateTime dateTime, <span class="keyword">string</span> url)
+    {
+        Year = dateTime.Year;
+        Month = dateTime.Month;
+        Day = dateTime.Day;
+        Url = url;
+    }
+}
+
+</pre></div>
+<p>And we used it in our views.</p>
+<pre><code>@Url.RouteUrl(&quot;BlogPost&quot;, new BlogPostRouteValues(post.ReleaseDate, post.Url))
+</code></pre>
+<p>And we liked it. We liked it vary much, because we can use this class for both <code>HtmlHelper</code> methods and <code>UrlHelper</code> methods. It is PORVO (Plain-Old-Route-Values-Object) and it can be used everywhere route values for blog post are needed. The constructor does all the dirty work in a one single place.</p>
+<h2>Roots of the AspNet (model) Navigation project</h2>
+<p>The hand written route values class inspired us to create a small NuGet package with support for creating links and urls, registering routes and do navigation in MVC projects using classes.</p>
+<p>We have realized that a name of the route could be part of the class, as const field or using custom attribute. Also the route URL could be placed here and default values too. So we have added these fields to our <code>BlogPostRouteValues</code>.</p>
+<div class="highlight csharp"><pre>
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">BlogPostRouteValues</span>
+{
+    <span class="keyword">public</span> <span class="keyword">const</span> <span class="keyword">string</span> RouteName = <span class="string">&quot;BlogPost&quot;</span>;
+    <span class="keyword">public</span> <span class="keyword">const</span> <span class="keyword">string</span> RouteTemplate = <span class="string">&quot;blog/{year}/{month}/{day}/{slug}&quot;</span>;
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">readonly</span> <span class="keyword">object</span> Defaults = <span class="keyword">new</span> { Controller = <span class="string">&quot;Content&quot;</span>, Action = <span class="string">&quot;BlogPost&quot;</span> };
+    
+    ...
+}
+
+</pre></div>
+<p>With this class, we can register the route in our <code>RouteConfig.cs</code>.</p>
+<div class="highlight csharp"><pre>
+routes.MapRoute(
+    name: BlogPostRouteValues.RouteName,
+    url: BlogPostRouteValues.RouteTemplate,
+    defauls: BlogPostRouteValues.Defaults
+);
+
+</pre></div>
+<p>With a bit of reflection, this can be even simplified to an extension method of <code>RouteCollection</code> that requires only type of the route values class.</p>
+<div class="highlight csharp"><pre>
+<span class="keyword">public</span> <span class="keyword">static</span> Route <span class="identifier">MapModel</span>&lt;TModel&gt;(<span class="keyword">this</span> RouteCollection routes)
+{
+    FieldInfo routeNameFieldInfo = <span class="keyword">typeof</span>(TModel).GetField(<span class="string">&quot;RouteName&quot;</span>, BindingFlags.Static | BindingFlags.Public);
+    FieldInfo urlFieldInfo = <span class="keyword">typeof</span>(TModel).GetField(<span class="string">&quot;RouteTemplate&quot;</span>, BindingFlags.Static | BindingFlags.Public);
+    FieldInfo defaultsFieldInfo = <span class="keyword">typeof</span>(TModel).GetField(<span class="string">&quot;Defaults&quot;</span>, BindingFlags.Static | BindingFlags.Public);
+
+    <span class="keyword">string</span> routeName = (<span class="keyword">string</span>)routeNameFieldInfo.GetRawConstantValue();
+    <span class="keyword">string</span> url = (<span class="keyword">string</span>)urlFieldInfo.GetRawConstantValue();
+    <span class="keyword">object</span> defaults = defaultsFieldInfo.GetValue(<span class="constant">null</span>);
+    <span class="keyword">return</span> routes.MapRoute(routeName, url, defaults);
+}
+
+</pre></div>
+<p>The registration is now as simple as this single line of code.</p>
+<div class="highlight csharp"><pre>
+routes.MapModel&lt;BlogPostRouteValues&gt;();
+
+</pre></div>
+<p>Now, we have finished the route registration, as I'm not sure if it can be simplified even more.</p>
+<blockquote>
+<p>Because not all of these fields are required, the route can be registered with only single static field, the <code>RouteTemplate</code>.</p>
+</blockquote>
+<h3>Creating links and URLs</h3>
+<p>Because route values class now contains both actual route values and name of the route to use, we were able to create another simple extension method, this time on <code>HtmlHelper</code> and <code>UrlHelper</code>.</p>
+<div class="highlight csharp"><pre>
+<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">string</span> ModelUrl(<span class="keyword">this</span> UrlHelper url, <span class="keyword">object</span> route)
+{
+    FieldInfo fieldInfo = route.GetType().GetField(<span class="string">&quot;RouteName&quot;</span>, BindingFlags.Static | BindingFlags.Public);
+    <span class="keyword">string</span> routeName = (<span class="keyword">string</span>)fieldInfo.GetRawConstantValue();
+    <span class="keyword">return</span> url.RouteUrl(routeName, route);
+}
+
+<span class="keyword">public</span> <span class="keyword">static</span> MvcHtmlString <span class="identifier">ModelLink</span>(<span class="keyword">this</span> HtmlHelper html, <span class="keyword">string</span> linkText, <span class="keyword">object</span> route)
+{
+    FieldInfo fieldInfo = route.GetType().GetField(<span class="string">&quot;RouteName&quot;</span>, BindingFlags.Static | BindingFlags.Public);
+    <span class="keyword">string</span> routeName = (<span class="keyword">string</span>)fieldInfo.GetRawConstantValue();
+    <span class="keyword">return</span> html.RouteLink(linkText, routeName, route);
+}
+
+</pre></div>
+<blockquote>
+<p>Also here the <code>RouteName</code> is not required and the reflection can be skipped.</p>
+</blockquote>
+<p>Now we can use these methods for creating links and URLs.</p>
+<pre><code class="language-Razor">@Html.ModelLink(&quot;View post detail&quot;, new BlogPostRouteValues(post.ReleaseDate, post.Url))
+</code></pre>
+<pre><code class="language-Razor">@Url.ModelUrl(new BlogPostRouteValues(post.ReleaseDate, post.Url))
+</code></pre>
+<p>This really awsome and simple and it only costs creating route values class. Currently we are linking to blog posts from three places. The number of code lines needed for original solution (with copy-paste) and model-based are the same, except that adding next link is much easier now and we are not copy-pasting, which is always good.</p>
+<h3>Designing the library</h3>
+<p>Constants are boring when they are read by reflection. Let's define them by attributes. Also, defaults are still defined using anonymous classes. Also, the route name can be taken from class name using some conventions.</p>
+<div class="highlight csharp"><pre>
+[RouteName]
+[RouteUrl(<span class="string">&quot;blog/{year}/{month}/{day}/{slug}&quot;</span>)]
+[RouteController(<span class="string">&quot;Content&quot;</span>, <span class="string">&quot;Blog&quot;</span>)]
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">BlogPostRoute</span>
+{
+    <span class="comment">// Instance members only...</span>
+}
+
+</pre></div>
+<p>How this is evaluated?</p>
+<ul>
+<li>RouteName is taken from the class name, so <code>BlogPostRoute</code>. This is because we used the <code>RouteNameAttribute</code>, but didn't pass in value. When didn't use it at all, the route will be registered without name.</li>
+<li>RouteUrl is straightforwardly taken from the <code>RouteUrlAttribute</code>.</li>
+<li>Defaults are defined using <code>RouteDefaultAttribute</code>. The <code>RouteControllerAttribute</code> is inherited from it and overrides a method for providing key-value pairs used as defaults.</li>
+</ul>
+<p>This is bit of reflection that will be used not even when registering routes in the application startup, but every time the URL is needed for such model. It the same as with the class using constants shown previously.</p>
+<p>To avoid this, we have introduced a <code>IRouteModelProvider</code> where reflection is used only for the first time the concrete type is used and then the cached model is used. Because there is no simple way to pass this collection to the extension methods on the <code>HtmlHelper</code> and <code>UrlHelper</code>, we use it as single (because it is only a cache that can be shared across whole application) from <code>RouteModel.Provider</code>.</p>
+<p>With this collection (or call it service) we can introduce features like route model validation. We take the route url and test if all tokens have a property with the same name or a default key-value is provided. The validation is executed when the route model is created, so typically in the application startup and only once.</p>
+<p>Both the collection and validation can be replaced or extended. The static class <code>RouteModel</code> contains method for registering new instance of <code>IRouteModelProvider</code> and the default implementation of it takes a <code>IRouteModelValidator</code> in the constructor.</p>
+<p>Lastly, we have decided to introduce interfaces for all of the metadata defined using attributes, so custom attributes can be made and will work the default implementation of <code>IRouteModelProvider</code>. Every attribute defined on the route model class is casted to the <code>IRouteNameProvider</code>, <code>IRouteUrlProvider</code> and <code>IRouteDefaultProvider</code>. This way can introduce a single attribute that implements all the interfaces.</p>
+<h2>Summary</h2>
+<p>A simple problem of creating links to posts in the blog lead to a whole new project. This project takes a lot of type-safety to the world of MVC routing. It can work side by side with typical routes, so only those 'hard-ones' can be handled by classes.</p>
+<p>Also when these route classes are defined as anemic POCO, with public setters, it is easy to use them in the action methods of controllers for reading parameters.</p>
+<h3>Links</h3>
+<ul>
+<li><a href="https://github.com/neptuo/AspNet.Navigation">Source codes of Neptuo.AspNet.Navigation at GitHub</a></li>
+<li><a href="https://www.nuget.org/packages/Neptuo.AspNet.Navigation">Current version of NuGet package for (full) ASP.NET</a></li>
+</ul>
+<p>If you have any problem using the library or find a bug, contact us or leave an issue at GitHub.</p>
+
+    </div>
+
+    <div class="folder">
+        <div class="left">
+            Posted on 2016-10-24
+        </div>
+        <div class="right">
+            Written by <a target="_blank" rel="nofollow" href="https://github.com/maraf">Maraf</a>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+        <div class="folder">
+            <div class="comment-heading">
+                <h3>
+                    <span class="hidden">Comments</span>
+                    <span class="glyphicon glyphicon-comment"></span>
+                </h3>
+            
+                To leave a comment, please sign-in at GitHub and
+                <a href="https://github.com/neptuo/WebSite/issues/25" target="_blank">
+                    comment on the issue associated with this post.
+                </a>
+            </div>
+            <div id="comments"></div>
+        </div>
+</div>
+
+
+
+
+        </form>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="left">
+                <span>Neptuo &copy; 2010 - 2016</span>
+                
+            </div>
+            <div class="right">
+                <span>Created by <a target="_blank" href="http://mara.neptuo.com">Marek Fišera</a></span>
+                
+            </div>
+            <div class="center">
+                
+    <span><a href="/blog/atom.xml">Atom</a></span>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    </footer>
+
+    <script>
+
+        function onSwitcherClicked(e) {
+            var folder = this.parentElement.parentElement;
+            folder.classList.toggle('folder-collapsed');
+        }
+
+        var switchers = document.querySelectorAll('.folder-switch');
+        for (var i = 0; i < switchers.length; i++) {
+            var switcher = switchers[i];
+            switcher.addEventListener('click', onSwitcherClicked);
+        }
+
+        var navbarToggle = document.querySelector("button.navbar-toggle");
+        if (navbarToggle != null) {
+            navbarToggle.addEventListener('click', function (e) {
+                var navbar = document.querySelector("nav");
+                navbar.classList.toggle('navbar-expanded');
+            });
+        }
+
+    </script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-12031460-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    
+
+        <script src="/Scripts/blogcomments.js"></script>
+        <script>
+
+            load("https://api.github.com/repos/neptuo/WebSite/issues/25/comments");
+
+        </script>
+
+</body>
+</html>

@@ -4,7 +4,7 @@
     <title>Neptuo Blog</title>
     <link href="http://www.neptuo.com/blog/atom.xml" rel="self" />
     <link href="http://www.neptuo.com/blog/" />
-    <updated>2016-10-21 22:14:17</updated>
+    <updated>2016-10-24 13:55:03</updated>
     <id>http://www.neptuo.com/blog/</id>
     <author>
         <name>maraf</name>
@@ -30,5 +30,12 @@
             <updated>2016-10-04</updated>
             <id>http://www.neptuo.com/blog/2016/10/4/scriptmanager-and-registering-startup-script</id>
             <content type="html">Startup script behavior in the ASP.NET WebForms inside UpdatePanel containing script tags.</content>
+        </entry>
+        <entry>
+            <title>Creating route links and passing-in values</title>
+            <link href="http://www.neptuo.com/blog/2016/10/24/mvc-route-values" />
+            <updated>2016-10-24</updated>
+            <id>http://www.neptuo.com/blog/2016/10/24/mvc-route-values</id>
+            <content type="html">How hard creating links to blog posts can be and how we make it (from our point of view) easier.</content>
         </entry>
 </feed>
