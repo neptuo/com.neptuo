@@ -182,7 +182,14 @@
       <Additional>~/Content/Images/Projects/solution-runner-03.png</Additional>
       <Additional>~/Content/Images/Projects/solution-runner-04.png</Additional>
     </Images>
-  
+
+    <Version>
+      <Name>v1.5</Name>
+      <Description>Added support for starting after login to the Windows.</Description>
+      <Description>Added message displaying current application status (initializing, searching, 'nothing found', etc).</Description>
+      <Description>Added options for shortening display path to found solution files. It can whole path, directory path or last directory name.</Description>
+      <Description>Fix: Missing favorite items after deleting all text.</Description>
+    </Version>
     <Version>
       <Name>v1.4</Name>
       <Description>Added support for custom application defined in the configuration window.</Description>
