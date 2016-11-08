@@ -32,4 +32,37 @@ With this architecture, you can create handlers for cross-cutting services. Ther
 
 We have taken this pipeline composing a step further and created a library called `Behaviors`. It is a kind of interception for pipeline. Behavior can't only be a attribute, like in typical interception, it could also be an implemented interface or simply configured behavior for all handlers etc.
 
-We first used behaviors in our `WebStack`.
+We first used behaviors in our `WebStack`. The main design goal was to create a simple class for every visible HTTP endpoint. Start with a POCO.
+
+```C#
+public class ProductList
+{  }
+```
+
+Add a supported HTTP method, in this case a GET.
+
+```C#
+public class ProductList : IGet
+{  
+    public void Get()
+    {
+        ...
+    }
+}
+```
+
+So, everytime someone access the URL (which is not yet configured), an instance of this class is created and `Get` method is executed. Now, let's provide some output. We want to return an enumeration of `ProductModel`.
+
+```C#
+public class ProductList : IGet, IOutput<IEnumerable<ProductModel>>
+{
+    public IEnumerable<ProductModel> Output { get; private set; }
+
+    public void Get()
+    {
+        Output = Enumerable.Empty<IEnumerable<ProductModel>>();
+    }
+}
+```
+
+In the `WebStack` there where behaviors for two types - those that provides values (from request) and those that marks output values.
