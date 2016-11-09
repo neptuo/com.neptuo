@@ -4,7 +4,7 @@
     <title>Neptuo Blog</title>
     <link href="http://www.neptuo.com/blog/atom.xml" rel="self" />
     <link href="http://www.neptuo.com/blog/" />
-    <updated>2016-10-24 13:58:17</updated>
+    <updated>2016-11-09 21:48:55</updated>
     <id>http://www.neptuo.com/blog/</id>
     <author>
         <name>maraf</name>
@@ -37,5 +37,12 @@
             <updated>2016-10-24</updated>
             <id>http://www.neptuo.com/blog/2016/10/24/mvc-route-values</id>
             <content type="html">How hard creating links to blog posts can be and how we make it (from our point of view) easier.</content>
+        </entry>
+        <entry>
+            <title>Building processing pipeline with behaviors</title>
+            <link href="http://www.neptuo.com/blog/2016/11/9/building-processing-pipeline-with-behaviors" />
+            <updated>2016-11-09</updated>
+            <id>http://www.neptuo.com/blog/2016/11/9/building-processing-pipeline-with-behaviors</id>
+            <content type="html">About interception for uniform interfaces like those used in the MediatR.</content>
         </entry>
 </feed>
