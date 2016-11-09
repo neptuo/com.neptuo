@@ -66,4 +66,20 @@ public class ProductList : IGet, IOutput<IEnumerable<ProductModel>>
 }
 ```
 
-In the `WebStack` there where behaviors for two types - those that provides values (from request) and those that marks output values.
+In the `WebStack` there where behaviors of two types - those that provide values (from request) and those that process output values. After using this design for a while, we have extracted it to general pipeline library called [Neptuo.Behaviors](https://github.com/neptuo/Framework/wiki/Behaviors).
+
+### Execution
+
+We ship two modes for executing behaviors. First one is based on reflection and uses reflection metadata everytime an instance of pipeline is required. We use it during bootstrap, because there is no need for executing it twice during application lifetime.
+
+Second compiles tiny proxy of target handler and so, no reflection is used in the runtime. The performace of these pipelines is the as directly composing handlers together. On the other, code generation must be enabled on the .NET runtime.
+
+### Summary
+
+These single method pipelines are very powerful. They are like building blocks that can composed to gather to reuse and build bigger and bigger blocks. Behaviors, or interception, are even better, because they are independent of the target pipeline, and so, we can reuse reprocessing behavior on pipelines of various kinds.
+
+### Links
+
+ - [MediatR Pipeline Examples](https://lostechies.com/jimmybogard/2016/10/13/mediatr-pipeline-examples/)
+ - [Neptuo.Behaviors documentation](https://github.com/neptuo/Framework/wiki/Behaviors)
+ - [Neptuo.Behaviors on NuGet](https://www.nuget.org/packages/Neptuo.Behaviors/)
