@@ -30,7 +30,7 @@ With this architecture, you can create handlers for cross-cutting services. Ther
 
 ### Behaviors
 
-We have taken this pipeline composing a step further and created a library called `Behaviors`. It is a kind of interception for pipelines. Most interception behaviors are attributes, but behaviors were originally marker interfaces. That we extend them to attributes and even globally registered components.
+We have taken this pipeline composing a step further and created a library called `Behaviors`. It is a kind of interception for pipelines. Most interception libraries uses attributes, but behaviors were originally marker interfaces. Then we extended them to attributes and even globally registered components.
 
 We first used behaviors in our `WebStack`. The main design goal was to create a simple class for every visible HTTP endpoint, starting with a POCO.
 
@@ -39,7 +39,7 @@ public class ProductList
 {  }
 ```
 
-Add a supported HTTP method, in this case a GET.
+Adding a supported HTTP method, in this case a GET, and target URL.
 
 ```C#
 [Url("~/api/products")]
@@ -66,7 +66,7 @@ public class ProductList : IGet, IOutput<IEnumerable<ProductModel>>
 }
 ```
 
-In the `WebStack` there where behaviors of two types - those that provide values (from the request) and those that process output values (and writes them to the response). After using this design for a while, we have extracted it to a general purpose pipeline library called [Neptuo.Behaviors](https://github.com/neptuo/Framework/wiki/Behaviors).
+In the `WebStack` there where behaviors of two types - those that provide values (from the request) and those that process output values (and writes them to the response). After using this design for a while, we have extracted it to a general purpose behavior pipeline library called [Neptuo.Behaviors](https://github.com/neptuo/Framework/wiki/Behaviors).
 
 ### Execution
 
@@ -78,7 +78,7 @@ Second compiles on the fly a tiny proxy of a target handler and so, no reflectio
 
 These single method pipelines are very powerful. They are like building blocks that can composed to gather and build bigger and bigger blocks. Behaviors, or interception, are even better, because they are independent of the target pipeline, and so, we can reuse for example reprocessing behavior on pipelines of various kinds.
 
-As the public execution method is always defined be an interface, we can can compose behaviors like any hand writtern pipeline and compile code for it or the fly. This is possible just because pipelines has always interface and because this interface is uniform, we don't need to write it for every service/component, we don't need to spend a time doing it and can reuse single compiled pipeline library.
+As the public execution method is always defined be an interface, we can compose behaviors like any hand writtern pipeline and compile code for it or the fly. This is possible just because pipelines have always an interface and because this interface is uniform, we don't need to write it for every service/component, we don't need to spend a on time doing it and can reuse single compiled pipeline library.
 
 ### Links
 
