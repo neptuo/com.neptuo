@@ -42,6 +42,7 @@ public class ProductList
 Add a supported HTTP method, in this case a GET.
 
 ```C#
+[Url("~/api/products")]
 public class ProductList : IGet
 {  
     public void Get()
@@ -51,7 +52,7 @@ public class ProductList : IGet
 }
 ```
 
-So, everytime someone access the URL (which is not yet configured), an instance of this class is created and `Get` method is executed. Now, let's provide some output. We want to return an enumeration of `ProductModel`.
+So, everytime someone access the URL (configured using attribute behavior), an instance of this class is created and `Get` method is executed. Now, let's provide some output. We want to return an enumeration of `ProductModel`.
 
 ```C#
 public class ProductList : IGet, IOutput<IEnumerable<ProductModel>>
