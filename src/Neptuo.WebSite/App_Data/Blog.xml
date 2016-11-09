@@ -44,4 +44,15 @@
     <Author>Maraf</Author>
     <GitHubCommentPath>neptuo/WebSite/issues/25</GitHubCommentPath>
   </Post>
+  <Post>
+    <Title>Building processing pipeline with behaviors</Title>
+    <Description>
+      About interception for uniform interfaces like those used in the MediatR.
+    </Description>
+    <Url>building-processing-pipeline-with-behaviors</Url>
+    <FilePath>~/App_Data/Blog/building-processing-pipeline-with-behaviors.md</FilePath>
+    <ReleaseDate>2016-11-09</ReleaseDate>
+    <Author>Maraf</Author>
+    <GitHubCommentPath>neptuo/WebSite/issues/26</GitHubCommentPath>
+  </Post>
 </Posts>

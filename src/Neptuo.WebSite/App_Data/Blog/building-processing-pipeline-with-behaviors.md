@@ -1,6 +1,4 @@
-## Building processing pipeline with behaviors
-
-I hadn't planned to write this post, but after I have read post from Jeremy D. Miller from Lost techies - [about pipelines in MediatoR](https://lostechies.com/jimmybogard/2016/10/13/mediatr-pipeline-examples/) - I had to.
+I hadn't planned to write this post, but after I have read post from Jeremy D. Miller from Lost techies - [about pipelines in MediatR](https://lostechies.com/jimmybogard/2016/10/13/mediatr-pipeline-examples/) - I had to.
 
 We are using the request -> handler (-> response) design a lot. The handler has a single method responsible for processing request (and optionaly provinding response). It can be used nearly everywhere and for everything. Typically we have a component called `dispatcher` which hides the registration of handlers for particular request types. 
 
