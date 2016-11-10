@@ -24,6 +24,7 @@ namespace Neptuo.WebSite
             routes.MapModel<BlogAtomRoute>();
             routes.MapModel<BlogPostRoute>();
             routes.MapModel<BlogRoute>();
+            routes.MapModel<HomeCzechRoute>();
             routes.MapModel<HomeRoute>();
 
             routes.MapRoute(

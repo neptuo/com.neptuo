@@ -133,7 +133,15 @@ body {
     text-align: left;
 }
 
+.intro span.language {
+    width: 200px; 
+    text-align: right;
+    float: right;
+}
 
+.intro span.language a:hover {
+    text-decoration: none;
+}
 
 
 

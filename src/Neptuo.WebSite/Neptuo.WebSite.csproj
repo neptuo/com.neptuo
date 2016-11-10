@@ -152,6 +152,7 @@
     <Compile Include="Navigation\BlogAtomRoute.cs" />
     <Compile Include="Navigation\BlogRoute.cs" />
     <Compile Include="Navigation\BlogPostRoute.cs" />
+    <Compile Include="Navigation\HomeCzechRoute.cs" />
     <Compile Include="Navigation\HomeRoute.cs" />
     <Compile Include="Navigation\ProjectRoute.cs" />
     <Compile Include="Navigation\ServiceRoute.cs" />
