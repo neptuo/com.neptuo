@@ -20,6 +20,16 @@
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
   </Project>
   <Project>
+    <Name>Neptuo.Behaviors</Name>
+    <Type>dev</Type>
+    <Description>Behavior (like interception) library for single pipelines..</Description>
+    <LocalUrl>neptuo.behaviors</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Behaviors</DocumentationUrl>
+  </Project>
+  <Project>
     <Name>Neptuo.Commands</Name>
     <Type>dev</Type>
     <Description>Command (input) part of the CQRS system.</Description>
