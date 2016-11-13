@@ -164,16 +164,19 @@
     <Content Include="App_Data\Blog.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="App_Data\Projects.Windows.WindowsDock.xml">
+    <Content Include="App_Data\Projects.Desktop.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="App_Data\Projects.Windows.SolutionRunner.xml">
+    <Content Include="App_Data\Projects.Desktop.WindowsDock.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_Data\Projects.Desktop.SolutionRunner.xml">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="App_Data\Projects.Dev.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="App_Data\Projects.All.xml">
+    <Content Include="App_Data\Projects.xml">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="App_Data\Webs.xml">
@@ -184,6 +187,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\BackgroundSingle.png" />
+    <Content Include="Content\Images\Blog\mvc-route-values\blog-post-preview.png" />
     <Content Include="Content\Images\Logo-170.png" />
     <Content Include="Content\Images\Logo-220.png" />
     <None Include="Content\Stylesheet\blog.responsiveness.scss" />
@@ -196,6 +200,9 @@
     <Content Include="Content\Images\Projects\chromium-updater-02.png" />
     <Content Include="Content\Images\Projects\chromium-updater-03.png" />
     <Content Include="Content\Images\Projects\chromium-updater-04.png" />
+    <Content Include="Content\Images\Projects\is4wfw-01.png" />
+    <Content Include="Content\Images\Projects\is4wfw-02.png" />
+    <Content Include="Content\Images\Projects\is4wfw-03.png" />
     <Content Include="Content\Images\Projects\link-extractor-01.png" />
     <Content Include="Content\Images\Projects\link-extractor-02.png" />
     <Content Include="Content\Images\Projects\link-extractor-03.png" />
@@ -204,6 +211,12 @@
     <Content Include="Content\Images\Projects\solution-runner-01.png" />
     <Content Include="Content\Images\Projects\solution-runner-02.png" />
     <Content Include="Content\Images\Projects\solution-runner-03.png" />
+    <Content Include="Content\Images\Projects\solution-runner-04.png" />
+    <Content Include="Content\Images\Projects\template-engine-01.png" />
+    <Content Include="Content\Images\Projects\template-engine-02.png" />
+    <Content Include="Content\Images\Projects\template-engine-03.png" />
+    <Content Include="Content\Images\Projects\template-engine-04.png" />
+    <Content Include="Content\Images\Projects\template-engine-05.png" />
     <Content Include="Content\Images\Projects\vocabulary-app-01.png" />
     <Content Include="Content\Images\Projects\vocabulary-app-02.png" />
     <Content Include="Content\Images\Projects\vocabulary-app-03.png" />

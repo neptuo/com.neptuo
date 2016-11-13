@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Projects xmlns="http://schemas.neptuo.com/xsd/neptuo-website-projects.xsd">
+  <Project>
+    <Name>Chromium Updater</Name>
+    <Type>desktop</Type>
+    <Description>Chromium updater is Click-once application for downloading and updating latest builds of Chromium. The application offers automatic or manual download of latest build to selected folder and then extracting it there.</Description>
+    <Text>
+      <p>
+        On first run, configuration tab is opened. The application requires folder for downloading zips to and this folder is prefilled with the application instalation folder. This can be quite problem, if the application installed to folder, where current user doesn't have write rights. So be sure to fill folder with write rights.
+      </p>
+      <p>
+        Beside this, there are prefilled download URL and file name. These must match structure of Chromium builds structure on the server. This is recommended to not change...
+      </p>
+      <p>
+        In the bottom there are some checkboxes for setting automatic downloads and etc. These should match most user preferences.
+      </p>
+    </Text>
+    <LocalUrl>chromiumupdater</LocalUrl>
+    <ProjectUrl>https://github.com/maraf/ChromiumUpdater</ProjectUrl>
+    <DownloadUrl>http://apps.neptuo.com/chromium-updater/</DownloadUrl>
+    <Images>
+      <Additional>~/Content/Images/Projects/chromium-updater-01.png</Additional>
+      <Additional>~/Content/Images/Projects/chromium-updater-02.png</Additional>
+      <Additional>~/Content/Images/Projects/chromium-updater-03.png</Additional>
+      <Additional>~/Content/Images/Projects/chromium-updater-04.png</Additional>
+    </Images>
+
+    <Version>
+      <Name>v1.0.2</Name>
+      <Description>Async file extraction (no UI blocking).</Description>
+    </Version>
+    <Version>
+      <Name>v1.0.1</Name>
+      <Description>Added support for autorun (after user login).</Description>
+      <Description>Minor issues fixed.</Description>
+    </Version>
+    <Version>
+      <Name>v1.0.0</Name>
+      <Description>Initial release.</Description>
+    </Version>
+  </Project>
+  <Project>
+    <Name>Link Extractor</Name>
+    <Type>desktop</Type>
+    <Description>Desktop application for extracting links (URLs) from HTML or any other document type.</Description>
+    <Text>
+      <p>
+        LinkExtractor is simple desktop application for parsing document and extracting links. Document can be download from URL or pasted in from clipboard.
+        After parsing document, found links are shown with checkboxes and additional filter to select links that will be extracted to plain text, each one on its own line.
+      </p>
+      <p>
+        The application is installed as standart Windows application to Program Files folder.
+      </p>
+    </Text>
+    <LocalUrl>linkextractor</LocalUrl>
+    <ProjectUrl>https://github.com/maraf/LinkExtractor</ProjectUrl>
+    <DownloadUrl>https://github.com/maraf/LinkExtractor/releases</DownloadUrl>
+    <Images>
+      <Additional>~/Content/Images/Projects/link-extractor-01.png</Additional>
+      <Additional>~/Content/Images/Projects/link-extractor-02.png</Additional>
+      <Additional>~/Content/Images/Projects/link-extractor-03.png</Additional>
+    </Images>
+
+    <Version>
+      <Name>v1.0.1</Name>
+      <Description>Initial release.</Description>
+    </Version>
+  </Project>
+  <Project>
+    <Name>WinRun</Name>
+    <Type>desktop</Type>
+    <Description>Simple utility application with (missing) Windows tweaks.</Description>
+    <Text2 Language="Markdown">
+Simple utility application with (missing) Windows tweaks.
+
+- Large windows clock.
+- Simply open network adapter configuration page.
+- Turn off monitor.
+- Lock workstation and turn off monitor.
+- Put computer to sleep.
+- Make all windows sticky.
+
+About sticking windows, when you drop window near other window, the dropped window will stick the other window. Some for resizing, when resizing window and stopped near other window, the resized window will resize to the other window.
+
+- **Win+F3** to turn the monitor off.
+- **Win+F4** to put the computer to sleep.
+- **Win+F5** to open Network Adapter window.
+- **Win+F6** to open large clock.
+- **Win+Shift+F6** to open medium clock.
+- **Win+F12** to put the computer to hibernation.
+- **Win+Shift+L** to turn the monitor off and lock the computer.
+- Drag and drop or resize any window near other window stick the window to the other.
+    </Text2>
+    <LocalUrl>winrun</LocalUrl>
+    <DownloadUrl>http://apps.neptuo.com/winrun</DownloadUrl>
+
+    <Version>
+      <Name>v1.6.0</Name>
+      <Description>Sticky Windows.</Description>
+      <Description>Internal reimplementation of features.</Description>
+      <Description>Fix medium clock Windows wide shotcut.</Description>
+    </Version>
+    <Version>
+      <Name>v1.5.0</Name>
+      <Description>Add medium clock.</Description>
+    </Version>
+    <Version>
+      <Name>v1.4.1</Name>
+      <Description>Fix clock window padding.</Description>
+      <Description>Fix clock position saving.</Description>
+    </Version>
+    <Version>
+      <Name>v1.4.0</Name>
+      <Description>Add large clock window.</Description>
+    </Version>
+    <Version>
+      <Name>v1.3.0</Name>
+      <Description>Add hibernation global hotkey.</Description>
+    </Version>
+    <Version>
+      <Name>v1.2.0</Name>
+      <Description>Add lock workstation global hotkey.</Description>
+      <Description>Add Network Adapter window global hotkey.</Description>
+    </Version>
+  </Project>
+</Projects>
