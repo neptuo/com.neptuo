@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Projects xmlns="http://schemas.neptuo.com/xsd/neptuo-website-projects.xsd">
+  <!-- VSIX -->
+  <Project>
+    <Name>Neptuo.Productivity</Name>
+    <Type>vsix</Type>
+    <Description>A set of productivity features: Line duplication, cancel build on first error, build times or show start page after solution closed. All configurable.</Description>
+    <LocalUrl>neptuo.productivity</LocalUrl>
+    <ProjectUrl>https://github.com/neptuo/Productivity</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Productivity/releases</DocumentationUrl>
+  </Project>
+
+  <!-- CMS -->
+  <Project>
+    <Name>is4wfw</Name>
+    <Type>cms</Type>
+    <Description>PHP-based web content management system.</Description>
+    <Text>
+      <p>
+        The is4wfw is a PHP based content management system. It uses custom XML tags for marking places that should be replaced by a dynamic content.
+        The most custom tags supports templating, so we can generate any content required by the use case.
+      </p>
+      <p>
+        The CMS supports users and roles and allows restricting access to the sections per user.
+      </p>
+      <p>More info coming...</p>
+    </Text>
+    <LocalUrl>is4wfw</LocalUrl>
+    <ProjectUrl>https://github.com/maraf/PHP-WebFramework</ProjectUrl>
+    <Images>
+      <Additional>~/Content/Images/Projects/is4wfw-02.png</Additional>
+      <Additional>~/Content/Images/Projects/is4wfw-01.png</Additional>
+      <Additional>~/Content/Images/Projects/is4wfw-03.png</Additional>
+    </Images>
+  </Project>
+  <Project>
+    <Name>Template Engine</Name>
+    <Type>cms</Type>
+    <Description>
+      C# based web application with both server-side and client-size view rendering from shared source.
+    </Description>
+    <Text>
+      <p>
+        The TemplateEngine is a proof of concept. It's information system build on UI templates that are compiled to server side .NET assembly
+        and to a javascript. When the user first hits the URL, server-side pre-rendered HTML is loaded and displayed. All the interactions
+        that follows are handled by javascript and so the data transfer between server and the client is minimal (JSON over AJAX).
+      </p>
+      <p>
+        The prototype focuses on "develop once" and run both on server and client. All the UI components, data sources and controllers are designed
+        in a way that there is no difference if the code is run on client using AJAX and so on, or if the interaction is done through standard
+        HTTP requests and responses without any javascript involved.
+      </p>
+      <p>More info coming...</p>
+    </Text>
+    <LocalUrl>templateengine</LocalUrl>
+    <ProjectUrl>https://github.com/neptuo/TemplateEngine</ProjectUrl>
+    <Images>
+      <Main>~/Content/Images/Projects/template-engine-04.png</Main>
+      <Additional>~/Content/Images/Projects/template-engine-01.png</Additional>
+      <Additional>~/Content/Images/Projects/template-engine-02.png</Additional>
+      <Additional>~/Content/Images/Projects/template-engine-03.png</Additional>
+      <Additional>~/Content/Images/Projects/template-engine-05.png</Additional>
+    </Images>
+  </Project>
+
+  <!-- UWP -->
+  <Project>
+    <Name>WebCam Image Collector</Name>
+    <Type>universal</Type>
+    <Description>Client-server HTTP based application for taking photos and downloading them from the server with WebCam to the clients.</Description>
+    <LocalUrl>webcamimagecollector</LocalUrl>
+    <ProjectUrl>https://github.com/maraf/WebCamImageCollector</ProjectUrl>
+  </Project>
+
+  <!-- ANDROID -->
+  <Project>
+    <Name>Vocabulary App</Name>
+    <Type>android</Type>
+    <Description>
+      Android application for testing your vocabulary. User can download vocabularies from our API and browse and test phrases placed in it.
+      Vocabularies are splitted into files, so user can download only selected parts of vocabulary.
+      Vocabulary definitions are in testing phase right now, but the client application is fully functional.
+    </Description>
+    <LocalUrl>vocabulary</LocalUrl>
+    <ProjectUrl>https://github.com/maraf/vocabularyapp</ProjectUrl>
+    <DownloadUrl>https://github.com/maraf/vocabularyapp/releases/download/v1.2.1/neptuo-vocabularyapp-v1.2.1.apk</DownloadUrl>
+    <Images>
+      <Additional>~/Content/Images/Projects/vocabulary-app-01.png</Additional>
+      <Additional>~/Content/Images/Projects/vocabulary-app-02.png</Additional>
+      <Additional>~/Content/Images/Projects/vocabulary-app-03.png</Additional>
+      <Additional>~/Content/Images/Projects/vocabulary-app-04.png</Additional>
+      <Additional>~/Content/Images/Projects/vocabulary-app-05.png</Additional>
+    </Images>
+    <Version>
+      <Name>v1.2.1</Name>
+      <DownloadUrl>https://github.com/maraf/vocabularyapp/releases/download/v1.2.1/neptuo-vocabularyapp-v1.2.1.apk</DownloadUrl>
+      <Description>Fix memory leaks when reading from internal DB using cursor.</Description>
+      <Description>Add toast to display any uncaught exception.</Description>
+    </Version>
+    <Version>
+      <Name>v1.2.0</Name>
+      <DownloadUrl>https://github.com/maraf/vocabularyapp/releases/download/v1.2.0/neptuo-vocabularyapp-v1.2.0.apk</DownloadUrl>
+      <Description>Extended duplicity check to show duplicated items.</Description>
+      <Description>Selection of difficulty group in phrases translation.</Description>
+    </Version>
+    <Version>
+      <Name>v1.1.0</Name>
+      <DownloadUrl>https://github.com/maraf/vocabularyapp/releases/download/v1.1.0/neptuo-vocabularyapp-v1.1.0.apk</DownloadUrl>
+      <Description>Add support for tagging phrases.</Description>
+      <Description>Add base duplicity checks.</Description>
+      <Description>Fix translating when only one phrase is in the session.</Description>
+      <Description>Posibility to entry phrase after giving up.</Description>
+    </Version>
+    <Version>
+      <Name>v1.0.0</Name>
+      <DownloadUrl>https://github.com/maraf/vocabularyapp/releases/download/v1.0.0/neptuo-vocabularyapp-v1.0.0.apk</DownloadUrl>
+      <Description>Downloading XML vocabularies from API v1.</Description>
+      <Description>Local caching of downloaded data.</Description>
+      <Description>Local storage for user statistics.</Description>
+      <Description>Browsing downloaded/local vocabularies (with filtering and sorting).</Description>
+      <Description>Translating word.</Description>
+    </Version>
+  </Project>
+</Projects>

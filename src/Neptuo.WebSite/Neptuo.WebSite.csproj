@@ -164,7 +164,16 @@
     <Content Include="App_Data\Blog.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="App_Data\Projects.xml">
+    <Content Include="App_Data\Projects.Windows.WindowsDock.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_Data\Projects.Windows.SolutionRunner.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_Data\Projects.Dev.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_Data\Projects.All.xml">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="App_Data\Webs.xml">

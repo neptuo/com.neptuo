@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Projects xmlns="http://schemas.neptuo.com/xsd/neptuo-website-projects.xsd">
+  <Project>
+    <Name>Solution Runner</Name>
+    <Type>desktop</Type>
+    <Description>Keyboard-only designed application for simple and fast opening of Visual Studio solution files.</Description>
+    <Text>
+      <p>
+        Keyboard-only designed application for simple and fast opening of Visual Studio solution files. 
+        Configuration takes single folder where to look for *.sln files with the option to set prefered Visual Studio version installed on your computer and global (Windows wide) shortcut.
+      </p>
+      <p>
+        After setting required configuration, main window will open. Here you can filter solution files from your hard drive and manage favourite ones. 
+        By pressing enter, you run a new instance of selected Visual Studio version with the selected solution.
+      </p>
+      <p>
+        When global hotkey is set, the application is only minimized after opening the solution. So, to update it must first kill it from process list.
+      </p>
+      <p>
+        To start the application after sign in to the Windows, simple create shortcut in startup folder. We are currentling implementing this as feature, along with minimized startup.
+      </p>
+    </Text>
+    <LocalUrl>solutionrunner</LocalUrl>
+    <ProjectUrl>https://github.com/neptuo/Productivity.SolutionRunner</ProjectUrl>
+    <DownloadUrl>http://apps.neptuo.com/solution-runner</DownloadUrl>
+    <Images>
+      <Additional>~/Content/Images/Projects/solution-runner-01.png</Additional>
+      <Additional>~/Content/Images/Projects/solution-runner-02.png</Additional>
+      <Additional>~/Content/Images/Projects/solution-runner-03.png</Additional>
+      <Additional>~/Content/Images/Projects/solution-runner-04.png</Additional>
+    </Images>
+
+    <Version>
+      <Name>v1.5</Name>
+      <Description>Added support for starting after login to the Windows.</Description>
+      <Description>Added message displaying current application status (initializing, searching, 'nothing found', etc).</Description>
+      <Description>Added options for shortening display path to found solution files. It can whole path, directory path or last directory name.</Description>
+      <Description>Fix: Missing favorite items after deleting all text.</Description>
+    </Version>
+    <Version>
+      <Name>v1.4</Name>
+      <Description>Added support for custom application defined in the configuration window.</Description>
+      <Description>Added configuration option to enable auto selecting Visual Studio version according to the solution file version.</Description>
+      <Description>Fix: Duplicated entries after renaming directory.</Description>
+    </Version>
+    <Version>
+      <Name>v1.3</Name>
+      <Description>Double click on the application starts new instance without file.</Description>
+      <Description>Added support for Home and End navigation keys in the list of solution files.</Description>
+      <Description>Added support for hiding/closing main window after loosing focus/deactivating.</Description>
+      <Description>Dropped throtling delay when showing pinned files for empty search.</Description>
+      <Description>Added support for saving last used application as prefered.</Description>
+      <Description>Added detection of single running instance.</Description>
+      <Description>Fix: Double click on item opens the file like pressing enter.</Description>
+      <Description>Fix: Color of a file path in the selected item.</Description>
+    </Version>
+    <Version>
+      <Name>v1.2</Name>
+      <Description>Extend searching in contains mode to support space separated tokens that are matched in the whole solution path.</Description>
+    </Version>
+    <Version>
+      <Name>v1.1</Name>
+      <Description>Configuration property for suggestion count.</Description>
+      <Description>Configuration property for searching by 'StartsWith' or 'Contains'.</Description>
+      <Description>Added command line parameter '--hidden' for starting application hidden.</Description>
+      <Description>Configuration property whether to save or not last searched phrase.</Description>
+      <Description>Fix: Selecting first suggested item when this one is the only one.</Description>
+    </Version>
+    <Version>
+      <Name>v1.0</Name>
+      <Description>Favourite solution list.</Description>
+      <Description>Global hotkey.</Description>
+    </Version>
+  </Project>
+</Projects>

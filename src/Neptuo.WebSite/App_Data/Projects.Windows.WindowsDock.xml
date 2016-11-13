@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Projects xmlns="http://schemas.neptuo.com/xsd/neptuo-website-projects.xsd">
+  <Project>
+    <Name>Windows Dock</Name>
+    <Type>desktop</Type>
+    <Description>
+      WindowsDock is OSX-like application launcher. It has many layout and keyboard configurations to suit most users needs.
+      Beside application shortcuts, dock can host user notes with alarms, simple directory and desktop browser and custom command line scripts.
+    </Description>
+    <LocalUrl>windowsdock</LocalUrl>
+    <ProjectUrl>https://github.com/maraf/WindowsDock</ProjectUrl>
+    <DownloadUrl>https://github.com/maraf/WindowsDock/releases</DownloadUrl>
+    <Images>
+      <Main>~/Content/Images/Projects/windows-dock-01.jpg</Main>
+      <Additional>~/Content/Images/Projects/windows-dock-02.png</Additional>
+      <Additional>~/Content/Images/Projects/windows-dock-03.png</Additional>
+      <Additional>~/Content/Images/Projects/windows-dock-04.png</Additional>
+      <Additional>~/Content/Images/Projects/windows-dock-05.png</Additional>
+    </Images>
+
+    <Version>
+      <Name>v1.2.22</Name>
+      <Description>Minor fix (that ugly border around shortcut on main panel vanished).</Description>
+    </Version>
+    <Version>
+      <Name>v1.2.21</Name>
+      <Description>Global hotkeys for shortcuts (for only in combination with Windows key).</Description>
+    </Version>
+    <Version>
+      <Name>v1.1.20</Name>
+      <Description>Configuration for small bubbles on top of shortcuts on main panel.</Description>
+      <Description>Basic setting for shortcut icon size.</Description>
+    </Version>
+    <Version>
+      <Name>v1.0.19</Name>
+      <Description>Taskbar height + posibility to use this as offset from bottom.</Description>
+    </Version>
+    <Version>
+      <Name>v1.0.18</Name>
+      <Description>Dockable WindowsDock, you can dock main panel to one edge of screen and make it always visible.</Description>
+      <Description>Some minor fixes.</Description>
+    </Version>
+    <Version>
+      <Name>v1.0.17</Name>
+      <Description>Colors for application buttons (Config+Close).</Description>
+      <Description>Posibility to hide them from main panel.</Description>
+      <Description>Context menu on main panel as substitute from these buttons.</Description>
+    </Version>
+    <Version>
+      <Name>v1.0.16</Name>
+      <Description>KeyShortcut to show desktop in Explorer.</Description>
+    </Version>
+    <Version>
+      <Name>v1.0.15</Name>
+      <Description>Added support for pin to right and bottom edge of primary screen.</Description>
+    </Version>
+    <Version>
+      <Name>v1.0.14</Name>
+      <Description>Posibility to configure activation key (Win+selected key).</Description>
+      <Description>App restart after locale change nearly not needed (with exception for some resources - like datetime pattern).</Description>
+      <Description>Partial internal configuration changes.</Description>
+    </Version>
+    <Version>
+      <Name>v1.0.13</Name>
+      <Description>FIXED: Program doesn't crash when one instance is running and you try to run another (caused by binding global hotkey).</Description>
+      <Description>Minor internal changes.</Description>
+    </Version>
+    <Version>
+      <Name>v1.0.12</Name>
+      <Description>Translated items in configuration dropdown lists.</Description>
+    </Version>
+    <Version>
+      <Name>v1.0.11</Name>
+      <Description>FIXED: Restart not needed after position change (left,top).</Description>
+      <Description>Minor configuration changes.</Description>
+    </Version>
+    <Version>
+      <Name>v1.0.10</Name>
+      <Description>Add support for setuping border, thickness and color.</Description>
+      <Description>Border radius can also be set from configuration window.</Description>
+    </Version>
+    <Version>
+      <Name>v1.0.9</Name>
+      <Description>Added possibility to change (or disable) application hotkeys (Win+W remains as application activation key, but yout can change T,S,B,D,X and Z keys to run extensions and etc.</Description>
+    </Version>
+    <Version>
+      <Name>v1.0.8</Name>
+      <Description>Added possibility to place dock on left edge of primary screen.</Description>
+      <Description>Added window align to screen edge + offset setup.</Description>
+    </Version>
+    <Version>
+      <Name>v1.0.7</Name>
+      <Description>
+        Add support for localization, right now we support Czech and English, but you can easily add support for another language,
+        simply open application installation folder, go to Resources a then copy one of files there and name it 'Resources' + underscore + language (and country) code,
+        like 'Resources_cs.txt' or 'Resources_fr-FR.txt'. If you do so, please send to me localized file and will add it to the application.
+      </Description>
+    </Version>
+    <Version>
+      <Name>v1.0.6</Name>
+      <Description>Space added as posible key to shortcut assignment.</Description>
+      <Description>Some minor fixes.</Description>
+    </Version>
+    <Version>
+      <Name>v1.0.5</Name>
+      <Description>Fix of show/hide bug</Description>
+      <Description>Removed opacity (use alpha channel in background color</Description>
+      <Description>After start "autohide"</Description>
+    </Version>
+    <Version>
+      <Name>v1.0.3</Name>
+      <Description>
+        Hotkeys in Shortcuts edit
+        <Description>ENTER for opening shortcut detail (also DOUBLECLICK works).</Description>
+        <Description>DELETE for deleting shortcut.</Description>
+        <Description>SHIFT+UP/DOWN for moving shortcut.</Description>
+        <Description>Working directory can be set for shortcut+script (defaults to file directory).</Description>
+      </Description>
+    </Version>
+    <Version>
+      <Name>v1.0.0</Name>
+      <Description>
+        Hotkeys
+        <Description>Dock can be activated pressing Win+W.</Description>
+        <Description>Each shortcut can have hotkey (letters+num) to run that shortcut.</Description>
+        <Description>Shortcuts can share same hotkey to run multiple programs pressing single key.</Description>
+      </Description>
+    </Version>
+  </Project>
+</Projects>

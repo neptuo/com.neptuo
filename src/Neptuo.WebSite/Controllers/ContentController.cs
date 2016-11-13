@@ -28,7 +28,7 @@ namespace Neptuo.WebSite.Controllers
         public ActionResult Home(bool isCzech = false)
         {
             WebDataService webDataService = new WebDataService(Request.MapPath(WebDataService.DataUri));
-            ProjectDataService projectDataService = new ProjectDataService(Request.MapPath(ProjectDataService.DataUri));
+            ProjectDataService projectDataService = new ProjectDataService(Request.MapPath);
             PostDataService postDataService = new PostDataService(Request.MapPath(PostDataService.DataUri));
 
             HomeModel viewModel = new HomeModel(
@@ -48,7 +48,7 @@ namespace Neptuo.WebSite.Controllers
             if (String.IsNullOrEmpty(type))
                 return View("ProjectOverview");
 
-            ProjectDataService dataService = new ProjectDataService(Request.MapPath(ProjectDataService.DataUri));
+            ProjectDataService dataService = new ProjectDataService(Request.MapPath);
 
             ProjectModelViewModel viewModel = new ProjectModelViewModel()
             {

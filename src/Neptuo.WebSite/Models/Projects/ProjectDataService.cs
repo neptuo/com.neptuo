@@ -9,16 +9,21 @@ namespace Neptuo.WebSite.Models.Projects
 {
     public class ProjectDataService
     {
-        public const string DataUri = "~/App_Data/Projects.xml";
+        public const string DataUri = "~/App_Data/";
+        public const string SearchPattern = "Projects*.xml";
 
-        private ProjectList models;
+        private readonly List<ProjectModel> models = new List<ProjectModel>();
 
-        public ProjectDataService(string dataUri)
+        public ProjectDataService(Func<string, string> pathResolver)
         {
-            using (StreamReader reader = new StreamReader(dataUri))
+            foreach (string filePath in Directory.EnumerateFiles(pathResolver(DataUri), SearchPattern))
             {
-                XmlSerializer serializer = new XmlSerializer(typeof(ProjectList));
-                models = (ProjectList)serializer.Deserialize(reader);
+                using (StreamReader reader = new StreamReader(filePath))
+                {
+                    XmlSerializer serializer = new XmlSerializer(typeof(ProjectList));
+                    ProjectList list = (ProjectList)serializer.Deserialize(reader);
+                    models.AddRange(list);
+                }
             }
         }
 
@@ -29,6 +34,6 @@ namespace Neptuo.WebSite.Models.Projects
     }
 
     [XmlRoot("Projects", Namespace = "http://schemas.neptuo.com/xsd/neptuo-website-projects.xsd")]
-    public class ProjectList : List<ProjectModel> 
+    public class ProjectList : List<ProjectModel>
     { }
 }

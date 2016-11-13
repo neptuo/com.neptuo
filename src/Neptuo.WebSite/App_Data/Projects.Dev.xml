@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Projects xmlns="http://schemas.neptuo.com/xsd/neptuo-website-projects.xsd">
+  <Project>
+    <Name>Neptuo</Name>
+    <Type>dev</Type>
+    <Description>Basic utilities and extensions for System.Core.</Description>
+    <LocalUrl>neptuo</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Framework/wiki</DocumentationUrl>
+  </Project>
+  <Project>
+    <Name>Neptuo.AspNet.Navigation</Name>
+    <Type>dev</Type>
+    <Description>Model (class) based navigation and routing for ASP.NET MVC.</Description>
+    <LocalUrl>neptuo.aspnet.navigation</LocalUrl>
+    <ProjectUrl>https://github.com/neptuo/AspNet.Navigation</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+  </Project>
+  <Project>
+    <Name>Neptuo.Behaviors</Name>
+    <Type>dev</Type>
+    <Description>Behavior (like interception) library for single pipelines..</Description>
+    <LocalUrl>neptuo.behaviors</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Behaviors</DocumentationUrl>
+  </Project>
+  <Project>
+    <Name>Neptuo.Commands</Name>
+    <Type>dev</Type>
+    <Description>Command (input) part of the CQRS system.</Description>
+    <LocalUrl>neptuo.commands</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Commands</DocumentationUrl>
+  </Project>
+  <Project>
+    <Name>Neptuo.Events</Name>
+    <Type>dev</Type>
+    <Description>Event (output) part of the CQRS system.</Description>
+    <LocalUrl>neptuo.events</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Events</DocumentationUrl>
+  </Project>
+  <Project>
+    <Name>Neptuo.EventSourcing</Name>
+    <Type>dev</Type>
+    <Description>Support libraries to merging whole CQRS and EventSoursing system together.</Description>
+    <LocalUrl>neptuo.eventsourcing</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Framework/wiki/EventSourcing</DocumentationUrl>
+  </Project>
+  <Project>
+    <Name>Neptuo.EventSourcing.Domains</Name>
+    <Type>dev</Type>
+    <Description>CQRS+ES support library with base classes for commands, events and AggregateRoots.</Description>
+    <LocalUrl>neptuo.eventsourcing.domains</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Framework/wiki/EventSourcing</DocumentationUrl>
+  </Project>
+  <Project>
+    <Name>Neptuo.EventSourcing.Formatters.Composite</Name>
+    <Type>dev</Type>
+    <Description>Composite formatters support for EventSourcing.</Description>
+    <LocalUrl>neptuo.eventsourcing.formatters.composite</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Framework/wiki/EventSourcing</DocumentationUrl>
+  </Project>
+  <Project>
+    <Name>Neptuo.EventSourcing.Formatters.Composite.Json</Name>
+    <Type>dev</Type>
+    <Description>JSON Composite formatters support for EventSourcing.</Description>
+    <LocalUrl>neptuo.eventsourcing.formatters.composite.json</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Framework/wiki/EventSourcing</DocumentationUrl>
+  </Project>
+  <Project>
+    <Name>Neptuo.Exceptions</Name>
+    <Type>dev</Type>
+    <Description>Generic exception handling mainly for asynchronous processing.</Description>
+    <LocalUrl>neptuo.exceptions</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Exceptions</DocumentationUrl>
+  </Project>
+  <Project>
+    <Name>Neptuo.FileSystem</Name>
+    <Type>dev</Type>
+    <Description>Abstractions for file system operations.</Description>
+    <LocalUrl>neptuo.filesysten</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Framework/wiki/FileSystems</DocumentationUrl>
+  </Project>
+  <Project>
+    <Name>Neptuo.FileSystem.Local</Name>
+    <Type>dev</Type>
+    <Description>Wrapped System.IO.File and Directory for Neptuo.FileSystem.</Description>
+    <LocalUrl>neptuo.filesysten.local</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Framework/wiki/FileSystems</DocumentationUrl>
+  </Project>
+  <Project>
+    <Name>Neptuo.FileSystem.Events.Local</Name>
+    <Type>dev</Type>
+    <Description>Various events using Neptuo.Events for local file system.</Description>
+    <LocalUrl>neptuo.filesysten.events.local</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Framework/wiki/FileSystems</DocumentationUrl>
+  </Project>
+  <Project>
+    <Name>Neptuo.Formatters</Name>
+    <Type>dev</Type>
+    <Description>Abstractions for serializing and deserializing objects.</Description>
+    <LocalUrl>neptuo.formatters</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Formatters</DocumentationUrl>
+  </Project>
+  <Project>
+    <Name>Neptuo.Formatters.Composite</Name>
+    <Type>dev</Type>
+    <Description>Serialized and deserializer with support for versioning and immutable objects created by constructors.</Description>
+    <LocalUrl>neptuo.formatters.composite</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Formatters</DocumentationUrl>
+  </Project>
+  <Project>
+    <Name>Neptuo.Formatters.Composite.Json</Name>
+    <Type>dev</Type>
+    <Description>JSON implementation of composite storage for Neptuo.Formatters.Composite.</Description>
+    <LocalUrl>neptuo.formatters.composite.json</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Formatters</DocumentationUrl>
+  </Project>
+  <Project>
+    <Name>Neptuo.Formatters.Composite.Metadata</Name>
+    <Type>dev</Type>
+    <Description>Attributes and metadata for composite model description.</Description>
+    <LocalUrl>neptuo.formatters.composite.metadata</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Formatters</DocumentationUrl>
+  </Project>
+  <Project>
+    <Name>Neptuo.Logging.Log4net</Name>
+    <Type>dev</Type>
+    <Description>Log4net implementation of Logging interface from Neptuo.</Description>
+    <LocalUrl>neptuo.logging.log4net</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Logging</DocumentationUrl>
+  </Project>
+  <Project>
+    <Name>Neptuo.Models</Name>
+    <Type>dev</Type>
+    <Description>Support for creating and accessing anemic and domain models.</Description>
+    <LocalUrl>neptuo.models</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Models</DocumentationUrl>
+  </Project>
+  <Project>
+    <Name>Neptuo.Models.Features</Name>
+    <Type>dev</Type>
+    <Description>Replacement C# operator 'as' for determining features of object.</Description>
+    <LocalUrl>neptuo.models.features</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Models.Features</DocumentationUrl>
+  </Project>
+  <Project>
+    <Name>Neptuo.Observables</Name>
+    <Type>dev</Type>
+    <Description>Base classes for implementing ViewModels for MVVM.</Description>
+    <LocalUrl>neptuo.observables</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+  </Project>
+  <Project>
+    <Name>Neptuo.PresentationModels</Name>
+    <Type>dev</Type>
+    <Description>Abstractions of model definition for various purposes.</Description>
+    <LocalUrl>neptuo.presentationmodels</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Framework/wiki/PresentationModels</DocumentationUrl>
+  </Project>
+  <Project>
+    <Name>Neptuo.Queries</Name>
+    <Type>dev</Type>
+    <Description>Read side for CQRS.</Description>
+    <LocalUrl>neptuo.queries</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+  </Project>
+  <Project>
+    <Name>Neptuo.Windows.Threading</Name>
+    <Type>dev</Type>
+    <Description>Extension for WPF Dispatcher and other Windows threading classes.</Description>
+    <LocalUrl>neptuo.windows.threading</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+  </Project>
+  <Project>
+    <Name>Neptuo.Windows.HotKeys</Name>
+    <Type>dev</Type>
+    <Description>Global hotkey (Windows wide) binding made easy.</Description>
+    <LocalUrl>neptuo.windows.hotkeys</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+  </Project>
+</Projects>
