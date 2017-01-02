@@ -31,6 +31,17 @@
     </Images>
 
     <Version>
+      <Name>v1.6</Name>
+      <Description>Added support for counting application and file statistics with classic pie chart view.</Description>
+      <Description>Searching in now instant, without deplay.</Description>
+      <Description>Added help popup for a first time setup.</Description>
+      <Description>Added support for defining custom startup position.</Description>
+      <Description>Added option for displaying tray-icon. Clicking a tray-icon brings window to front.</Description>
+      <Description>File system is scanned in the background. It is also reloaded only when source directory is changed, not on every configuration save</Description>
+      <Description>When global hotkey is not set, application has task bar item.</Description>
+      <Description>Added titles containing full path for solution files and applications.</Description>
+    </Version>
+    <Version>
       <Name>v1.5</Name>
       <Description>Added support for starting after login to the Windows.</Description>
       <Description>Added message displaying current application status (initializing, searching, 'nothing found', etc).</Description>
