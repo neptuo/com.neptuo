@@ -60,6 +60,20 @@ A main difference comes from the direction of references, defined by onion archi
 
 ## Namespaces
 
+We like namespaces and we use them a lot. We are always trying to consolidate classes that stick to together to its namespace. On the other hand, we are also trying to minimize namespaces to contain only information, that is not present somewhere else. These are the rules:
+
+### Removing layer name
+
+We are never placing a name of the layer to the namespace. This information is already encoded in the project project. See the examples from previous section, `Data` and `Business` and `Presentation` / `UI` - these information is already contained in the project structure. So, do not include it in the namespace.
+
+### Stop repeating yourself
+
+When previous previous name is saying `Products`, do not repeat this information is sub namespaces. Using namespaces like `Products.ProductNotes` only makes namespaces longer and harder read, use `Products.Notes` instead.
+
+### Plural, almost always
+
+Most of out namespaces are in plural. This is the way, for us, to distinguish between classes and namespaces. This is the most weak in our code and for some scenarios we are breaking it. We are usign words like `Inventory` or `ContentManagement` for namespaces, but we are never using them elsewhere for class names.
+
 ## Classes & interfaces
 
 ## Member names
