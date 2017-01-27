@@ -31,6 +31,13 @@
     </Images>
 
     <Version>
+      <Name>v1.6.1</Name>
+      <Description>Changing tray-icon when initializing and displaying intermediate progress bar on task bar.</Description>
+      <Description>Fix missing file after moving it with parent directory.</Description>
+      <Description>Fix hiding main window after loosing focus if opened by tray-icon.</Description>
+      <Description>Fix reseting main window state and position after opening using tray-icon.</Description>
+    </Version>
+    <Version>
       <Name>v1.6</Name>
       <Description>Added support for counting application and file statistics with classic pie chart view.</Description>
       <Description>Searching is now instant. Removed delay between typing and actual searching.</Description>
