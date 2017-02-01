@@ -12,7 +12,7 @@ When developing a [Money|https://github.com/maraf/Money] I came with a solution.
 
 ![Desktop app in middle window](/Content/Images/Blog/why-i-hate-hamburgers/middle.png)
 
-> I like this design! I really do.
+I like this design! I really do.
 
 ![Desktop app in large window](/Content/Images/Blog/why-i-hate-hamburgers/large.png)
 
