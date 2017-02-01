@@ -55,4 +55,15 @@
     <Author>Maraf</Author>
     <GitHubCommentPath>neptuo/WebSite/issues/26</GitHubCommentPath>
   </Post>
+  <Post>
+    <Title>Why I hate hamburgers</Title>
+    <Description>
+      A bit of thoughts about omnipresent hamburger menus.
+    </Description>
+    <Url>why-i-hate-hamburgers</Url>
+    <FilePath>~/App_Data/Blog/why-i-hate-hamburgers.md</FilePath>
+    <ReleaseDate>2017-02-01</ReleaseDate>
+    <Author>Maraf</Author>
+    <GitHubCommentPath>neptuo/WebSite/issues/26</GitHubCommentPath>
+  </Post>
 </Posts>
