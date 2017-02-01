@@ -1,5 +1,3 @@
-# Why I hate hamburgers?
-
 > Brief introduction: I'm not a UI guy, really. I'm a typical backend guy, maybe a bit frontend (javascript) guy, but definitely not a design guy. So keep that in mind while reading this (a bit 'hate') post.
 
 In last few years hamburger menus spread everywhere. It started on mobiles and in Windows 10 it is also in desktop applications. 
