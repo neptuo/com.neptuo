@@ -66,6 +66,8 @@ We like namespaces and we use them a lot. We are always trying to consolidate cl
 
 We are never placing a name of the layer to the namespace. This information is already encoded in the project project. See the examples from previous section, `Data` and `Business` and `Presentation` / `UI` - these information is already contained in the project structure. So, do not include it in the namespace.
 
+Another example is that we are trying not to use namespaces like `Services`, `Models`, `Entities`. Instead of placing such information in the namespace, we are trying to use projects to separate these "layers" and keep namespaces "clear", containing module informations only.
+
 ### Stop repeating yourself
 
 When previous previous name is saying `Products`, do not repeat this information is sub namespaces. Using namespaces like `Products.ProductNotes` only makes namespaces longer and harder read, use `Products.Notes` instead.
@@ -75,5 +77,9 @@ When previous previous name is saying `Products`, do not repeat this information
 Most of out namespaces are in plural. This is the way, for us, to distinguish between classes and namespaces. This is the most weak in our code and for some scenarios we are breaking it. We are usign words like `Inventory` or `ContentManagement` for namespaces, but we are never using them elsewhere for class names.
 
 ## Classes & interfaces
+
+When it comes to classes, we are also trying not to repeat information, that is contained in the namespace. This is true in almost all cases. Some exceptions are classes that are placed in some namespace, but mainly used from other namespace, where their name could be ambiguous. An extra example could `Orders` module (in namespace `Orders`), where could be a service. This service will be called `OrderService` even the information about "Ordering" is also in the namespace. Otherwise we would end up with class called `Service`, which would be useless from other modules perspective.
+
+We are separating contracts / interfaces for reading and writing. In most cases, a component that needs to read some data doesn't need to write them. For these scenarios we are heavily using name-patterns `***Provider`, which contains methods for reading data, and `***Collection` / `***Repository` which inherits provider contract and addes methods for chaning state.
 
 ## Member names
