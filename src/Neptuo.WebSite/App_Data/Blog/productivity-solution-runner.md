@@ -47,5 +47,7 @@ These are the main functions. Beside them there are some configuration tweaks th
 ## Summary
 
 Try it. 
+
 You will love it. Or don't. 
+
 We can't imagine a day without it.
