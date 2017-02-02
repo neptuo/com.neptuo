@@ -16,7 +16,7 @@ The application scans your file system for `*.sln` files and provides super fast
 
 The only thing needed at the beginning is a path to folder where to search for `*.sln` files. After confirming this path, the application scanns current file system and setups file watcher for any changes made during runtime.
 
-### Standart window versus background running application
+### Foreground vs. Background
 
 If you dont's specify a windows-wide hotkey, the application is running like any standart windows application. It has an item on the taskbar, is visible in the tab-window-list. You can close it pressing `Esc` or `Alt+F4`. After that it shuts down.
 
