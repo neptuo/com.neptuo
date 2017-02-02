@@ -1,6 +1,6 @@
 # Productivity - Solution Runner
 
-This a brief presentation of [Solution Runner](http://www.neptuo.com/product/desktop/solutionrunner) - a first product of our Productivity pack.
+This a brief presentation of [Solution Runner](http://www.neptuo.com/project/desktop/solutionrunner) - a first product of our Productivity pack.
 
 ## Are working with many Visual Studio solutions? 
 
@@ -52,4 +52,4 @@ You will love it. Or don't.
 
 We can't imagine a day without it.
 
-[Download a click-once application](http://www.neptuo.com/product/desktop/solutionrunner).
+[Download a click-once application](http://www.neptuo.com/project/desktop/solutionrunner).
