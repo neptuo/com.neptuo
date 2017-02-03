@@ -188,8 +188,16 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\BackgroundSingle.png" />
     <Content Include="Content\Images\Blog\mvc-route-values\blog-post-preview.png" />
+    <Content Include="Content\Images\Blog\productivity-solution-runner\additional-applications.png" />
+    <Content Include="Content\Images\Blog\productivity-solution-runner\main-window.png" />
+    <Content Include="Content\Images\Blog\why-i-hate-hamburgers\large.png" />
+    <Content Include="Content\Images\Blog\why-i-hate-hamburgers\middle.png" />
+    <Content Include="Content\Images\Blog\why-i-hate-hamburgers\mobile.png" />
+    <Content Include="Content\Images\Blog\why-i-hate-hamburgers\youtube.png" />
     <Content Include="Content\Images\Logo-170.png" />
     <Content Include="Content\Images\Logo-220.png" />
+    <Content Include="App_Data\Blog\why-i-hate-hamburgers.md" />
+    <Content Include="App_Data\Blog\productivity-solution-runner.md" />
     <None Include="Content\Stylesheet\blog.responsiveness.scss" />
     <None Include="Content\Stylesheet\common.scss" />
     <None Include="Content\Stylesheet\blog.scss" />

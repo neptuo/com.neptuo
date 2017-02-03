@@ -66,4 +66,15 @@
     <Author>Maraf</Author>
     <GitHubCommentPath>neptuo/WebSite/issues/31</GitHubCommentPath>
   </Post>
+  <Post>
+    <Title>Productivity - Solution Runner</Title>
+    <Description>
+      A brief introduction of a first product of the Productivity pack. Easy-to-use and super-fast tool for starting Visual Studio solutions.
+    </Description>
+    <Url>productivity-solution-runner</Url>
+    <FilePath>~/App_Data/Blog/productivity-solution-runner.md</FilePath>
+    <ReleaseDate>2017-02-03</ReleaseDate>
+    <Author>Maraf</Author>
+    <GitHubCommentPath>neptuo/WebSite/issues/32</GitHubCommentPath>
+  </Post>
 </Posts>
