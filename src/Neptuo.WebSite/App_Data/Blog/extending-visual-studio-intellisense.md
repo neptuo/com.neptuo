@@ -4,7 +4,7 @@ This is freaking easy. I have spend a lost of time investigating how to create a
 
 Well, the runtime support for quite an easy work, much harder work is to create a tooling, and specifically IntelliSense. By the time I was digging around I have found how easy is to extend build-in IntelliSense for C# and even HTML.
 
-## C#
+## C&#35;
 
 This one is really freaking easy. All you need to do is to register a `XXX` with content type `CSharp`.
 
