@@ -12,7 +12,7 @@ Well, for almost all cases the standard is totally sufficient. We are using it f
 
 ```C#
 
-    string localizedText = (L)"Hello, World!";
+string localizedText = (L)"Hello, World!";
 
 ```
 
@@ -34,7 +34,7 @@ When working with C# IntelliSense, we can inject current Visual Studio Roslyn wo
 
 ```C#
 
-    EXAMPLE: Inject current Roslyn workspace
+EXAMPLE: Inject current Roslyn workspace
 
 ```
 
@@ -42,7 +42,7 @@ Than we need to implementent `ICompletionSource` which is our IntelliSense items
 
 ```C#
 
-    EXAMPLE: ICompletionSource
+EXAMPLE: ICompletionSource
 
 ```
 
@@ -52,7 +52,7 @@ This instance is hit everytime a Visual Studio needs a list of completion items.
 
 ```C#
 
-    EXAMPLE: Find current node.
+EXAMPLE: Find current node.
 
 ```
 
