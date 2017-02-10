@@ -41,7 +41,7 @@ internal class CSharpCompletionSourceProvider : ICompletionSourceProvider
 
 This component is created along side with standard C# provider and by declaring `[Order(LAST)]` we can even modify results from standard C# provider, as it is being used after standard provider.
 
-When working with C# IntelliSense, we can inject current Visual Studio Roslyn workspace and the exact source code tree as Visual Studio does.
+When working with C# IntelliSense, we can inject current Visual Studio Roslyn workspace and get the exact projects, documents and source code trees as Visual Studio has.
 
 ```C#
 
