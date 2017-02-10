@@ -39,7 +39,9 @@ internal class CSharpCompletionSourceProvider : ICompletionSourceProvider
 
 > The `ExportAttribute` is part of the (MEF)[https://msdn.microsoft.com/en-us/library/dd460648(v=vs.110).aspx]. To make it automatically export inside Visual Studio we need to configure the extension that it contains MEF components. This is part of the `.vsixmanifest` and it is defined under "Assets" in the UI or using XML `<Asset Type="Microsoft.VisualStudio.MefComponent" ... />` element.
 
-This component is created along side with standard C# provider and by declaring `[Order(LAST)]` we can even modify results from standard C# provider, as it is being used after standard provider.
+This component is created along side with standard C# provider. 
+Using `ExportAttribute` we are telling MEF container (and Visual Studio) that this class should be registered as completion items provider. And by `ContentTypeAttribute` we are telling that the provider is capable of providing items for C# language.
+Finally, by declaring `[Order(After = "default")]` we can even modify results from standard C# provider, as it is being used after standard provider.
 
 When working with C# IntelliSense, we can inject current Visual Studio Roslyn workspace and get the exact projects, documents and source code trees as Visual Studio has.
 
