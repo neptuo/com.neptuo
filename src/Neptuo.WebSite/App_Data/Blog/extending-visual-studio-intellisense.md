@@ -29,8 +29,6 @@ This one is really freaking easy. All you need to do is to register a `ICompleti
 [ContentType("CSharp")]
 internal class CSharpCompletionSourceProvider : ICompletionSourceProvider
 {
-    public const string ContentType = "CSharp";
-
     public ICompletionSource TryCreateCompletionSource(ITextBuffer textBuffer)
     {
         return ...;
