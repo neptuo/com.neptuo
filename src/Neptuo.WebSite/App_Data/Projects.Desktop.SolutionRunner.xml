@@ -2,6 +2,7 @@
 <Projects xmlns="http://schemas.neptuo.com/xsd/neptuo-website-projects.xsd">
   <Project>
     <Name>Solution Runner</Name>
+    <Icon>~/Content/Images/Projects/solution-runner-icon.png</Icon>
     <Type>desktop</Type>
     <Description>Keyboard-only designed application for simple and fast opening of Visual Studio solution files.</Description>
     <Text>
@@ -23,6 +24,9 @@
     <LocalUrl>solutionrunner</LocalUrl>
     <ProjectUrl>https://github.com/neptuo/Productivity.SolutionRunner</ProjectUrl>
     <DownloadUrl>http://apps.neptuo.com/solution-runner</DownloadUrl>
+    <Relations>
+      <Relation Text="Blog post about features and how to setup and use it" Url="http://www.neptuo.com/blog/2017/2/3/productivity-solution-runner" />
+    </Relations>
     <Images>
       <Additional>~/Content/Images/Projects/solution-runner-01.png</Additional>
       <Additional>~/Content/Images/Projects/solution-runner-02.png</Additional>

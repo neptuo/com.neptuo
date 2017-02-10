@@ -25,13 +25,17 @@
     {
         <div class="folder" data-search="@project.Name.ToLowerInvariant()">
             <h2 class="folder-heading">
-                @if (project.Type == "dev")
+                @if (!String.IsNullOrEmpty(project.Icon))
+                {
+                    <img src="@Request.ResolveUrl(project.Icon)" class="folder-icon" />
+                }
+                else if (project.Type == "dev")
                 {
                     <img src="http://robertmjordan.com/Content/theme/img/technologies/nuget-icon.png" class="folder-icon" />
                 }
                 else if (project.Type == "vsix")
                 {
-                    <img src="https://mygetwww-2e16.kxcdn.com/Content/images/packageDefaultIcon_vsix.png?c=Mi4xLjAuMjEwNw==" height="30" />
+                    <img src="https://mygetwww-2e16.kxcdn.com/Content/images/packageDefaultIcon_vsix.png?c=Mi4xLjAuMjEwNw==" class="folder-icon" />
                 }
 
                 <a href="@Url.ModelUrl(new ProjectRoute(project))">@project.Name</a>
@@ -78,6 +82,16 @@
                         <li>
                             Release of the <a target="_blank" href="@project.DownloadUrl">@project.Name @(project.Versions.Any() ? project.Versions.First().Name : "") to download</a>.
                         </li>
+                    }
+
+                    @if(Model.IsDetail)
+                    {
+                        foreach (var relation in project.Relations)
+                        {
+                            <li>
+                                <a target="_blank" href="@relation.Url">@relation.Text</a>.
+                            </li>
+                        }
                     }
 
                     @if (project.Type == "dev")

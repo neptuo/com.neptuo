@@ -10,6 +10,7 @@
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Name" minOccurs="1" maxOccurs="1" />
+              <xs:element name="Icon" minOccurs="0" maxOccurs="1" />
               <xs:element name="Type" minOccurs="1" maxOccurs="1" />
               <xs:element name="Description" minOccurs="0" maxOccurs="1" />
               <xs:element name="Text" minOccurs="0" maxOccurs="1" />
@@ -19,6 +20,18 @@
               <xs:element name="LicenceUrl" minOccurs="0" maxOccurs="1" />
               <xs:element name="DocumentationUrl" minOccurs="0" maxOccurs="1" />
               <xs:element name="DownloadUrl" minOccurs="0" maxOccurs="1" />
+              <xs:element name="Relations" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Relation" minOccurs="1" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:attribute name="Text" use="required" type="xs:string" />
+                        <xs:attribute name="Url" use="required" type="xs:anyURI" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
               <xs:element name="Images" minOccurs="0" maxOccurs="1">
                 <xs:complexType>
                   <xs:sequence>

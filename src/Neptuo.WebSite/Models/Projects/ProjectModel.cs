@@ -11,6 +11,7 @@ namespace Neptuo.WebSite.Models.Projects
     public class ProjectModel
     {
         public string Name { get; set; }
+        public string Icon { get; set; }
         public string Description { get; set; }
 
         //[XmlArray("Text")]
@@ -27,6 +28,10 @@ namespace Neptuo.WebSite.Models.Projects
         public string Licence { get; set; }
         public string LicenceUrl { get; set; }
 
+        [XmlArray("Relations")]
+        [XmlArrayItem("Relation")]
+        public List<ProjectRelationModel> Relations { get; set; }
+
         public ProjectImageModel Images { get; set; }
 
         [XmlElement("Version")]
@@ -37,6 +42,7 @@ namespace Neptuo.WebSite.Models.Projects
         public ProjectModel()
         {
             Versions = new List<ProjectVersionModel>();
+            Relations = new List<ProjectRelationModel>();
         }
     }
 }
