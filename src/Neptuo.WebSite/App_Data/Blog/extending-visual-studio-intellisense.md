@@ -20,13 +20,15 @@ We use this syntax for a GetText inspired localization and we use a custom Intel
 
 ### How to do it?
 
-This one is really freaking easy. All you need to do is to register a `XXX` with content type `CSharp`.
+This one is really freaking easy. All you need to do is to register a `ICompletionSourceProvider` with content type `CSharp`.
 
 ```C#
 
 INTELLISENSE PROVIDER FOR C#
 
 ```
+
+> The `ExportAttribute` is part of the (MEF)[https://msdn.microsoft.com/en-us/library/dd460648(v=vs.110).aspx]. To make it automatically export inside Visual Studio we need to configure the extension that it contains MEF components. This is part of the `.vsixmanifest` and it is defined under "Assets" in the UI or using XML `<Asset Type="Microsoft.VisualStudio.MefComponent" ... />` element.
 
 This component is created along side with standard C# provider and by declaring `[Order(LAST)]` we can even modify results from standard C# provider.
 
