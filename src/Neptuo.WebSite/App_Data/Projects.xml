@@ -67,6 +67,13 @@
 
   <!-- UWP -->
   <Project>
+    <Name>Money</Name>
+    <Type>universal</Type>
+    <Description>Outcome manager with bar and pie graphs.</Description>
+    <LocalUrl>money</LocalUrl>
+    <ProjectUrl>https://github.com/maraf/Money</ProjectUrl>
+  </Project>
+  <Project>
     <Name>WebCam Image Collector</Name>
     <Type>universal</Type>
     <Description>Client-server HTTP based application for taking photos and downloading them from the server with WebCam to the clients.</Description>
