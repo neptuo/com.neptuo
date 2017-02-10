@@ -31,13 +31,13 @@
     </Images>
 
     <Version>
-      <Name>v1.6.2</Name>
-      <Description>Fix showing a directory in the list when directory with dot in a name is added.</Description>
-    </Version>
-    <Version>
       <Name>v1.6.3</Name>
       <Description>Fix crashes caused by IO exception while enumerating new directory.</Description>
       <Description>Add support for VS2017 which has different installation path format.</Description>
+    </Version>
+    <Version>
+      <Name>v1.6.2</Name>
+      <Description>Fix showing a directory in the list when directory with dot in a name is added.</Description>
     </Version>
     <Version>
       <Name>v1.6.1</Name>
