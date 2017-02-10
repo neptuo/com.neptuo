@@ -83,15 +83,41 @@
 </div>
 
 <div class="container">
+        <input id="search" type="text" class="folder" placeholder="Search (2) projects..." />
 
+        <div class="folder" data-search="money">
+            <h2 class="folder-heading">
+                    <img src="/Content/Images/Projects/money-icon.png" class="folder-icon" />
+
+                <a href="/project/universal/money">Money</a>
+            </h2>
+            <article>
+                <ul>
+                        <li>Outcome manager with bar and pie graphs.</li>
+
+
+
+                        <li>
+                            Source code at
+                            <a target="_blank" href="https://github.com/maraf/Money"><span>
+https://github.com/maraf/Money</span></a>.
+                        </li>
+                    
+
+
+                </ul>
+            </article>
+            <div class="clear"></div>
+        </div>
         <div class="folder" data-search="webcam image collector">
             <h2 class="folder-heading">
+                    <img src="/Content/Images/Projects/webcamimagecollector-icon.png" class="folder-icon" />
 
                 <a href="/project/universal/webcamimagecollector">WebCam Image Collector</a>
             </h2>
             <article>
                 <ul>
-                        <li>Client-server HTTP based application for taking photos and downloading them from the server with WebCam to the clients.</li>
+                        <li>Client-server HTTP based application for taking photos and downloading them from a server with WebCam to clients.</li>
 
 
 
@@ -102,12 +128,113 @@ https://github.com/maraf/WebCamImageCollector</span></a>.
                         </li>
                     
 
+
                 </ul>
             </article>
             <div class="clear"></div>
         </div>
 </div>
 
+    <script type="text/javascript">
+
+        var isHistorySupported = 'history' in window;
+        var isNewStateRequired = true;
+        var folders = document.querySelectorAll('.folder[data-search]');
+
+        var searchBox = document.getElementById('search');
+        searchBox.addEventListener('keydown', function (e) {
+            if (e.keyCode == 13)
+                e.preventDefault();
+        });
+        searchBox.addEventListener('keyup', function (e) {
+            var box = e.target;
+            var value = box.value.toLowerCase();
+            filterFolders(value);
+        });
+
+        if (isHistorySupported) {
+            window.addEventListener('popstate', function (e) {
+                var search = null;
+                if (e.state != null) {
+                    search = e.state.q;
+                }
+
+                searchBox.value = search;
+                filterFolders(search);
+            });
+        }
+
+        function filterFolders(value) {
+            if (value == null) {
+                for (var i = 0; i < folders.length; i++) {
+                    var folder = folders[i];
+                    folder.style.display = 'block';
+                }
+
+                return;
+            }
+
+            for (var i = 0; i < folders.length; i++) {
+                var folder = folders[i];
+
+                var name = folder.dataset['search'];
+                var index = name.indexOf(value);
+                if (index > -1)
+                    folder.style.display = 'block';
+                else
+                    folder.style.display = 'none';
+            }
+
+            if (value == '') {
+                isNewStateRequired = true;
+            }
+
+            if (isHistorySupported) {
+                var method = null;
+                if (isNewStateRequired) {
+                    method = window.history.pushState;
+                    isNewStateRequired = false;
+                }
+                else {
+                    method = window.history.replaceState;
+                }
+
+                method.call(window.history, { q: value }, "Searching '" + value + "'", getSearchUrl(value));
+            }
+        }
+
+        function getSearchUrl(value) {
+            var origin = null;
+            if ('origin' in window.location) {
+                origin = window.location.origin;
+            } else {
+                origin = window.location.protocol + "//" + window.location.host;
+            }
+
+            var url = window.location.origin + window.location.pathname
+            if (value != "") {
+                url += "?q=" + encodeURIComponent(value);
+            }
+
+            return url;
+        }
+
+        var queryString = window.location.search;
+        if (queryString != '') {
+            var params = queryString.substr(1, queryString.length - 1).split('&');
+            for (var i = 0; i < params.length; i++) {
+                var keyValue = params[i].split('=');
+                if (keyValue[0] == 'q') {
+                    var value = keyValue[1];
+                    if (value != '') {
+                        searchBox.value = value;
+                        filterFolders(value);
+                    }
+                }
+            }
+        }
+
+    </script>
 
 
         </form>
