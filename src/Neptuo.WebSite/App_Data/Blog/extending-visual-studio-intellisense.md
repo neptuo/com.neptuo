@@ -24,7 +24,18 @@ This one is really freaking easy. All you need to do is to register a `ICompleti
 
 ```C#
 
-INTELLISENSE PROVIDER FOR C#
+[Export(typeof(ICompletionSourceProvider))]
+[Order(After = "default")]
+[ContentType("CSharp")]
+internal class CSharpCompletionSourceProvider : ICompletionSourceProvider
+{
+    public const string ContentType = "CSharp";
+
+    public ICompletionSource TryCreateCompletionSource(ITextBuffer textBuffer)
+    {
+        return ...;
+    }
+}
 
 ```
 
@@ -36,7 +47,8 @@ When working with C# IntelliSense, we can inject current Visual Studio Roslyn wo
 
 ```C#
 
-EXAMPLE: Inject current Roslyn workspace
+[Import(typeof(VisualStudioWorkspace))]
+internal VisualStudioWorkspace Workspace { get; set; }
 
 ```
 
