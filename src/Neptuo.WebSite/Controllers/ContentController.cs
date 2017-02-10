@@ -55,12 +55,15 @@ namespace Neptuo.WebSite.Controllers
                 IsDetail = !String.IsNullOrEmpty(project)
             };
 
-            viewModel.AddRange(dataService
-                .Get()
-                .Where(p => String.IsNullOrEmpty(type) || p.Type.ToLowerInvariant() == type.ToLowerInvariant())
-                .Where(p => String.IsNullOrEmpty(project) || p.LocalUrl.ToLowerInvariant() == project.ToLowerInvariant())
-            );
+            IEnumerable<ProjectModel> models = dataService.Get();
+            if (type != "all")
+            {
+                models = models
+                    .Where(p => String.IsNullOrEmpty(type) || p.Type.ToLowerInvariant() == type.ToLowerInvariant())
+                    .Where(p => String.IsNullOrEmpty(project) || p.LocalUrl.ToLowerInvariant() == project.ToLowerInvariant());
+            }
 
+            viewModel.AddRange(models);
             return View(viewModel);
         }
 

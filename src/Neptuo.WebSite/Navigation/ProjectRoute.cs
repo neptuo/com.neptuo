@@ -28,5 +28,13 @@ namespace Neptuo.WebSite.Navigation
             Type = model.Type;
             Project = model.LocalUrl;
         }
+
+        public static ProjectRoute All()
+        {
+            return new ProjectRoute()
+            {
+                Type = "all"
+            };
+        }
     }
 }
