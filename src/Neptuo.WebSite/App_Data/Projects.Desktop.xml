@@ -2,6 +2,7 @@
 <Projects xmlns="http://schemas.neptuo.com/xsd/neptuo-website-projects.xsd">
   <Project>
     <Name>Chromium Updater</Name>
+    <Icon>~/Content/Images/Projects/chromium-updater-icon.png</Icon>
     <Type>desktop</Type>
     <Description>Chromium updater is Click-once application for downloading and updating latest builds of Chromium. The application offers automatic or manual download of latest build to selected folder and then extracting it there.</Description>
     <Text>

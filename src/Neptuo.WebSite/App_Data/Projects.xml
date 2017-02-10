@@ -37,6 +37,7 @@
   </Project>
   <Project>
     <Name>Template Engine</Name>
+    <Icon>~/Content/Images/Projects/template-engine-icon.png</Icon>
     <Type>cms</Type>
     <Description>
       C# based web application with both server-side and client-size view rendering from shared source.
