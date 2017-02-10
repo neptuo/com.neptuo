@@ -68,6 +68,7 @@
   <!-- UWP -->
   <Project>
     <Name>Money</Name>
+    <Icon>~/Content/Images/Projects/money-icon.png</Icon>
     <Type>universal</Type>
     <Description>Outcome manager with bar and pie graphs.</Description>
     <LocalUrl>money</LocalUrl>
@@ -75,8 +76,9 @@
   </Project>
   <Project>
     <Name>WebCam Image Collector</Name>
+    <Icon>~/Content/Images/Projects/webcamimagecollector-icon.png</Icon>
     <Type>universal</Type>
-    <Description>Client-server HTTP based application for taking photos and downloading them from the server with WebCam to the clients.</Description>
+    <Description>Client-server HTTP based application for taking photos and downloading them from a server with WebCam to clients.</Description>
     <LocalUrl>webcamimagecollector</LocalUrl>
     <ProjectUrl>https://github.com/maraf/WebCamImageCollector</ProjectUrl>
   </Project>
@@ -84,6 +86,7 @@
   <!-- ANDROID -->
   <Project>
     <Name>Vocabulary App</Name>
+    <Icon>~/Content/Images/Projects/vocabulary-app-icon.png</Icon>
     <Type>android</Type>
     <Description>
       Android application for testing your vocabulary. User can download vocabularies from our API and browse and test phrases placed in it.
