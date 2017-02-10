@@ -215,6 +215,7 @@
     <Content Include="Content\Images\Projects\link-extractor-01.png" />
     <Content Include="Content\Images\Projects\link-extractor-02.png" />
     <Content Include="Content\Images\Projects\link-extractor-03.png" />
+    <Content Include="Content\Images\Projects\nuget-icon.png" />
     <Content Include="Content\Images\Projects\productivity-01.png" />
     <Content Include="Content\Images\Projects\productivity-02.png" />
     <Content Include="Content\Images\Projects\solution-runner-01.png" />
@@ -227,11 +228,13 @@
     <Content Include="Content\Images\Projects\template-engine-03.png" />
     <Content Include="Content\Images\Projects\template-engine-04.png" />
     <Content Include="Content\Images\Projects\template-engine-05.png" />
+    <Content Include="Content\Images\Projects\uwp-icon.png" />
     <Content Include="Content\Images\Projects\vocabulary-app-01.png" />
     <Content Include="Content\Images\Projects\vocabulary-app-02.png" />
     <Content Include="Content\Images\Projects\vocabulary-app-03.png" />
     <Content Include="Content\Images\Projects\vocabulary-app-04.png" />
     <Content Include="Content\Images\Projects\vocabulary-app-05.png" />
+    <Content Include="Content\Images\Projects\vsix-icon.png" />
     <Content Include="Content\Images\Projects\windows-dock-01.jpg" />
     <Content Include="Content\Images\Projects\windows-dock-02.png" />
     <Content Include="Content\Images\Projects\windows-dock-03.png" />

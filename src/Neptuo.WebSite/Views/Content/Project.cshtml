@@ -31,11 +31,15 @@
                 }
                 else if (project.Type == "dev")
                 {
-                    <img src="http://robertmjordan.com/Content/theme/img/technologies/nuget-icon.png" class="folder-icon" />
+                    <img src="@Request.ResolveUrl("~/Content/Images/Projects/nuget-icon.png")" class="folder-icon" />
                 }
                 else if (project.Type == "vsix")
                 {
-                    <img src="https://mygetwww-2e16.kxcdn.com/Content/images/packageDefaultIcon_vsix.png?c=Mi4xLjAuMjEwNw==" class="folder-icon" />
+                    <img src="@Request.ResolveUrl("~/Content/Images/Projects/vsix-icon.png")" class="folder-icon" />
+                }
+                else if (project.Type == "universal")
+                {
+                    <img src="@Request.ResolveUrl("~/Content/Images/Projects/uwp-icon.png")" class="folder-icon" />
                 }
 
                 <a href="@Url.ModelUrl(new ProjectRoute(project))">@project.Name</a>
