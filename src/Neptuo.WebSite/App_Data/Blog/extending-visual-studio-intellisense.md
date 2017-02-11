@@ -58,13 +58,6 @@ Than we need to implementent `ICompletionSource` which is our IntelliSense items
 
 internal class CSharpCompletionSource : ICompletionSource
 {
-    private readonly ITextBuffer textBuffer;
-
-    public CSharpCompletionSource(ITextBuffer textBuffer)
-    {
-        this.textBuffer = textBuffer;
-    }
-
     public void AugmentCompletionSession(ICompletionSession session, IList<CompletionSet> completionSets)
     {
         var moniker = "CustomCSharpCompletion";
