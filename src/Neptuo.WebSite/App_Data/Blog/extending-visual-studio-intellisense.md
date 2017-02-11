@@ -56,7 +56,33 @@ Than we need to implementent `ICompletionSource` which is our IntelliSense items
 
 ```C#
 
-EXAMPLE: ICompletionSource
+internal class CSharpCompletionSource : ICompletionSource
+{
+    private readonly ITextBuffer textBuffer;
+
+    public CSharpCompletionSource(ITextBuffer textBuffer)
+    {
+        this.textBuffer = textBuffer;
+    }
+
+    public void AugmentCompletionSession(ICompletionSession session, IList<CompletionSet> completionSets)
+    {
+        var moniker = "CustomCSharpCompletion";
+        var displayName = "Custom C# completions";
+        var applicableTo = ...;
+    
+        CompletionSet newCompletionSet = new CompletionSet(
+            moniker,
+            displayName,
+            applicableTo,
+            result,
+            null
+        );
+        newCompletionSet.SelectBestMatch();
+        
+        completionSets.Add(newCompletionSet);
+    }
+}
 
 ```
 
