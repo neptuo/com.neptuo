@@ -11,9 +11,7 @@ First this first: Why would you extend an Intellisense for C#?
 Well, for almost all cases the standard is totally sufficient. We are using it for kind a special use of explicit casting.
 
 ```C#
-
 string localizedText = (L)"Hello, World!";
-
 ```
 
 We use this syntax for a GetText inspired localization and we use a custom IntelliSense inside string literals for suggesting already known and localized texts.
@@ -27,7 +25,6 @@ Steps described later in the article are about providing items for IntelliSense.
 This one is really freaking easy. All you need to do is to register a `ICompletionSourceProvider` with content type `CSharp`.
 
 ```C#
-
 [Export(typeof(ICompletionSourceProvider))]
 [Order(After = "default")]
 [ContentType("CSharp")]
@@ -38,7 +35,6 @@ internal class CSharpCompletionSourceProvider : ICompletionSourceProvider
         return ...;
     }
 }
-
 ```
 
 > The `ExportAttribute` is part of the [MEF](https://msdn.microsoft.com/en-us/library/dd460648(v=vs.110).aspx). To make it automatically export inside Visual Studio we need to configure the extension that it contains MEF components. This is part of the `.vsixmanifest` and it is defined under "Assets" in the UI or using XML `<Asset Type="Microsoft.VisualStudio.MefComponent" ... />` element.
@@ -50,16 +46,13 @@ Finally, by declaring `[Order(After = "default")]` we can even modify results fr
 When working with C# IntelliSense, we can inject current Visual Studio Roslyn workspace and get the exact projects, documents and source code trees as Visual Studio has.
 
 ```C#
-
 [Import(typeof(VisualStudioWorkspace))]
 internal VisualStudioWorkspace Workspace { get; set; }
-
 ```
 
 Than we need to implementent `ICompletionSource` which is our IntelliSense items provider. 
 
 ```C#
-
 internal class CSharpCompletionSource : ICompletionSource
 {
     public void AugmentCompletionSession(ICompletionSession session, IList<CompletionSet> completionSets)
@@ -80,16 +73,22 @@ internal class CSharpCompletionSource : ICompletionSource
         completionSets.Add(newCompletionSet);
     }
 }
-
 ```
 
 > A big note here is that we must install a same version of `Microsoft.CodeAnalysis` NuGet package as contained in the Visual Studio, or we can use a version from the GAC. Otherwise weird exceptions can raise in runtime.
 
-This instance is hit everytime a Visual Studio needs a list of completion items. We can find a Roslyn node, where the cursor is, and provide items.
+This instance is hit everytime a Visual Studio needs a list of completion items. Now, we can find a current Roslyn document for the `ITextBuffer`.
 
 ```C#
+SnapshotPoint caretPosition = session.TextView.Caret.Position.BufferPosition;
+Document document = caretPosition.Snapshot.GetOpenDocumentInCurrentContextWithChanges();
+```
 
+The `GetOpenDocumentInCurrentContextWithChanges` is extension method defined in the NuGet `Microsoft.CodeAnalysis.EditorFeatures.Text`. [Source code for this project can be found on github](https://github.com/dotnet/roslyn/blob/master/src/EditorFeatures/Text/Extensions.cs).
+
+We can find a Roslyn node, where the cursor is.
+
+```C#
 EXAMPLE: Find current node.
-
 ```
 
