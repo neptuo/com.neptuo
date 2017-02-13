@@ -18,6 +18,10 @@ string localizedText = (L)"Hello, World!";
 
 We use this syntax for a GetText inspired localization and we use a custom IntelliSense inside string literals for suggesting already known and localized texts.
 
+### A side note about IntelliSense for string literals
+
+Steps described later in the article are about providing items for IntelliSense. But in Visual Studio there is another component which is responsible for triggering or showing the IntelliSense. By default C# doesn't trigger IntelliSense for string literal and even if you complete the tutorial shown here, it will simply not show. I'm working on the second part where I will be covering this topic. For now, you can use [official tutorial for custom IntelliSense](https://msdn.microsoft.com/en-us/library/ee372314.aspx) where are described both components. The interface required to implement is a [IVsTextViewCreationListener](https://msdn.microsoft.com/en-us/library/microsoft.visualstudio.editor.ivstextviewcreationlistener.aspx).
+
 ### How to do it?
 
 This one is really freaking easy. All you need to do is to register a `ICompletionSourceProvider` with content type `CSharp`.
