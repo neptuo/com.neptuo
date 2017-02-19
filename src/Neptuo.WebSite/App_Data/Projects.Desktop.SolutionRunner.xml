@@ -35,9 +35,16 @@
     </Images>
 
     <Version>
+      <Name>v1.7.0</Name>
+      <Description>Added context menu for tray-icon.</Description>
+      <Description>Added support for select minimal VS version for auto selecting VS version feature.</Description>
+      <Description>Added support for hiding VS versions.</Description>
+      <Description>Fix crashing after filling invalid or not accessible root path and added exception logging.</Description>
+    </Version>
+    <Version>
       <Name>v1.6.3</Name>
       <Description>Fix crashes caused by IO exception while enumerating new directory.</Description>
-      <Description>Add support for VS2017 which has different installation path format.</Description>
+      <Description>Added support for VS2017 which has different installation path format.</Description>
     </Version>
     <Version>
       <Name>v1.6.2</Name>
