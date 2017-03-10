@@ -35,6 +35,16 @@
     </Images>
 
     <Version>
+      <Name>v1.8.0</Name>
+      <Description>Added automatic detection of Visual Studio Code. It is treated as main application which can be hidden from a configuration window.</Description>
+      <Description>Configuration properties are splitted into tabs.</Description>
+      <Description>A better control for picking additional application path. From plain textbox to file picker with support for manual path setting.</Description>
+      <Description>Statistics are grouped by year and month, with overview for each year and global counts.</Description>
+      <Description>Each additional application can has hotkey which starts the application in combination with Alt.</Description>
+      <Description>Prefered application is now picked from dropdown containing main and additional applications.</Description>
+      <Description>All windows, except the main one, has standard windows border and controls.</Description>
+    </Version>
+    <Version>
       <Name>v1.7.0</Name>
       <Description>Added context menu for tray-icon.</Description>
       <Description>Added support for select minimal VS version for auto selecting VS version feature.</Description>
