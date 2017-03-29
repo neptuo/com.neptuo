@@ -1,16 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Projects xmlns="http://schemas.neptuo.com/xsd/neptuo-website-projects.xsd">
-  <!-- VSIX -->
-  <Project>
-    <Name>Neptuo.Productivity</Name>
-    <Type>vsix</Type>
-    <Description>A set of productivity features: Line duplication, cancel build on first error, build times or show start page after solution closed. All configurable.</Description>
-    <LocalUrl>neptuo.productivity</LocalUrl>
-    <ProjectUrl>https://github.com/neptuo/Productivity</ProjectUrl>
-    <Licence>Apache License, Version 2.0</Licence>
-    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
-    <DocumentationUrl>https://github.com/neptuo/Productivity/releases</DocumentationUrl>
-  </Project>
 
   <!-- CMS -->
   <Project>
