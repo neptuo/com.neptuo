@@ -83,41 +83,7 @@
 </div>
 
 <div class="container">
-        <input id="search" type="text" class="folder" placeholder="Search (2) projects..." />
 
-        <div class="folder" data-search="neptuo.productivity">
-            <h2 class="folder-heading">
-                    <img src="/Content/Images/Projects/vsix-icon.png" class="folder-icon" />
-
-                <a href="/project/vsix/neptuo.productivity">Neptuo.Productivity</a>
-            </h2>
-            <article>
-                <ul>
-                        <li>A set of productivity features: Line duplication, cancel build on first error, build times or show start page after solution closed. All configurable.</li>
-
-                        <li>
-                            <a target="_blank" href="http://www.apache.org/licenses/LICENSE-2.0"><span>Licensed under Apache License, Version 2.0</span></a>.
-                        </li>
-
-                        <li>
-                            <a target="_blank" href="https://github.com/neptuo/Productivity/releases">Project documentation</a>.
-                        </li>
-
-                        <li>
-                            Source code at
-                            <a target="_blank" href="https://github.com/neptuo/Productivity"><span>
-https://github.com/neptuo/Productivity</span></a>.
-                        </li>
-                    
-
-
-                        <li>
-                            Current version can be downloaded from <a target="_blank" href="https://www.myget.org/F/neptuo-dev/vsix/">MyGet VSIX Feed</a>.
-                        </li>
-                </ul>
-            </article>
-            <div class="clear"></div>
-        </div>
         <div class="folder" data-search="neptuo.productivity.lineduplication">
             <h2 class="folder-heading">
                     <img src="/Content/Images/Projects/vsix-icon.png" class="folder-icon" />
@@ -151,108 +117,38 @@ https://github.com/neptuo/Productivity</span></a>.
             </article>
             <div class="clear"></div>
         </div>
+                <div class="folder">
+                    <h2 class="folder-heading">Previews</h2>
+                        <img class="main-image" src="/Content/Images/Projects/line-duplication-01.gif" />
+                    <div class="additional-image-list">
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="folder">
+                    <h2 class="folder-heading">Version history</h2>
+                    <ul class="version">
+                            <li>
+                                <strong>v1.0</strong>
+                                    <ul>
+
+                                            <li>
+                                                Single line duplication.
+                                            </li>
+                                            <li>
+                                                Multi line duplication.
+                                            </li>
+                                            <li>
+                                                Preserves selection in duplicated line(s).
+                                            </li>
+                                            <li>
+                                                Default key bindings: Ctrl+Shift+Alt+Up &amp; Ctrl+Shift+Alt+Down.
+                                            </li>
+                                    </ul>
+                            </li>
+                    </ul>
+                </div>
 </div>
 
-    <script type="text/javascript">
-
-        var isHistorySupported = 'history' in window;
-        var isNewStateRequired = true;
-        var folders = document.querySelectorAll('.folder[data-search]');
-
-        var searchBox = document.getElementById('search');
-        searchBox.addEventListener('keydown', function (e) {
-            if (e.keyCode == 13)
-                e.preventDefault();
-        });
-        searchBox.addEventListener('keyup', function (e) {
-            var box = e.target;
-            var value = box.value.toLowerCase();
-            filterFolders(value);
-        });
-
-        if (isHistorySupported) {
-            window.addEventListener('popstate', function (e) {
-                var search = null;
-                if (e.state != null) {
-                    search = e.state.q;
-                }
-
-                searchBox.value = search;
-                filterFolders(search);
-            });
-        }
-
-        function filterFolders(value) {
-            if (value == null) {
-                for (var i = 0; i < folders.length; i++) {
-                    var folder = folders[i];
-                    folder.style.display = 'block';
-                }
-
-                return;
-            }
-
-            for (var i = 0; i < folders.length; i++) {
-                var folder = folders[i];
-
-                var name = folder.dataset['search'];
-                var index = name.indexOf(value);
-                if (index > -1)
-                    folder.style.display = 'block';
-                else
-                    folder.style.display = 'none';
-            }
-
-            if (value == '') {
-                isNewStateRequired = true;
-            }
-
-            if (isHistorySupported) {
-                var method = null;
-                if (isNewStateRequired) {
-                    method = window.history.pushState;
-                    isNewStateRequired = false;
-                }
-                else {
-                    method = window.history.replaceState;
-                }
-
-                method.call(window.history, { q: value }, "Searching '" + value + "'", getSearchUrl(value));
-            }
-        }
-
-        function getSearchUrl(value) {
-            var origin = null;
-            if ('origin' in window.location) {
-                origin = window.location.origin;
-            } else {
-                origin = window.location.protocol + "//" + window.location.host;
-            }
-
-            var url = window.location.origin + window.location.pathname
-            if (value != "") {
-                url += "?q=" + encodeURIComponent(value);
-            }
-
-            return url;
-        }
-
-        var queryString = window.location.search;
-        if (queryString != '') {
-            var params = queryString.substr(1, queryString.length - 1).split('&');
-            for (var i = 0; i < params.length; i++) {
-                var keyValue = params[i].split('=');
-                if (keyValue[0] == 'q') {
-                    var value = keyValue[1];
-                    if (value != '') {
-                        searchBox.value = value;
-                        filterFolders(value);
-                    }
-                }
-            }
-        }
-
-    </script>
 
 
         </form>
