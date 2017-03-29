@@ -104,7 +104,7 @@
                             Current version on NuGet at <a target="_blank" href="https://www.nuget.org/packages/@project.Name"><span>nuget.org/packages/@project.Name</span></a>.
                         </li>
                     }
-                    else if (project.Type == "vsix")
+                    else if (project.Type == "vsix" && String.IsNullOrEmpty(project.DownloadUrl))
                     {
                         <li>
                             Current version can be downloaded from <a target="_blank" href="https://www.myget.org/F/neptuo-dev/vsix/">MyGet VSIX Feed</a>.
