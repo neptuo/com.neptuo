@@ -43,6 +43,9 @@
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
     <DocumentationUrl>https://github.com/neptuo/Productivity/releases</DocumentationUrl>
     <DownloadUrl></DownloadUrl>
+    <Images>
+      <Main>~/Content/Images/Projects/go-to-source-01.gif</Main>
+    </Images>
 
     <Version>
       <Name>v1.0</Name>
