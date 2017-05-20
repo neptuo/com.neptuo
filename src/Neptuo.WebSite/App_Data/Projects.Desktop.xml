@@ -96,6 +96,11 @@ About sticking windows, when you drop window near other window, the dropped wind
     <DownloadUrl>http://apps.neptuo.com/winrun</DownloadUrl>
 
     <Version>
+      <Name>v1.7.0</Name>
+      <Description>Tray Icon.</Description>
+      <Description>Fix crashing when virtual desktop is not available.</Description>
+    </Version>
+    <Version>
       <Name>v1.6.0</Name>
       <Description>Sticky Windows.</Description>
       <Description>Internal reimplementation of features.</Description>

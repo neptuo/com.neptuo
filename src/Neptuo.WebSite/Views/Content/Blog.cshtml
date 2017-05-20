@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Neptuo.WebSite.Models.Blogging.PostModel>
+﻿@using System.Globalization;
+@model IEnumerable<Neptuo.WebSite.Models.Blogging.PostModel>
 @{
     ViewBag.Title = "Thoughts to share";
 }
@@ -25,7 +26,7 @@
             <div class="folder">
                 <div class="date">
                     <div class="day">@post.ReleaseDate.Day</div>
-                    <div class="month">@post.ReleaseDate.ToString("MMM")</div>
+                    <div class="month">@post.ReleaseDate.ToString("MMM", new CultureInfo("en-US"))</div>
                 </div>
                 <div class="folder-content">
                     <h2 class="folder-heading">@Html.ModelLink(post.Title, new BlogPostRoute(post.ReleaseDate, post.Url))</h2>
