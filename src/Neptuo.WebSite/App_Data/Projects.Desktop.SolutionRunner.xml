@@ -35,6 +35,13 @@
     </Images>
 
     <Version>
+      <Name>v1.9.0</Name>
+      <Description>Added a light theme.</Description>
+      <Description>Added an option to show a little badge after solution name with count of projects in the solution file.</Description>
+      <Description>Additional application can now contain additional commands. These are Alt + Key1 + Key2 extensions to the additional application. </Description>
+      <Description>Added visualization of an application hotkey when Alt is pressed.</Description>
+    </Version>
+    <Version>
       <Name>v1.8.0</Name>
       <Description>Added automatic detection of Visual Studio Code. It is treated as main application which can be hidden from a configuration window.</Description>
       <Description>Configuration properties are splitted into tabs.</Description>
