@@ -208,6 +208,7 @@
     <None Include="Content\Stylesheet\box.scss" />
     <None Include="Content\Stylesheet\folder.scss" />
     <Content Include="Content\Images\mnau.jpg" />
+    <Content Include="Content\Images\Projects\build-history.png" />
     <Content Include="Content\Images\Projects\chromium-updater-01.png" />
     <Content Include="Content\Images\Projects\chromium-updater-02.png" />
     <Content Include="Content\Images\Projects\chromium-updater-03.png" />

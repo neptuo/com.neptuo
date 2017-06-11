@@ -11,6 +11,7 @@
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
     <DocumentationUrl>https://github.com/neptuo/Productivity/releases</DocumentationUrl>
   </Project>
+  
   <Project>
     <Name>Neptuo.Productivity.LineDuplication</Name>
     <Type>vsix</Type>
@@ -33,6 +34,7 @@
       <Description>Default key bindings: Ctrl+Shift+Alt+Up &amp; Ctrl+Shift+Alt+Down.</Description>
     </Version>
   </Project>
+  
   <Project>
     <Name>Neptuo.Productivity.GoToSource</Name>
     <Type>vsix</Type>
@@ -52,6 +54,27 @@
       <Description>Command in Edit -> Go to Source.</Description>
       <Description>Extends standard F12 (Go to Definition).</Description>
       <Description>Supports extensibility by implementing and exporting various interfaces.</Description>
+    </Version>
+  </Project>
+  
+  <Project>
+    <Name>Neptuo.Productivity.BuildHistory</Name>
+    <Type>vsix</Type>
+    <Description>Overview of last builds.</Description>
+    <LocalUrl>buildhistory</LocalUrl>
+    <ProjectUrl>https://github.com/neptuo/Productivity</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Productivity/releases</DocumentationUrl>
+    <DownloadUrl></DownloadUrl>
+    <Images>
+      <Main>~/Content/Images/Projects/build-history.png</Main>
+    </Images>
+
+    <Version>
+      <Name>v1.0</Name>
+      <Description>Configurable count of builds to store.</Description>
+      <Description>Each build length, result (success or failure) and type (build, rebuild or clean).</Description>
     </Version>
   </Project>
 </Projects>
