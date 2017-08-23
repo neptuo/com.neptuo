@@ -1,0 +1,265 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <title>Building processing pipeline with behaviors - Neptuo</title>
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="/Content/web.css" rel="stylesheet" />
+
+    <link rel="alternate" type="application/rss+xml" title="Neptuo Blog" href="http://www.neptuo.com/blog/atom.xml" />
+</head>
+<body>
+
+    <nav class="navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+            <button class="navbar-toggle">
+                <span class="glyphicon glyphicon-menu-hamburger"></span>
+            </button>
+
+            <ul class="left">
+                    <li>
+        <a href="/">
+            <div class="maintext">
+                Home
+                <span class="glyphicon glyphicon-home"></span>
+            </div>
+            <div class="subtext">How can we help you?</div>
+        </a>
+    </li>
+
+            </ul>
+            <ul class="right">
+                    <li>
+        <a href="/project">
+            <div class="maintext">
+                Projects
+                <span class="glyphicon glyphicon-cloud"></span>
+            </div>
+            <div class="subtext">Projects we are working on</div>
+        </a>
+    </li>
+
+                    <li>
+        <a href="/service">
+            <div class="maintext">
+                Services
+                <span class="glyphicon glyphicon-globe"></span>
+            </div>
+            <div class="subtext">Our services and references</div>
+        </a>
+    </li>
+
+                    <li class="active">
+        <a href="/blog">
+            <div class="maintext">
+                Blog
+                <span class="glyphicon glyphicon-bookmark"></span>
+            </div>
+            <div class="subtext">Thoughts to share</div>
+        </a>
+    </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="body">
+        <form>
+
+            
+
+<div class="intro important blogpost">
+    <div class="intro-content container">
+        <h1>Building processing pipeline with behaviors</h1>
+        <p>
+            
+      About interception for uniform interfaces like those used in the MediatR.
+    
+        </p>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="folder blogpost">
+        <p>I hadn't planned to write this post, but after I have read post from Jeremy D. Miller from Lost techies - <a href="https://lostechies.com/jimmybogard/2016/10/13/mediatr-pipeline-examples/">about pipelines in MediatR</a> - I had to.</p>
+<p>We are using the request -&gt; handler (-&gt; response) design a lot. The handler has a single method responsible for processing request (and optionaly provinding response). It can be used nearly everywhere and for everything. Typically we have a component called <code>dispatcher</code> which hides the registration of handlers for particular request types.</p>
+<p>One of the examples can be validation pipeline. We have a</p>
+<div class="highlight csharp"><pre>
+<span class="keyword">public</span> <span class="keyword">interface</span> IValidationDispatcher
+{
+    IValidationResult Validate&lt;T&gt;(T model);
+}
+
+</pre></div>
+<p>A 'dispatcher' is used from the code everywhere validation is required. This component hides registered handler for each model type.</p>
+<div class="highlight csharp"><pre>
+
+<span class="keyword">public</span> <span class="keyword">interface</span> IValidationHandler&lt;T&gt;
+{
+    IValidationResult Validate(T model);
+}
+
+
+</pre></div>
+<blockquote>
+<p>Behind dispatcher interface, there could any type of delegation and for simple applications, there could be a nasty-simple switch based on model type. But for more complex application, it is not-an-option to register separate handlers.</p>
+</blockquote>
+<p>With this architecture, you can create handlers for cross-cutting services. There are typically composed from inner handler that does the real job and some logic which decorates the execution. Example can be authentication or, for the validation pipeline, some validation based on implemented interfaces, etc. This is described in the mentioned post from Jeremy D. Miller.</p>
+<h3>Behaviors</h3>
+<p>We have taken this pipeline composing a step further and created a library called <code>Behaviors</code>. It is a kind of interception for pipelines. Most interception libraries uses attributes, but behaviors were originally marker interfaces. Then we extended them to attributes and even globally registered components.</p>
+<p>We first used behaviors in our <code>WebStack</code>. The main design goal was to create a simple class for every visible HTTP endpoint, starting with a POCO.</p>
+<div class="highlight csharp"><pre>
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">ProductList</span>
+{  }
+
+</pre></div>
+<p>Adding a supported HTTP method, in this case a GET, and target URL.</p>
+<div class="highlight csharp"><pre>
+[Url(<span class="string">&quot;~/api/products&quot;</span>)]
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">ProductList</span> : IGet
+{  
+    <span class="keyword">public</span> <span class="keyword">void</span> <span class="identifier">Get</span>()
+    {
+        ...
+    }
+}
+
+</pre></div>
+<p>So, everytime someone access the URL (configured using attribute behavior), an instance of this class is created and <code>Get</code> method is executed. Now, let's provide some output. We want to return an enumeration of <code>ProductModel</code>.</p>
+<div class="highlight csharp"><pre>
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">ProductList</span> : IGet, IOutput&lt;IEnumerable&lt;ProductModel&gt;&gt;
+{
+    <span class="keyword">public</span> IEnumerable&lt;ProductModel&gt; Output { <span class="keyword">get</span>; <span class="keyword">private</span> <span class="keyword">set</span>; }
+
+    <span class="keyword">public</span> <span class="keyword">void</span> <span class="identifier">Get</span>()
+    {
+        Output = Enumerable.Empty&lt;IEnumerable&lt;ProductModel&gt;&gt;();
+    }
+}
+
+</pre></div>
+<p>In the <code>WebStack</code> there where behaviors of two types - those that provide values (from the request) and those that process output values (and writes them to the response). After using this design for a while, we have extracted it to a general purpose behavior pipeline library called <a href="https://github.com/neptuo/Framework/wiki/Behaviors">Neptuo.Behaviors</a>.</p>
+<h3>Execution</h3>
+<p>We ship two modes for executing behaviors. First one is based on reflection and uses reflection metadata everytime an instance of pipeline is required. We use it for example during bootstrap, because there is no need for executing it twice in the application lifetime.</p>
+<p>Second compiles on the fly a tiny proxy of a target handler and so, no reflection is used in the runtime. The performace of these pipelines is the same as directly composing handlers together. On the other, code generation must be enabled on the .NET runtime.</p>
+<h3>Summary</h3>
+<p>These single method pipelines are very powerful. They are like building blocks that can composed to gather and build bigger and bigger blocks. Behaviors, or interception, are even better, because they are independent of the target pipeline, and so, we can reuse for example reprocessing behavior on pipelines of various kinds.</p>
+<p>As the public execution method is always defined be an interface, we can compose behaviors like any hand writtern pipeline and compile code for it or the fly. This is possible just because pipelines have always an interface and because this interface is uniform, we don't need to write it for every service/component, we don't need to spend a on time doing it and can reuse single compiled pipeline library.</p>
+<h3>Links</h3>
+<ul>
+<li><a href="https://lostechies.com/jimmybogard/2016/10/13/mediatr-pipeline-examples/">MediatR Pipeline Examples</a></li>
+<li><a href="https://github.com/neptuo/Framework/wiki/Behaviors">Neptuo.Behaviors documentation</a></li>
+<li><a href="https://www.nuget.org/packages/Neptuo.Behaviors/">Neptuo.Behaviors on NuGet</a></li>
+</ul>
+
+    </div>
+
+    <div class="folder">
+        <div class="left">
+            Posted on 2016-11-09
+        </div>
+        <div class="right">
+            Written by <a target="_blank" rel="nofollow" href="https://github.com/maraf">Maraf</a>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+        <div class="folder">
+            <div class="comment-heading">
+                <h3>
+                    <span class="hidden">Comments</span>
+                    <span class="glyphicon glyphicon-comment"></span>
+                </h3>
+            
+                To leave a comment, please sign-in at GitHub and
+                <a href="https://github.com/neptuo/WebSite/issues/26" target="_blank">
+                    comment on the issue associated with this post.
+                </a>
+            </div>
+            <div id="comments"></div>
+        </div>
+</div>
+
+
+
+
+        </form>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="left">
+                <span>Neptuo &copy; 2010 - 2016</span>
+                
+            </div>
+            <div class="right">
+                <span>Created by <a target="_blank" href="http://mara.neptuo.com">Marek Fišera</a></span>
+                
+            </div>
+            <div class="center">
+                
+    <span><a href="/blog/atom.xml">Atom</a></span>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    </footer>
+
+    <script>
+
+        function onSwitcherClicked(e) {
+            var folder = this.parentElement.parentElement;
+            folder.classList.toggle('folder-collapsed');
+        }
+
+        var switchers = document.querySelectorAll('.folder-switch');
+        for (var i = 0; i < switchers.length; i++) {
+            var switcher = switchers[i];
+            switcher.addEventListener('click', onSwitcherClicked);
+        }
+
+        var navbarToggle = document.querySelector("button.navbar-toggle");
+        if (navbarToggle != null) {
+            navbarToggle.addEventListener('click', function (e) {
+                var navbar = document.querySelector("nav");
+                navbar.classList.toggle('navbar-expanded');
+            });
+        }
+
+    </script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-12031460-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    
+
+        <script src="/Scripts/blogcomments.js"></script>
+        <script>
+
+            load("https://api.github.com/repos/neptuo/WebSite/issues/26/comments");
+
+        </script>
+
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "Organization",
+            "url": "http://www.neptuo.com",
+            "logo": "/Content/Images/Logo-220.png"
+        }
+    </script>
+</body>
+</html>

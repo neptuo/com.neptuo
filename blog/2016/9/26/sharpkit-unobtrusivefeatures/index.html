@@ -1,0 +1,267 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <title>SharpKit extension/plugin called UnobtrusiveFeatures - Neptuo</title>
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="/Content/web.css" rel="stylesheet" />
+
+    <link rel="alternate" type="application/rss+xml" title="Neptuo Blog" href="http://www.neptuo.com/blog/atom.xml" />
+</head>
+<body>
+
+    <nav class="navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+            <button class="navbar-toggle">
+                <span class="glyphicon glyphicon-menu-hamburger"></span>
+            </button>
+
+            <ul class="left">
+                    <li>
+        <a href="/">
+            <div class="maintext">
+                Home
+                <span class="glyphicon glyphicon-home"></span>
+            </div>
+            <div class="subtext">How can we help you?</div>
+        </a>
+    </li>
+
+            </ul>
+            <ul class="right">
+                    <li>
+        <a href="/project">
+            <div class="maintext">
+                Projects
+                <span class="glyphicon glyphicon-cloud"></span>
+            </div>
+            <div class="subtext">Projects we are working on</div>
+        </a>
+    </li>
+
+                    <li>
+        <a href="/service">
+            <div class="maintext">
+                Services
+                <span class="glyphicon glyphicon-globe"></span>
+            </div>
+            <div class="subtext">Our services and references</div>
+        </a>
+    </li>
+
+                    <li class="active">
+        <a href="/blog">
+            <div class="maintext">
+                Blog
+                <span class="glyphicon glyphicon-bookmark"></span>
+            </div>
+            <div class="subtext">Thoughts to share</div>
+        </a>
+    </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="body">
+        <form>
+
+            
+
+<div class="intro important blogpost">
+    <div class="intro-content container">
+        <h1>SharpKit extension/plugin called UnobtrusiveFeatures</h1>
+        <p>
+            
+      SharpKit, the C# to javascript compiler, is super, but there are some things that irritate me and one them is the export definition.
+    
+        </p>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="folder blogpost">
+        <p>We really like developing client-side (web) applications using the same tools as the server-side. This started with <a href="http://www.gwtproject.org/">GWT</a>. After moving to C# we found <a href="http://sharpkit.net">SharpKit</a>, which allows compiling C# to javascript.</p>
+<p>SharpKit is super, not as GWT, but still super. But there are some things that irritate me and one of them is the need for referencing SharpKit libraries for defining export behavior. Also you can't simply share export location for the whole solution. When some assembly is exported to more than one file, you must decorate every type with <code>JsTypeAttribute</code> and define <code>Filename</code>.</p>
+<p>This plugin enables export to javascript without referencing any SharpKit library. The goal behide is to have reference-clear projects, that are &quot;shared&quot; between server and client.</p>
+<p>When developing client-side only library, typically UI, there is no need for removing reference to SharpKit. But when such library is re-used in the server project, defining export in SharpKit standard way requires reference to SharpKit, and so requires distributing this library with the server application and also loading the assembly to the AppDomain.</p>
+<p>This plugin enables exporting whole namespace to the specified file with single line in XML. This plugin enables inheriting definitions from parent directories. Define once, use on all projects in subdirectories.</p>
+<h2>How to use?</h2>
+<p>As any other SharpKit plugin, copy released asemblies (from <a href="https://github.com/maraf/SharpKit.UnobtrusiveFeatures/releases">Releases</a>) to the <code>C:\Windows\Microsoft.NET\Framework\v4.0.30319\SharpKit\5</code> and import SharpKit targets with plugin.</p>
+<div class="highlight xml"><pre>
+&lt;<span class="element">Import</span> <span class="attribute">Project</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">$(MSBuildBinPath)\SharpKit\5\SharpKit.Build.targets</span><span class="quot">&quot;</span> <span class="string">/&gt;</span>
+&lt;<span class="element">ItemGroup</span>&gt;
+    &lt;<span class="element">SkcPlugin</span> <span class="attribute">Include</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">SharpKit.UnobtrusiveFeatures.Plugin, SharpKit.UnobtrusiveFeatures</span><span class="quot">&quot;</span>&gt;
+        &lt;<span class="element">InProject</span>&gt;false&lt;/<span class="element">InProject</span>&gt;
+    &lt;/<span class="element">SkcPlugin</span>&gt;
+&lt;/<span class="element">ItemGroup</span>&gt;
+
+</pre></div>
+<h2>Unobtrusive export</h2>
+<p>With the UnobtrusiveFeatures plugin there is only XML configuration file and build targets import in the csproj. No reference required for defining export to the javascript.</p>
+<p>The configuration XML follows <a href="http://schemas.neptuo.com/xsd/sharpkit-unobtrusivefeatures.xsd">XSD</a> and so VisualStudio offers intellisense for it.</p>
+<div class="highlight xml"><pre>
+&lt;<span class="element">UnobtrusiveFeatures</span> <span class="attribute">xmlns</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">http://schemas.neptuo.com/xsd/sharpkit-unobtrusivefeatures.xsd</span><span class="quot">&quot;</span>&gt;
+    &lt;<span class="element">Export</span> <span class="attribute">Filename</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">Neptuo.js</span><span class="quot">&quot;</span> <span class="attribute">FilenameFormat</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">~/bin/{0}</span><span class="quot">&quot;</span> <span class="string">/&gt;</span>
+    &lt;<span class="element">Namespace</span> <span class="attribute">Target</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">Neptuo.Compilers</span><span class="quot">&quot;</span> <span class="attribute">Export</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">False</span><span class="quot">&quot;</span> <span class="string">/&gt;</span>
+    &lt;<span class="element">Namespace</span> <span class="attribute">Target</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">Neptuo.Security.Cryptography</span><span class="quot">&quot;</span> <span class="attribute">Export</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">False</span><span class="quot">&quot;</span> <span class="string">/&gt;</span>
+    &lt;<span class="element">Namespace</span> <span class="attribute">Target</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">Neptuo.Threading</span><span class="quot">&quot;</span> <span class="attribute">Export</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">False</span><span class="quot">&quot;</span> <span class="string">/&gt;</span>
+    &lt;<span class="element">Type</span> <span class="attribute">Target</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">Neptuo.Activators.DependencyServiceProvider</span><span class="quot">&quot;</span> <span class="attribute">Export</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">False</span><span class="quot">&quot;</span> <span class="string">/&gt;</span>
+    &lt;<span class="element">Type</span> <span class="attribute">Target</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">Neptuo.CodeDom.Compiler.CsCodeDomCompiler</span><span class="quot">&quot;</span> <span class="attribute">Export</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">False</span><span class="quot">&quot;</span> <span class="string">/&gt;</span>
+    &lt;<span class="element">Type</span> <span class="attribute">Target</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">Neptuo.Collections.Specialized.NameValueReadOnlyDictionary</span><span class="quot">&quot;</span> <span class="attribute">Export</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">False</span><span class="quot">&quot;</span> <span class="string">/&gt;</span>
+&lt;/<span class="element">UnobtrusiveFeatures</span>&gt;
+
+</pre></div>
+<p>Also, the configuration file can be hierarchically inherited. If the project directory is for example <code>D:\Development\Framework\MyFramework\src</code>, in every directory on the path can be configuration file, named <code>SharpKit.UnobtrusiveFeatures.xml</code> or as currenly exported assembly, eg: <code>MyFramework.xml</code>. These file are then in-memory-merged into a single configuration during compilation.</p>
+<p>Also, the <code>Filename</code> and <code>FilenameFormat</code> attributes of <code>Export</code> element can contain placeholder for assembly name. We can define single configuration file in the root of all development projects, define like:</p>
+<div class="highlight xml"><pre>
+&lt;<span class="element">UnobtrusiveFeatures</span> <span class="attribute">xmlns</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">http://schemas.neptuo.com/xsd/sharpkit-unobtrusivefeatures.xsd</span><span class="quot">&quot;</span>&gt;
+    &lt;<span class="element">Export</span> <span class="attribute">FilenameFormat</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">~/bin/{0}</span><span class="quot">&quot;</span> <span class="attribute">Filename</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">{AssemblyName}.js</span><span class="quot">&quot;</span> <span class="string">/&gt;</span>
+&lt;/<span class="element">UnobtrusiveFeatures</span>&gt;
+
+</pre></div>
+<p>And this configuration file will export every SharpKit-enabled project to the file, named as assembly in the bin folder of the project.</p>
+<p>Advanced export features:</p>
+<ul>
+<li><em>Export</em> defines global export. With this element we can define fallback file and path format to export all types to.</li>
+<li><em>ExternalTypes</em> can be used, when we want to export used attributes which are referenced from assemblies, that we don't have source files for. As SharpKit such attributes automatically ommits, we can override this behavior to include them in the compilation. Note: Only the use of attributes is compiled. We are responsible to provide javascript type defines ourselves.</li>
+<li><em>Namespace</em> defines exporting rules to namespace and all subnamespaces. With this element we can exclude whole namespace or change target file name.</li>
+<li><em>Type</em> defines exporting rules for concrete class, like using <code>JsTypeAttribute</code>.</li>
+</ul>
+<h2>Extended C# artifacts</h2>
+<p>The plugin also exports some C# artifacts that are not export the SharpKit it self. The first one is a <code>IsAbstract</code> flag, that contains information whether the class can be instantiated.</p>
+<div class="highlight javascript"><pre>
+<span class="keyword">var</span> TestSharpKit$UI$Presenter = {
+    ...
+    IsAbstract: <span class="constant">false</span>,
+    ...
+}
+
+</pre></div>
+<p>The second one is a list of constructors defined in the class. With this feature, we can simply build IoC container with constructor injection. The export looks like:</p>
+<div class="highlight javascript"><pre>
+<span class="keyword">var</span> TestSharpKit$UI$Presenter = {
+    ...
+    ctors: [{
+        name: <span class="string">&quot;ctor&quot;</span>,
+        parameters: [<span class="string">&quot;TestSharpKit.UI.Views.MainView&quot;</span>]
+    }],
+    ...
+}
+
+</pre></div>
+<h2>Summary</h2>
+<p>So, export plugin simplifies javascript compilation. The constructor definitions are useful for IoC container or for reflection uses. The <code>IsAbstract</code> flag is always good to have. When talking about IoC container, <a href="https://github.com/neptuo/Framework/tree/master/src/Neptuo.Activators.Simple">in the Neptuo framework repository there is one (SharpKit and javascript compatible) implemented</a>. It supports both property and constructor injection.</p>
+<p>The <code>SharpKit.UnobtrusiveFeatures</code> is developed as open-source at <a href="http://github.com/maraf/SharpKit.UnobtrusiveFeatures">GitHub repo UnobtrusiveFeatures</a> where you can find more documentation.</p>
+
+    </div>
+
+    <div class="folder">
+        <div class="left">
+            Posted on 2016-09-26
+        </div>
+        <div class="right">
+            Written by <a target="_blank" rel="nofollow" href="https://github.com/maraf">Maraf</a>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+        <div class="folder">
+            <div class="comment-heading">
+                <h3>
+                    <span class="hidden">Comments</span>
+                    <span class="glyphicon glyphicon-comment"></span>
+                </h3>
+            
+                To leave a comment, please sign-in at GitHub and
+                <a href="https://github.com/neptuo/WebSite/issues/13" target="_blank">
+                    comment on the issue associated with this post.
+                </a>
+            </div>
+            <div id="comments"></div>
+        </div>
+</div>
+
+
+
+
+        </form>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="left">
+                <span>Neptuo &copy; 2010 - 2016</span>
+                
+            </div>
+            <div class="right">
+                <span>Created by <a target="_blank" href="http://mara.neptuo.com">Marek Fišera</a></span>
+                
+            </div>
+            <div class="center">
+                
+    <span><a href="/blog/atom.xml">Atom</a></span>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    </footer>
+
+    <script>
+
+        function onSwitcherClicked(e) {
+            var folder = this.parentElement.parentElement;
+            folder.classList.toggle('folder-collapsed');
+        }
+
+        var switchers = document.querySelectorAll('.folder-switch');
+        for (var i = 0; i < switchers.length; i++) {
+            var switcher = switchers[i];
+            switcher.addEventListener('click', onSwitcherClicked);
+        }
+
+        var navbarToggle = document.querySelector("button.navbar-toggle");
+        if (navbarToggle != null) {
+            navbarToggle.addEventListener('click', function (e) {
+                var navbar = document.querySelector("nav");
+                navbar.classList.toggle('navbar-expanded');
+            });
+        }
+
+    </script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-12031460-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    
+
+        <script src="/Scripts/blogcomments.js"></script>
+        <script>
+
+            load("https://api.github.com/repos/neptuo/WebSite/issues/13/comments");
+
+        </script>
+
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "Organization",
+            "url": "http://www.neptuo.com",
+            "logo": "/Content/Images/Logo-220.png"
+        }
+    </script>
+</body>
+</html>
