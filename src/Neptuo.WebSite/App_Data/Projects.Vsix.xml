@@ -35,7 +35,7 @@
     </Version>
   </Project>
   
-  <Project>
+  <!--<Project>
     <Name>Neptuo.Productivity.GoToSource</Name>
     <Type>vsix</Type>
     <Description>Go to Source from anywhere which contains a path to a file.</Description>
@@ -55,9 +55,9 @@
       <Description>Extends standard F12 (Go to Definition).</Description>
       <Description>Supports extensibility by implementing and exporting various interfaces.</Description>
     </Version>
-  </Project>
+  </Project>-->
   
-  <Project>
+  <!--<Project>
     <Name>Neptuo.Productivity.BuildHistory</Name>
     <Type>vsix</Type>
     <Description>Overview of last builds.</Description>
@@ -76,5 +76,5 @@
       <Description>Configurable count of builds to store.</Description>
       <Description>Each build length, result (success or failure) and type (build, rebuild or clean).</Description>
     </Version>
-  </Project>
+  </Project>-->
 </Projects>
