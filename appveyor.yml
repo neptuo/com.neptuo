@@ -29,7 +29,7 @@ on_success:
   - xcopy ..\output . /E /R /Y
   - del packages /S /Q
   - del src /S /Q
-  - echo neptuo.com > CNAME
+  - echo www.neptuo.com > CNAME
   - git add -A
   - ps: git commit -a -m "StaticSiteBuild on Appveyor version $($env:APPVEYOR_BUILD_VERSION)"
   - git push
