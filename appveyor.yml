@@ -1,0 +1,35 @@
+version: '{build}'
+
+branches:
+  only:
+  - master
+
+image: Visual Studio 2015
+
+#cache:
+#  - packages
+
+build:
+  verbosity: minimal
+
+after_build:
+- ps: >-
+    Tools\BuildStatic.ps1 $pwd.path
+
+on_success:
+  - git config --global credential.helper store
+  - git config --global user.email appveyor@neptuo.com
+  - git config --global user.name Appveyor
+  - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
+  - git config --global core.autocrlf true
+  - git remote set-url origin https://github.com/neptuo/com.neptuo.git
+  - git checkout gh-pages
+  - git clean -f
+  - git rm -rf .
+  - xcopy ..\output . /E /R /Y
+  - del packages /S /Q
+  - del src /S /Q
+  - echo neptuo.com > CNAME
+  - git add -A
+  - ps: git commit -a -m "StaticSiteBuild on Appveyor version $($env:APPVEYOR_BUILD_VERSION)"
+  - git push
