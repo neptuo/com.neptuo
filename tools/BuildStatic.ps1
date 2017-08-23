@@ -1,7 +1,7 @@
 param([string]$buildFolder)
 
 $outputPath = "..\output";
-$sitePath = "$($buildFolder)\src\WebSite"
+$sitePath = "$($buildFolder)\src\Neptuo.WebSite"
 $port = 7287
 $delay = 3000
 
