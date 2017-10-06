@@ -57,10 +57,17 @@
     </Version>
   </Project>-->
   
-  <!--<Project>
+  <Project>
     <Name>Neptuo.Productivity.BuildHistory</Name>
     <Type>vsix</Type>
     <Description>Overview of last builds.</Description>
+    <Text2 Language="Markdown">
+
+Build history measures a length of every build (rebuild and clean). 
+In the overview window it shows a configured number of last builds, also in the title there is a total count and total time ellapsed during builds.
+It gives you an overview how much time you spend during builds.
+      
+    </Text2>
     <LocalUrl>buildhistory</LocalUrl>
     <ProjectUrl>https://github.com/neptuo/Productivity</ProjectUrl>
     <Licence>Apache License, Version 2.0</Licence>
@@ -76,5 +83,5 @@
       <Description>Configurable count of builds to store.</Description>
       <Description>Each build length, result (success or failure) and type (build, rebuild or clean).</Description>
     </Version>
-  </Project>-->
+  </Project>
 </Projects>
