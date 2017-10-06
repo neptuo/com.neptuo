@@ -73,7 +73,7 @@ It gives you an overview how much time you spend during builds.
     <Licence>Apache License, Version 2.0</Licence>
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
     <DocumentationUrl>https://github.com/neptuo/Productivity/releases</DocumentationUrl>
-    <DownloadUrl></DownloadUrl>
+    <DownloadUrl>https://marketplace.visualstudio.com/vsgallery/3a3a270f-580c-41cc-8e51-64086b2c1581</DownloadUrl>
     <Images>
       <Main>~/Content/Images/Projects/build-history.png</Main>
     </Images>
