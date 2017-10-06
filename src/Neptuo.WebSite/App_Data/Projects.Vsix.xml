@@ -84,4 +84,28 @@ It gives you an overview how much time you spend during builds.
       <Description>Each build length, result (success or failure) and type (build, rebuild or clean).</Description>
     </Version>
   </Project>
+  
+  <Project>
+    <Name>Neptuo.Productivity.FastBuildCancellation</Name>
+    <Type>vsix</Type>
+    <Description>Build is cancelled on first error. No more hundreds of meaningless errors.</Description>
+    <Text2 Language="Markdown">
+
+It's quite simple. Stop build when first error occurs. Removes hundreds of meaningless errors from following projects build.
+Also, you can define which window will be opened on build error (Error list, standard output or none).
+      
+    </Text2>
+    <LocalUrl>fastbuildcancellation</LocalUrl>
+    <ProjectUrl>https://github.com/neptuo/Productivity</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Productivity/releases</DocumentationUrl>
+    <DownloadUrl>https://marketplace.visualstudio.com/vsgallery/f73231f1-7fba-4dc9-ab6d-585f7e626f57</DownloadUrl>
+
+    <Version>
+      <Name>v1.0</Name>
+      <Description>Cancel build on first error.</Description>
+      <Description>Configuration what should happen on build error (Error list, standard output or none).</Description>
+    </Version>
+  </Project>
 </Projects>
