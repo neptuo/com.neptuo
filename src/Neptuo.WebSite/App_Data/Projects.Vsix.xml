@@ -93,6 +93,8 @@ It gives you an overview how much time you spend during builds.
 
 It's quite simple. Stop build when first error occurs. Removes hundreds of meaningless errors from following projects build.
 Also, you can define which window will be opened on build error (Error list, standard output or none).
+
+The overview window is located in View -> Other Windows -> Build History Overview.
       
     </Text2>
     <LocalUrl>fastbuildcancellation</LocalUrl>
