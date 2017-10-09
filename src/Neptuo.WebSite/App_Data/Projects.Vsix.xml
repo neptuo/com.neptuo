@@ -114,13 +114,22 @@ The overview window is located in: Views -> Other Windows -> Build History Overv
   <Project>
     <Name>Neptuo.Productivity.FindInFolder</Name>
     <Type>vsix</Type>
-    <Description>Add context menu item to selected folder, project and solution in Solution Explorer. What it does is that it opens a "Find in Files" dialog where selected folder is filled in "Look in".</Description>
+    <Description>Quickly find files in selected folder in Solution Explorer.</Description>
+    <Text2 Language="Markdown">
+    
+Add context menu item to selected folder, project and solution in Solution Explorer. What it does is that it opens a "Find in Files" dialog where selected folder is filled in "Look in".
+When solution node is selected, in "Find in Files" will be selected "Entire Solution".
+    
+    </Text2>
     <LocalUrl>findinfolder</LocalUrl>
     <ProjectUrl>https://github.com/neptuo/Productivity</ProjectUrl>
     <Licence>Apache License, Version 2.0</Licence>
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
     <DocumentationUrl>https://github.com/neptuo/Productivity/releases</DocumentationUrl>
     <DownloadUrl></DownloadUrl>
+    <Images>
+      <Main>~/Content/Images/Projects/find-in-folder.png</Main>
+    </Images>
 
     <Version>
       <Name>v1.0</Name>

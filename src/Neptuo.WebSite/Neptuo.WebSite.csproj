@@ -24,6 +24,7 @@
     <RestorePackages>true</RestorePackages>
     <UseGlobalApplicationHostFile />
     <TargetFrameworkProfile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -214,6 +215,7 @@
     <Content Include="Content\Images\Projects\chromium-updater-03.png" />
     <Content Include="Content\Images\Projects\chromium-updater-04.png" />
     <Content Include="Content\Images\Projects\chromium-updater-icon.png" />
+    <Content Include="Content\Images\Projects\find-in-folder.png" />
     <Content Include="Content\Images\Projects\go-to-source-01.gif" />
     <Content Include="Content\Images\Projects\is4wfw-01.png" />
     <Content Include="Content\Images\Projects\is4wfw-02.png" />
