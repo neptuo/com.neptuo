@@ -126,7 +126,7 @@ When solution node is selected, in "Find in Files" will be selected "Entire Solu
     <Licence>Apache License, Version 2.0</Licence>
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
     <DocumentationUrl>https://github.com/neptuo/Productivity/releases</DocumentationUrl>
-    <VsixGalleryId></VsixGalleryId>
+    <VsixGalleryId>7985cc6c-2c56-482b-8a81-2537389ccef7</VsixGalleryId>
     <Images>
       <Main>~/Content/Images/Projects/find-in-folder.png</Main>
     </Images>
