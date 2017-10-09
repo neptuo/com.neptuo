@@ -110,4 +110,21 @@ The overview window is located in: Views -> Other Windows -> Build History Overv
       <Description>Configuration what should happen on build error (Error list, standard output or none).</Description>
     </Version>
   </Project>
+  
+  <Project>
+    <Name>Neptuo.Productivity.FindInFolder</Name>
+    <Type>vsix</Type>
+    <Description>Add context menu item to selected folder, project and solution in Solution Explorer. What it does is that it opens a "Find in Files" dialog where selected folder is filled in "Look in".</Description>
+    <LocalUrl>findinfolder</LocalUrl>
+    <ProjectUrl>https://github.com/neptuo/Productivity</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Productivity/releases</DocumentationUrl>
+    <DownloadUrl></DownloadUrl>
+
+    <Version>
+      <Name>v1.0</Name>
+      <Description>Context menu item for folder, project and solution.</Description>
+    </Version>
+  </Project>
 </Projects>
