@@ -106,9 +106,18 @@
                     }
                     else if (project.Type == "vsix" && String.IsNullOrEmpty(project.DownloadUrl))
                     {
-                        <li>
-                            Current version can be downloaded from <a target="_blank" href="https://www.myget.org/F/neptuo-dev/vsix/">MyGet VSIX Feed</a>.
-                        </li>
+                        if (String.IsNullOrEmpty(project.VsixGalleryId))
+                        {
+                            <li>
+                                Current version can be installed from <a target="_blank" href="https://www.myget.org/F/neptuo-dev/vsix/">MyGet VSIX Feed</a>.
+                            </li>
+                        }
+                        else
+                        {
+                            <li>
+                                Current version can be installed from <a target="_blank" href="https://marketplace.visualstudio.com/vsgallery/@project.VsixGalleryId">Official VSIX gallery</a>.
+                            </li>
+                        }
                     }
                 </ul>
             </article>
