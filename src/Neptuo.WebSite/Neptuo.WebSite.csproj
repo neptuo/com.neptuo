@@ -143,7 +143,6 @@
     <Compile Include="Models\Projects\ProjectModel.cs" />
     <Compile Include="Models\Projects\ProjectModelViewModel.cs" />
     <Compile Include="Models\Projects\ProjectRelationModel.cs" />
-    <Compile Include="Models\Projects\ProjectTextModel.cs" />
     <Compile Include="Models\Projects\ProjectVersionDescriptionModel.cs" />
     <Compile Include="Models\Projects\ProjectVersionModel.cs" />
     <Compile Include="Models\TextModel.cs" />

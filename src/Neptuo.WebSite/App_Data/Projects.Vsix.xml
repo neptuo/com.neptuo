@@ -61,13 +61,13 @@
     <Name>Neptuo.Productivity.BuildHistory</Name>
     <Type>vsix</Type>
     <Description>Overview of last builds.</Description>
-    <Text2 Language="Markdown">
+    <Text Language="Markdown">
 
 Build history measures a length of every build (rebuild and clean). 
 In the overview window it shows a configured number of last builds, also in the title there is a total count and total time ellapsed during builds.
 It gives you an overview how much time you spend during builds.
       
-    </Text2>
+    </Text>
     <LocalUrl>buildhistory</LocalUrl>
     <ProjectUrl>https://github.com/neptuo/Productivity</ProjectUrl>
     <Licence>Apache License, Version 2.0</Licence>
@@ -89,14 +89,14 @@ It gives you an overview how much time you spend during builds.
     <Name>Neptuo.Productivity.FastBuildCancellation</Name>
     <Type>vsix</Type>
     <Description>Build is cancelled on first error. No more hundreds of meaningless errors.</Description>
-    <Text2 Language="Markdown">
+    <Text Language="Markdown">
 
 It's quite simple. Stop build when first error occurs. Removes hundreds of meaningless errors from following projects build.
 Also, you can define which window will be opened on build error (Error list, standard output or none).
 
 The overview window is located in: Views -> Other Windows -> Build History Overview.
       
-    </Text2>
+    </Text>
     <LocalUrl>fastbuildcancellation</LocalUrl>
     <ProjectUrl>https://github.com/neptuo/Productivity</ProjectUrl>
     <Licence>Apache License, Version 2.0</Licence>
@@ -115,12 +115,12 @@ The overview window is located in: Views -> Other Windows -> Build History Overv
     <Name>Neptuo.Productivity.FindInFolder</Name>
     <Type>vsix</Type>
     <Description>Quickly find files in selected folder in Solution Explorer.</Description>
-    <Text2 Language="Markdown">
+    <Text Language="Markdown">
     
 Add context menu item to selected folder, project and solution in Solution Explorer. What it does is that it opens a "Find in Files" dialog where selected folder is filled in "Look in".
 When solution node is selected, in "Find in Files" will be selected "Entire Solution".
     
-    </Text2>
+    </Text>
     <LocalUrl>findinfolder</LocalUrl>
     <ProjectUrl>https://github.com/neptuo/Productivity</ProjectUrl>
     <Licence>Apache License, Version 2.0</Licence>

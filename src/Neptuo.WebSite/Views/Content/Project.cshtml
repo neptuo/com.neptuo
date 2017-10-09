@@ -120,16 +120,8 @@
             if (project.Text != null)
             {
                 <div class="folder">
-                    @foreach (string textLine in project.Text.Paragraphs)
-                    {
-                        <p>@textLine</p>
-                    }
-                </div>
-            }
-            else if (project.Text2 != null)
-            {
-                <div class="folder">
-                    @Html.Raw(project.Text2.ContentToHtml())
+                    <h2 class="folder-heading">Description</h2>
+                    @Html.Raw(project.Text.ContentToHtml())
                 </div>
             }
 

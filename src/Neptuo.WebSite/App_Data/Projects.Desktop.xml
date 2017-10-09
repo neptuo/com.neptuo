@@ -5,16 +5,12 @@
     <Icon>~/Content/Images/Projects/chromium-updater-icon.png</Icon>
     <Type>desktop</Type>
     <Description>Chromium updater is Click-once application for downloading and updating latest builds of Chromium. The application offers automatic or manual download of latest build to selected folder and then extracting it there.</Description>
-    <Text>
-      <p>
-        On first run, configuration tab is opened. The application requires folder for downloading zips to and this folder is prefilled with the application instalation folder. This can be quite problem, if the application installed to folder, where current user doesn't have write rights. So be sure to fill folder with write rights.
-      </p>
-      <p>
-        Beside this, there are prefilled download URL and file name. These must match structure of Chromium builds structure on the server. This is recommended to not change...
-      </p>
-      <p>
-        In the bottom there are some checkboxes for setting automatic downloads and etc. These should match most user preferences.
-      </p>
+    <Text Language="Markdown">
+On first run, configuration tab is opened. The application requires folder for downloading zips to and this folder is prefilled with the application instalation folder. This can be quite problem, if the application installed to folder, where current user doesn't have write rights. So be sure to fill folder with write rights.
+
+Beside this, there are prefilled download URL and file name. These must match structure of Chromium builds structure on the server. This is recommended to not change...
+
+In the bottom there are some checkboxes for setting automatic downloads and etc. These should match most user preferences.
     </Text>
     <LocalUrl>chromiumupdater</LocalUrl>
     <ProjectUrl>https://github.com/maraf/ChromiumUpdater</ProjectUrl>
@@ -44,14 +40,11 @@
     <Name>Link Extractor</Name>
     <Type>desktop</Type>
     <Description>Desktop application for extracting links (URLs) from HTML or any other document type.</Description>
-    <Text>
-      <p>
-        LinkExtractor is simple desktop application for parsing document and extracting links. Document can be download from URL or pasted in from clipboard.
-        After parsing document, found links are shown with checkboxes and additional filter to select links that will be extracted to plain text, each one on its own line.
-      </p>
-      <p>
-        The application is installed as standart Windows application to Program Files folder.
-      </p>
+    <Text Language="Markdown">
+LinkExtractor is simple desktop application for parsing document and extracting links. Document can be download from URL or pasted in from clipboard.
+After parsing document, found links are shown with checkboxes and additional filter to select links that will be extracted to plain text, each one on its own line.
+
+The application is installed as standart Windows application to Program Files folder.
     </Text>
     <LocalUrl>linkextractor</LocalUrl>
     <ProjectUrl>https://github.com/maraf/LinkExtractor</ProjectUrl>
@@ -71,7 +64,7 @@
     <Name>WinRun</Name>
     <Type>desktop</Type>
     <Description>Simple utility application with (missing) Windows tweaks.</Description>
-    <Text2 Language="Markdown">
+    <Text Language="Markdown">
 Simple utility application with (missing) Windows tweaks.
 
 - Large windows clock.
@@ -91,7 +84,7 @@ About sticking windows, when you drop window near other window, the dropped wind
 - **Win+F12** to put the computer to hibernation.
 - **Win+Shift+L** to turn the monitor off and lock the computer.
 - Drag and drop or resize any window near other window stick the window to the other.
-    </Text2>
+    </Text>
     <LocalUrl>winrun</LocalUrl>
     <DownloadUrl>http://apps.neptuo.com/winrun</DownloadUrl>
 

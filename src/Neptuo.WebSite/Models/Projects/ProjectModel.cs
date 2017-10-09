@@ -14,9 +14,7 @@ namespace Neptuo.WebSite.Models.Projects
         public string Icon { get; set; }
         public string Description { get; set; }
 
-        //[XmlArray("Text")]
-        public ProjectTextModel Text { get; set; }
-        public TextModel Text2 { get; set; }
+        public TextModel Text { get; set; }
         public string Type { get; set; }
         public string LocalUrl { get; set; }
 
@@ -24,6 +22,7 @@ namespace Neptuo.WebSite.Models.Projects
 
         public string DocumentationUrl { get; set; }
         public string DownloadUrl { get; set; }
+        public string VsixGalleryId { get; set; }
 
         public string Licence { get; set; }
         public string LicenceUrl { get; set; }

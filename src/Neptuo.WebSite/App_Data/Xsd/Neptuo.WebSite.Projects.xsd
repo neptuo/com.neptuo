@@ -3,6 +3,13 @@
     elementFormDefault="qualified"
     xmlns="http://schemas.neptuo.com/xsd/neptuo-website-projects.xsd"
     xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="LanguageType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PlainText" />
+      <xs:enumeration value="Markdown" />
+      <xs:enumeration value="Html" />
+    </xs:restriction>
+  </xs:simpleType>
   <xs:element name="Projects">
     <xs:complexType>
       <xs:sequence minOccurs="0" maxOccurs="unbounded">
@@ -13,13 +20,22 @@
               <xs:element name="Icon" minOccurs="0" maxOccurs="1" />
               <xs:element name="Type" minOccurs="1" maxOccurs="1" />
               <xs:element name="Description" minOccurs="0" maxOccurs="1" />
-              <xs:element name="Text" minOccurs="0" maxOccurs="1" />
+              <xs:element name="Text" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute name="Language" type="LanguageType" use="required" />
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
               <xs:element name="LocalUrl" minOccurs="1" maxOccurs="1" />
               <xs:element name="ProjectUrl" minOccurs="0" maxOccurs="1" />
               <xs:element name="Licence" minOccurs="0" maxOccurs="1" />
               <xs:element name="LicenceUrl" minOccurs="0" maxOccurs="1" />
               <xs:element name="DocumentationUrl" minOccurs="0" maxOccurs="1" />
               <xs:element name="DownloadUrl" minOccurs="0" maxOccurs="1" />
+              <xs:element name="VsixGalleryId" minOccurs="0" maxOccurs="1" />
               <xs:element name="Relations" minOccurs="0" maxOccurs="1">
                 <xs:complexType>
                   <xs:sequence>

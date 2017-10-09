@@ -5,21 +5,16 @@
     <Icon>~/Content/Images/Projects/solution-runner-icon.png</Icon>
     <Type>desktop</Type>
     <Description>Keyboard-only designed application for simple and fast opening of Visual Studio solution files.</Description>
-    <Text>
-      <p>
-        Keyboard-only designed application for simple and fast opening of Visual Studio solution files. 
-        Configuration takes single folder where to look for *.sln files with the option to set prefered Visual Studio version installed on your computer and global (Windows wide) shortcut.
-      </p>
-      <p>
-        After setting required configuration, main window will open. Here you can filter solution files from your hard drive and manage favourite ones. 
-        By pressing enter, you run a new instance of selected Visual Studio version with the selected solution.
-      </p>
-      <p>
-        When global hotkey is set, the application is only minimized after opening the solution. So, to update it must first kill it from process list.
-      </p>
-      <p>
-        To start the application after sign in to the Windows, simple create shortcut in startup folder. We are currentling implementing this as feature, along with minimized startup.
-      </p>
+    <Text Language="Markdown">
+Keyboard-only designed application for simple and fast opening of Visual Studio solution files. 
+Configuration takes single folder where to look for *.sln files with the option to set prefered Visual Studio version installed on your computer and global (Windows wide) shortcut.
+
+After setting required configuration, main window will open. Here you can filter solution files from your hard drive and manage favourite ones. 
+By pressing enter, you run a new instance of selected Visual Studio version with the selected solution.
+
+When global hotkey is set, the application is only minimized after opening the solution. So, to update it must first kill it from process list.
+
+To start the application after sign in to the Windows, simple create shortcut in startup folder. We are currentling implementing this as feature, along with minimized startup.
     </Text>
     <LocalUrl>solutionrunner</LocalUrl>
     <ProjectUrl>https://github.com/neptuo/Productivity.SolutionRunner</ProjectUrl>
