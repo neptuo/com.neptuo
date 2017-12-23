@@ -78,8 +78,16 @@ Most of out namespaces are in plural. This is the way, for us, to distinguish be
 
 ## Classes & interfaces
 
-When it comes to classes, we are also trying not to repeat information, that is contained in the namespace. This is true in almost all cases. Some exceptions are classes that are placed in some namespace, but mainly used from other namespace, where their name could be ambiguous. An extra example could `Orders` module (in namespace `Orders`), where could be a service. This service will be called `OrderService` even the information about "Ordering" is also in the namespace. Otherwise we would end up with class called `Service`, which would be useless from other modules perspective.
+When it comes to classes, we are also trying not to repeat information that is contained in the namespace. This is true in almost all cases. Some exceptions are classes that are placed in a namespace, but mainly used from another one, where their name could be ambiguous. An extra example could `Orders` module (in namespace `Orders`), where could be a service. This service will be called `OrderService` even the information about "Ordering" is also in the namespace. Otherwise we would end up with class called `Service`, which would be useless from other modules perspective.
 
 We are separating contracts / interfaces for reading and writing. In most cases, a component that needs to read some data doesn't need to write them. For these scenarios we are heavily using name-patterns `***Provider`, which contains methods for reading data, and `***Collection` / `***Repository` which inherits provider contract and addes methods for chaning state.
 
 ## Member names
+
+We don't much rules here. A common advise is to be as descriptive as possible, but don't go with too much detail, and don't bring up much implementation detail, where it is not necessary.
+
+### Find / Get / TryGet
+
+One of rules we use is method naming based on whether it can return null or not. When it comes to getting object from a component we always prefix method based on behavior for cases where response can't be provided.
+
+We use a lot standard .NET pattern for try-getting a value. Such method returns boolean and has an extra out parameter for a result. Beside these, we offen offer a method which returns null when a result can't be provided. Such methods have always name prefix with Find. When a developer calls such method he/she must always check a result for a null value. When a method name starts with Get, it always returns a value or throws a exception, so developer doesn't have to check for nulls. This also brings an exception standartization for methods, because a developer doesn't have to think about which exception to throw.
