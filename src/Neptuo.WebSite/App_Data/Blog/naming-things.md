@@ -99,3 +99,7 @@ We don't use underscores or any other prefixes to distinguish between private me
 We are always naming variables based on context. Examples: 
 - When we are in a context of a single business entity, let's say 'product', we use only component type to name variable like 'service', 'repository' etc.
 - When we are in a context of a multiple entities, let's say 'product', 'hotel' and 'destination', but all components are from the same layer, let's say 'service' or 'repository', we use plural names derived from entity names and skips component type like 'products', 'destinations' or 'hotels'.
+
+## Summary
+
+It's not a definite list, but we have showed some of the pillars of code quality and project structure.
