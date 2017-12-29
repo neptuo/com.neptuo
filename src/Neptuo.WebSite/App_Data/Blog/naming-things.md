@@ -114,4 +114,6 @@ We are always naming variables based on context. Examples:
 
 ## Summary
 
-It's not a definite list, but we have showed some of the pillars of our code rules and project structure.
+It's not a definite list, but we have showed some of the pillars of our code rules and project structure. If you have any questions, feel free to disqus with us.
+
+If you agree with us or not on specific parts, keep in mind the most basic rule - be strict and enforce your rules on our projects. It can save losts of time and headaches.
