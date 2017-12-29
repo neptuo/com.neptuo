@@ -58,6 +58,10 @@ A main difference comes from the direction of references, defined by onion archi
 
 > References between modules are here theoretically shrinked to references between domain projects, and better realized using `domain`-to-`domain` projects. Such project can be named `ProductsOrders` and this projects takes care of communication between `Products` and `Orders`, none of `Products` nor `Orders` references this project. But in case of `Products` and `Orders`, its cleare that there could be reference from `Products` to `Orders`.
 
+### Test projects
+
+As most of our project names start with `Neptuo`, we typically replace this part by `Test` in names for test projects, so a test project for project `Neptuo.TemplateEngine.Rendering` is named `Test.TemplateEngine.Rendering`, but with a same namespace as original the project.
+
 ## Namespaces
 
 We like namespaces and we use them a lot. We are always trying to consolidate classes that stick to together to its namespace. On the other hand, we are also trying to minimize namespaces to contain only information, that is not present somewhere else. These are the rules:
