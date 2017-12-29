@@ -82,6 +82,8 @@ When it comes to classes, we are also trying not to repeat information that is c
 
 We are separating contracts / interfaces for reading and writing. In most cases, a component that needs to read some data doesn't need to write them. For these scenarios we are heavily using name-patterns `***Provider`, which contains methods for reading data, and `***Collection` / `***Repository` which inherits provider contract and addes methods for chaning state.
 
+When designing components, or even when implementing business logic, we are often wrapping system types into concreate classes with more type safety, null checking and more. Typically instead of passing around a list of objects, we create a concrete class, with concrete supported methods. This approach takes more time, but in the end you get components, that throws `ArgumentException`s for invalid input values and others as soon as possible, and they also minimizes occurences of `NullReferenceException` and others.
+
 ## Member names
 
 We don't much rules here. A common advise is to be as descriptive as possible, but don't go with too much detail, and don't bring up much implementation detail, where it is not necessary.
@@ -91,6 +93,12 @@ We don't much rules here. A common advise is to be as descriptive as possible, b
 One of rules we use is method naming based on whether it can return null or not. When it comes to getting object from a component we always prefix method based on behavior for cases where response can't be provided.
 
 We use a lot standard .NET pattern for try-getting a value. Such method returns boolean and has an extra out parameter for a result. Beside these, we offen offer a method which returns null when a result can't be provided. Such methods have always name prefix with Find. When a developer calls such method he/she must always check a result for a null value. When a method name starts with Get, it always returns a value or throws a exception, so developer doesn't have to check for nulls. This also brings an exception standartization for methods, because a developer doesn't have to think about which exception to throw.
+
+## Extension methods
+
+We are trying to make interfaces smallest possible, so we use extension methods very often. Extension methods are always placed in a namespace where original component is placed, so when you have a using for a component, you see all extension methods from referenced assemblies.
+
+When working with parameter collections (it could be on HTTP layer, serialization layer or anywhere olse), we always hide compile time keys behind extension methods. Instead of calling `Add('Name', name)` in code or creating a constant for string 'Name', we use snippet to generate an extension method `AddName(name)`.
 
 ## Variables
 
