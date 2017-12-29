@@ -77,4 +77,15 @@
     <Author>Maraf</Author>
     <GitHubCommentPath>neptuo/WebSite/issues/32</GitHubCommentPath>
   </Post>
+  <Post>
+    <Title>Naming stuff, mostly in C#/.NET</Title>
+    <Description>
+      A list of code rules we have built in time to save time and headaches.
+    </Description>
+    <Url>naming-things</Url>
+    <FilePath>~/App_Data/Blog/naming-things.md</FilePath>
+    <ReleaseDate>2017-12-29</ReleaseDate>
+    <Author>Maraf</Author>
+    <GitHubCommentPath>neptuo/WebSite/issues/36</GitHubCommentPath>
+  </Post>
 </Posts>
