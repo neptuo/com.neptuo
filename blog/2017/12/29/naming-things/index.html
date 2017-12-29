@@ -1,0 +1,270 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <title>Naming stuff, mostly in C#/.NET - Neptuo</title>
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="/Content/web.css" rel="stylesheet" />
+
+    <link rel="alternate" type="application/rss+xml" title="Neptuo Blog" href="http://www.neptuo.com/blog/atom.xml" />
+</head>
+<body>
+
+    <nav class="navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+            <button class="navbar-toggle">
+                <span class="glyphicon glyphicon-menu-hamburger"></span>
+            </button>
+
+            <ul class="left">
+                    <li>
+        <a href="/">
+            <div class="maintext">
+                Home
+                <span class="glyphicon glyphicon-home"></span>
+            </div>
+            <div class="subtext">How can we help you?</div>
+        </a>
+    </li>
+
+            </ul>
+            <ul class="right">
+                    <li>
+        <a href="/project">
+            <div class="maintext">
+                Projects
+                <span class="glyphicon glyphicon-cloud"></span>
+            </div>
+            <div class="subtext">Projects we are working on</div>
+        </a>
+    </li>
+
+                    <li>
+        <a href="/service">
+            <div class="maintext">
+                Services
+                <span class="glyphicon glyphicon-globe"></span>
+            </div>
+            <div class="subtext">Our services and references</div>
+        </a>
+    </li>
+
+                    <li class="active">
+        <a href="/blog">
+            <div class="maintext">
+                Blog
+                <span class="glyphicon glyphicon-bookmark"></span>
+            </div>
+            <div class="subtext">Thoughts to share</div>
+        </a>
+    </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="body">
+        <form>
+
+            
+
+<div class="intro important blogpost">
+    <div class="intro-content container">
+        <h1>Naming stuff, mostly in C#/.NET</h1>
+        <p>
+            
+      A list of code rules we have built in time to save time and headaches.
+    
+        </p>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="folder blogpost">
+        <h1>Naming things</h1>
+<p>This one is about naming things in C#. Naming things is hard. Naming things consistently is very hard. And consistently naming things when  colaborating with other developers is hell.</p>
+<p>In years of developing applications on .NET platform, we have slowly adapted some naming conventions. This post covers them from project names to class member names.</p>
+<h2>Projects and assemblies</h2>
+<p>Everything here is based on used architecture and type of project. When developing framework / reusable library we choose a bit different naming schema in comparison to application development.</p>
+<h3>Frameworks &amp; reusable libraries</h3>
+<p>When developing a reusable library we are always separating interfaces / contracts from actual implementation. This rule is bit violated in cases of simple / reference free implementations. These reference free implementations are typically placed in the contracts assembly.</p>
+<p>A typical example here could be our <code>Formatters</code> library. A main assembly is called <code>Neptuo.Formatters</code> and it contains contracts like <code>ISerializer</code> or <code>ISerializerContext</code>. Also this assembly contains default implementation of serializer context contract, called <code>DefaultSerializerContext</code>.</p>
+<p>Then, concrete implementation of formatters for JSON, which references <code>Newtonsoft.Json</code>, is placed in an assembly called <code>Neptuo.Formatters.Json</code>. To this point, it is a classic separation of contract and implementation. We call these assemblies 'implementation assembly'. In a namespace of implementation assemblies we skip the implementation name. So, default namespace of JSON formatters is <code>Neptuo.Formatters</code>, like the namespace of the contracts assembly. And all classes is this assembly starts with prefix <code>Json</code>. So full name of the JSON implementation of formatter is <code>Neptuo.Formatters.JsonFormatter</code> and sits in the <code>Neptuo.Formatters.Json</code> assembly.</p>
+<p>This naming convention makes easier implementation discoverability. When mapping <code>IFormatter</code> to concreate implementation, typically to IoC container in a composition root, we already have using for <code>Neptuo.Formatters</code> and simply be referencing <code>Neptuo.Formatters.Json</code> assembly / package, we have intellisence support <code>JsonFormatter</code> implementation.</p>
+<p>Other implementations for XML and our 'composite' are organized in the same way.</p>
+<p>Another example would be <code>Neptuo.Activators.IDependencyContainer</code> (from <code>Neptuo</code> assembly) and concrete implementations are <code>Neptuo.Activators.UnityContainer</code> (from <code>Neptuo.Activators.Unity</code> assembly) and <code>Neptuo.Activators.SimpleContainer</code> (from <code>Neptuo.Activators.Simple</code> assembly).</p>
+<h3>Applications</h3>
+<p>This section is driven by used architecture.</p>
+<p>When we are using classic 3L architesture, we are creating vertical slices by module and splitting each module by layers. If we have a module for managing products and other for managing orders, we end up with 6 projects:</p>
+<ul>
+<li>Products.Data</li>
+<li>Products.Business</li>
+<li>Products.Presentation</li>
+<li>Orders.Data</li>
+<li>Orders.Business</li>
+<li>Orders.Presentation</li>
+</ul>
+<p>Each project will contain classes for its module and layer. References are possible from <code>Data</code> to <code>Business</code> and from <code>Business</code> to <code>Presentation</code>. This applyes also for references between modules, with an extention to same layers - <code>Data</code> to <code>Data</code>, <code>Business</code> to <code>Business</code> and <code>Presentation</code> to <code>Presentation</code>. We are also trying make most inter module comunication on <code>Business</code> layer, but it's not always possible. Namespaces are organized similarly as for frameworks, a layer name is skipped.</p>
+<p><strong><em>Data</em></strong> layer contains classes for data access. These are typically generated as there is not much of code, that must be hand written. In 3L we typically reference here concrete data access libraries / classes.</p>
+<p><strong><em>Business</em></strong> layer contains business rules, typically in the form of stateless service classes and POCO models.</p>
+<p><strong><em>Presentation</em></strong> layer contains code required for exposing business logic from module to the outside world. Here are typically module specific UI controls, either for web, desktop, mobile, etc, or web services, cron jobs etc.</p>
+<p>When we are using onion architecture (which is prefered) we are creating one main project / assembly for domain and adding as many as required projects for communication with outside world. For the same example as for 3L architecture:</p>
+<ul>
+<li>Products</li>
+<li>Products.EntityFramework</li>
+<li>Products.Presentation</li>
+<li>Products.ExternalCommunication</li>
+<li>Products.ScheduledTasks</li>
+<li>Orders</li>
+<li>Orders.EventSourcing</li>
+<li>Orders.ExternalCommunication</li>
+</ul>
+<p>A main difference comes from the direction of references, defined by onion architecture. Here is the domain project in the center of everthing and all other projects / assemblies references it.</p>
+<blockquote>
+<p>References between modules are here theoretically shrinked to references between domain projects, and better realized using <code>domain</code>-to-<code>domain</code> projects. Such project can be named <code>ProductsOrders</code> and this projects takes care of communication between <code>Products</code> and <code>Orders</code>, none of <code>Products</code> nor <code>Orders</code> references this project. But in case of <code>Products</code> and <code>Orders</code>, its cleare that there could be reference from <code>Products</code> to <code>Orders</code>.</p>
+</blockquote>
+<h3>Test projects</h3>
+<p>As most of our project names start with <code>Neptuo</code>, we typically replace this part by <code>Test</code> in names for test projects, so a test project for project <code>Neptuo.TemplateEngine.Rendering</code> is named <code>Test.TemplateEngine.Rendering</code>, but with a same namespace as original the project.</p>
+<h2>Namespaces</h2>
+<p>We like namespaces and we use them a lot. We are always trying to consolidate classes that stick to together to its namespace. On the other hand, we are also trying to minimize namespaces to contain only information, that is not present somewhere else. These are the rules:</p>
+<h3>Removing layer name</h3>
+<p>We are never placing a name of the layer to the namespace. This information is already encoded in the project project. See the examples from previous section, <code>Data</code> and <code>Business</code> and <code>Presentation</code> / <code>UI</code> - these information is already contained in the project structure. So, do not include it in the namespace.</p>
+<p>Another example is that we are trying not to use namespaces like <code>Services</code>, <code>Models</code>, <code>Entities</code>. Instead of placing such information in the namespace, we are trying to use projects to separate these &quot;layers&quot; and keep namespaces &quot;clear&quot;, containing module informations only.</p>
+<h3>Stop repeating yourself</h3>
+<p>When previous previous name is saying <code>Products</code>, do not repeat this information is sub namespaces. Using namespaces like <code>Products.ProductNotes</code> only makes namespaces longer and harder read, use <code>Products.Notes</code> instead.</p>
+<h3>Plural, almost always</h3>
+<p>Most of out namespaces are in plural. This is the way, for us, to distinguish between classes and namespaces. This is the most weak in our code and for some scenarios we are breaking it. We are usign words like <code>Inventory</code> or <code>ContentManagement</code> for namespaces, but we are never using them elsewhere for class names.</p>
+<h2>Classes &amp; interfaces</h2>
+<p>When it comes to classes, we are also trying not to repeat information that is contained in the namespace. This is true in almost all cases. Some exceptions are classes that are placed in a namespace, but mainly used from another one, where their name could be ambiguous. An extra example could <code>Orders</code> module (in namespace <code>Orders</code>), where could be a service. This service will be called <code>OrderService</code> even the information about &quot;Ordering&quot; is also in the namespace. Otherwise we would end up with class called <code>Service</code>, which would be useless from other modules perspective.</p>
+<p>We are separating contracts / interfaces for reading and writing. In most cases, a component that needs to read some data doesn't need to write them. For these scenarios we are heavily using name-patterns <code>***Provider</code>, which contains methods for reading data, and <code>***Collection</code> / <code>***Repository</code> which inherits provider contract and addes methods for chaning state.</p>
+<p>When designing components, or even when implementing business logic, we are often wrapping system types into concreate classes with more type safety, null checking and more. Typically instead of passing around a list of objects, we create a concrete class, with concrete supported methods. This approach takes more time, but in the end you get components, that throws <code>ArgumentException</code>s for invalid input values and others as soon as possible, and they also minimizes occurences of <code>NullReferenceException</code> and others.</p>
+<h2>Member names</h2>
+<p>We don't much rules here. A common advise is to be as descriptive as possible, but don't go with too much detail, and don't bring up much implementation detail, where it is not necessary.</p>
+<h3>Find / Get / TryGet</h3>
+<p>One of rules we use is method naming based on whether it can return null or not. When it comes to getting object from a component we always prefix method based on behavior for cases where response can't be provided.</p>
+<p>We use a lot standard .NET pattern for try-getting a value. Such method returns boolean and has an extra out parameter for a result. Beside these, we offen offer a method which returns null when a result can't be provided. Such methods have always name prefix with Find. When a developer calls such method he/she must always check a result for a null value. When a method name starts with Get, it always returns a value or throws a exception, so developer doesn't have to check for nulls. This also brings an exception standartization for methods, because a developer doesn't have to think about which exception to throw.</p>
+<h2>Extension methods</h2>
+<p>We are trying to make interfaces smallest possible, so we use extension methods very often. Extension methods are always placed in a namespace where original component is placed, so when you have a using for a component, you see all extension methods from referenced assemblies.</p>
+<p>When working with parameter collections (it could be on HTTP layer, serialization layer or anywhere olse), we always hide compile time keys behind extension methods. Instead of calling <code>Add('Name', name)</code> in code or creating a constant for string 'Name', we use snippet to generate an extension method <code>AddName(name)</code>.</p>
+<h2>Variables</h2>
+<p>We don't use underscores or any other prefixes to distinguish between private members and local variables. This keyword is used only when needed.</p>
+<p>We are always naming variables based on context. Examples:</p>
+<ul>
+<li>When we are in a context of a single business entity, let's say 'product', we use only component type to name variable like 'service', 'repository' etc.</li>
+<li>When we are in a context of a multiple entities, let's say 'product', 'hotel' and 'destination', but all components are from the same layer, let's say 'service' or 'repository', we use plural names derived from entity names and skips component type like 'products', 'destinations' or 'hotels'.</li>
+</ul>
+<h2>Summary</h2>
+<p>It's not a definite list, but we have showed some of the pillars of our code rules and project structure. If you have any questions, feel free to disqus with us.</p>
+<p>If you agree with us or not on specific parts, keep in mind the most basic rule - be strict and enforce your rules on our projects. It can save losts of time and headaches.</p>
+
+    </div>
+
+    <div class="folder">
+        <div class="left">
+            Posted on 2017-12-29
+        </div>
+        <div class="right">
+            Written by <a target="_blank" rel="nofollow" href="https://github.com/maraf">Maraf</a>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+        <div class="folder">
+            <div class="comment-heading">
+                <h3>
+                    <span class="hidden">Comments</span>
+                    <span class="glyphicon glyphicon-comment"></span>
+                </h3>
+            
+                To leave a comment, please sign-in at GitHub and
+                <a href="https://github.com/neptuo/WebSite/issues/36" target="_blank">
+                    comment on the issue associated with this post.
+                </a>
+            </div>
+            <div id="comments"></div>
+        </div>
+</div>
+
+
+
+
+        </form>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="left">
+                <span>Neptuo &copy; 2010 - 2016</span>
+                
+            </div>
+            <div class="right">
+                <span>Created by <a target="_blank" href="http://mara.neptuo.com">Marek Fišera</a></span>
+                
+            </div>
+            <div class="center">
+                
+    <span><a href="/blog/atom.xml">Atom</a></span>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    </footer>
+
+    <script>
+
+        function onSwitcherClicked(e) {
+            var folder = this.parentElement.parentElement;
+            folder.classList.toggle('folder-collapsed');
+        }
+
+        var switchers = document.querySelectorAll('.folder-switch');
+        for (var i = 0; i < switchers.length; i++) {
+            var switcher = switchers[i];
+            switcher.addEventListener('click', onSwitcherClicked);
+        }
+
+        var navbarToggle = document.querySelector("button.navbar-toggle");
+        if (navbarToggle != null) {
+            navbarToggle.addEventListener('click', function (e) {
+                var navbar = document.querySelector("nav");
+                navbar.classList.toggle('navbar-expanded');
+            });
+        }
+
+    </script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-12031460-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    
+
+        <script src="/Scripts/blogcomments.js"></script>
+        <script>
+
+            load("https://api.github.com/repos/neptuo/WebSite/issues/36/comments");
+
+        </script>
+
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "Organization",
+            "url": "http://www.neptuo.com",
+            "logo": "/Content/Images/Logo-220.png"
+        }
+    </script>
+</body>
+</html>
