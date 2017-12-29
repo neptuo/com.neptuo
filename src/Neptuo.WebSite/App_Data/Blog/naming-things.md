@@ -114,4 +114,4 @@ We are always naming variables based on context. Examples:
 
 ## Summary
 
-It's not a definite list, but we have showed some of the pillars of code quality and project structure.
+It's not a definite list, but we have showed some of the pillars of our code rules and project structure.
