@@ -91,3 +91,11 @@ We don't much rules here. A common advise is to be as descriptive as possible, b
 One of rules we use is method naming based on whether it can return null or not. When it comes to getting object from a component we always prefix method based on behavior for cases where response can't be provided.
 
 We use a lot standard .NET pattern for try-getting a value. Such method returns boolean and has an extra out parameter for a result. Beside these, we offen offer a method which returns null when a result can't be provided. Such methods have always name prefix with Find. When a developer calls such method he/she must always check a result for a null value. When a method name starts with Get, it always returns a value or throws a exception, so developer doesn't have to check for nulls. This also brings an exception standartization for methods, because a developer doesn't have to think about which exception to throw.
+
+## Variables
+
+We don't use underscores or any other prefixes to distinguish between private members and local variables. This keyword is used only when needed.
+
+We are always naming variables based on context. Examples: 
+- When we are in a context of a single business entity, let's say 'product', we use only component type to name variable like 'service', 'repository' etc.
+- When we are in a context of a multiple entities, let's say 'product', 'hotel' and 'destination', but all components are from the same layer, let's say 'service' or 'repository', we use plural names derived from entity names and skips component type like 'products', 'destinations' or 'hotels'.
