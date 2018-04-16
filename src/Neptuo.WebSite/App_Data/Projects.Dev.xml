@@ -40,6 +40,16 @@
     <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Commands</DocumentationUrl>
   </Project>
   <Project>
+    <Name>Neptuo.Compilers</Name>
+    <Type>dev</Type>
+    <Description>Compilers abstractions. Contains implementation for System.CodeDom.</Description>
+    <LocalUrl>neptuo.compilers</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Framework/wiki</DocumentationUrl>
+  </Project>
+  <Project>
     <Name>Neptuo.Events</Name>
     <Type>dev</Type>
     <Description>Event (output) part of the CQRS system.</Description>
