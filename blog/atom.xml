@@ -4,7 +4,7 @@
     <title>Neptuo Blog</title>
     <link href="http://www.neptuo.com/blog/atom.xml" rel="self" />
     <link href="http://www.neptuo.com/blog/" />
-    <updated>2018-04-16 19:12:51</updated>
+    <updated>2018-04-26 19:21:35</updated>
     <id>http://www.neptuo.com/blog/</id>
     <author>
         <name>maraf</name>
@@ -65,5 +65,13 @@
             <updated>2017-12-29</updated>
             <id>http://www.neptuo.com/blog/2017/12/29/naming-things</id>
             <content type="html">A list of code rules we have built in time to save time and headaches.</content>
+        </entry>
+        <entry>
+            <title>Blazor and the booting screen</title>
+            <link href="http://www.neptuo.com/blog/2018/04/blazor-boot-screen" />
+            <updated>2018-04-26</updated>
+            <id>http://www.neptuo.com/blog/2018/04/blazor-boot-screen</id>
+            <content type="html">A first tip in a possible Blazor serie is about configuring loading screen.
+      A replacement of the default &quot;Loading...&quot; with something more eye catching.</content>
         </entry>
 </feed>
