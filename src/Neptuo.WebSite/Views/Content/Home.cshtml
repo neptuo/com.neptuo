@@ -157,7 +157,7 @@
             These sites uses advanced WebApplication technologies, like ASP.NET, but only static HTML &amp; assets are published on production server.
         </p>
         <p class="right">
-            @Html.ModelLink("More on this topic can be found on our blog", new BlogPostRoute(Model.StaticSitesBlogPost.ReleaseDate, Model.StaticSitesBlogPost.Url)).
+            @Html.ModelLink("More on this topic can be found on our blog", Model.StaticSitesBlogPost.ToRouteModel()).
         </p>
 
         <div class="clear"></div>

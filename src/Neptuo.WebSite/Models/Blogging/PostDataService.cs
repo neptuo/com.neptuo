@@ -48,13 +48,12 @@ namespace Neptuo.WebSite.Models.Blogging
             return result.OrderByDescending(p => p.ReleaseDate);
         }
 
-        public PostModel Find(DateTime releaseDate, string url)
+        public PostModel Find(int year, int month, string url)
         {
-            releaseDate = releaseDate.Date;
             url = url.ToLowerInvariant();
 
             return models
-                .Where(p => p.ReleaseDate == releaseDate && p.Url == url)
+                .Where(p => p.ReleaseDate.Year == year && p.ReleaseDate.Month == month && p.Url == url)
                 .FirstOrDefault();
         }
 

@@ -29,7 +29,7 @@
                     <div class="month">@post.ReleaseDate.ToString("MMM", new CultureInfo("en-US"))</div>
                 </div>
                 <div class="folder-content">
-                    <h2 class="folder-heading">@Html.ModelLink(post.Title, new BlogPostRoute(post.ReleaseDate, post.Url))</h2>
+                    <h2 class="folder-heading">@Html.ModelLink(post.Title, post.ToRouteModel())</h2>
                     <article>@post.Description</article>
                 </div>
                 <div class="clear"></div>

@@ -88,4 +88,15 @@
     <Author>Maraf</Author>
     <GitHubCommentPath>neptuo/WebSite/issues/36</GitHubCommentPath>
   </Post>
+  <Post>
+    <Title>Blazor and the booting screen</Title>
+    <Description>
+      A first tip in a possible Blazor serie is about configuring loading screen.
+      A replacement of the default "Loading..." with something more eye catching.
+    </Description>
+    <Url>blazor-boot-screen</Url>
+    <FilePath>~/App_Data/Blog/blazor-boot-screen.md</FilePath>
+    <ReleaseDate>2018-04-26</ReleaseDate>
+    <Author>Maraf</Author>
+  </Post>
 </Posts>

@@ -158,7 +158,7 @@
             Tyto weby pak mají vynimální nároky na server, na kterém běží.
         </p>
         <p class="right">
-            @Html.ModelLink("Více na toto téma na našem blogu (v angličtině)", new BlogPostRoute(Model.StaticSitesBlogPost.ReleaseDate, Model.StaticSitesBlogPost.Url)).
+            @Html.ModelLink("Více na toto téma na našem blogu (v angličtině)", Model.StaticSitesBlogPost.ToRouteModel()).
         </p>
 
         <div class="clear"></div>
