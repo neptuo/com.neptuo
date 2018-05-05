@@ -37,6 +37,25 @@ In the bottom there are some checkboxes for setting automatic downloads and etc.
     </Version>
   </Project>
   <Project>
+    <Name>GitExtensions: Bundle Backuper</Name>
+    <Type>desktop</Type>
+    <Description>Branch backuping plugin for GitExtensions.</Description>
+    <Text Language="Markdown">
+GIT bundles is a great way to create backups of local branches. This extension for [GitExtensions](https://github.com/gitextensions/gitextensions) creates item in top menu containg all bundles at specified path. Clicking bundle item maps this bundle as remote. Beside this restore operation, it also contains button to create bundle/backup between current branch head and last commit pushed commit.
+    </Text>
+    <LocalUrl>gitextensions-bundlebackuper</LocalUrl>
+    <Images>
+      <Additional>~/Content/Images/Projects/gitextensions-bundlebackuper-01.png</Additional>
+    </Images>
+    <Version>
+      <Name>v1.0.0</Name>
+      <Description>Configure backup and restore path.</Description>
+      <Description>Main menu contains item with manual backup button and list of available backups.</Description>
+      <Description>Manual backup create bundle from last pushed commit (to any remote) to HEAD of current branch.</Description>
+      <Description>Backup restore maps selected bundle as remote.</Description>
+    </Version>
+  </Project>
+  <Project>
     <Name>Link Extractor</Name>
     <Type>desktop</Type>
     <Description>Desktop application for extracting links (URLs) from HTML or any other document type.</Description>
