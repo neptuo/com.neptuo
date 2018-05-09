@@ -30,6 +30,16 @@ To start the application after sign in to the Windows, simple create shortcut in
     </Images>
 
     <Version>
+      <Name>v1.10.0</Name>
+      <Description>Added additional command to all Visual Studios (and Code) which runs new instance as administrator.</Description>
+      <Description>Added complex logging. We can now view logs for each query, etc.</Description>
+      <Description>Configuration is moved from ClickOnce internal storage to custom JSON file. Path can be change in configuration window.</Description>
+      <Description>Solution Runner can search during initialization. There is cache of files available from previous run which is used during file system scanning.</Description>
+      <Description>Fixed non-deterministic order for two pinned solution files with a same name (but different path).</Description>
+      <Description>Fixed searching for x64 version of Visual Studio Code.</Description>
+      <Description>Fixed minor version resolution for Visual Studio.</Description>
+    </Version>
+    <Version>
       <Name>v1.9.0</Name>
       <Description>Added a light theme.</Description>
       <Description>Added an option to show a little badge after solution name with count of projects in the solution file.</Description>
