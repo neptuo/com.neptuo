@@ -102,7 +102,7 @@ https://github.com/neptuo/Productivity.SolutionRunner</span></a>.
                         </li>
                     
                         <li>
-                            Release of the <a target="_blank" href="http://apps.neptuo.com/solution-runner">Solution Runner v1.9.0 to download</a>.
+                            Release of the <a target="_blank" href="http://apps.neptuo.com/solution-runner">Solution Runner v1.10.0 to download</a>.
                         </li>
 
                             <li>
@@ -136,6 +136,33 @@ By pressing enter, you run a new instance of selected Visual Studio version with
                 <div class="folder">
                     <h2 class="folder-heading">Version history</h2>
                     <ul class="version">
+                            <li>
+                                <strong>v1.10.0</strong>
+                                    <ul>
+
+                                            <li>
+                                                Added additional command to all Visual Studios (and Code) which runs new instance as administrator.
+                                            </li>
+                                            <li>
+                                                Added complex logging. We can now view logs for each query, etc.
+                                            </li>
+                                            <li>
+                                                Configuration is moved from ClickOnce internal storage to custom JSON file. Path can be change in configuration window.
+                                            </li>
+                                            <li>
+                                                Solution Runner can search during initialization. There is cache of files available from previous run which is used during file system scanning.
+                                            </li>
+                                            <li>
+                                                Fixed non-deterministic order for two pinned solution files with a same name (but different path).
+                                            </li>
+                                            <li>
+                                                Fixed searching for x64 version of Visual Studio Code.
+                                            </li>
+                                            <li>
+                                                Fixed minor version resolution for Visual Studio.
+                                            </li>
+                                    </ul>
+                            </li>
                             <li>
                                 <strong>v1.9.0</strong>
                                     <ul>
