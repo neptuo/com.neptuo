@@ -2,7 +2,7 @@
 
 Recently I was implementing [confirmation dialogs before deleting](https://github.com/maraf/Money/issues/149) an item. 
 
-![Confirm Dialog in Action](/Content/Images/Blog/bblazor-component-parameters/confirm.png)
+![Confirm Dialog in Action](/Content/Images/Blog/blazor-component-parameters/confirm.png)
 
 As such dialog should be always the same except for message, I have created a component:
 
