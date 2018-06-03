@@ -1,0 +1,240 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <title>Blazor and complex component parameters - Neptuo</title>
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="/Content/web.css" rel="stylesheet" />
+
+    <link rel="alternate" type="application/rss+xml" title="Neptuo Blog" href="https://www.neptuo.com/blog/atom.xml" />
+</head>
+<body>
+
+    <nav class="navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+            <button class="navbar-toggle">
+                <span class="glyphicon glyphicon-menu-hamburger"></span>
+            </button>
+
+            <ul class="left">
+                    <li>
+        <a href="/">
+            <div class="maintext">
+                Home
+                <span class="glyphicon glyphicon-home"></span>
+            </div>
+            <div class="subtext">How can we help you?</div>
+        </a>
+    </li>
+
+            </ul>
+            <ul class="right">
+                    <li>
+        <a href="/project">
+            <div class="maintext">
+                Projects
+                <span class="glyphicon glyphicon-cloud"></span>
+            </div>
+            <div class="subtext">Projects we are working on</div>
+        </a>
+    </li>
+
+                    <li>
+        <a href="/service">
+            <div class="maintext">
+                Services
+                <span class="glyphicon glyphicon-globe"></span>
+            </div>
+            <div class="subtext">Our services and references</div>
+        </a>
+    </li>
+
+                    <li class="active">
+        <a href="/blog">
+            <div class="maintext">
+                Blog
+                <span class="glyphicon glyphicon-bookmark"></span>
+            </div>
+            <div class="subtext">Thoughts to share</div>
+        </a>
+    </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="body">
+        <form>
+
+            
+
+<div class="intro important blogpost">
+    <div class="intro-content container">
+        <h1>Blazor and complex component parameters</h1>
+        <p>
+            
+      A second tip. So clear and obvious, but it took some time to me to realize.
+    
+        </p>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="folder blogpost">
+        <blockquote>
+<p><a href="https://github.com/aspnet/Blazor">Blazor</a> is an experimental Web UI framework from Microsoft. There are plenty of posts about so I'm not going to describe it and I'm directly heading to my topic.</p>
+</blockquote>
+<p>Recently I was implementing <a href="https://github.com/maraf/Money/issues/149">confirmation dialogs before deleting</a> an item.</p>
+<p><img src="/Content/Images/Blog/bblazor-component-parameters/confirm.png" alt="Confirm Dialog in Action" /></p>
+<p>As such dialog should be always the same except for message, I have created a component:</p>
+<pre><code class="language-html">&lt;Confirm Message=&quot;@DeleteCategoryMessage?&quot; YesClick=&quot;OnDeleteConfirmed&quot; bind-IsVisible=&quot;@IsDeleteConfirmVisible&quot; /&gt;
+</code></pre>
+<p>A typical 'codebehind' looked like:</p>
+<div class="highlight csharp"><pre>
+
+<span class="keyword">private</span> IKey <span class="identifier">deleteCategoryKey</span>;
+<span class="keyword">protected</span> <span class="keyword">string</span> DeleteCategoryMessage { <span class="keyword">get</span>; <span class="keyword">set</span>; }
+<span class="keyword">protected</span> <span class="keyword">bool</span> <span class="identifier">IsDeleteConfirmVisible</span> { <span class="keyword">get</span>; <span class="keyword">set</span>; }
+
+<span class="keyword">protected</span> <span class="keyword">void</span> <span class="identifier">OnDeleteButtonClick</span>(Category c) 
+{
+    deleteCategoryKey = c.Key;
+    DeleteCategoryMessage = $<span class="string">&quot;Do you really want to delete category &#39;{c.Name}&#39;&quot;</span>;
+    IsDeleteConfirmVisible = <span class="constant">true</span>;
+}
+
+<span class="keyword">protected</span> async <span class="keyword">void</span> OnDeleteConfirmed() 
+{
+    await DeleteCategoryAsync(deleteCategoryKey);
+
+    deleteCategoryKey = <span class="constant">null</span>;
+    DeleteCategoryMessage = <span class="constant">null</span>;
+    IsDeleteConfirmVisible = <span class="constant">false</span>;
+}
+
+
+</pre></div>
+<p>This would be needed everytime I would want to use confirmation dialog. It would be 90% the same in all use cases.
+Then I realized I can refactor it to a class and then I realized I can pass this whole class to <code>Confirm</code> component.</p>
+<p>So the final component usage is:</p>
+<pre><code>&lt;Confirm Context=&quot;@Delete&quot; /&gt;
+</code></pre>
+<p>In codebehind I only need to create instance of <a href="https://github.com/maraf/Money/blob/master/src/Money.UI.Blazor/Models/Confirmation/DeleteContext.cs">DeleteContext</a> class:</p>
+<div class="highlight csharp"><pre>
+
+<span class="keyword">protected</span> DeleteContext&lt;CategoryModel&gt; Delete { <span class="keyword">get</span>; }
+
+<span class="keyword">public</span> <span class="keyword">void</span> <span class="identifier">Initialize</span>() 
+{
+    Delete = <span class="keyword">new</span> DeleteContext&lt;CategoryModel&gt;()
+    Delete.Confirmed += async model =&gt; await DeleteCategoryAsync(model.Key);
+    Delete.MessageFormatter = model =&gt; $<span class="string">&quot;Do you really want to delete category &#39;{model.Name}&#39;?&quot;</span>;
+}
+
+<span class="keyword">protected</span> <span class="keyword">void</span> <span class="identifier">OnDeleteButtonClick</span>(CategoryModel model)
+{
+    Delete.Model = model;
+}
+
+
+</pre></div>
+<h2>Summary</h2>
+<p>Until last week I have never tough about passing complex objects to components, but it works so easily.
+The complete solution can be found in these files:</p>
+<ul>
+<li><a href="https://github.com/maraf/Money/blob/master/src/Money.UI.Blazor/Components/Confirm.cshtml">Confirm</a> - UI component using Bootstrap modal to show confirmation dialogs.</li>
+<li><a href="https://github.com/maraf/Money/blob/master/src/Money.UI.Blazor/Models/Confirmation/DeleteContext.cs">DeleteContext</a> - model containing boilerplate code for deleting with confirmation.</li>
+<li><a href="https://github.com/maraf/Money/blob/master/src/Money.UI.Blazor/Models/Confirmation/ConfirmContext.cs">ConfirmContext</a> - abstract base class required by <code>Confirm</code> component.</li>
+</ul>
+
+    </div>
+
+    <div class="folder">
+        <div class="left">
+            Posted on 2018-06-03
+        </div>
+        <div class="right">
+            Written by <a target="_blank" rel="nofollow" href="https://github.com/maraf">Maraf</a>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+</div>
+
+
+
+
+        </form>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="left">
+                <span>Neptuo &copy; 2010 - 2016</span>
+                
+            </div>
+            <div class="right">
+                <span>Created by <a target="_blank" href="https://mara.neptuo.com">Marek Fišera</a></span>
+                
+            </div>
+            <div class="center">
+                
+    <span><a href="/blog/atom.xml">Atom</a></span>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    </footer>
+
+    <script>
+
+        function onSwitcherClicked(e) {
+            var folder = this.parentElement.parentElement;
+            folder.classList.toggle('folder-collapsed');
+        }
+
+        var switchers = document.querySelectorAll('.folder-switch');
+        for (var i = 0; i < switchers.length; i++) {
+            var switcher = switchers[i];
+            switcher.addEventListener('click', onSwitcherClicked);
+        }
+
+        var navbarToggle = document.querySelector("button.navbar-toggle");
+        if (navbarToggle != null) {
+            navbarToggle.addEventListener('click', function (e) {
+                var navbar = document.querySelector("nav");
+                navbar.classList.toggle('navbar-expanded');
+            });
+        }
+
+    </script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-12031460-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    
+
+
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "Organization",
+            "url": "http://www.neptuo.com",
+            "logo": "/Content/Images/Logo-220.png"
+        }
+    </script>
+</body>
+</html>
