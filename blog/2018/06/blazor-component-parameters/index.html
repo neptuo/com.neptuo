@@ -97,7 +97,6 @@
 </code></pre>
 <p>A typical 'codebehind' looked like:</p>
 <div class="highlight csharp"><pre>
-
 <span class="keyword">private</span> IKey <span class="identifier">deleteCategoryKey</span>;
 <span class="keyword">protected</span> <span class="keyword">string</span> DeleteCategoryMessage { <span class="keyword">get</span>; <span class="keyword">set</span>; }
 <span class="keyword">protected</span> <span class="keyword">bool</span> <span class="identifier">IsDeleteConfirmVisible</span> { <span class="keyword">get</span>; <span class="keyword">set</span>; }
@@ -127,7 +126,6 @@ Then I realized I can refactor it to a class and then I realized I can pass this
 </code></pre>
 <p>In codebehind I only need to create instance of <a href="https://github.com/maraf/Money/blob/master/src/Money.UI.Blazor/Models/Confirmation/DeleteContext.cs">DeleteContext</a> class:</p>
 <div class="highlight csharp"><pre>
-
 <span class="keyword">protected</span> DeleteContext&lt;CategoryModel&gt; Delete { <span class="keyword">get</span>; }
 
 <span class="keyword">public</span> <span class="keyword">void</span> <span class="identifier">Initialize</span>() 
