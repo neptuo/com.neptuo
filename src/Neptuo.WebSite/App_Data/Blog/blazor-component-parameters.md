@@ -71,3 +71,4 @@ The complete solution can be found in these files:
 - [Confirm](https://github.com/maraf/Money/blob/master/src/Money.UI.Blazor/Components/Confirm.cshtml) - UI component using Bootstrap modal to show confirmation dialogs.
 - [DeleteContext](https://github.com/maraf/Money/blob/master/src/Money.UI.Blazor/Models/Confirmation/DeleteContext.cs) - model containing boilerplate code for deleting with confirmation.
 - [ConfirmContext](https://github.com/maraf/Money/blob/master/src/Money.UI.Blazor/Models/Confirmation/ConfirmContext.cs) - abstract base class required by `Confirm` component.
+- [CategoriesBase](https://github.com/maraf/Money/blob/master/src/Money.UI.Blazor/Pages/CategoriesBase.cs) - typical usage.
