@@ -13,7 +13,6 @@ As such dialog should be always the same except for message, I have created a co
 A typical 'codebehind' looked like:
 
 ```C#
-
 private IKey deleteCategoryKey;
 protected string DeleteCategoryMessage { get; set; }
 protected bool IsDeleteConfirmVisible { get; set; }
@@ -48,7 +47,6 @@ So the final component usage is:
 In codebehind I only need to create instance of [DeleteContext](https://github.com/maraf/Money/blob/master/src/Money.UI.Blazor/Models/Confirmation/DeleteContext.cs) class:
 
 ```C#
-
 protected DeleteContext<CategoryModel> Delete { get; }
 
 public void Initialize() 
