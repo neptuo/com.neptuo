@@ -137,8 +137,7 @@
 
             if (project.Images != null)
             {
-                <div class="folder">
-                    <h2 class="folder-heading">Previews</h2>
+                <div class="folder folder-headless">
                     @if (project.Images.Main != null) 
                     { 
                         <img class="main-image" src="@Request.ResolveUrl(project.Images.Main)" />

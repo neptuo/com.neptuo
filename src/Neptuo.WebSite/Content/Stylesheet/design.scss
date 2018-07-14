@@ -203,9 +203,13 @@ img.main-image {
     display: block;
 }
 
+.additional-image-list {
+    margin: 0 -10px;
+}
+
 img.additional-image {
     height: 150px;
-    margin: 0px 10px 10px 0;
+    margin: 10px;
     float: left;
     display: block;
 }
