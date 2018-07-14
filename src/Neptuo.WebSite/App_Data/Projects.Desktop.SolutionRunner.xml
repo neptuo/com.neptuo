@@ -30,6 +30,10 @@ To start the application after sign in to the Windows, simple create shortcut in
     </Images>
 
     <Version>
+      <Name>v1.10.1</Name>
+      <Description>Fixed getting stucked when global hotkey and "Dismiss after loosing focus" and "red X" button main windows is clicked.</Description>
+    </Version>
+    <Version>
       <Name>v1.10.0</Name>
       <Description>It is quite possible that you would need to unistall previous version and install new one, because our server moved to HTTPS.</Description>
       <Description>Added additional command to all Visual Studios (and Code) which runs new instance as administrator.</Description>
