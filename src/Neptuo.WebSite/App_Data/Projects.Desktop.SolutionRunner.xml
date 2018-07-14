@@ -23,10 +23,15 @@ To start the application after sign in to the Windows, simple create shortcut in
       <Relation Text="Blog post about features and how to setup and use it" Url="http://www.neptuo.com/blog/2017/2/3/productivity-solution-runner" />
     </Relations>
     <Images>
-      <Additional>~/Content/Images/Projects/solution-runner-01.png</Additional>
+      <Main>~/Content/Images/Projects/solution-runner-01.png</Main>
       <Additional>~/Content/Images/Projects/solution-runner-02.png</Additional>
       <Additional>~/Content/Images/Projects/solution-runner-03.png</Additional>
       <Additional>~/Content/Images/Projects/solution-runner-04.png</Additional>
+      <Additional>~/Content/Images/Projects/solution-runner-05.png</Additional>
+      <Additional>~/Content/Images/Projects/solution-runner-07.png</Additional>
+      <Additional>~/Content/Images/Projects/solution-runner-06.png</Additional>
+      <Additional>~/Content/Images/Projects/solution-runner-09.png</Additional>
+      <Additional>~/Content/Images/Projects/solution-runner-08.png</Additional>
     </Images>
 
     <Version>
