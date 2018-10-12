@@ -58,6 +58,17 @@ GIT bundles is a great way to create backups of local branches. This extension f
     </Version>
   </Project>
   <Project>
+    <Name>GitExtensions: Plugin Manager</Name>
+    <Type>desktop</Type>
+    <Description>NuGet based plugin manager for GitExtensions.</Description>
+    <Text>Let's try to use NuGet to distribute plugins for GitExtensions.</Text>
+    <LocalUrl>gitextensions-pluginmanager</LocalUrl>
+    <ProjectUrl>https://github.com/maraf/GitExtensions.PluginManager</ProjectUrl>
+    <DownloadUrl>https://github.com/maraf/GitExtensions.PluginManager/releases</DownloadUrl>
+    <Images>
+      <Additional>~/Content/Images/Projects/gitextensions-pluginmanager-01.png</Additional>
+    </Images>
+  <Project>
     <Name>Link Extractor</Name>
     <Type>desktop</Type>
     <Description>Desktop application for extracting links (URLs) from HTML or any other document type.</Description>
