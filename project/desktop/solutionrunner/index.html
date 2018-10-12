@@ -1,0 +1,494 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <title>Apps, libraries, tools &amp; utilities that helps during development and every day life. - Neptuo</title>
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="/Content/web.css" rel="stylesheet" />
+
+    <link rel="alternate" type="application/rss+xml" title="Neptuo Blog" href="https://www.neptuo.com/blog/atom.xml" />
+</head>
+<body>
+
+    <nav class="navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+            <button class="navbar-toggle">
+                <span class="glyphicon glyphicon-menu-hamburger"></span>
+            </button>
+
+            <ul class="left">
+                    <li>
+        <a href="/">
+            <div class="maintext">
+                Home
+                <span class="glyphicon glyphicon-home"></span>
+            </div>
+            <div class="subtext">How can we help you?</div>
+        </a>
+    </li>
+
+            </ul>
+            <ul class="right">
+                    <li class="active">
+        <a href="/project">
+            <div class="maintext">
+                Projects
+                <span class="glyphicon glyphicon-cloud"></span>
+            </div>
+            <div class="subtext">Projects we are working on</div>
+        </a>
+    </li>
+
+                    <li>
+        <a href="/service">
+            <div class="maintext">
+                Services
+                <span class="glyphicon glyphicon-globe"></span>
+            </div>
+            <div class="subtext">Our services and references</div>
+        </a>
+    </li>
+
+                    <li>
+        <a href="/blog">
+            <div class="maintext">
+                Blog
+                <span class="glyphicon glyphicon-bookmark"></span>
+            </div>
+            <div class="subtext">Thoughts to share</div>
+        </a>
+    </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="body">
+        <form>
+
+            
+
+<div class="intro">
+    <div class="intro-content container">
+        <h1>Our projects!</h1>
+        <p>
+            Apps, libs &amp; tools that helps during every day (developer) life.
+        </p>
+    </div>
+</div>
+
+<div class="container">
+
+        <div class="folder" data-search="solution runner">
+            <h2 class="folder-heading">
+                    <img src="/Content/Images/Projects/solution-runner-icon.png" class="folder-icon" />
+
+                <a href="/project/desktop/solutionrunner">Solution Runner</a>
+            </h2>
+            <article>
+                <ul>
+
+
+
+                        <li>
+                            Source code at
+                            <a target="_blank" href="https://github.com/neptuo/Productivity.SolutionRunner"><span>
+https://github.com/neptuo/Productivity.SolutionRunner</span></a>.
+                        </li>
+                    
+                        <li>
+                            Release of the <a target="_blank" href="http://apps.neptuo.com/solution-runner">Solution Runner v1.10.1 to download</a>.
+                        </li>
+
+                            <li>
+                                <a target="_blank" href="http://www.neptuo.com/blog/2017/2/3/productivity-solution-runner">Blog post about features and how to setup and use it</a>.
+                            </li>
+
+                </ul>
+            </article>
+            <div class="clear"></div>
+        </div>
+                <div class="folder">
+                    <h2 class="folder-heading">Description</h2>
+                    <p>Keyboard-only designed application for simple and fast opening of Visual Studio solution files.
+Configuration takes single folder where to look for *.sln files with the option to set prefered Visual Studio version installed on your computer and global (Windows wide) shortcut.</p>
+<p>After setting required configuration, main window will open. Here you can filter solution files from your hard drive and manage favourite ones.
+By pressing enter, you run a new instance of selected Visual Studio version with the selected solution.</p>
+<p>When global hotkey is set, the application is only minimized after opening the solution. So, to update it must first kill it from process list.</p>
+<p>To start the application after sign in to the Windows, simple create shortcut in startup folder. We are currentling implementing this as feature, along with minimized startup.</p>
+
+                </div>
+                <div class="folder folder-headless">
+                        <img class="main-image" src="/Content/Images/Projects/solution-runner-01.png" />
+                    <div class="additional-image-list">
+                            <img class="additional-image" src="/Content/Images/Projects/solution-runner-02.png" />
+                            <img class="additional-image" src="/Content/Images/Projects/solution-runner-03.png" />
+                            <img class="additional-image" src="/Content/Images/Projects/solution-runner-04.png" />
+                            <img class="additional-image" src="/Content/Images/Projects/solution-runner-05.png" />
+                            <img class="additional-image" src="/Content/Images/Projects/solution-runner-07.png" />
+                            <img class="additional-image" src="/Content/Images/Projects/solution-runner-06.png" />
+                            <img class="additional-image" src="/Content/Images/Projects/solution-runner-09.png" />
+                            <img class="additional-image" src="/Content/Images/Projects/solution-runner-08.png" />
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="folder">
+                    <h2 class="folder-heading">Version history</h2>
+                    <ul class="version">
+                            <li>
+                                <strong>v1.10.1</strong>
+                                    <ul>
+
+                                            <li>
+                                                Fixed getting stucked when global hotkey and &quot;Dismiss after loosing focus&quot; and &quot;red X&quot; button main windows is clicked.
+                                            </li>
+                                    </ul>
+                            </li>
+                            <li>
+                                <strong>v1.10.0</strong>
+                                    <ul>
+
+                                            <li>
+                                                It is quite possible that you would need to unistall previous version and install new one, because our server moved to HTTPS.
+                                            </li>
+                                            <li>
+                                                Added additional command to all Visual Studios (and Code) which runs new instance as administrator.
+                                            </li>
+                                            <li>
+                                                Added complex logging. We can now view logs for each query, etc.
+                                            </li>
+                                            <li>
+                                                Configuration is moved from ClickOnce internal storage to custom JSON file. Path can be change in configuration window.
+                                            </li>
+                                            <li>
+                                                Solution Runner can search during initialization. There is cache of files available from previous run which is used during file system scanning.
+                                            </li>
+                                            <li>
+                                                Fixed non-deterministic order for two pinned solution files with a same name (but different path).
+                                            </li>
+                                            <li>
+                                                Fixed searching for x64 version of Visual Studio Code.
+                                            </li>
+                                            <li>
+                                                Fixed minor version resolution for Visual Studio.
+                                            </li>
+                                    </ul>
+                            </li>
+                            <li>
+                                <strong>v1.9.0</strong>
+                                    <ul>
+
+                                            <li>
+                                                Added a light theme.
+                                            </li>
+                                            <li>
+                                                Added an option to show a little badge after solution name with count of projects in the solution file.
+                                            </li>
+                                            <li>
+                                                Additional application can now contain additional commands. These are Alt + Key1 + Key2 extensions to the additional application. 
+                                            </li>
+                                            <li>
+                                                Added visualization of an application hotkey when Alt is pressed.
+                                            </li>
+                                    </ul>
+                            </li>
+                            <li>
+                                <strong>v1.8.0</strong>
+                                    <ul>
+
+                                            <li>
+                                                Added automatic detection of Visual Studio Code. It is treated as main application which can be hidden from a configuration window.
+                                            </li>
+                                            <li>
+                                                Configuration properties are splitted into tabs.
+                                            </li>
+                                            <li>
+                                                A better control for picking additional application path. From plain textbox to file picker with support for manual path setting.
+                                            </li>
+                                            <li>
+                                                Statistics are grouped by year and month, with overview for each year and global counts.
+                                            </li>
+                                            <li>
+                                                Each additional application can has hotkey which starts the application in combination with Alt.
+                                            </li>
+                                            <li>
+                                                Prefered application is now picked from dropdown containing main and additional applications.
+                                            </li>
+                                            <li>
+                                                All windows, except the main one, has standard windows border and controls.
+                                            </li>
+                                    </ul>
+                            </li>
+                            <li>
+                                <strong>v1.7.0</strong>
+                                    <ul>
+
+                                            <li>
+                                                Added context menu for tray-icon.
+                                            </li>
+                                            <li>
+                                                Added support for select minimal VS version for auto selecting VS version feature.
+                                            </li>
+                                            <li>
+                                                Added support for hiding VS versions.
+                                            </li>
+                                            <li>
+                                                Fix crashing after filling invalid or not accessible root path and added exception logging.
+                                            </li>
+                                    </ul>
+                            </li>
+                            <li>
+                                <strong>v1.6.3</strong>
+                                    <ul>
+
+                                            <li>
+                                                Fix crashes caused by IO exception while enumerating new directory.
+                                            </li>
+                                            <li>
+                                                Added support for VS2017 which has different installation path format.
+                                            </li>
+                                    </ul>
+                            </li>
+                            <li>
+                                <strong>v1.6.2</strong>
+                                    <ul>
+
+                                            <li>
+                                                Fix showing a directory in the list when directory with dot in a name is added.
+                                            </li>
+                                    </ul>
+                            </li>
+                            <li>
+                                <strong>v1.6.1</strong>
+                                    <ul>
+
+                                            <li>
+                                                Changing tray-icon when initializing and displaying intermediate progress bar on task bar.
+                                            </li>
+                                            <li>
+                                                Fix missing file after moving it with parent directory.
+                                            </li>
+                                            <li>
+                                                Fix hiding main window after loosing focus if opened by tray-icon.
+                                            </li>
+                                            <li>
+                                                Fix reseting main window state and position after opening using tray-icon.
+                                            </li>
+                                    </ul>
+                            </li>
+                            <li>
+                                <strong>v1.6</strong>
+                                    <ul>
+
+                                            <li>
+                                                Added support for counting application and file statistics with classic pie chart view.
+                                            </li>
+                                            <li>
+                                                Searching is now instant. Removed delay between typing and actual searching.
+                                            </li>
+                                            <li>
+                                                Added help popup for a first time setup.
+                                            </li>
+                                            <li>
+                                                Added support for defining custom initial window position.
+                                            </li>
+                                            <li>
+                                                Added option for displaying tray-icon. Clicking a tray-icon brings a window to front.
+                                            </li>
+                                            <li>
+                                                File system is scanned in the background. It is also reloaded only when source directory is changed, not on every configuration save.
+                                            </li>
+                                            <li>
+                                                Improved mode with no hotkey. Application is shown on the task bar and doesn&#39;t close after running application.
+                                            </li>
+                                            <li>
+                                                Added tooltips containing full path for solution files and applications.
+                                            </li>
+                                            <li>
+                                                Added Ctrl+C and Ctrl+Shift+C commands for copying application path and file path.
+                                            </li>
+                                            <li>
+                                                Added hover effect for applications and files.
+                                            </li>
+                                    </ul>
+                            </li>
+                            <li>
+                                <strong>v1.5</strong>
+                                    <ul>
+
+                                            <li>
+                                                Added support for starting after login to the Windows.
+                                            </li>
+                                            <li>
+                                                Added message displaying current application status (initializing, searching, &#39;nothing found&#39;, etc).
+                                            </li>
+                                            <li>
+                                                Added options for shortening display path to found solution files. It can whole path, directory path or last directory name.
+                                            </li>
+                                            <li>
+                                                Fix: Missing favorite items after deleting all text.
+                                            </li>
+                                    </ul>
+                            </li>
+                            <li>
+                                <strong>v1.4</strong>
+                                    <ul>
+
+                                            <li>
+                                                Added support for custom application defined in the configuration window.
+                                            </li>
+                                            <li>
+                                                Added configuration option to enable auto selecting Visual Studio version according to the solution file version.
+                                            </li>
+                                            <li>
+                                                Fix: Duplicated entries after renaming directory.
+                                            </li>
+                                    </ul>
+                            </li>
+                            <li>
+                                <strong>v1.3</strong>
+                                    <ul>
+
+                                            <li>
+                                                Double click on the application starts new instance without file.
+                                            </li>
+                                            <li>
+                                                Added support for Home and End navigation keys in the list of solution files.
+                                            </li>
+                                            <li>
+                                                Added support for hiding/closing main window after loosing focus/deactivating.
+                                            </li>
+                                            <li>
+                                                Dropped throtling delay when showing pinned files for empty search.
+                                            </li>
+                                            <li>
+                                                Added support for saving last used application as prefered.
+                                            </li>
+                                            <li>
+                                                Added detection of single running instance.
+                                            </li>
+                                            <li>
+                                                Fix: Double click on item opens the file like pressing enter.
+                                            </li>
+                                            <li>
+                                                Fix: Color of a file path in the selected item.
+                                            </li>
+                                    </ul>
+                            </li>
+                            <li>
+                                <strong>v1.2</strong>
+                                    <ul>
+
+                                            <li>
+                                                Extend searching in contains mode to support space separated tokens that are matched in the whole solution path.
+                                            </li>
+                                    </ul>
+                            </li>
+                            <li>
+                                <strong>v1.1</strong>
+                                    <ul>
+
+                                            <li>
+                                                Configuration property for suggestion count.
+                                            </li>
+                                            <li>
+                                                Configuration property for searching by &#39;StartsWith&#39; or &#39;Contains&#39;.
+                                            </li>
+                                            <li>
+                                                Added command line parameter &#39;--hidden&#39; for starting application hidden.
+                                            </li>
+                                            <li>
+                                                Configuration property whether to save or not last searched phrase.
+                                            </li>
+                                            <li>
+                                                Fix: Selecting first suggested item when this one is the only one.
+                                            </li>
+                                    </ul>
+                            </li>
+                            <li>
+                                <strong>v1.0</strong>
+                                    <ul>
+
+                                            <li>
+                                                Favourite solution list.
+                                            </li>
+                                            <li>
+                                                Global hotkey.
+                                            </li>
+                                    </ul>
+                            </li>
+                    </ul>
+                </div>
+</div>
+
+
+
+        </form>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="left">
+                <span>Neptuo &copy; 2010 - 2016</span>
+                
+            </div>
+            <div class="right">
+                <span>Created by <a target="_blank" href="https://mara.neptuo.com">Marek Fišera</a></span>
+                
+            </div>
+            <div class="center">
+                
+            </div>
+            <div class="clear"></div>
+        </div>
+    </footer>
+
+    <script>
+
+        function onSwitcherClicked(e) {
+            var folder = this.parentElement.parentElement;
+            folder.classList.toggle('folder-collapsed');
+        }
+
+        var switchers = document.querySelectorAll('.folder-switch');
+        for (var i = 0; i < switchers.length; i++) {
+            var switcher = switchers[i];
+            switcher.addEventListener('click', onSwitcherClicked);
+        }
+
+        var navbarToggle = document.querySelector("button.navbar-toggle");
+        if (navbarToggle != null) {
+            navbarToggle.addEventListener('click', function (e) {
+                var navbar = document.querySelector("nav");
+                navbar.classList.toggle('navbar-expanded');
+            });
+        }
+
+    </script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-12031460-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "Organization",
+            "url": "http://www.neptuo.com",
+            "logo": "/Content/Images/Logo-220.png"
+        }
+    </script>
+</body>
+</html>
