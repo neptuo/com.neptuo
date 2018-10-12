@@ -1,6 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Webs>
   <Web>
+    <Title>SAEM s.r.o.</Title>
+    <Link>http://www.saem.cz</Link>
+    <Previews>
+      <Preview Link="~/Content/Images/References/saem.png" />
+    </Previews>
+    <Descriptions>
+      <Description>
+        <Cs>Webová prezentace, dvě jazykové verze.</Cs>
+        <En>Web presentation, two language versions.</En>
+      </Description>
+      <Description>
+        <Cs>Správa statického obsahu, několik řad článků s možností nahrávání obrázků, vlastní formuláře pro správu zaměstnanců, mapy a dalších, přístup do souborového systému.</Cs>
+        <En>Static content management, several article lines s image management, custom forms for managing employes, map etc, file system management.</En>
+      </Description>
+      <Description>
+        <Cs>Redakční systém is4wfw.</Cs>
+        <En>Content management system is4wfw.</En>
+      </Description>
+    </Descriptions>
+  </Web>
+  <Web>
     <Title>ZŠ, ZUŠ Libochovice</Title>
     <Link>http://www.skolylibochovice.cz</Link>
     <Previews>
