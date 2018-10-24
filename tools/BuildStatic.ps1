@@ -16,6 +16,13 @@ Start-Sleep -Milliseconds $delay
 Write-Host "Running StaticSiteCrawler."
 .\Tools\StaticSiteCrawler.exe http://localhost:$($port)/ $outputPath / /404.html
 
+# Fail build when any URL download failed.
+if (!($LastExitCode -eq 0))
+{
+    Write-Error -Message "Crawler result: $LastExitCode" -ErrorAction Stop
+    # throw "Crawler result: $LastExitCode";
+}
+
 # Copy assets.
 If (Test-Path "$($sitePath)\Content\Images") 
 {
