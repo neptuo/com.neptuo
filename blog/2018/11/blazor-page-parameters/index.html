@@ -1,0 +1,222 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <title>Blazor and page parameters - Neptuo</title>
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="/Content/web.css" rel="stylesheet" />
+
+    <link rel="alternate" type="application/rss+xml" title="Neptuo Blog" href="https://www.neptuo.com/blog/atom.xml" />
+</head>
+<body>
+
+    <nav class="navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+            <button class="navbar-toggle">
+                <span class="glyphicon glyphicon-menu-hamburger"></span>
+            </button>
+
+            <ul class="left">
+                    <li>
+        <a href="/">
+            <div class="maintext">
+                Home
+                <span class="glyphicon glyphicon-home"></span>
+            </div>
+            <div class="subtext">How can we help you?</div>
+        </a>
+    </li>
+
+            </ul>
+            <ul class="right">
+                    <li>
+        <a href="/project">
+            <div class="maintext">
+                Projects
+                <span class="glyphicon glyphicon-cloud"></span>
+            </div>
+            <div class="subtext">Projects we are working on</div>
+        </a>
+    </li>
+
+                    <li>
+        <a href="/service">
+            <div class="maintext">
+                Services
+                <span class="glyphicon glyphicon-globe"></span>
+            </div>
+            <div class="subtext">Our services and references</div>
+        </a>
+    </li>
+
+                    <li class="active">
+        <a href="/blog">
+            <div class="maintext">
+                Blog
+                <span class="glyphicon glyphicon-bookmark"></span>
+            </div>
+            <div class="subtext">Thoughts to share</div>
+        </a>
+    </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="body">
+        <form>
+
+            
+
+<div class="intro important blogpost">
+    <div class="intro-content container">
+        <h1>Blazor and page parameters</h1>
+        <p>
+            
+      A third tip. About reusing current page instance when links targets to it (possibly with different parameters).
+    
+        </p>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="folder blogpost">
+        <blockquote>
+<p><a href="https://github.com/aspnet/Blazor">Blazor</a> is an experimental Web UI framework from Microsoft. There are plenty of posts about so I'm not going to describe it and I'm directly heading to my topic.</p>
+</blockquote>
+<p>Today I was implementing <a href="https://github.com/maraf/Money/issues/124">URL update when month is selected in Money summary</a>.</p>
+<p><img src="/Content/Images/Blog/blazor-page-parameters/tabs.png" alt="Money Summary" /></p>
+<p>Idea is that when a user selects a tab, it updates the URL, and when he navigates back and forward, it works like the &quot;web&quot;.</p>
+<p><img src="/Content/Images/Blog/blazor-page-parameters/tabs-done.png" alt="Money Summary" /></p>
+<p>I was scared to use a standard link, because I though that it will re-render the whole page.</p>
+<blockquote>
+<p>This page consists of a query for loading a list of tabs (months) and a query to load tab content (month summary). I did not wanted to load list of months, because they are right there, alread loaded.</p>
+</blockquote>
+<p>By a mistake I created a standard link and passed click on it to the Blazor. And nothing happend. After a while I found that I was loading data in <code>OnInitAsync</code> and that this method wasn't invoked.</p>
+<p>So I tried to move data loading into <code>OnParametersSetAsync</code> and it started to work! When a page links to itself, Blazor doesn't create a new instance of page/component, it reuses the current one and passes it a new set of parameters.</p>
+<h3>A small bug</h3>
+<p>There is a small bug the current version (v0.6.0). The parameters are not cleared when they are not present in a new link.
+Let's show it on a sample. I have two routes in the summary page:</p>
+<pre><code>@page &quot;/&quot;
+@page &quot;/{Year}/{Month}&quot;
+
+</code></pre>
+<p>A second one bind parameters to codebehind properties:</p>
+<div class="highlight csharp"><pre>
+[Parameter]
+<span class="keyword">protected</span> <span class="keyword">string</span> Year { <span class="keyword">get</span>; <span class="keyword">set</span>; }
+
+[Parameter]
+<span class="keyword">protected</span> <span class="keyword">string</span> Month { <span class="keyword">get</span>; <span class="keyword">set</span>; }
+
+</pre></div>
+<p>When a user navigates to a link with paramters set (eg. <code>/2018/10</code>) and than to a link without them (eg. <code>/</code>), Blazor doesn't clear values from <code>Year</code> and <code>Month</code> properties.
+A current workaround is to clear these properties before parameter binding.</p>
+<div class="highlight csharp"><pre>
+<span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="identifier">SetParameters</span>(ParameterCollection parameters)
+{
+    <span class="comment">// Clear previous parameter values.</span>
+    Year = <span class="constant">null</span>;
+    Month = <span class="constant">null</span>;
+
+    <span class="keyword">base</span>.SetParameters(parameters);
+}
+
+</pre></div>
+<h2>Related files:</h2>
+<ul>
+<li><a href="https://github.com/maraf/Money/blob/master/src/Money.UI.Blazor/Pages/Summary.cshtml">Summary.cshtml</a> - UI for the summary page.</li>
+<li><a href="https://github.com/maraf/Money/blob/master/src/Money.UI.Blazor/Pages/SummaryBase.cs">SummaryBase.cs</a> - Codebehind for the summary page.</li>
+</ul>
+
+    </div>
+
+    <div class="folder">
+        <div class="left">
+            Posted on 2018-11-05
+        </div>
+        <div class="right">
+            Written by <a target="_blank" rel="nofollow" href="https://github.com/maraf">Maraf</a>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+</div>
+
+
+
+
+        </form>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="left">
+                <span>Neptuo &copy; 2010 - 2016</span>
+                
+            </div>
+            <div class="right">
+                <span>Created by <a target="_blank" href="https://mara.neptuo.com">Marek Fišera</a></span>
+                
+            </div>
+            <div class="center">
+                
+    <span><a href="/blog/atom.xml">Atom</a></span>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    </footer>
+
+    <script>
+
+        function onSwitcherClicked(e) {
+            var folder = this.parentElement.parentElement;
+            folder.classList.toggle('folder-collapsed');
+        }
+
+        var switchers = document.querySelectorAll('.folder-switch');
+        for (var i = 0; i < switchers.length; i++) {
+            var switcher = switchers[i];
+            switcher.addEventListener('click', onSwitcherClicked);
+        }
+
+        var navbarToggle = document.querySelector("button.navbar-toggle");
+        if (navbarToggle != null) {
+            navbarToggle.addEventListener('click', function (e) {
+                var navbar = document.querySelector("nav");
+                navbar.classList.toggle('navbar-expanded');
+            });
+        }
+
+    </script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-12031460-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    
+
+
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "Organization",
+            "url": "http://www.neptuo.com",
+            "logo": "/Content/Images/Logo-220.png"
+        }
+    </script>
+</body>
+</html>
