@@ -203,6 +203,10 @@
     <Content Include="Content\Images\Logo-220.png" />
     <Content Include="App_Data\Blog\why-i-hate-hamburgers.md" />
     <Content Include="App_Data\Blog\productivity-solution-runner.md" />
+    <Content Include="App_Data\Blog\blazor-boot-screen.md" />
+    <Content Include="App_Data\Blog\blazor-component-parameters.md" />
+    <Content Include="App_Data\Blog\extending-visual-studio-intellisense.md" />
+    <Content Include="App_Data\Blog\blazor-page-parameters.md" />
     <None Include="Content\Stylesheet\blog.responsiveness.scss" />
     <None Include="Content\Stylesheet\common.scss" />
     <None Include="Content\Stylesheet\blog.scss" />

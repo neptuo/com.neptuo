@@ -109,4 +109,14 @@
     <ReleaseDate>2018-06-03</ReleaseDate>
     <Author>Maraf</Author>
   </Post>
+  <Post>
+    <Title>Blazor and page parameters</Title>
+    <Description>
+      A third tip. About reusing current page instance when links targets to it (possibly with different parameters).
+    </Description>
+    <Url>blazor-page-parameters</Url>
+    <FilePath>~/App_Data/Blog/blazor-page-parameters.md</FilePath>
+    <ReleaseDate>2018-11-05</ReleaseDate>
+    <Author>Maraf</Author>
+  </Post>
 </Posts>

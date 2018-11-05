@@ -21,7 +21,7 @@
               <xs:element name="FilePath" minOccurs="1" maxOccurs="1" />
               <xs:element name="ReleaseDate" minOccurs="1" maxOccurs="1" />
               <xs:element name="Author" minOccurs="1" maxOccurs="1" />
-              <xs:element name="GitHubCommentPath" minOccurs="1" maxOccurs="1" />
+              <xs:element name="GitHubCommentPath" minOccurs="0" maxOccurs="1" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
