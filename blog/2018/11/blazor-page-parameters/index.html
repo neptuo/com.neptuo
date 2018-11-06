@@ -101,7 +101,7 @@
 <p>By a mistake I created a standard link and passed click on it to the Blazor. And nothing happend. After a while I found that I was loading data in <code>OnInitAsync</code> and that this method wasn't invoked.</p>
 <p>So I tried to move data loading into <code>OnParametersSetAsync</code> and it started to work! When a page links to itself, Blazor doesn't create a new instance of page/component, it reuses the current one and passes it a new set of parameters.</p>
 <h3>A small bug</h3>
-<p>There is a small bug the current version (v0.6.0) which is tracked in <a href="https://github.com/aspnet/Blazor/issues/1009">aspnet/blazor#1009</a>. The parameters are not cleared when they are not present in a new link.
+<p>There is a small bug the current version (v0.6.0) which is tracked in <a href="https://github.com/aspnet/Blazor/issues/1108">aspnet/blazor#1108</a>. The parameters are not cleared when they are not present in a new link.
 Let's show it on a sample. I have two routes in the summary page:</p>
 <pre><code>@page &quot;/&quot;
 @page &quot;/{Year}/{Month}&quot;
