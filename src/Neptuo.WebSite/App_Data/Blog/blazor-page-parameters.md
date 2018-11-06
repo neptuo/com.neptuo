@@ -18,7 +18,7 @@ So I tried to move data loading into `OnParametersSetAsync` and it started to wo
 
 ### A small bug
 
-There is a small bug the current version (v0.6.0) which is tracked in [aspnet/blazor#1009](https://github.com/aspnet/Blazor/issues/1009). The parameters are not cleared when they are not present in a new link. 
+There is a small bug the current version (v0.6.0) which is tracked in [aspnet/blazor#1108](https://github.com/aspnet/Blazor/issues/1108). The parameters are not cleared when they are not present in a new link. 
 Let's show it on a sample. I have two routes in the summary page:
 
 ```
