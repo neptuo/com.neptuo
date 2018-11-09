@@ -103,8 +103,24 @@
         })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
         ga('create', 'UA-12031460-1', 'auto');
-        ga('send', 'pageview');
     </script>
+    @if (ViewBag.IsError == true) 
+    {
+        <script>
+            ga('send', {
+                hitType: 'event',
+                eventCategory: '404 Response',
+                eventAction: window.location.href,
+                eventLabel: document.referrer
+            });
+        </script>
+    }
+    else
+    {
+        <script>
+            ga('send', 'pageview');
+        </script>
+    }
     @RenderSection("Javascript", false)
     <script type="application/ld+json">
         {
