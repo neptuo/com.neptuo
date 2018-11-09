@@ -50,6 +50,16 @@
     <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Compilers</DocumentationUrl>
   </Project>
   <Project>
+    <Name>Neptuo.Compilers.SharpKit</Name>
+    <Type>dev</Type>
+    <Description>In-proc SharpKit compiler.</Description>
+    <LocalUrl>neptuo.compilers.sharpkit</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Compilers</DocumentationUrl>
+  </Project>
+  <Project>
     <Name>Neptuo.Commands.SharpKit</Name>
     <Type>dev</Type>
     <Description>In-proc SharpKit compiler.</Description>
