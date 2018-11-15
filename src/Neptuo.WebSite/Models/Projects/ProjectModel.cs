@@ -27,6 +27,7 @@ namespace Neptuo.WebSite.Models.Projects
         public string Licence { get; set; }
         public string LicenceUrl { get; set; }
 
+        public string BuildStatusUrl { get; set; }
         public string BuildStatusBadge { get; set; }
 
         [XmlArray("Relations")]

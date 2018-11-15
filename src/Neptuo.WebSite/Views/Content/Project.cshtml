@@ -119,10 +119,30 @@
                             </li>
                         }
                     }
+
+                    @if (!String.IsNullOrEmpty(project.BuildStatusUrl) && String.IsNullOrEmpty(project.BuildStatusBadge))
+                    {
+                        <a href="@project.BuildStatusUrl" target="_blank">Current Build Status</a>
+                    }
                 </ul>
-                @if (Model.IsDetail && !String.IsNullOrEmpty(project.BuildStatusBadge)) 
+                @if (Model.IsDetail) 
                 {
-                    <img src="@project.BuildStatusBadge" title="Current Build Status" />
+                    bool hasBuildStatusUrl = !String.IsNullOrEmpty(project.BuildStatusUrl);
+
+                    if (hasBuildStatusUrl)
+                    {
+                        <a href="@project.BuildStatusUrl" target="_blank">
+                    }
+
+                    if (!String.IsNullOrEmpty(project.BuildStatusBadge))
+                    {
+                        <img src="@project.BuildStatusBadge" title="Current Build Status" />
+                    }
+
+                    if (hasBuildStatusUrl)
+                    {
+                        </a>
+                    }
                 }
             </article>
             <div class="clear"></div>
