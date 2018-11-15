@@ -128,20 +128,21 @@
                 @if (Model.IsDetail) 
                 {
                     bool hasBuildStatusUrl = !String.IsNullOrEmpty(project.BuildStatusUrl);
+                    bool hasBuildStatusBadge = !String.IsNullOrEmpty(project.BuildStatusBadge);
 
-                    if (hasBuildStatusUrl)
+                    if (hasBuildStatusBadge)
                     {
-                        <a href="@project.BuildStatusUrl" target="_blank">
-                    }
+                        if (hasBuildStatusUrl && hasBuildStatusBadge)
+                        {
+                            <a href="@project.BuildStatusUrl" target="_blank">
+                        }
 
-                    if (!String.IsNullOrEmpty(project.BuildStatusBadge))
-                    {
                         <img src="@project.BuildStatusBadge" title="Current Build Status" />
-                    }
 
-                    if (hasBuildStatusUrl)
-                    {
-                        </a>
+                        @if (hasBuildStatusUrl)
+                        {
+                            </a>
+                        }
                     }
                 }
             </article>
