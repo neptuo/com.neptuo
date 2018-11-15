@@ -88,7 +88,7 @@
                         </li>
                     }
 
-                    @if(Model.IsDetail)
+                    @if (Model.IsDetail)
                     {
                         foreach (var relation in project.Relations)
                         {
@@ -120,6 +120,10 @@
                         }
                     }
                 </ul>
+                @if (Model.IsDetail && !String.IsNullOrEmpty(project.BuildStatusBadge)) 
+                {
+                    <img src="@project.BuildStatusBadge" title="Current Build Status" />
+                }
             </article>
             <div class="clear"></div>
         </div>
