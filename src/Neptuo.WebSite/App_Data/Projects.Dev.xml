@@ -20,6 +20,8 @@
     <ProjectUrl>https://github.com/neptuo/AspNet.Navigation</ProjectUrl>
     <Licence>Apache License, Version 2.0</Licence>
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <BuildStatusUrl>https://ci.appveyor.com/project/Neptuo/com-neptuo/branch/master</BuildStatusUrl>
+    <BuildStatusBadge>https://ci.appveyor.com/api/projects/status/56doggb3eaqxxqtq/branch/master?svg=true</BuildStatusBadge>
   </Project>
   <Project>
     <Name>Neptuo.Behaviors</Name>
@@ -30,6 +32,8 @@
     <Licence>Apache License, Version 2.0</Licence>
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
     <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Behaviors</DocumentationUrl>
+    <BuildStatusUrl>https://ci.appveyor.com/project/Neptuo/com-neptuo/branch/master</BuildStatusUrl>
+    <BuildStatusBadge>https://ci.appveyor.com/api/projects/status/56doggb3eaqxxqtq/branch/master?svg=true</BuildStatusBadge>
   </Project>
   <Project>
     <Name>Neptuo.Commands</Name>
@@ -40,6 +44,8 @@
     <Licence>Apache License, Version 2.0</Licence>
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
     <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Commands</DocumentationUrl>
+    <BuildStatusUrl>https://ci.appveyor.com/project/Neptuo/com-neptuo/branch/master</BuildStatusUrl>
+    <BuildStatusBadge>https://ci.appveyor.com/api/projects/status/56doggb3eaqxxqtq/branch/master?svg=true</BuildStatusBadge>
   </Project>
   <Project>
     <Name>Neptuo.Compilers</Name>
@@ -50,6 +56,8 @@
     <Licence>Apache License, Version 2.0</Licence>
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
     <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Compilers</DocumentationUrl>
+    <BuildStatusUrl>https://ci.appveyor.com/project/Neptuo/com-neptuo/branch/master</BuildStatusUrl>
+    <BuildStatusBadge>https://ci.appveyor.com/api/projects/status/56doggb3eaqxxqtq/branch/master?svg=true</BuildStatusBadge>
   </Project>
   <Project>
     <Name>Neptuo.Compilers.SharpKit</Name>
@@ -60,6 +68,8 @@
     <Licence>Apache License, Version 2.0</Licence>
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
     <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Compilers</DocumentationUrl>
+    <BuildStatusUrl>https://ci.appveyor.com/project/Neptuo/com-neptuo/branch/master</BuildStatusUrl>
+    <BuildStatusBadge>https://ci.appveyor.com/api/projects/status/56doggb3eaqxxqtq/branch/master?svg=true</BuildStatusBadge>
   </Project>
   <Project>
     <Name>Neptuo.Commands.SharpKit</Name>
@@ -70,6 +80,8 @@
     <Licence>Apache License, Version 2.0</Licence>
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
     <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Compilers</DocumentationUrl>
+    <BuildStatusUrl>https://ci.appveyor.com/project/Neptuo/com-neptuo/branch/master</BuildStatusUrl>
+    <BuildStatusBadge>https://ci.appveyor.com/api/projects/status/56doggb3eaqxxqtq/branch/master?svg=true</BuildStatusBadge>
   </Project>
   <Project>
     <Name>Neptuo.Events</Name>
@@ -80,6 +92,8 @@
     <Licence>Apache License, Version 2.0</Licence>
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
     <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Events</DocumentationUrl>
+    <BuildStatusUrl>https://ci.appveyor.com/project/Neptuo/com-neptuo/branch/master</BuildStatusUrl>
+    <BuildStatusBadge>https://ci.appveyor.com/api/projects/status/56doggb3eaqxxqtq/branch/master?svg=true</BuildStatusBadge>
   </Project>
   <Project>
     <Name>Neptuo.EventSourcing</Name>
@@ -90,6 +104,8 @@
     <Licence>Apache License, Version 2.0</Licence>
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
     <DocumentationUrl>https://github.com/neptuo/Framework/wiki/EventSourcing</DocumentationUrl>
+    <BuildStatusUrl>https://ci.appveyor.com/project/Neptuo/com-neptuo/branch/master</BuildStatusUrl>
+    <BuildStatusBadge>https://ci.appveyor.com/api/projects/status/56doggb3eaqxxqtq/branch/master?svg=true</BuildStatusBadge>
   </Project>
   <Project>
     <Name>Neptuo.EventSourcing.Domains</Name>
@@ -100,6 +116,8 @@
     <Licence>Apache License, Version 2.0</Licence>
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
     <DocumentationUrl>https://github.com/neptuo/Framework/wiki/EventSourcing</DocumentationUrl>
+    <BuildStatusUrl>https://ci.appveyor.com/project/Neptuo/com-neptuo/branch/master</BuildStatusUrl>
+    <BuildStatusBadge>https://ci.appveyor.com/api/projects/status/56doggb3eaqxxqtq/branch/master?svg=true</BuildStatusBadge>
   </Project>
   <Project>
     <Name>Neptuo.EventSourcing.Formatters.Composite</Name>
@@ -110,6 +128,8 @@
     <Licence>Apache License, Version 2.0</Licence>
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
     <DocumentationUrl>https://github.com/neptuo/Framework/wiki/EventSourcing</DocumentationUrl>
+    <BuildStatusUrl>https://ci.appveyor.com/project/Neptuo/com-neptuo/branch/master</BuildStatusUrl>
+    <BuildStatusBadge>https://ci.appveyor.com/api/projects/status/56doggb3eaqxxqtq/branch/master?svg=true</BuildStatusBadge>
   </Project>
   <Project>
     <Name>Neptuo.EventSourcing.Formatters.Composite.Json</Name>
@@ -120,6 +140,8 @@
     <Licence>Apache License, Version 2.0</Licence>
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
     <DocumentationUrl>https://github.com/neptuo/Framework/wiki/EventSourcing</DocumentationUrl>
+    <BuildStatusUrl>https://ci.appveyor.com/project/Neptuo/com-neptuo/branch/master</BuildStatusUrl>
+    <BuildStatusBadge>https://ci.appveyor.com/api/projects/status/56doggb3eaqxxqtq/branch/master?svg=true</BuildStatusBadge>
   </Project>
   <Project>
     <Name>Neptuo.Exceptions</Name>
@@ -130,32 +152,38 @@
     <Licence>Apache License, Version 2.0</Licence>
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
     <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Exceptions</DocumentationUrl>
+    <BuildStatusUrl>https://ci.appveyor.com/project/Neptuo/com-neptuo/branch/master</BuildStatusUrl>
+    <BuildStatusBadge>https://ci.appveyor.com/api/projects/status/56doggb3eaqxxqtq/branch/master?svg=true</BuildStatusBadge>
   </Project>
   <Project>
-    <Name>Neptuo.FileSystem</Name>
+    <Name>Neptuo.FileSystems</Name>
     <Type>dev</Type>
     <Description>Abstractions for file system operations.</Description>
-    <LocalUrl>neptuo.filesysten</LocalUrl>
+    <LocalUrl>neptuo.filesystems</LocalUrl>
     <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
     <Licence>Apache License, Version 2.0</Licence>
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
     <DocumentationUrl>https://github.com/neptuo/Framework/wiki/FileSystems</DocumentationUrl>
+    <BuildStatusUrl>https://ci.appveyor.com/project/Neptuo/com-neptuo/branch/master</BuildStatusUrl>
+    <BuildStatusBadge>https://ci.appveyor.com/api/projects/status/56doggb3eaqxxqtq/branch/master?svg=true</BuildStatusBadge>
   </Project>
   <Project>
-    <Name>Neptuo.FileSystem.Local</Name>
+    <Name>Neptuo.FileSystems.Local</Name>
     <Type>dev</Type>
     <Description>Wrapped System.IO.File and Directory for Neptuo.FileSystem.</Description>
-    <LocalUrl>neptuo.filesysten.local</LocalUrl>
+    <LocalUrl>neptuo.filesystems.local</LocalUrl>
     <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
     <Licence>Apache License, Version 2.0</Licence>
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
     <DocumentationUrl>https://github.com/neptuo/Framework/wiki/FileSystems</DocumentationUrl>
+    <BuildStatusUrl>https://ci.appveyor.com/project/Neptuo/com-neptuo/branch/master</BuildStatusUrl>
+    <BuildStatusBadge>https://ci.appveyor.com/api/projects/status/56doggb3eaqxxqtq/branch/master?svg=true</BuildStatusBadge>
   </Project>
   <Project>
-    <Name>Neptuo.FileSystem.Events.Local</Name>
+    <Name>Neptuo.FileSystems.Events.Local</Name>
     <Type>dev</Type>
     <Description>Various events using Neptuo.Events for local file system.</Description>
-    <LocalUrl>neptuo.filesysten.events.local</LocalUrl>
+    <LocalUrl>neptuo.filesystems.events.local</LocalUrl>
     <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
     <Licence>Apache License, Version 2.0</Licence>
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
@@ -170,6 +198,8 @@
     <Licence>Apache License, Version 2.0</Licence>
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
     <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Formatters</DocumentationUrl>
+    <BuildStatusUrl>https://ci.appveyor.com/project/Neptuo/com-neptuo/branch/master</BuildStatusUrl>
+    <BuildStatusBadge>https://ci.appveyor.com/api/projects/status/56doggb3eaqxxqtq/branch/master?svg=true</BuildStatusBadge>
   </Project>
   <Project>
     <Name>Neptuo.Formatters.Composite</Name>
@@ -180,6 +210,8 @@
     <Licence>Apache License, Version 2.0</Licence>
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
     <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Formatters</DocumentationUrl>
+    <BuildStatusUrl>https://ci.appveyor.com/project/Neptuo/com-neptuo/branch/master</BuildStatusUrl>
+    <BuildStatusBadge>https://ci.appveyor.com/api/projects/status/56doggb3eaqxxqtq/branch/master?svg=true</BuildStatusBadge>
   </Project>
   <Project>
     <Name>Neptuo.Formatters.Composite.Json</Name>
@@ -190,6 +222,8 @@
     <Licence>Apache License, Version 2.0</Licence>
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
     <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Formatters</DocumentationUrl>
+    <BuildStatusUrl>https://ci.appveyor.com/project/Neptuo/com-neptuo/branch/master</BuildStatusUrl>
+    <BuildStatusBadge>https://ci.appveyor.com/api/projects/status/56doggb3eaqxxqtq/branch/master?svg=true</BuildStatusBadge>
   </Project>
   <Project>
     <Name>Neptuo.Formatters.Composite.Metadata</Name>
@@ -200,6 +234,8 @@
     <Licence>Apache License, Version 2.0</Licence>
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
     <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Formatters</DocumentationUrl>
+    <BuildStatusUrl>https://ci.appveyor.com/project/Neptuo/com-neptuo/branch/master</BuildStatusUrl>
+    <BuildStatusBadge>https://ci.appveyor.com/api/projects/status/56doggb3eaqxxqtq/branch/master?svg=true</BuildStatusBadge>
   </Project>
   <Project>
     <Name>Neptuo.Logging.Log4net</Name>
@@ -210,6 +246,8 @@
     <Licence>Apache License, Version 2.0</Licence>
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
     <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Logging</DocumentationUrl>
+    <BuildStatusUrl>https://ci.appveyor.com/project/Neptuo/com-neptuo/branch/master</BuildStatusUrl>
+    <BuildStatusBadge>https://ci.appveyor.com/api/projects/status/56doggb3eaqxxqtq/branch/master?svg=true</BuildStatusBadge>
   </Project>
   <Project>
     <Name>Neptuo.Models</Name>
@@ -220,6 +258,8 @@
     <Licence>Apache License, Version 2.0</Licence>
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
     <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Models</DocumentationUrl>
+    <BuildStatusUrl>https://ci.appveyor.com/project/Neptuo/com-neptuo/branch/master</BuildStatusUrl>
+    <BuildStatusBadge>https://ci.appveyor.com/api/projects/status/56doggb3eaqxxqtq/branch/master?svg=true</BuildStatusBadge>
   </Project>
   <Project>
     <Name>Neptuo.Models.Features</Name>
@@ -230,6 +270,8 @@
     <Licence>Apache License, Version 2.0</Licence>
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
     <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Models.Features</DocumentationUrl>
+    <BuildStatusUrl>https://ci.appveyor.com/project/Neptuo/com-neptuo/branch/master</BuildStatusUrl>
+    <BuildStatusBadge>https://ci.appveyor.com/api/projects/status/56doggb3eaqxxqtq/branch/master?svg=true</BuildStatusBadge>
   </Project>
   <Project>
     <Name>Neptuo.Observables</Name>
@@ -239,6 +281,8 @@
     <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
     <Licence>Apache License, Version 2.0</Licence>
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <BuildStatusUrl>https://ci.appveyor.com/project/Neptuo/com-neptuo/branch/master</BuildStatusUrl>
+    <BuildStatusBadge>https://ci.appveyor.com/api/projects/status/56doggb3eaqxxqtq/branch/master?svg=true</BuildStatusBadge>
   </Project>
   <Project>
     <Name>Neptuo.PresentationModels</Name>
@@ -249,6 +293,8 @@
     <Licence>Apache License, Version 2.0</Licence>
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
     <DocumentationUrl>https://github.com/neptuo/Framework/wiki/PresentationModels</DocumentationUrl>
+    <BuildStatusUrl>https://ci.appveyor.com/project/Neptuo/com-neptuo/branch/master</BuildStatusUrl>
+    <BuildStatusBadge>https://ci.appveyor.com/api/projects/status/56doggb3eaqxxqtq/branch/master?svg=true</BuildStatusBadge>
   </Project>
   <Project>
     <Name>Neptuo.Queries</Name>
@@ -258,6 +304,8 @@
     <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
     <Licence>Apache License, Version 2.0</Licence>
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <BuildStatusUrl>https://ci.appveyor.com/project/Neptuo/com-neptuo/branch/master</BuildStatusUrl>
+    <BuildStatusBadge>https://ci.appveyor.com/api/projects/status/56doggb3eaqxxqtq/branch/master?svg=true</BuildStatusBadge>
   </Project>
   <Project>
     <Name>Neptuo.Windows.Threading</Name>
@@ -267,6 +315,8 @@
     <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
     <Licence>Apache License, Version 2.0</Licence>
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <BuildStatusUrl>https://ci.appveyor.com/project/Neptuo/com-neptuo/branch/master</BuildStatusUrl>
+    <BuildStatusBadge>https://ci.appveyor.com/api/projects/status/56doggb3eaqxxqtq/branch/master?svg=true</BuildStatusBadge>
   </Project>
   <Project>
     <Name>Neptuo.Windows.HotKeys</Name>
@@ -276,5 +326,7 @@
     <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
     <Licence>Apache License, Version 2.0</Licence>
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <BuildStatusUrl>https://ci.appveyor.com/project/Neptuo/com-neptuo/branch/master</BuildStatusUrl>
+    <BuildStatusBadge>https://ci.appveyor.com/api/projects/status/56doggb3eaqxxqtq/branch/master?svg=true</BuildStatusBadge>
   </Project>
 </Projects>
