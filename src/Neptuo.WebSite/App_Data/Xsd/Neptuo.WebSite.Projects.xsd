@@ -34,6 +34,8 @@
               <xs:element name="Licence" minOccurs="0" maxOccurs="1" />
               <xs:element name="LicenceUrl" minOccurs="0" maxOccurs="1" />
               <xs:element name="DocumentationUrl" minOccurs="0" maxOccurs="1" />
+              <xs:element name="BuildStatusUrl" minOccurs="0" maxOccurs="1" />
+              <xs:element name="BuildStatusBadge" minOccurs="0" maxOccurs="1" />
               <xs:element name="DownloadUrl" minOccurs="0" maxOccurs="1" />
               <xs:element name="VsixGalleryId" minOccurs="0" maxOccurs="1" />
               <xs:element name="Relations" minOccurs="0" maxOccurs="1">

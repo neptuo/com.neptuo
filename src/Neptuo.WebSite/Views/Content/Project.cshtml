@@ -69,18 +69,21 @@
                     {
                         <li>
                             Source code at
-                            <a target="_blank" href="@project.ProjectUrl"><span>
-                                @if (project.ProjectUrl.StartsWith("http://"))
-                                {
-                                    @project.ProjectUrl.Substring("http://".Length)
-                                }
-                                else
-                                {
-                                    @project.ProjectUrl
-                                }</span></a>.
+                            <a target="_blank" href="@project.ProjectUrl">
+                                <span>
+                                    @if (project.ProjectUrl.StartsWith("http://"))
+                                    {
+                                        @project.ProjectUrl.Substring("http://".Length)
+                                    }
+                                    else
+                                    {
+                                        @project.ProjectUrl
+                                    }
+                                </span>
+                            </a>.
                         </li>
                     }
-                    
+
                     @if (!String.IsNullOrEmpty(project.DownloadUrl))
                     {
                         <li>
@@ -120,31 +123,31 @@
                         }
                     }
 
-                    @if (!String.IsNullOrEmpty(project.BuildStatusUrl) && String.IsNullOrEmpty(project.BuildStatusBadge))
+                    @{ 
+                        bool hasBuildStatusUrl = !String.IsNullOrEmpty(project.BuildStatusUrl);
+                        bool hasBuildStatusBadge = !String.IsNullOrEmpty(project.BuildStatusBadge);
+                    }
+
+                    @if (Model.IsDetail && (hasBuildStatusBadge || hasBuildStatusUrl))
                     {
-                        <a href="@project.BuildStatusUrl" target="_blank">Current Build Status</a>
+                        <li>
+                            @if (hasBuildStatusUrl && hasBuildStatusBadge)
+                            {
+                                <a href="@project.BuildStatusUrl" target="_blank">
+                                    <img src="@project.BuildStatusBadge" title="Current Build Status" />
+                                </a>
+                            }
+                            else if (hasBuildStatusUrl && !hasBuildStatusBadge)
+                            {
+                                <a href="@project.BuildStatusUrl" target="_blank">Current Build Status</a>
+                            }
+                            else
+                            {
+                                <img src="@project.BuildStatusBadge" title="Current Build Status" />
+                            }
+                        </li>
                     }
                 </ul>
-                @if (Model.IsDetail) 
-                {
-                    bool hasBuildStatusUrl = !String.IsNullOrEmpty(project.BuildStatusUrl);
-                    bool hasBuildStatusBadge = !String.IsNullOrEmpty(project.BuildStatusBadge);
-
-                    if (hasBuildStatusBadge)
-                    {
-                        if (hasBuildStatusUrl && hasBuildStatusBadge)
-                        {
-                            <a href="@project.BuildStatusUrl" target="_blank">
-                        }
-
-                        <img src="@project.BuildStatusBadge" title="Current Build Status" />
-
-                        @if (hasBuildStatusUrl)
-                        {
-                            </a>
-                        }
-                    }
-                }
             </article>
             <div class="clear"></div>
         </div>
