@@ -70,18 +70,6 @@
     <BuildStatusBadge>https://ci.appveyor.com/api/projects/status/56doggb3eaqxxqtq/branch/master?svg=true</BuildStatusBadge>
   </Project>
   <Project>
-    <Name>Neptuo.Commands.SharpKit</Name>
-    <Type>dev</Type>
-    <Description>In-proc SharpKit compiler.</Description>
-    <LocalUrl>neptuo.commands.sharpkit</LocalUrl>
-    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
-    <Licence>Apache License, Version 2.0</Licence>
-    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
-    <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Compilers</DocumentationUrl>
-    <BuildStatusUrl>https://ci.appveyor.com/project/Neptuo/com-neptuo/branch/master</BuildStatusUrl>
-    <BuildStatusBadge>https://ci.appveyor.com/api/projects/status/56doggb3eaqxxqtq/branch/master?svg=true</BuildStatusBadge>
-  </Project>
-  <Project>
     <Name>Neptuo.Events</Name>
     <Type>dev</Type>
     <Description>Event (output) part of the CQRS system.</Description>
