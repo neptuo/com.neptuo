@@ -24,12 +24,24 @@
   <Project>
     <Name>Neptuo.Behaviors</Name>
     <Type>dev</Type>
-    <Description>Behavior (like interception) library for single pipelines..</Description>
+    <Description>Behavior (like interception) library for single pipelines.</Description>
     <LocalUrl>neptuo.behaviors</LocalUrl>
     <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
     <Licence>Apache License, Version 2.0</Licence>
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
     <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Behaviors</DocumentationUrl>
+    <BuildStatusUrl>https://ci.appveyor.com/project/Neptuo/com-neptuo/branch/master</BuildStatusUrl>
+    <BuildStatusBadge>https://ci.appveyor.com/api/projects/status/56doggb3eaqxxqtq/branch/master?svg=true</BuildStatusBadge>
+  </Project>
+  <Project>
+    <Name>Neptuo.Bootstrap</Name>
+    <Type>dev</Type>
+    <Description>Application bootstrapper.</Description>
+    <LocalUrl>neptuo.bootstrap</LocalUrl>
+    <ProjectUrl>http://github.com/neptuo/Framework</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Framework/wiki/Bootstrap</DocumentationUrl>
     <BuildStatusUrl>https://ci.appveyor.com/project/Neptuo/com-neptuo/branch/master</BuildStatusUrl>
     <BuildStatusBadge>https://ci.appveyor.com/api/projects/status/56doggb3eaqxxqtq/branch/master?svg=true</BuildStatusBadge>
   </Project>
