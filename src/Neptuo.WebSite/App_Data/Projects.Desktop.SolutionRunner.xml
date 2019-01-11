@@ -35,6 +35,10 @@ To start the application after sign in to the Windows, simple create shortcut in
     </Images>
 
     <Version>
+      <Name>v1.10.2</Name>
+      <Description>Fixed finding Vistual Studio v15.9.5 and higher.</Description>
+    </Version>
+    <Version>
       <Name>v1.10.1</Name>
       <Description>Fixed getting stucked when global hotkey and "Dismiss after loosing focus" and "red X" button main windows is clicked.</Description>
     </Version>
