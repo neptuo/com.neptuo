@@ -187,7 +187,7 @@
                     <ul class="version">
                         @foreach (var version in project.Versions)
                         {
-                            <li>
+                            <li id="@version.Name">
                                 <strong>@version.Name</strong>
                                 @if (version.Descriptions.Count > 0 || !String.IsNullOrEmpty(version.DownloadUrl))
                                 {
