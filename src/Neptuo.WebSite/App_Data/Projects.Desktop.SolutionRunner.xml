@@ -35,6 +35,13 @@ To start the application after sign in to the Windows, simple create shortcut in
     </Images>
 
     <Version>
+      <Name>v1.11.0</Name>
+      <Description>Start experimental instance of Visual Studio.</Description>
+      <Description>Add keyboard shortcut for running empty instance.</Description>
+      <Description>Add VS Code installed in user profile.</Description>
+      <Description>Fixed single instance running check.</Description>
+    </Version>
+    <Version>
       <Name>v1.10.2</Name>
       <Description>Fixed finding Vistual Studio v15.9.5 and higher.</Description>
     </Version>
