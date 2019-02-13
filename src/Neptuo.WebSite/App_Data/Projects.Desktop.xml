@@ -155,4 +155,25 @@ About sticking windows, when you drop window near other window, the dropped wind
       <Description>Add Network Adapter window global hotkey.</Description>
     </Version>
   </Project>
+  <Project>
+    <Name>Open Special Folder</Name>
+    <Type>desktop</Type>
+    <Description>Desktop application for browsing Windows special folders.</Description>
+    <Text Language="Markdown">
+Type special folder name, browse it using the File Explorer or copy it's path.
+    </Text>
+    <LocalUrl>openspecialfolder</LocalUrl>
+    <ProjectUrl>https://github.com/maraf/OpenSpecialFolder</ProjectUrl>
+    <DownloadUrl>https://apps.neptuo.com/openspecialfolder</DownloadUrl>
+    <Images>
+      <Additional>~/Content/Images/Projects/openspecialfolder-01.png</Additional>
+    </Images>
+
+    <Version>
+      <Name>v1.0.0</Name>
+      <Description>Search for special folder.</Description>
+      <Description>Browse special folder using the File Explorer.</Description>
+      <Description>Copy special folder path.</Description>
+    </Version>
+  </Project>
 </Projects>
