@@ -157,6 +157,7 @@ About sticking windows, when you drop window near other window, the dropped wind
   </Project>
   <Project>
     <Name>Open Special Folder</Name>
+    <Icon>~/Content/Images/Projects/openspecialfolder-icon.png</Icon>
     <Type>desktop</Type>
     <Description>Desktop application for browsing Windows special folders.</Description>
     <Text Language="Markdown">
