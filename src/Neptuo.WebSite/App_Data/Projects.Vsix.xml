@@ -21,11 +21,17 @@
     <Licence>Apache License, Version 2.0</Licence>
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
     <DocumentationUrl>https://github.com/neptuo/Productivity/releases</DocumentationUrl>
-    <DownloadUrl>https://marketplace.visualstudio.com/vsgallery/3562a3cf-6718-42b5-ac48-697806e9c41a</DownloadUrl>
+    <DownloadUrl>https://marketplace.visualstudio.com/items?itemName=Neptuo.ProductivityLineDuplication</DownloadUrl>
     <Images>
       <Main>~/Content/Images/Projects/line-duplication-01.gif</Main>
     </Images>
 
+    <Version>
+      <Name>v1.1</Name>
+      <Description>Visual Studio 2019 support.</Description>
+      <Description>Edit menu commands has been moved under 'Advanced' sub-menu.</Description>
+      <Description>Fixed duplication of language comments (for C# '//' or '///').</Description>
+    </Version>
     <Version>
       <Name>v1.0</Name>
       <Description>Single line duplication.</Description>
