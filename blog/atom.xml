@@ -4,7 +4,7 @@
     <title>Neptuo Blog</title>
     <link href="http://www.neptuo.com/blog/atom.xml" rel="self" />
     <link href="http://www.neptuo.com/blog/" />
-    <updated>2019-04-19 21:07:00</updated>
+    <updated>2019-04-21 08:07:48</updated>
     <id>http://www.neptuo.com/blog/</id>
     <author>
         <name>maraf</name>
@@ -87,5 +87,12 @@
             <updated>2018-11-05</updated>
             <id>http://www.neptuo.com/blog/2018/11/blazor-page-parameters</id>
             <content type="html">A third tip. About reusing current page instance when links targets to it (possibly with different parameters).</content>
+        </entry>
+        <entry>
+            <title>WPF and design-time data</title>
+            <link href="http://www.neptuo.com/blog/2019/04/wpf-design-data" />
+            <updated>2019-04-21</updated>
+            <id>http://www.neptuo.com/blog/2019/04/wpf-design-data</id>
+            <content type="html">There are various to ways to accomplish this goal: Show some data in the designer for WPF view. Here I&#39;m going to describe the one that works the best for me.</content>
         </entry>
 </feed>
