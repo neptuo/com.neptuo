@@ -119,4 +119,14 @@
     <ReleaseDate>2018-11-05</ReleaseDate>
     <Author>Maraf</Author>
   </Post>
+  <Post>
+    <Title>WPF and design-time data</Title>
+    <Description>
+      There are various to ways to accomplish this goal: Show some data in the designer for WPF view. Here I'm going to describe the one that works the best for me.
+    </Description>
+    <Url>wpf-design-data</Url>
+    <FilePath>~/App_Data/Blog/wpf-design-data.md</FilePath>
+    <ReleaseDate>2019-04-21</ReleaseDate>
+    <Author>Maraf</Author>
+  </Post>
 </Posts>
