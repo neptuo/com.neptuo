@@ -287,6 +287,7 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
+    <Content Include="Content\Images\favicon.png" />
     <Content Include="Content\Stylesheet\_variables.scss" />
     <Content Include="fonts\gabriola.eot" />
     <Content Include="fonts\gabriola.ttf" />
