@@ -1,7 +1,3 @@
-# WPF and design-time data
-
-There are various to ways to accomplish this goal: Show some data in the designer for WPF view. Here I'm going to describe the one that works the best for me.
-
 ## ViewModelLocator.cs
 
 Every WPF project I start with a simple static class where I'm going to place a static property for every root view model I need for design-time data binding.
