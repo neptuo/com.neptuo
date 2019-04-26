@@ -21,7 +21,7 @@
     <Licence>Apache License, Version 2.0</Licence>
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
     <DocumentationUrl>https://github.com/neptuo/Productivity/releases</DocumentationUrl>
-    <DownloadUrl>https://marketplace.visualstudio.com/items?itemName=Neptuo.ProductivityLineDuplication</DownloadUrl>
+    <VsixGalleryId>Neptuo.ProductivityLineDuplication</VsixGalleryId>
     <Images>
       <Main>~/Content/Images/Projects/line-duplication-01.gif</Main>
     </Images>
@@ -79,41 +79,22 @@ It gives you an overview how much time you spend during builds.
     <Licence>Apache License, Version 2.0</Licence>
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
     <DocumentationUrl>https://github.com/neptuo/Productivity/releases</DocumentationUrl>
-    <VsixGalleryId>3a3a270f-580c-41cc-8e51-64086b2c1581</VsixGalleryId>
+    <VsixGalleryId>Neptuo.ProductivityBuildHistory</VsixGalleryId>
     <Images>
       <Main>~/Content/Images/Projects/build-history.png</Main>
     </Images>
 
     <Version>
+      <Name>v1.1</Name>
+      <Description>Visual Studio 2019 support.</Description>
+      <Description>Blue bar during build.</Description>
+      <Description>Fixed default count of shown builds, no need to set it.</Description>
+      <Description>Bar length is now computed from lengths of previous builds.</Description>
+    </Version>
+    <Version>
       <Name>v1.0</Name>
       <Description>Configurable count of builds to store.</Description>
       <Description>Each build length, result (success or failure) and type (build, rebuild or clean).</Description>
-    </Version>
-  </Project>
-  
-  <Project>
-    <Name>Neptuo.Productivity.FastBuildCancellation</Name>
-    <Type>vsix</Type>
-    <Description>Build is cancelled on first error. No more hundreds of meaningless errors.</Description>
-    <Text Language="Markdown">
-
-It's quite simple. Stop build when first error occurs. Removes hundreds of meaningless errors from following projects build.
-Also, you can define which window will be opened on build error (Error list, standard output or none).
-
-The overview window is located in: Views -> Other Windows -> Build History Overview.
-      
-    </Text>
-    <LocalUrl>fastbuildcancellation</LocalUrl>
-    <ProjectUrl>https://github.com/neptuo/Productivity</ProjectUrl>
-    <Licence>Apache License, Version 2.0</Licence>
-    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
-    <DocumentationUrl>https://github.com/neptuo/Productivity/releases</DocumentationUrl>
-    <VsixGalleryId>f73231f1-7fba-4dc9-ab6d-585f7e626f57</VsixGalleryId>
-
-    <Version>
-      <Name>v1.0</Name>
-      <Description>Cancel build on first error.</Description>
-      <Description>Configuration what should happen on build error (Error list, standard output or none).</Description>
     </Version>
   </Project>
   
@@ -132,11 +113,15 @@ When solution node is selected, in "Find in Files" will be selected "Entire Solu
     <Licence>Apache License, Version 2.0</Licence>
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
     <DocumentationUrl>https://github.com/neptuo/Productivity/releases</DocumentationUrl>
-    <VsixGalleryId>7985cc6c-2c56-482b-8a81-2537389ccef7</VsixGalleryId>
+    <VsixGalleryId>Neptuo.NeptuoProductivityFindInFolder</VsixGalleryId>
     <Images>
       <Main>~/Content/Images/Projects/find-in-folder.png</Main>
     </Images>
 
+    <Version>
+      <Name>v1.1</Name>
+      <Description>Visual Studio 2019 support.</Description>
+    </Version>
     <Version>
       <Name>v1.0</Name>
       <Description>Context menu item for folder, project and solution.</Description>
