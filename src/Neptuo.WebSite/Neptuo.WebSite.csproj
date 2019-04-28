@@ -207,6 +207,10 @@
     <Content Include="App_Data\Blog\blazor-component-parameters.md" />
     <Content Include="App_Data\Blog\extending-visual-studio-intellisense.md" />
     <Content Include="App_Data\Blog\blazor-page-parameters.md" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Content\Stylesheet\blog.responsiveness.scss" />
     <None Include="Content\Stylesheet\common.scss" />
     <None Include="Content\Stylesheet\blog.scss" />
@@ -292,10 +296,6 @@
     <Content Include="fonts\gabriola.eot" />
     <Content Include="fonts\gabriola.ttf" />
     <Content Include="fonts\gabriola.woff" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Content\web.scss" />
     <Content Include="Content\web.css">
       <DependentUpon>web.scss</DependentUpon>
