@@ -3,6 +3,14 @@
     ViewBag.Title = "Apps, libraries, tools & utilities that helps during development and every day life.";
 }
 
+@helper FeatherLightImage(string relativeUrl, string cssClass)
+{
+    var resolved = @Request.ResolveUrl(relativeUrl);
+    <a href="@resolved" data-featherlight="image">
+        <img class="@cssClass" src="@resolved" />
+    </a>
+}
+
 <div class="intro">
     <div class="intro-content container">
         <h1>Our projects!</h1>
@@ -16,8 +24,8 @@
     @if (Model.Count > 1)
     {
         @*<div class="folder folder-wrap">
-            <input id="search" type="text" placeholder="Search (@Model.Count()) projects..." />
-        </div>*@
+                <input id="search" type="text" placeholder="Search (@Model.Count()) projects..." />
+            </div>*@
         <input id="search" type="text" class="folder" placeholder="Search (@Model.Count()) projects..." />
     }
 
@@ -123,7 +131,7 @@
                         }
                     }
 
-                    @{ 
+                    @{
                         bool hasBuildStatusUrl = !String.IsNullOrEmpty(project.BuildStatusUrl);
                         bool hasBuildStatusBadge = !String.IsNullOrEmpty(project.BuildStatusBadge);
                     }
@@ -166,14 +174,14 @@
             if (project.Images != null)
             {
                 <div class="folder folder-headless">
-                    @if (project.Images.Main != null) 
-                    { 
-                        <img class="main-image" src="@Request.ResolveUrl(project.Images.Main)" />
+                    @if (project.Images.Main != null)
+                    {
+                        @FeatherLightImage(project.Images.Main, "main-image")
                     }
                     <div class="additional-image-list">
                         @foreach (string imageUrl in project.Images.Additional)
                         {
-                            <img class="additional-image" src="@Request.ResolveUrl(imageUrl)" />
+                            @FeatherLightImage(imageUrl, "additional-image")
                         }
                     </div>
                     <div class="clear"></div>
