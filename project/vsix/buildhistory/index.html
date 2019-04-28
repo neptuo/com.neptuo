@@ -7,11 +7,12 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <title>Apps, libraries, tools &amp; utilities that helps during development and every day life. - Neptuo</title>
-    
+
     <link rel="shortcut icon" type="image/x-icon" href="/Content/Images/favicon.png" />
 
     <link href="/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="/Content/featherlight.min.css" rel="stylesheet" />
     <link href="/Content/web.css" rel="stylesheet" />
 
     <link rel="alternate" type="application/rss+xml" title="Neptuo Blog" href="https://www.neptuo.com/blog/atom.xml" />
@@ -76,6 +77,7 @@
 
             
 
+
 <div class="intro">
     <div class="intro-content container">
         <h1>Our projects!</h1>
@@ -132,7 +134,9 @@ It gives you an overview how much time you spend during builds.</p>
 
                 </div>
                 <div class="folder folder-headless">
-                        <img class="main-image" src="/Content/Images/Projects/build-history.png" />
+<a href="/Content/Images/Projects/build-history.png" data-featherlight="image">
+        <img class="main-image" src="/Content/Images/Projects/build-history.png" />
+    </a>
                     <div class="additional-image-list">
                     </div>
                     <div class="clear"></div>
@@ -196,6 +200,8 @@ It gives you an overview how much time you spend during builds.</p>
         </div>
     </footer>
 
+    <script src="/Scripts/jquery-1.9.1.js"></script>
+    <script src="/Scripts/featherlight.min.js"></script>
     <script>
 
         function onSwitcherClicked(e) {
@@ -223,7 +229,7 @@ It gives you an overview how much time you spend during builds.</p>
             i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
                 (i[r].q = i[r].q || []).push(arguments)
             }, i[r].l = 1 * new Date(); a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
         })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
         ga('create', 'UA-12031460-1', 'auto');
@@ -234,10 +240,10 @@ It gives you an overview how much time you spend during builds.</p>
     
     <script type="application/ld+json">
         {
-            "@context": "http://schema.org",
-            "@type": "Organization",
-            "url": "http://www.neptuo.com",
-            "logo": "/Content/Images/Logo-220.png"
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "url": "http://www.neptuo.com",
+        "logo": "/Content/Images/Logo-220.png"
         }
     </script>
 </body>
