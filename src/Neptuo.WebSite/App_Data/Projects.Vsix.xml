@@ -127,4 +127,21 @@ When solution node is selected, in "Find in Files" will be selected "Entire Solu
       <Description>Context menu item for folder, project and solution.</Description>
     </Version>
   </Project>
+  
+  <Project>
+    <Name>Neptuo.Productivity.CodeSnippets</Name>
+    <Type>vsix</Type>
+    <Description>A collection of snippets for best use with Neptuo Framework.</Description>
+    <LocalUrl>codesnippets</LocalUrl>
+    <ProjectUrl>https://github.com/neptuo/Productivity</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Productivity/releases</DocumentationUrl>
+    <VsixGalleryId>Neptuo.ProductivityCodeSnippets</VsixGalleryId>
+
+    <Version>
+      <Name>v1.0</Name>
+      <Description>Initial release.</Description>
+    </Version>
+  </Project>
 </Projects>
