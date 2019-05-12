@@ -4,7 +4,7 @@
     <title>Neptuo Blog</title>
     <link href="http://www.neptuo.com/blog/atom.xml" rel="self" />
     <link href="http://www.neptuo.com/blog/" />
-    <updated>2019-05-12 11:58:21</updated>
+    <updated>2019-05-12 19:14:15</updated>
     <id>http://www.neptuo.com/blog/</id>
     <author>
         <name>maraf</name>
@@ -94,5 +94,12 @@
             <updated>2019-04-21</updated>
             <id>http://www.neptuo.com/blog/2019/04/wpf-design-data</id>
             <content type="html">There are various to ways to accomplish this goal: Show some data in the designer for WPF view. Here I&#39;m going to describe the one that works the best for me.</content>
+        </entry>
+        <entry>
+            <title>WPF - Preventing Alt+F4 from closing the window</title>
+            <link href="http://www.neptuo.com/blog/2019/05/wpf-preventing-alt-f4" />
+            <updated>2019-05-12</updated>
+            <id>http://www.neptuo.com/blog/2019/05/wpf-preventing-alt-f4</id>
+            <content type="html">This one describes a rate case when you want to prevent execution of Alt+F4 but still want the window to remain closeable, by other ways.</content>
         </entry>
 </feed>

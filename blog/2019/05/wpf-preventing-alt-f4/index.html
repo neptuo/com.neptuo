@@ -1,0 +1,201 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <title>WPF - Preventing Alt+F4 from closing the window - Neptuo</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="/Content/Images/favicon.png" />
+
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="/Content/featherlight.min.css" rel="stylesheet" />
+    <link href="/Content/web.css" rel="stylesheet" />
+
+    <link rel="alternate" type="application/rss+xml" title="Neptuo Blog" href="https://www.neptuo.com/blog/atom.xml" />
+</head>
+<body>
+
+    <nav class="navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+            <button class="navbar-toggle">
+                <span class="glyphicon glyphicon-menu-hamburger"></span>
+            </button>
+
+            <ul class="left">
+                    <li>
+        <a href="/">
+            <div class="maintext">
+                Home
+                <span class="glyphicon glyphicon-home"></span>
+            </div>
+            <div class="subtext">How can we help you?</div>
+        </a>
+    </li>
+
+            </ul>
+            <ul class="right">
+                    <li>
+        <a href="/project">
+            <div class="maintext">
+                Projects
+                <span class="glyphicon glyphicon-cloud"></span>
+            </div>
+            <div class="subtext">Projects we are working on</div>
+        </a>
+    </li>
+
+                    <li>
+        <a href="/service">
+            <div class="maintext">
+                Services
+                <span class="glyphicon glyphicon-globe"></span>
+            </div>
+            <div class="subtext">Our services and references</div>
+        </a>
+    </li>
+
+                    <li class="active">
+        <a href="/blog">
+            <div class="maintext">
+                Blog
+                <span class="glyphicon glyphicon-bookmark"></span>
+            </div>
+            <div class="subtext">Thoughts to share</div>
+        </a>
+    </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="body">
+        <form>
+
+            
+
+<div class="intro important blogpost">
+    <div class="intro-content container">
+        <h1>WPF - Preventing Alt+F4 from closing the window</h1>
+        <p>
+            
+      This one describes a rate case when you want to prevent execution of Alt+F4 but still want the window to remain closeable, by other ways.
+    
+        </p>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="folder blogpost">
+        <p>Sometimes I want to prevent from closing windows using <code>Alt+F4</code>. It's quite a rate case when I want the window to be closeable (so I can't bind to <code>Window.Closing</code> event and stop it), but I want to disable the <code>Alt+F4</code>. One of these scenarios is my clock showing window, a part of the <a href="https://www.neptuo.com/project/desktop/winrun">WinRun application</a>.</p>
+<p><img src="/Content/Images/Blog/wpf-preventing-alt-f4/winrun-clock.png" alt="WinRun clock showing window" /></p>
+<p>It's not a typical window. It basically acts like a live part of the desktop. It should almost be non-focusable. I'm using <code>Esc</code> to hide it, but sometimes, when it is the last opened window and I want to shutdown the computer using <code>Alt+F4</code>, invoked on the desktop, and instead of having focus on the dekstop I have focus on the clock window. It closes the window... Damn!</p>
+<h3>The code</h3>
+<p>Here is a code snippet to actualy prevent <code>Alt+F4</code> on WPF window. The method is bound to a <code>Window.PreviewKeyDown</code> event.</p>
+<div class="highlight csharp"><pre>
+<span class="keyword">private</span> <span class="keyword">void</span> <span class="identifier">OnPreviewKeyDown</span>(<span class="keyword">object</span> sender, KeyEventArgs e)
+{
+    <span class="keyword">if</span> (e.Key == Key.System &amp;&amp; e.SystemKey == Key.F4)
+    {
+        e.Handled = <span class="constant">true</span>;
+    }
+}
+
+</pre></div>
+<p>The &quot;trick&quot; is to test the pressed key for <code>Key.System</code> and then test <code>KeyEventArgs.SystemKey</code>.</p>
+<h3>That's it.</h3>
+<p>Hope it helps me some day in the future.</p>
+
+    </div>
+
+    <div class="folder">
+        <div class="left">
+            Posted on 2019-05-12
+        </div>
+        <div class="right">
+            Written by <a target="_blank" rel="nofollow" href="https://github.com/maraf">Maraf</a>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+</div>
+
+
+
+
+        </form>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="left">
+                <span>Neptuo &copy; 2010 - 2016</span>
+                
+            </div>
+            <div class="right">
+                <span>Created by <a target="_blank" href="https://mara.neptuo.com">Marek Fišera</a></span>
+                
+            </div>
+            <div class="center">
+                
+    <span><a href="/blog/atom.xml">Atom</a></span>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    </footer>
+
+    <script src="/Scripts/jquery-1.9.1.js"></script>
+    <script src="/Scripts/featherlight.min.js"></script>
+    <script>
+
+        function onSwitcherClicked(e) {
+            var folder = this.parentElement.parentElement;
+            folder.classList.toggle('folder-collapsed');
+        }
+
+        var switchers = document.querySelectorAll('.folder-switch');
+        for (var i = 0; i < switchers.length; i++) {
+            var switcher = switchers[i];
+            switcher.addEventListener('click', onSwitcherClicked);
+        }
+
+        var navbarToggle = document.querySelector("button.navbar-toggle");
+        if (navbarToggle != null) {
+            navbarToggle.addEventListener('click', function (e) {
+                var navbar = document.querySelector("nav");
+                navbar.classList.toggle('navbar-expanded');
+            });
+        }
+
+    </script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-12031460-1', 'auto');
+    </script>
+        <script>
+            ga('send', 'pageview');
+        </script>
+    
+
+
+    <script type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "url": "http://www.neptuo.com",
+        "logo": "/Content/Images/Logo-220.png"
+        }
+    </script>
+</body>
+</html>
