@@ -129,4 +129,14 @@
     <ReleaseDate>2019-04-21</ReleaseDate>
     <Author>Maraf</Author>
   </Post>
+  <Post>
+    <Title>WPF - Preventing Alt+F4 from closing the window</Title>
+    <Description>
+      This one describes a rate case when you want to prevent execution of Alt+F4 but still want the window to remain closeable, by other ways.
+    </Description>
+    <Url>wpf-preventing-alt-f4</Url>
+    <FilePath>~/App_Data/Blog/wpf-preventing-alt-f4.md</FilePath>
+    <ReleaseDate>2019-05-12</ReleaseDate>
+    <Author>Maraf</Author>
+  </Post>
 </Posts>
