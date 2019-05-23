@@ -10,7 +10,7 @@ using System.Web;
 namespace Neptuo.WebSite.Navigation
 {
     [RouteName("Project")]
-    [RouteUrl("project/{type}/{project}")]
+    [RouteUrl("project/{type}/{*project}")]
     [RouteController("Content", nameof(ContentController.Project))]
     [RouteDefault("type", null)]
     [RouteDefault("project", null)]

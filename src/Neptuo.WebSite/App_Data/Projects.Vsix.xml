@@ -127,7 +127,7 @@ When solution node is selected, in "Find in Files" will be selected "Entire Solu
       <Description>Context menu item for folder, project and solution.</Description>
     </Version>
   </Project>
-  
+
   <Project>
     <Name>Neptuo.Productivity.CodeSnippets</Name>
     <Type>vsix</Type>
@@ -142,6 +142,32 @@ When solution node is selected, in "Find in Files" will be selected "Entire Solu
     <Version>
       <Name>v1.0</Name>
       <Description>Initial release.</Description>
+    </Version>
+  </Project>
+
+  <Project>
+    <Name>Neptuo.Productivity.IntelliSense.Guid</Name>
+    <Type>vsix</Type>
+    <Description>Adds item to C# IntelliSense for appending new guid to various places.</Description>
+    <LocalUrl>intellisense/guid</LocalUrl>
+    <ProjectUrl>https://github.com/neptuo/Productivity</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Productivity/releases</DocumentationUrl>
+    <VsixGalleryId>Neptuo.ProductivityIntelliSenseGuid</VsixGalleryId>
+    
+    <Images>
+      <Main>~/Content/Images/Projects/productivity-intellisense-guid-03.png</Main>
+      <Additional>~/Content/Images/Projects/productivity-intellisense-guid-01.png</Additional>
+      <Additional>~/Content/Images/Projects/productivity-intellisense-guid-02.png</Additional>
+      <Additional>~/Content/Images/Projects/productivity-intellisense-guid-04.png</Additional>
+    </Images>
+
+    <Version>
+      <Name>v1.0</Name>
+      <Description>Assigning variable of type Guid.</Description>
+      <Description>Assigning property of type Guid.</Description>
+      <Description>Calling Guid ctor.</Description>
     </Version>
   </Project>
 </Projects>
