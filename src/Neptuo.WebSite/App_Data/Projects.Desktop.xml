@@ -116,11 +116,17 @@ About sticking windows, when you drop window near other window, the dropped wind
 - **Win+Shift+F6** to open medium clock.
 - **Win+F12** to put the computer to hibernation.
 - **Win+Shift+L** to turn the monitor off and lock the computer.
+- **Win+Alt+A** to pin active window to all desktops.
+- **Win+Alt+Z** to pin active window as top most.
 - Drag and drop or resize any window near other window stick the window to the other.
     </Text>
     <LocalUrl>winrun</LocalUrl>
     <DownloadUrl>http://apps.neptuo.com/winrun</DownloadUrl>
 
+    <Version>
+      <Name>v1.9.0</Name>
+      <Description>#5 - Hotkey for pinning active window to all desktops (Windows+Alt+X).</Description>
+    </Version>
     <Version>
       <Name>v1.8.0</Name>
       <Description>#4 - Added help window with all hotkeys.</Description>
