@@ -58,15 +58,15 @@ GIT bundles is a great way to create backups of local branches. This extension f
     </Version>
   </Project>
   <Project>
-    <Name>GitExtensions: Plugin Manager</Name>
+    <Name>Plugin Manager</Name>
     <Type>desktop</Type>
-    <Description>NuGet based plugin manager for GitExtensions.</Description>
-    <Text Language="PlainText">Let's try to use NuGet to distribute plugins for GitExtensions.</Text>
-    <LocalUrl>gitextensions.pluginmanager</LocalUrl>
-    <ProjectUrl>https://github.com/maraf/GitExtensions.PluginManager</ProjectUrl>
-    <DownloadUrl>https://github.com/maraf/GitExtensions.PluginManager/releases</DownloadUrl>
+    <Description>NuGet based univarsal plugin manager.</Description>
+    <Text Language="PlainText">PluginManager is designed to be a reusable tool to manage plugins distributed as nuget packages. </Text>
+    <LocalUrl>pluginmanager</LocalUrl>
+    <ProjectUrl>https://github.com/maraf/PluginManager</ProjectUrl>
+    <DownloadUrl>https://github.com/maraf/PluginManager/releases</DownloadUrl>
     <Images>
-      <Additional>~/Content/Images/Projects/gitextensions-pluginmanager-01.png</Additional>
+      <Additional>~/Content/Images/Projects/pluginmanager-01.png</Additional>
     </Images>
   </Project>
   <Project>
