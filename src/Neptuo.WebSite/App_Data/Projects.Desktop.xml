@@ -66,7 +66,7 @@ GIT bundles is a great way to create backups of local branches. This extension f
     <ProjectUrl>https://github.com/maraf/PluginManager</ProjectUrl>
     <DownloadUrl>https://github.com/maraf/PluginManager/releases</DownloadUrl>
     <Images>
-      <Additional>~/Content/Images/Projects/pluginmanager-01.png</Additional>
+      <Main>~/Content/Images/Projects/pluginmanager-01.png</Main>
     </Images>
   </Project>
   <Project>
