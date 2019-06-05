@@ -11,6 +11,27 @@
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
     <DocumentationUrl>https://github.com/neptuo/Productivity/releases</DocumentationUrl>
   </Project>-->
+
+  <Project>
+    <Name>Neptuo.Productivity.AddNewItem</Name>
+    <Type>vsix</Type>
+    <Description>Easily create any type of file or folder and include it in project.</Description>
+    <LocalUrl>addnewitem</LocalUrl>
+    <ProjectUrl>https://github.com/neptuo/Productivity</ProjectUrl>
+    <Licence>Apache License, Version 2.0</Licence>
+    <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
+    <DocumentationUrl>https://github.com/neptuo/Productivity/releases</DocumentationUrl>
+    <VsixGalleryId>Neptuo.ProductivityAddNewItem</VsixGalleryId>
+
+    <Version>
+      <Name>v1.0</Name>
+      <Description>Create any file base XML template definitions.</Description>
+      <Description>Create folders.</Description>
+      <Description>XML templates uses snippet syntax.</Description>
+      <Description>Support for creating nested C# classes.</Description>
+      <Description>VS2017 and VS2019 support.</Description>
+    </Version>
+  </Project>
   
   <Project>
     <Name>Neptuo.Productivity.LineDuplication</Name>
