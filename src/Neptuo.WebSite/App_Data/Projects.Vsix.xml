@@ -22,6 +22,9 @@
     <LicenceUrl>http://www.apache.org/licenses/LICENSE-2.0</LicenceUrl>
     <DocumentationUrl>https://github.com/neptuo/Productivity/releases</DocumentationUrl>
     <VsixGalleryId>Neptuo.ProductivityAddNewItem</VsixGalleryId>
+    <Images>
+      <Main>~/Content/Images/Projects/add-new-item.png.gif</Main>
+    </Images>
 
     <Version>
       <Name>v1.0</Name>
