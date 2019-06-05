@@ -23,7 +23,7 @@
     <DocumentationUrl>https://github.com/neptuo/Productivity/releases</DocumentationUrl>
     <VsixGalleryId>Neptuo.ProductivityAddNewItem</VsixGalleryId>
     <Images>
-      <Main>~/Content/Images/Projects/add-new-item.png.gif</Main>
+      <Main>~/Content/Images/Projects/add-new-item.png</Main>
     </Images>
 
     <Version>
