@@ -32,6 +32,7 @@
       <Description>Create folders.</Description>
       <Description>XML templates uses snippet syntax.</Description>
       <Description>Support for creating nested C# classes.</Description>
+      <Description>Use '..' to navigate up in the path.</Description>
       <Description>VS2017 and VS2019 support.</Description>
     </Version>
   </Project>
