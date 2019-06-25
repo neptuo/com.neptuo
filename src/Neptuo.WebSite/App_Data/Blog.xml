@@ -139,4 +139,14 @@
     <ReleaseDate>2019-05-12</ReleaseDate>
     <Author>Maraf</Author>
   </Post>
+  <Post>
+    <Title>Hosting VSIX feed as AppVeyor artifact</Title>
+    <Description>
+      We have a GitHub repository with Visual Studio extensions. We are using AppVeyor as CI tool. We produce VSIX artifacts on AppVeyor. We wanted a feed to easily install these artifacts.
+    </Description>
+    <Url>appveyor-vsix-feed</Url>
+    <FilePath>~/App_Data/Blog/appveyor-vsix-feed.md</FilePath>
+    <ReleaseDate>2019-06-25</ReleaseDate>
+    <Author>Maraf</Author>
+  </Post>
 </Posts>
