@@ -4,7 +4,7 @@
     <title>Neptuo Blog</title>
     <link href="http://www.neptuo.com/blog/atom.xml" rel="self" />
     <link href="http://www.neptuo.com/blog/" />
-    <updated>2019-06-05 17:00:13</updated>
+    <updated>2019-06-25 15:39:57</updated>
     <id>http://www.neptuo.com/blog/</id>
     <author>
         <name>maraf</name>
@@ -101,5 +101,12 @@
             <updated>2019-05-12</updated>
             <id>http://www.neptuo.com/blog/2019/05/wpf-preventing-alt-f4</id>
             <content type="html">This one describes a rate case when you want to prevent execution of Alt+F4 but still want the window to remain closeable, by other ways.</content>
+        </entry>
+        <entry>
+            <title>Hosting VSIX feed as AppVeyor artifact</title>
+            <link href="http://www.neptuo.com/blog/2019/06/appveyor-vsix-feed" />
+            <updated>2019-06-25</updated>
+            <id>http://www.neptuo.com/blog/2019/06/appveyor-vsix-feed</id>
+            <content type="html">We have a GitHub repository with Visual Studio extensions. We are using AppVeyor as CI tool. We produce VSIX artifacts on AppVeyor. We wanted a feed to easily install these artifacts.</content>
         </entry>
 </feed>

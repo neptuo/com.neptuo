@@ -1,0 +1,351 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <title>Hosting VSIX feed as AppVeyor artifact - Neptuo</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="/Content/Images/favicon.png" />
+
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="/Content/featherlight.min.css" rel="stylesheet" />
+    <link href="/Content/web.css" rel="stylesheet" />
+
+    <link rel="alternate" type="application/rss+xml" title="Neptuo Blog" href="https://www.neptuo.com/blog/atom.xml" />
+</head>
+<body>
+
+    <nav class="navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+            <button class="navbar-toggle">
+                <span class="glyphicon glyphicon-menu-hamburger"></span>
+            </button>
+
+            <ul class="left">
+                    <li>
+        <a href="/">
+            <div class="maintext">
+                Home
+                <span class="glyphicon glyphicon-home"></span>
+            </div>
+            <div class="subtext">How can we help you?</div>
+        </a>
+    </li>
+
+            </ul>
+            <ul class="right">
+                    <li>
+        <a href="/project">
+            <div class="maintext">
+                Projects
+                <span class="glyphicon glyphicon-cloud"></span>
+            </div>
+            <div class="subtext">Projects we are working on</div>
+        </a>
+    </li>
+
+                    <li>
+        <a href="/service">
+            <div class="maintext">
+                Services
+                <span class="glyphicon glyphicon-globe"></span>
+            </div>
+            <div class="subtext">Our services and references</div>
+        </a>
+    </li>
+
+                    <li class="active">
+        <a href="/blog">
+            <div class="maintext">
+                Blog
+                <span class="glyphicon glyphicon-bookmark"></span>
+            </div>
+            <div class="subtext">Thoughts to share</div>
+        </a>
+    </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="body">
+        <form>
+
+            
+
+<div class="intro important blogpost">
+    <div class="intro-content container">
+        <h1>Hosting VSIX feed as AppVeyor artifact</h1>
+        <p>
+            
+      We have a GitHub repository with Visual Studio extensions. We are using AppVeyor as CI tool. We produce VSIX artifacts on AppVeyor. We wanted a feed to easily install these artifacts.
+    
+        </p>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="folder blogpost">
+        <p>First of all, we need to update all VSIX manifests to match current CI build version.</p>
+<p>Add a script to be executed before build.</p>
+<pre><code class="language-yml">before_build:
+- ps: .\tools\AppVeyor-BeforeBuild.ps1
+</code></pre>
+<p><strong><a href="https://github.com/neptuo/Productivity/blob/master/tools/AppVeyor-BeforeBuild.ps1">AppVeyor-BeforeBuild.ps1</a></strong></p>
+<pre><code class="language-powershell">...
+
+Vsix-SetVersion;
+
+...
+</code></pre>
+<p><strong><a href="https://github.com/neptuo/Productivity/blob/master/tools/Vsix-SetVersion.ps1">Vsix-SetVersion.ps1</a></strong></p>
+<pre><code class="language-powershell">function Vsix-SetVersion 
+{
+    param([string] $version = $env:APPVEYOR_BUILD_NUMBER)
+
+    if (-not($version)) 
+    { 
+        Throw &quot;Parameter -Version is required&quot;;
+    }
+
+    $targetVersion = &quot;0.0.$version&quot;;
+
+    Push-Location $PSScriptRoot;
+
+    Write-Host &quot;Updating manifests to version '$targetVersion'.&quot;;
+
+    $manifestFiles = Get-ChildItem -Path ..\ -Filter *.vsixmanifest -Recurse -File -Name;
+    foreach ($manifestFile in $manifestFiles) 
+    {
+        $manifestFile = Resolve-Path -Path &quot;..\$manifestFile&quot;;
+        Write-Host &quot;Updating manifest $manifestFile&quot;;
+
+        [xml]$manifestXml = Get-Content $manifestFile
+
+        $ns = New-Object System.Xml.XmlNamespaceManager $manifestXml.NameTable
+        $ns.AddNamespace(&quot;ns&quot;, $manifestXml.DocumentElement.NamespaceURI) | Out-Null
+
+        $attrVersion = &quot;&quot;
+
+        if ($manifestXml.SelectSingleNode(&quot;//ns:Identity&quot;, $ns))
+        {
+            $attrVersion = $manifestXml.SelectSingleNode(&quot;//ns:Identity&quot;, $ns).Attributes[&quot;Version&quot;]
+            
+            $attrVersion.InnerText = $targetVersion
+            $manifestXml.Save($manifestFile) | Out-Null
+        }
+    }
+
+    Pop-Location;
+}
+</code></pre>
+<p>It iterates over all *.vsixmanifest files, loads content as XML and updates attribute <code>Version</code> of element <code>Identity</code>.</p>
+<p>Now we can run msbuild and produce CI builds of correct version. Next step is to grab all VSIX and push them as AppVeyor artifacts.</p>
+<p>Add a post build action <code>after_build</code> to the <code>appveyor.yml</code>.</p>
+<pre><code class="language-yml">after_build:
+- ps: .\tools\AppVeyor-PushArtifacts.ps1
+</code></pre>
+<p>The <code>AppVeyor-PushArtifacts.ps1</code> included later uses a VSIX feed template file.</p>
+<p><strong><a href="https://github.com/neptuo/Productivity/blob/master/NightlyFeedTemplate.xml">NightlyFeedTemplate.xml</a></strong></p>
+<div class="highlight xml"><pre>
+&lt;?<span class="element">xml</span> <span class="attribute">version</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">1.0</span><span class="quot">&quot;</span> <span class="attribute">encoding</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">UTF-8</span><span class="quot">&quot;</span>?&gt;
+&lt;<span class="element">feed</span> <span class="attribute">xmlns</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">http://www.w3.org/2005/Atom</span><span class="quot">&quot;</span> <span class="attribute">xmlns:xsi</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">http://www.w3.org/2001/XMLSchema-instance</span><span class="quot">&quot;</span>&gt;
+  &lt;<span class="element">title</span> <span class="attribute">type</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">text</span><span class="quot">&quot;</span> <span class="string">/&gt;</span>
+  &lt;<span class="element">id</span>&gt;uuid:24fb7e2e-6e27-4fb1-b02d-ffa720a647e2;id=1&lt;/<span class="element">id</span>&gt;
+  &lt;<span class="element">updated</span>&gt;{CurrentDateTime}&lt;/<span class="element">updated</span>&gt;
+  &lt;<span class="element">entry</span>&gt;
+    &lt;<span class="element">id</span>&gt;{Id}&lt;/<span class="element">id</span>&gt;
+    &lt;<span class="element">title</span> <span class="attribute">type</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">text</span><span class="quot">&quot;</span>&gt;{Name}&lt;/<span class="element">title</span>&gt;
+    &lt;<span class="element">summary</span> <span class="attribute">type</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">text</span><span class="quot">&quot;</span> <span class="attribute">xsi:nil</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">true</span><span class="quot">&quot;</span> <span class="string">/&gt;</span>
+    &lt;<span class="element">published</span>&gt;{CurrentDateTime}&lt;/<span class="element">published</span>&gt;
+    &lt;<span class="element">updated</span>&gt;{CurrentDateTime}&lt;/<span class="element">updated</span>&gt;
+    &lt;<span class="element">author</span>&gt;
+      &lt;<span class="element">name</span>&gt;Neptuo&lt;/<span class="element">name</span>&gt;
+    &lt;/<span class="element">author</span>&gt;
+    &lt;<span class="element">content</span> <span class="attribute">type</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">application/octet-stream</span><span class="quot">&quot;</span> <span class="attribute">src</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">https://ci.appveyor.com/api/buildjobs/{JobId}/artifacts/{FileName}</span><span class="quot">&quot;</span> <span class="string">/&gt;</span>
+    &lt;<span class="element">Vsix</span> <span class="attribute">xmlns</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">http://schemas.microsoft.com/developer/vsx-syndication-schema/2010</span><span class="quot">&quot;</span> <span class="attribute">xmlns:xsd</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">http://www.w3.org/2001/XMLSchema</span><span class="quot">&quot;</span>&gt;
+      &lt;<span class="element">Id</span>&gt;{Id}&lt;/<span class="element">Id</span>&gt;
+      &lt;<span class="element">Version</span>&gt;{Version}&lt;/<span class="element">Version</span>&gt;
+    &lt;/<span class="element">Vsix</span>&gt;
+  &lt;/<span class="element">entry</span>&gt;
+&lt;/<span class="element">feed</span>&gt;
+
+</pre></div>
+<p>It uses <code>{...}</code> tokens to be replaced by actual values. The <code>entry</code> element is a template that is used for each VSIX file.</p>
+<p>The publish script is quite long, but not so complicated.
+It finds the <code>entry</code> template element in XML, iterates over *.vsix files and appends updated entry element to the document. Finally it pushes <code>Feed.xml</code> as AppVeyor artifact.</p>
+<p><strong><a href="https://github.com/neptuo/Productivity/blob/master/tools/AppVeyor-PushArtifacts.ps1">AppVeyor-PushArtifacts.ps1</a></strong></p>
+<pre><code class="language-powershell">param([string] $version = $env:APPVEYOR_BUILD_NUMBER, [string] $jobId = $env:APPVEYOR_JOB_ID)
+
+if (-not($version)) 
+{ 
+    Throw &quot;Parameter -Version is required&quot;;
+}
+
+if (-not($jobId)) 
+{ 
+    Throw &quot;Parameter -JobId is required&quot;;
+}
+
+Push-Location $PSScriptRoot;
+. &quot;.\Vsix-GetId.ps1&quot;;
+
+# Feed file paths.
+$templatePath = Resolve-Path -Path &quot;..\NightlyFeedTemplate.xml&quot;;
+$outputPath = &quot;..\NightlyFeed.xml&quot;;
+Set-Content $outputPath &quot;&quot;;
+$outputPath = Resolve-Path -Path $outputPath;
+
+$targetVersion = &quot;0.0.$version&quot;;
+
+$timestamp = Get-Date -Format o;
+[xml]$xml = Get-Content $templatePath;
+
+# XML namespaces.
+$atomNs = New-Object System.Xml.XmlNamespaceManager $xml.NameTable;
+$atomNs.AddNamespace(&quot;ns&quot;, &quot;http://www.w3.org/2005/Atom&quot;) | Out-Null;
+$vsixNs = New-Object System.Xml.XmlNamespaceManager $xml.NameTable;
+$vsixNs.AddNamespace(&quot;vsix&quot;, &quot;http://schemas.microsoft.com/developer/vsx-syndication-schema/2010&quot;) | Out-Null;
+
+$xml.SelectSingleNode(&quot;//ns:updated&quot;, $atomNs).InnerText = $timestamp;
+
+# Find entry template element and remove it from XML document.
+# We need only for cloning, it shouldn't in the result feed.
+$entryXml = $xml.SelectSingleNode(&quot;//ns:entry&quot;, $atomNs);
+$xml.DocumentElement.RemoveChild($entryXml) | Out-Null;
+
+foreach ($artifact in (Get-ChildItem ..\*.vsix -Recurse)) 
+{
+    # Publish VSIX as artifact.
+    $artifactFileName = &quot;$($artifact.BaseName)-v$($targetVersion)$($artifact.Extension)&quot;;
+    Push-AppveyorArtifact $artifact.FullName -FileName $artifactFileName;
+
+    # Find VSIX id in manifest file.
+    $projectDirectory = $artifact.Directory.Parent.Parent;
+    $manifestPath = Join-Path $projectDirectory.FullName &quot;source.extension.vsixmanifest&quot;;
+    $id = Vsix-GetId -Manifest $manifestPath;
+
+    # Clone entry element.
+    $artifactXml = $entryXml.Clone();
+
+    # Modify entry XML.
+    $artifactXml.SelectSingleNode(&quot;//ns:id&quot;, $atomNs).InnerText = $id;
+    $artifactXml.SelectSingleNode(&quot;//ns:title&quot;, $atomNs).InnerText = $artifact.BaseName;
+    $artifactXml.SelectSingleNode(&quot;//ns:published&quot;, $atomNs).InnerText = $timestamp;
+    $artifactXml.SelectSingleNode(&quot;//ns:updated&quot;, $atomNs).InnerText = $timestamp;
+    $url = $artifactXml.SelectSingleNode(&quot;//ns:content&quot;, $atomNs).Attributes[&quot;src&quot;].Value;
+    $url = $url.Replace(&quot;{FileName}&quot;, $artifactFileName);
+    $url = $url.Replace(&quot;{JobId}&quot;, $jobId);
+    $artifactXml.SelectSingleNode(&quot;//ns:content&quot;, $atomNs).Attributes[&quot;src&quot;].Value = $url;
+    $artifactXml.SelectSingleNode(&quot;//vsix:Id&quot;, $vsixNs).InnerText = $id;
+    $artifactXml.SelectSingleNode(&quot;//vsix:Version&quot;, $vsixNs).InnerText = $targetVersion;
+
+    # Append entry to the XML document.
+    $xml.DocumentElement.AppendChild($artifactXml) | Out-Null;
+}
+
+# Save and publish Feed.xml as artifact.
+$xml.Save($outputPath);
+Push-AppveyorArtifact $outputPath -FileName &quot;Feed.xml&quot;;
+
+Pop-Location;
+</code></pre>
+<h2>Summary</h2>
+<p>Now you can grab <code>Feed.xml</code> and map it as a VSIX feed in Visual Studio.</p>
+<p><img src="/Content/Images/Blog/appveyor-vsix-feed/vs-feed-settings.png" alt="Visual Studio extension feed settings" /></p>
+
+    </div>
+
+    <div class="folder">
+        <div class="left">
+            Posted on 2019-06-25
+        </div>
+        <div class="right">
+            Written by <a target="_blank" rel="nofollow" href="https://github.com/maraf">Maraf</a>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+</div>
+
+
+
+
+        </form>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="left">
+                <span>Neptuo &copy; 2010 - 2016</span>
+                
+            </div>
+            <div class="right">
+                <span>Created by <a target="_blank" href="https://mara.neptuo.com">Marek Fišera</a></span>
+                
+            </div>
+            <div class="center">
+                
+    <span><a href="/blog/atom.xml">Atom</a></span>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    </footer>
+
+    <script src="/Scripts/jquery-1.9.1.js"></script>
+    <script src="/Scripts/featherlight.min.js"></script>
+    <script>
+
+        function onSwitcherClicked(e) {
+            var folder = this.parentElement.parentElement;
+            folder.classList.toggle('folder-collapsed');
+        }
+
+        var switchers = document.querySelectorAll('.folder-switch');
+        for (var i = 0; i < switchers.length; i++) {
+            var switcher = switchers[i];
+            switcher.addEventListener('click', onSwitcherClicked);
+        }
+
+        var navbarToggle = document.querySelector("button.navbar-toggle");
+        if (navbarToggle != null) {
+            navbarToggle.addEventListener('click', function (e) {
+                var navbar = document.querySelector("nav");
+                navbar.classList.toggle('navbar-expanded');
+            });
+        }
+
+    </script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-12031460-1', 'auto');
+    </script>
+        <script>
+            ga('send', 'pageview');
+        </script>
+    
+
+
+    <script type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "url": "http://www.neptuo.com",
+        "logo": "/Content/Images/Logo-220.png"
+        }
+    </script>
+    <!-- <img src="/Content/Images/favicon.png" /> -->
+</body>
+</html>
