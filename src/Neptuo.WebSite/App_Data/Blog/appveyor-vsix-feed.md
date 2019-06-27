@@ -1,3 +1,5 @@
+> One of the motivations behing this post is [Mads Kristensen's tool for generating private feeds](https://devblogs.microsoft.com/visualstudio/create-a-private-gallery-for-self-hosted-visual-studio-extensions/).
+
 First of all, we need to update all VSIX manifests to match current CI build version.
 
 Add a script to be executed before build.
@@ -188,3 +190,8 @@ Pop-Location;
 Now you can grab `Feed.xml` and map it as a VSIX feed in Visual Studio.
 
 ![Visual Studio extension feed settings](/Content/Images/Blog/appveyor-vsix-feed/vs-feed-settings.png)
+
+### Links
+- [Repository on GitHub](https://github.com/neptuo/Productivity).
+- [AppVeyor project](https://ci.appveyor.com/project/Neptuo/productivity).
+- [AppVeyor generated feed](https://ci.appveyor.com/api/projects/neptuo/Productivity/artifacts/Feed.xml).
