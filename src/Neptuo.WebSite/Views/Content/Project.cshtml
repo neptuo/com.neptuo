@@ -210,14 +210,14 @@
                                         @foreach (var description in version.Descriptions)
                                         {
                                             <li>
-                                                @description.Content
+                                                @Html.Raw(description.GetContent(project.ProjectUrl))
                                                 @if (description.Descriptions.Count > 0)
                                                 {
                                                     <ul>
                                                         @foreach (var description2 in description.Descriptions)
                                                         {
                                                             <li>
-                                                                @description2.Content
+                                                                @Html.Raw(description2.GetContent(project.ProjectUrl))
                                                             </li>
                                                         }
                                                     </ul>
