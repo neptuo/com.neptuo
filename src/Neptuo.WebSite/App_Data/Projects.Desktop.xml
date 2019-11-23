@@ -122,6 +122,7 @@ About sticking windows, when you drop window near other window, the dropped wind
 - Drag and drop or resize any window near other window stick the window to the other.
     </Text>
     <LocalUrl>winrun</LocalUrl>
+    <ProjectUrl>https://github.com/neptuo/Productivity.DesktopTools</ProjectUrl>
     <DownloadUrl>http://apps.neptuo.com/winrun</DownloadUrl>
 
     <Version>
