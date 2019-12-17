@@ -1,0 +1,289 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <title>Kubectl optimization - Neptuo</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="/Content/Images/favicon.png" />
+
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="/Content/featherlight.min.css" rel="stylesheet" />
+    <link href="/Content/web.css" rel="stylesheet" />
+
+    <link rel="alternate" type="application/rss+xml" title="Neptuo Blog" href="https://www.neptuo.com/blog/atom.xml" />
+</head>
+<body>
+
+    <nav class="navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+            <button class="navbar-toggle">
+                <span class="glyphicon glyphicon-menu-hamburger"></span>
+            </button>
+
+            <ul class="left">
+                    <li>
+        <a href="/">
+            <div class="maintext">
+                Home
+                <span class="glyphicon glyphicon-home"></span>
+            </div>
+            <div class="subtext">How can we help you?</div>
+        </a>
+    </li>
+
+            </ul>
+            <ul class="right">
+                    <li>
+        <a href="/project">
+            <div class="maintext">
+                Projects
+                <span class="glyphicon glyphicon-cloud"></span>
+            </div>
+            <div class="subtext">Projects we are working on</div>
+        </a>
+    </li>
+
+                    <li>
+        <a href="/service">
+            <div class="maintext">
+                Services
+                <span class="glyphicon glyphicon-globe"></span>
+            </div>
+            <div class="subtext">Our services and references</div>
+        </a>
+    </li>
+
+                    <li class="active">
+        <a href="/blog">
+            <div class="maintext">
+                Blog
+                <span class="glyphicon glyphicon-bookmark"></span>
+            </div>
+            <div class="subtext">Thoughts to share</div>
+        </a>
+    </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="body">
+        <form>
+
+            
+
+<div class="intro important blogpost">
+    <div class="intro-content container">
+        <h1>Kubectl optimization</h1>
+        <p>
+            
+      How to save your fingers when managing kubernetes cluster with commnand line tool kubectl.
+    
+        </p>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="folder blogpost">
+        <p>There are few tweaks that I found useful when working with <a href="https://kubernetes.io/docs/reference/kubectl/">kubectl</a> to manage kubernetes cluster.</p>
+<blockquote>
+<p>I'm running a cluster of Raspberry Pi.</p>
+</blockquote>
+<p>Kubectl lets you manage your cluster from command line. By default it requires a lots of typing. A lot! When you need to use it on daily basis, these tweaks can save your fingers.</p>
+<blockquote>
+<p>All of the tweaks are set in user's <code>.bashrc</code>. At the end there are all changes at once.</p>
+</blockquote>
+<h2>Kubectl alias</h2>
+<p>Instead of typing <code>kubectl</code> everytime (also note that when you have both <code>kubectl</code> and <code>kubeadm</code>, bash's tab completion doesn't help you a lot), I'm using simple <code>k</code>.</p>
+<pre><code class="language-bash">alias k=kubectl
+</code></pre>
+<h2>Kubectl completion</h2>
+<p>This one helps you complete <code>kubectl</code> sub commands and parameters. It also supports completion of pod/svc/deploy/etc names. So if you have for example a single pod managed by replica set and deployment, it may be named as <code>webcam-69d6fdd46c-kbvfk</code>. The deployment itself is named <code>webcam</code>, replica set <code>69d6fdd46c</code> and pod has the suffix <code>kbvfk</code>. When you need to get logs of the pod, you need to type the whole name. And this name is changed everytime the pod dies. With completion, you can just type <code>k logs webcam</code>, press <code>tab</code> and rest of the name will be populated.</p>
+<pre><code class="language-bash">source &lt;(kubectl completion bash)
+complete -F __start_kubectl kubectl k
+</code></pre>
+<p>The end of the second line (<code>kubectl k</code>) defines commands for which the completion should be used (<code>kubectl</code> and <code>k</code> in this case).</p>
+<blockquote>
+<p>If your pod is in a different namespace than the default one, type the namespace before pod name, like <code>k logs -n monitoring webcam</code> and than press the <code>tab</code>.</p>
+</blockquote>
+<h2>Changing default namespace</h2>
+<p>By default, kubectl &quot;default&quot; namespace is stored in <code>.kube/config</code>, and whenever you are using <code>kubectl</code> for different namespace, you need to include <code>-n</code> or <code>--namespace</code> in your command. It's quite hard to change the default namespace in <code>.kube/config</code>, fortunately there is a <a href="https://github.com/ahmetb/kubectx">tool to the rescue - kubens and kubectx</a>.</p>
+<p>It shows you all namespaces and contexts and lets change the defaults.</p>
+<h2>Kubens and kubectx alias</h2>
+<p><code>kubens</code> and <code>kubectx</code> is still quite verbose, so aliases can help.</p>
+<pre><code class="language-bash">alias kns=kubens
+alias kctx=kubectx
+</code></pre>
+<h2>Kubens and kubectx completion</h2>
+<p>As with <code>kubectl</code>, even <code>kubens</code>/<code>kns</code> and <code>kubectx</code>/<code>kctx</code> supports completion.</p>
+<pre><code class="language-bash">_kube_namespaces()
+{
+  local curr_arg;
+  curr_arg=${COMP_WORDS[COMP_CWORD]}
+  COMPREPLY=( $(compgen -W &quot;- $(kubectl get namespaces -o=jsonpath='{range .items[*].metadata.name}{@}{&quot;\n&quot;}{end}')&quot; -- $curr_arg ) );
+}
+complete -F _kube_namespaces kubens kns
+</code></pre>
+<pre><code class="language-bash">_kube_contexts()
+{
+  local curr_arg;
+  curr_arg=${COMP_WORDS[COMP_CWORD]}
+  COMPREPLY=( $(compgen -W &quot;- $(kubectl config get-contexts --output='name')&quot; -- $curr_arg ) );
+}
+alias kctx=kubectx
+complete -F _kube_contexts kubectx kctx
+</code></pre>
+<h2>Summary</h2>
+<ul>
+<li><code>kubectl</code>/<code>k</code> alias for <code>kubectl</code>.</li>
+<li><code>k</code> completion.</li>
+<li><code>kubens</code> for changing default <code>.kube/config</code> namespace.</li>
+<li><code>kubectx</code> for changing <code>.kube/config</code> context.</li>
+<li><code>kns</code> alias for <code>kubens</code>.</li>
+<li><code>kctx</code> alias for <code>kubectx</code>.</li>
+<li><code>kubens</code>/<code>kns</code> completion.</li>
+<li><code>kubectx</code>/<code>kctx</code> completion.</li>
+</ul>
+<h3>Changes to .bashrc at once</h3>
+<pre><code class="language-bash"># kubectl
+alias k=kubectl
+source &lt;(kubectl completion bash)
+complete -F __start_kubectl kubectl k
+
+# kubens
+_kube_namespaces()
+{
+  local curr_arg;
+  curr_arg=${COMP_WORDS[COMP_CWORD]}
+  COMPREPLY=( $(compgen -W &quot;- $(kubectl get namespaces -o=jsonpath='{range .items[*].metadata.name}{@}{&quot;\n&quot;}{end}')&quot; -- $curr_arg ) );
+}
+alias kns=kubens
+complete -F _kube_namespaces kubens kns
+
+# kubectx
+_kube_contexts()
+{
+  local curr_arg;
+  curr_arg=${COMP_WORDS[COMP_CWORD]}
+  COMPREPLY=( $(compgen -W &quot;- $(kubectl config get-contexts --output='name')&quot; -- $curr_arg ) );
+}
+alias kctx=kubectx
+complete -F _kube_contexts kubectx kctx
+</code></pre>
+
+    </div>
+
+    <div class="folder">
+        <div class="left">
+            Posted on 2019-12-17
+        </div>
+        <div class="right">
+            Written by <a target="_blank" rel="nofollow" href="https://github.com/maraf">Maraf</a>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+        <div class="folder">
+            <div class="comment-heading">
+                <h3>
+                    <span class="hidden">Comments</span>
+                    <span class="glyphicon glyphicon-comment"></span>
+                </h3>
+            
+                To leave a comment, please sign-in at GitHub and
+                <a href="https://github.com/neptuo/com.neptuo/issues/45" target="_blank">
+                    comment on the issue associated with this post.
+                </a>
+            </div>
+            <div id="comments"></div>
+        </div>
+</div>
+
+
+
+
+        </form>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="left">
+                <span>Neptuo &copy; 2010 - 2016</span>
+                
+            </div>
+            <div class="right">
+                <span>Created by <a target="_blank" href="https://mara.neptuo.com">Marek Fišera</a></span>
+                
+            </div>
+            <div class="center">
+                
+    <span><a href="/blog/atom.xml">Atom</a></span>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    </footer>
+
+    <script src="/Scripts/jquery-1.9.1.js"></script>
+    <script src="/Scripts/featherlight.min.js"></script>
+    <script>
+
+        function onSwitcherClicked(e) {
+            var folder = this.parentElement.parentElement;
+            folder.classList.toggle('folder-collapsed');
+        }
+
+        var switchers = document.querySelectorAll('.folder-switch');
+        for (var i = 0; i < switchers.length; i++) {
+            var switcher = switchers[i];
+            switcher.addEventListener('click', onSwitcherClicked);
+        }
+
+        var navbarToggle = document.querySelector("button.navbar-toggle");
+        if (navbarToggle != null) {
+            navbarToggle.addEventListener('click', function (e) {
+                var navbar = document.querySelector("nav");
+                navbar.classList.toggle('navbar-expanded');
+            });
+        }
+
+    </script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-12031460-1', 'auto');
+    </script>
+        <script>
+            ga('send', 'pageview');
+        </script>
+    
+
+        <script src="/Scripts/blogcomments.js"></script>
+        <script>
+
+            load("https://api.github.com/repos/neptuo/com.neptuo/issues/45/comments");
+
+        </script>
+
+    <script type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "url": "http://www.neptuo.com",
+        "logo": "/Content/Images/Logo-220.png"
+        }
+    </script>
+    <!-- <img src="/Content/Images/favicon.png" /> -->
+</body>
+</html>

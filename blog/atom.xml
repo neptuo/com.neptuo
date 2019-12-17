@@ -4,7 +4,7 @@
     <title>Neptuo Blog</title>
     <link href="http://www.neptuo.com/blog/atom.xml" rel="self" />
     <link href="http://www.neptuo.com/blog/" />
-    <updated>2019-11-23 17:07:09</updated>
+    <updated>2019-12-17 20:56:44</updated>
     <id>http://www.neptuo.com/blog/</id>
     <author>
         <name>maraf</name>
@@ -108,5 +108,12 @@
             <updated>2019-06-25</updated>
             <id>http://www.neptuo.com/blog/2019/06/appveyor-vsix-feed</id>
             <content type="html">We have a GitHub repository with Visual Studio extensions. We are using AppVeyor as CI tool. We produce VSIX artifacts on AppVeyor. We wanted a feed to easily install these artifacts.</content>
+        </entry>
+        <entry>
+            <title>Kubectl optimization</title>
+            <link href="http://www.neptuo.com/blog/2019/12/kubctl-optimization" />
+            <updated>2019-12-17</updated>
+            <id>http://www.neptuo.com/blog/2019/12/kubctl-optimization</id>
+            <content type="html">How to save your fingers when managing kubernetes cluster with commnand line tool kubectl.</content>
         </entry>
 </feed>
