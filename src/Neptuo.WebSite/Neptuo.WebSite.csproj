@@ -224,6 +224,7 @@
     <Content Include="App_Data\Blog\appveyor-vsix-feed.md" />
     <Content Include="App_Data\Blog\wpf-design-data.md" />
     <Content Include="App_Data\Blog\wpf-preventing-alt-f4.md" />
+    <Content Include="App_Data\Blog\kubctl-optimization.md" />
     <None Include="Content\Stylesheet\blog.responsiveness.scss" />
     <None Include="Content\Stylesheet\common.scss" />
     <None Include="Content\Stylesheet\blog.scss" />

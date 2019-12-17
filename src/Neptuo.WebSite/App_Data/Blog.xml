@@ -149,4 +149,15 @@
     <ReleaseDate>2019-06-25</ReleaseDate>
     <Author>Maraf</Author>
   </Post>
+  <Post>
+    <Title>Kubectl optimization</Title>
+    <Description>
+      How to save your fingers when managing kubernetes cluster with commnand line tool kubectl.
+    </Description>
+    <Url>kubctl-optimization</Url>
+    <FilePath>~/App_Data/Blog/kubctl-optimization.md</FilePath>
+    <ReleaseDate>2019-12-17</ReleaseDate>
+    <Author>Maraf</Author>
+    <GitHubCommentPath>neptuo/com.neptuo/issues/45</GitHubCommentPath>
+  </Post>
 </Posts>
