@@ -29,6 +29,35 @@ namespace Neptuo.WebSite.Models
             }
         }
 
+        protected override void WriteInline(Inline inline, bool isOpening, bool isClosing, out bool ignoreChildNodes)
+        {
+            if (inline.Tag == InlineTag.Link && isOpening && IsExternalLink(inline.TargetUrl))
+            {
+                ignoreChildNodes = false;
+
+                Write("<a target=\"_blank\" class=\"external-link\" href=\"");
+                var uriResolver = Settings.UriResolver;
+                if (uriResolver != null)
+                    WriteEncodedUrl(uriResolver(inline.TargetUrl));
+                else
+                    WriteEncodedUrl(inline.TargetUrl);
+
+                Write('\"');
+
+                if (Settings.TrackSourcePosition)
+                    WritePositionAttribute(inline);
+
+                Write('>');
+            }
+            else
+            {
+                base.WriteInline(inline, isOpening, isClosing, out ignoreChildNodes);
+            }
+        }
+
+        private bool IsExternalLink(string targetUrl) 
+            => targetUrl.StartsWith("http://") || targetUrl.StartsWith("https://");
+
         private bool TryFormatCode(string language, StringContent content, out string result)
         {
             string source = content.ToString();

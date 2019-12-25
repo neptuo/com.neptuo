@@ -75,3 +75,8 @@ blockquote {
     border-left: 5px solid #157FCC;
     background: linear-gradient(to right, #dfefff 0%, #ffffff 85%);
 }
+
+a.external-link::after {
+    content: "🗗";
+    display: inline;
+}
