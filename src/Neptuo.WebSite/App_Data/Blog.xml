@@ -160,4 +160,15 @@
     <Author>Maraf</Author>
     <GitHubCommentPath>neptuo/com.neptuo/issues/45</GitHubCommentPath>
   </Post>
+  <Post>
+    <Title>Blazor and network status</Title>
+    <Description>
+      Making Blazor reusable component for PWA application that reacts to disconnection from the internet.
+    </Description>
+    <Url>blazor-network-status</Url>
+    <FilePath>~/App_Data/Blog/blazor-network-status.md</FilePath>
+    <ReleaseDate>2019-12-25</ReleaseDate>
+    <Author>Maraf</Author>
+    <GitHubCommentPath>neptuo/com.neptuo/issues/46</GitHubCommentPath>
+  </Post>
 </Posts>

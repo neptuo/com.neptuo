@@ -166,6 +166,22 @@
     <Content Include="App_Data\Blog.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="App_Data\Blog\appveyor-vsix-feed.md" />
+    <Content Include="App_Data\Blog\blazor-boot-screen.md" />
+    <Content Include="App_Data\Blog\blazor-component-parameters.md" />
+    <Content Include="App_Data\Blog\blazor-page-parameters.md" />
+    <Content Include="App_Data\Blog\building-processing-pipeline-with-behaviors.md" />
+    <Content Include="App_Data\Blog\extending-visual-studio-intellisense.md" />
+    <Content Include="App_Data\Blog\kubctl-optimization.md" />
+    <Content Include="App_Data\Blog\mvc-route-values.md" />
+    <Content Include="App_Data\Blog\naming-things.md" />
+    <Content Include="App_Data\Blog\productivity-solution-runner.md" />
+    <Content Include="App_Data\Blog\scriptmanager-and-registering-startup-script.md" />
+    <Content Include="App_Data\Blog\sharpkit-unobtrusivefeatures.md" />
+    <Content Include="App_Data\Blog\website-introduction.md" />
+    <Content Include="App_Data\Blog\why-i-hate-hamburgers.md" />
+    <Content Include="App_Data\Blog\wpf-design-data.md" />
+    <Content Include="App_Data\Blog\wpf-preventing-alt-f4.md" />
     <Content Include="App_Data\Projects.Vsix.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -211,20 +227,11 @@
     <Content Include="Content\Images\Blog\wpf-preventing-alt-f4\winrun-clock.png" />
     <Content Include="Content\Images\Logo-170.png" />
     <Content Include="Content\Images\Logo-220.png" />
-    <Content Include="App_Data\Blog\why-i-hate-hamburgers.md" />
-    <Content Include="App_Data\Blog\productivity-solution-runner.md" />
-    <Content Include="App_Data\Blog\blazor-boot-screen.md" />
-    <Content Include="App_Data\Blog\blazor-component-parameters.md" />
-    <Content Include="App_Data\Blog\extending-visual-studio-intellisense.md" />
-    <Content Include="App_Data\Blog\blazor-page-parameters.md" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="App_Data\Blog\appveyor-vsix-feed.md" />
-    <Content Include="App_Data\Blog\wpf-design-data.md" />
-    <Content Include="App_Data\Blog\wpf-preventing-alt-f4.md" />
-    <Content Include="App_Data\Blog\kubctl-optimization.md" />
+    <Content Include="App_Data\Blog\blazor-network-status.md" />
     <None Include="Content\Stylesheet\blog.responsiveness.scss" />
     <None Include="Content\Stylesheet\common.scss" />
     <None Include="Content\Stylesheet\blog.scss" />
@@ -292,9 +299,6 @@
     <Content Include="Content\Images\FootBackground.png" />
     <Content Include="Content\Images\Logo.png" />
     <None Include="Content\Stylesheet\syntax.scss" />
-    <Content Include="App_Data\Blog\building-processing-pipeline-with-behaviors.md" />
-    <Content Include="App_Data\Blog\mvc-route-values.md" />
-    <Content Include="App_Data\Blog\naming-things.md" />
     <None Include="App_Data\Xsd\Neptuo.WebSite.Blog.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -319,9 +323,6 @@
     </Content>
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="App_Data\Blog\scriptmanager-and-registering-startup-script.md" />
-    <Content Include="App_Data\Blog\sharpkit-unobtrusivefeatures.md" />
-    <Content Include="App_Data\Blog\website-introduction.md" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
