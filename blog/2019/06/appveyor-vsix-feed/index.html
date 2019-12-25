@@ -92,21 +92,21 @@
 <div class="container">
     <div class="folder blogpost">
         <blockquote>
-<p>One of the motivations behing this post is <a href="https://devblogs.microsoft.com/visualstudio/create-a-private-gallery-for-self-hosted-visual-studio-extensions/">Mads Kristensen's tool for generating private feeds</a>.</p>
+<p>One of the motivations behing this post is <a target="_blank" class="external-link" href="https://devblogs.microsoft.com/visualstudio/create-a-private-gallery-for-self-hosted-visual-studio-extensions/">Mads Kristensen's tool for generating private feeds</a>.</p>
 </blockquote>
 <p>First of all, we need to update all VSIX manifests to match current CI build version.</p>
 <p>Add a script to be executed before build.</p>
 <pre><code class="language-yml">before_build:
 - ps: .\tools\AppVeyor-BeforeBuild.ps1
 </code></pre>
-<p><strong><a href="https://github.com/neptuo/Productivity/blob/master/tools/AppVeyor-BeforeBuild.ps1">AppVeyor-BeforeBuild.ps1</a></strong></p>
+<p><strong><a target="_blank" class="external-link" href="https://github.com/neptuo/Productivity/blob/master/tools/AppVeyor-BeforeBuild.ps1">AppVeyor-BeforeBuild.ps1</a></strong></p>
 <pre><code class="language-powershell">...
 
 Vsix-SetVersion;
 
 ...
 </code></pre>
-<p><strong><a href="https://github.com/neptuo/Productivity/blob/master/tools/Vsix-SetVersion.ps1">Vsix-SetVersion.ps1</a></strong></p>
+<p><strong><a target="_blank" class="external-link" href="https://github.com/neptuo/Productivity/blob/master/tools/Vsix-SetVersion.ps1">Vsix-SetVersion.ps1</a></strong></p>
 <pre><code class="language-powershell">function Vsix-SetVersion 
 {
     param([string] $version = $env:APPVEYOR_BUILD_NUMBER)
@@ -154,7 +154,7 @@ Vsix-SetVersion;
 - ps: .\tools\AppVeyor-PushArtifacts.ps1
 </code></pre>
 <p>The <code>AppVeyor-PushArtifacts.ps1</code> included later uses a VSIX feed template file.</p>
-<p><strong><a href="https://github.com/neptuo/Productivity/blob/master/NightlyFeedTemplate.xml">NightlyFeedTemplate.xml</a></strong></p>
+<p><strong><a target="_blank" class="external-link" href="https://github.com/neptuo/Productivity/blob/master/NightlyFeedTemplate.xml">NightlyFeedTemplate.xml</a></strong></p>
 <div class="highlight xml"><pre>
 &lt;?<span class="element">xml</span> <span class="attribute">version</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">1.0</span><span class="quot">&quot;</span> <span class="attribute">encoding</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">UTF-8</span><span class="quot">&quot;</span>?&gt;
 &lt;<span class="element">feed</span> <span class="attribute">xmlns</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">http://www.w3.org/2005/Atom</span><span class="quot">&quot;</span> <span class="attribute">xmlns:xsi</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">http://www.w3.org/2001/XMLSchema-instance</span><span class="quot">&quot;</span>&gt;
@@ -182,7 +182,7 @@ Vsix-SetVersion;
 <p>It uses <code>{...}</code> tokens to be replaced by actual values. The <code>entry</code> element is a template that is used for each VSIX file.</p>
 <p>The publish script is quite long, but not so complicated.
 It finds the <code>entry</code> template element in XML, iterates over *.vsix files and appends updated entry element to the document. Finally it pushes <code>Feed.xml</code> as AppVeyor artifact.</p>
-<p><strong><a href="https://github.com/neptuo/Productivity/blob/master/tools/AppVeyor-PushArtifacts.ps1">AppVeyor-PushArtifacts.ps1</a></strong></p>
+<p><strong><a target="_blank" class="external-link" href="https://github.com/neptuo/Productivity/blob/master/tools/AppVeyor-PushArtifacts.ps1">AppVeyor-PushArtifacts.ps1</a></strong></p>
 <pre><code class="language-powershell">param([string] $version = $env:APPVEYOR_BUILD_NUMBER, [string] $jobId = $env:APPVEYOR_JOB_ID)
 
 if (-not($version)) 
@@ -263,9 +263,9 @@ Pop-Location;
 <p><img src="/Content/Images/Blog/appveyor-vsix-feed/vs-feed-settings.png" alt="Visual Studio extension feed settings" /></p>
 <h3>Links</h3>
 <ul>
-<li><a href="https://github.com/neptuo/Productivity">Repository on GitHub</a>.</li>
-<li><a href="https://ci.appveyor.com/project/Neptuo/productivity">AppVeyor project</a>.</li>
-<li><a href="https://ci.appveyor.com/api/projects/neptuo/Productivity/artifacts/Feed.xml">AppVeyor generated feed</a>.</li>
+<li><a target="_blank" class="external-link" href="https://github.com/neptuo/Productivity">Repository on GitHub</a>.</li>
+<li><a target="_blank" class="external-link" href="https://ci.appveyor.com/project/Neptuo/productivity">AppVeyor project</a>.</li>
+<li><a target="_blank" class="external-link" href="https://ci.appveyor.com/api/projects/neptuo/Productivity/artifacts/Feed.xml">AppVeyor generated feed</a>.</li>
 </ul>
 
     </div>

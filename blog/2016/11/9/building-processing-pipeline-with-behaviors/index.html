@@ -91,7 +91,7 @@
 
 <div class="container">
     <div class="folder blogpost">
-        <p>I hadn't planned to write this post, but after I have read post from Jeremy D. Miller from Lost techies - <a href="https://lostechies.com/jimmybogard/2016/10/13/mediatr-pipeline-examples/">about pipelines in MediatR</a> - I had to.</p>
+        <p>I hadn't planned to write this post, but after I have read post from Jeremy D. Miller from Lost techies - <a target="_blank" class="external-link" href="https://lostechies.com/jimmybogard/2016/10/13/mediatr-pipeline-examples/">about pipelines in MediatR</a> - I had to.</p>
 <p>We are using the request -&gt; handler (-&gt; response) design a lot. The handler has a single method responsible for processing request (and optionaly provinding response). It can be used nearly everywhere and for everything. Typically we have a component called <code>dispatcher</code> which hides the registration of handlers for particular request types.</p>
 <p>One of the examples can be validation pipeline. We have a</p>
 <div class="highlight csharp"><pre>
@@ -148,7 +148,7 @@
 }
 
 </pre></div>
-<p>In the <code>WebStack</code> there where behaviors of two types - those that provide values (from the request) and those that process output values (and writes them to the response). After using this design for a while, we have extracted it to a general purpose behavior pipeline library called <a href="https://github.com/neptuo/Framework/wiki/Behaviors">Neptuo.Behaviors</a>.</p>
+<p>In the <code>WebStack</code> there where behaviors of two types - those that provide values (from the request) and those that process output values (and writes them to the response). After using this design for a while, we have extracted it to a general purpose behavior pipeline library called <a target="_blank" class="external-link" href="https://github.com/neptuo/Framework/wiki/Behaviors">Neptuo.Behaviors</a>.</p>
 <h3>Execution</h3>
 <p>We ship two modes for executing behaviors. First one is based on reflection and uses reflection metadata everytime an instance of pipeline is required. We use it for example during bootstrap, because there is no need for executing it twice in the application lifetime.</p>
 <p>Second compiles on the fly a tiny proxy of a target handler and so, no reflection is used in the runtime. The performace of these pipelines is the same as directly composing handlers together. On the other, code generation must be enabled on the .NET runtime.</p>
@@ -157,9 +157,9 @@
 <p>As the public execution method is always defined be an interface, we can compose behaviors like any hand writtern pipeline and compile code for it or the fly. This is possible just because pipelines have always an interface and because this interface is uniform, we don't need to write it for every service/component, we don't need to spend a on time doing it and can reuse single compiled pipeline library.</p>
 <h3>Links</h3>
 <ul>
-<li><a href="https://lostechies.com/jimmybogard/2016/10/13/mediatr-pipeline-examples/">MediatR Pipeline Examples</a></li>
-<li><a href="https://github.com/neptuo/Framework/wiki/Behaviors">Neptuo.Behaviors documentation</a></li>
-<li><a href="https://www.nuget.org/packages/Neptuo.Behaviors/">Neptuo.Behaviors on NuGet</a></li>
+<li><a target="_blank" class="external-link" href="https://lostechies.com/jimmybogard/2016/10/13/mediatr-pipeline-examples/">MediatR Pipeline Examples</a></li>
+<li><a target="_blank" class="external-link" href="https://github.com/neptuo/Framework/wiki/Behaviors">Neptuo.Behaviors documentation</a></li>
+<li><a target="_blank" class="external-link" href="https://www.nuget.org/packages/Neptuo.Behaviors/">Neptuo.Behaviors on NuGet</a></li>
 </ul>
 
     </div>

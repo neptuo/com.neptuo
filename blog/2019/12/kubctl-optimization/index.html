@@ -91,7 +91,7 @@
 
 <div class="container">
     <div class="folder blogpost">
-        <p>There are few tweaks that I found useful when working with <a href="https://kubernetes.io/docs/reference/kubectl/">kubectl</a> to manage kubernetes cluster.</p>
+        <p>There are few tweaks that I found useful when working with <a target="_blank" class="external-link" href="https://kubernetes.io/docs/reference/kubectl/">kubectl</a> to manage kubernetes cluster.</p>
 <blockquote>
 <p>I'm running a cluster of Raspberry Pi.</p>
 </blockquote>
@@ -113,7 +113,7 @@ complete -F __start_kubectl kubectl k
 <p>If your pod is in a different namespace than the default one, type the namespace before pod name, like <code>k logs -n monitoring webcam</code> and than press the <code>tab</code>.</p>
 </blockquote>
 <h2>Changing default namespace</h2>
-<p>By default, kubectl &quot;default&quot; namespace is stored in <code>.kube/config</code>, and whenever you are using <code>kubectl</code> for different namespace, you need to include <code>-n</code> or <code>--namespace</code> in your command. It's quite hard to change the default namespace in <code>.kube/config</code>, fortunately there is a <a href="https://github.com/ahmetb/kubectx">tool to the rescue - kubens and kubectx</a>.</p>
+<p>By default, kubectl &quot;default&quot; namespace is stored in <code>.kube/config</code>, and whenever you are using <code>kubectl</code> for different namespace, you need to include <code>-n</code> or <code>--namespace</code> in your command. It's quite hard to change the default namespace in <code>.kube/config</code>, fortunately there is a <a target="_blank" class="external-link" href="https://github.com/ahmetb/kubectx">tool to the rescue - kubens and kubectx</a>.</p>
 <p>It shows you all namespaces and contexts and lets change the defaults.</p>
 <h2>Kubens and kubectx alias</h2>
 <p><code>kubens</code> and <code>kubectx</code> is still quite verbose, so aliases can help.</p>

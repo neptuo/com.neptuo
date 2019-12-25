@@ -93,7 +93,7 @@
 <div class="container">
     <div class="folder blogpost">
         <blockquote>
-<p><a href="https://github.com/aspnet/Blazor">Blazor</a> is an experimental Web UI framework from Microsoft. There are plenty of posts about so I'm not going to describe it and I'm directly heading to my topic.</p>
+<p><a target="_blank" class="external-link" href="https://github.com/aspnet/Blazor">Blazor</a> is an experimental Web UI framework from Microsoft. There are plenty of posts about so I'm not going to describe it and I'm directly heading to my topic.</p>
 </blockquote>
 <p>When you create an empty Blazor application from template and run it, it simply shows &quot;Loading...&quot; while downloading whole the application to the browser. As it could be a (very) few megabytes, so it can be shown for a little while.</p>
 <p><img src="/Content/Images/Blog/blazor-boot-screen/basic.png" alt="Basic loading screen" /></p>
@@ -116,11 +116,11 @@
 &lt;/html&gt;
 </code></pre>
 <p>As you can see, the text is placed in <code>&lt;app&gt;</code> tags. This element is replaced once Blazor is bootstrapped. Anything you place between these tags will be shown between first page load and Blazor bootstrap finish.</p>
-<p>In our <a href="http://money.neptuo.com">Money - experimental outcome manager</a> - we have replaced the default text with this one.</p>
+<p>In our <a target="_blank" class="external-link" href="http://money.neptuo.com">Money - experimental outcome manager</a> - we have replaced the default text with this one.</p>
 <p><img src="/Content/Images/Blog/blazor-boot-screen/money.png" alt="Money loading screen" /></p>
 <p>Once bootstrap is finished and an application is loaded, it smoothly transitions to full layout.</p>
 <p><img src="/Content/Images/Blog/blazor-boot-screen/money-loaded.png" alt="Money loaded screen" /></p>
-<p>The source code (<a href="https://github.com/maraf/Money/blob/master/src/Money.UI.Blazor/wwwroot/index.html">taken from github</a>) looks like this:</p>
+<p>The source code (<a target="_blank" class="external-link" href="https://github.com/maraf/Money/blob/master/src/Money.UI.Blazor/wwwroot/index.html">taken from github</a>) looks like this:</p>
 <pre><code class="language-html">...
 &lt;body&gt;
     &lt;app&gt;
@@ -143,7 +143,7 @@
     &lt;/app&gt;
 ...
 </code></pre>
-<p>It is a simplified copy of Blazor main layout from <a href="https://github.com/maraf/Money/blob/master/src/Money.UI.Blazor/Shared/_Layout.cshtml">_layout.cshtml</a> and also server side <a href="https://github.com/maraf/Money/blob/master/src/Money.UI.Backend/Views/Shared/_Layout.cshtml">_layout.cshtml</a>.</p>
+<p>It is a simplified copy of Blazor main layout from <a target="_blank" class="external-link" href="https://github.com/maraf/Money/blob/master/src/Money.UI.Blazor/Shared/_Layout.cshtml">_layout.cshtml</a> and also server side <a target="_blank" class="external-link" href="https://github.com/maraf/Money/blob/master/src/Money.UI.Backend/Views/Shared/_Layout.cshtml">_layout.cshtml</a>.</p>
 <h3>A side note on replacing &lt;app&gt; tag</h3>
 <p>This tag is not replaced magically. The replacement is defined in <code>Program.cs</code> in method <code>Main</code> at the last line from template.</p>
 <div class="highlight csharp"><pre>

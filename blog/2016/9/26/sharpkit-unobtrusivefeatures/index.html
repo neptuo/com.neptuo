@@ -91,13 +91,13 @@
 
 <div class="container">
     <div class="folder blogpost">
-        <p>We really like developing client-side (web) applications using the same tools as the server-side. This started with <a href="http://www.gwtproject.org/">GWT</a>. After moving to C# we found <a href="http://sharpkit.net">SharpKit</a>, which allows compiling C# to javascript.</p>
+        <p>We really like developing client-side (web) applications using the same tools as the server-side. This started with <a target="_blank" class="external-link" href="http://www.gwtproject.org/">GWT</a>. After moving to C# we found <a target="_blank" class="external-link" href="http://sharpkit.net">SharpKit</a>, which allows compiling C# to javascript.</p>
 <p>SharpKit is super, not as GWT, but still super. But there are some things that irritate me and one of them is the need for referencing SharpKit libraries for defining export behavior. Also you can't simply share export location for the whole solution. When some assembly is exported to more than one file, you must decorate every type with <code>JsTypeAttribute</code> and define <code>Filename</code>.</p>
 <p>This plugin enables export to javascript without referencing any SharpKit library. The goal behide is to have reference-clear projects, that are &quot;shared&quot; between server and client.</p>
 <p>When developing client-side only library, typically UI, there is no need for removing reference to SharpKit. But when such library is re-used in the server project, defining export in SharpKit standard way requires reference to SharpKit, and so requires distributing this library with the server application and also loading the assembly to the AppDomain.</p>
 <p>This plugin enables exporting whole namespace to the specified file with single line in XML. This plugin enables inheriting definitions from parent directories. Define once, use on all projects in subdirectories.</p>
 <h2>How to use?</h2>
-<p>As any other SharpKit plugin, copy released asemblies (from <a href="https://github.com/maraf/SharpKit.UnobtrusiveFeatures/releases">Releases</a>) to the <code>C:\Windows\Microsoft.NET\Framework\v4.0.30319\SharpKit\5</code> and import SharpKit targets with plugin.</p>
+<p>As any other SharpKit plugin, copy released asemblies (from <a target="_blank" class="external-link" href="https://github.com/maraf/SharpKit.UnobtrusiveFeatures/releases">Releases</a>) to the <code>C:\Windows\Microsoft.NET\Framework\v4.0.30319\SharpKit\5</code> and import SharpKit targets with plugin.</p>
 <div class="highlight xml"><pre>
 &lt;<span class="element">Import</span> <span class="attribute">Project</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">$(MSBuildBinPath)\SharpKit\5\SharpKit.Build.targets</span><span class="quot">&quot;</span> <span class="string">/&gt;</span>
 &lt;<span class="element">ItemGroup</span>&gt;
@@ -109,7 +109,7 @@
 </pre></div>
 <h2>Unobtrusive export</h2>
 <p>With the UnobtrusiveFeatures plugin there is only XML configuration file and build targets import in the csproj. No reference required for defining export to the javascript.</p>
-<p>The configuration XML follows <a href="http://schemas.neptuo.com/xsd/sharpkit-unobtrusivefeatures.xsd">XSD</a> and so VisualStudio offers intellisense for it.</p>
+<p>The configuration XML follows <a target="_blank" class="external-link" href="http://schemas.neptuo.com/xsd/sharpkit-unobtrusivefeatures.xsd">XSD</a> and so VisualStudio offers intellisense for it.</p>
 <div class="highlight xml"><pre>
 &lt;<span class="element">UnobtrusiveFeatures</span> <span class="attribute">xmlns</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">http://schemas.neptuo.com/xsd/sharpkit-unobtrusivefeatures.xsd</span><span class="quot">&quot;</span>&gt;
     &lt;<span class="element">Export</span> <span class="attribute">Filename</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">Neptuo.js</span><span class="quot">&quot;</span> <span class="attribute">FilenameFormat</span><span class="string">=</span><span class="quot">&quot;</span><span class="string">~/bin/{0}</span><span class="quot">&quot;</span> <span class="string">/&gt;</span>
@@ -161,8 +161,8 @@
 
 </pre></div>
 <h2>Summary</h2>
-<p>So, export plugin simplifies javascript compilation. The constructor definitions are useful for IoC container or for reflection uses. The <code>IsAbstract</code> flag is always good to have. When talking about IoC container, <a href="https://github.com/neptuo/Framework/tree/master/src/Neptuo.Activators.Simple">in the Neptuo framework repository there is one (SharpKit and javascript compatible) implemented</a>. It supports both property and constructor injection.</p>
-<p>The <code>SharpKit.UnobtrusiveFeatures</code> is developed as open-source at <a href="http://github.com/maraf/SharpKit.UnobtrusiveFeatures">GitHub repo UnobtrusiveFeatures</a> where you can find more documentation.</p>
+<p>So, export plugin simplifies javascript compilation. The constructor definitions are useful for IoC container or for reflection uses. The <code>IsAbstract</code> flag is always good to have. When talking about IoC container, <a target="_blank" class="external-link" href="https://github.com/neptuo/Framework/tree/master/src/Neptuo.Activators.Simple">in the Neptuo framework repository there is one (SharpKit and javascript compatible) implemented</a>. It supports both property and constructor injection.</p>
+<p>The <code>SharpKit.UnobtrusiveFeatures</code> is developed as open-source at <a target="_blank" class="external-link" href="http://github.com/maraf/SharpKit.UnobtrusiveFeatures">GitHub repo UnobtrusiveFeatures</a> where you can find more documentation.</p>
 
     </div>
 

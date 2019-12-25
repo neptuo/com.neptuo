@@ -1,0 +1,327 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <title>Blazor and network status - Neptuo</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="/Content/Images/favicon.png" />
+
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="/Content/featherlight.min.css" rel="stylesheet" />
+    <link href="/Content/web.css" rel="stylesheet" />
+
+    <link rel="alternate" type="application/rss+xml" title="Neptuo Blog" href="https://www.neptuo.com/blog/atom.xml" />
+</head>
+<body>
+
+    <nav class="navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+            <button class="navbar-toggle">
+                <span class="glyphicon glyphicon-menu-hamburger"></span>
+            </button>
+
+            <ul class="left">
+                    <li>
+        <a href="/">
+            <div class="maintext">
+                Home
+                <span class="glyphicon glyphicon-home"></span>
+            </div>
+            <div class="subtext">How can we help you?</div>
+        </a>
+    </li>
+
+            </ul>
+            <ul class="right">
+                    <li>
+        <a href="/project">
+            <div class="maintext">
+                Projects
+                <span class="glyphicon glyphicon-cloud"></span>
+            </div>
+            <div class="subtext">Projects we are working on</div>
+        </a>
+    </li>
+
+                    <li>
+        <a href="/service">
+            <div class="maintext">
+                Services
+                <span class="glyphicon glyphicon-globe"></span>
+            </div>
+            <div class="subtext">Our services and references</div>
+        </a>
+    </li>
+
+                    <li class="active">
+        <a href="/blog">
+            <div class="maintext">
+                Blog
+                <span class="glyphicon glyphicon-bookmark"></span>
+            </div>
+            <div class="subtext">Thoughts to share</div>
+        </a>
+    </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="body">
+        <form>
+
+            
+
+<div class="intro important blogpost">
+    <div class="intro-content container">
+        <h1>Blazor and network status</h1>
+        <p>
+            
+      Making Blazor reusable component for PWA application that reacts to disconnection from the internet.
+    
+        </p>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="folder blogpost">
+        <p>When building a <a target="_blank" class="external-link" href="https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps">PWA</a>, which can work offline, it is helpful to know the current status. In <a target="_blank" class="external-link" href="https://money.neptuo.com">Money app</a> we implemented a simplified bag for storing expenses when a user is offline.</p>
+<blockquote>
+<p>Yes, it is true that we can do much better, but it requires a bigger change and kind of synchronization for CQRS, wich is not so easy in my eyes. So simplified offline UI for now.</p>
+</blockquote>
+<p>There is a quite simple <a target="_blank" class="external-link" href="https://developer.mozilla.org/en-US/docs/Web/API/NavigatorOnLine/Online_and_offline_events">online/offline API in javascript</a>. In the rest of this post, I'm going to show you how to consume it from <a target="_blank" class="external-link" href="https://github.com/aspnet/Blazor">Blazor</a>.</p>
+<h2>Component</h2>
+<p>Let's start for the end, here is a typical usage of the resulting component we want build.</p>
+<pre><code class="language-html">...
+
+&lt;Network&gt;
+    &lt;Online&gt;
+        ✅ We are live.
+    &lt;/Online&gt;
+    &lt;Offline&gt;
+        ❌ Sorry, but the internet is gone.
+    &lt;/Offline&gt;
+&lt;/Network&gt;
+
+...
+</code></pre>
+<p>Razor template for this component is really simple.</p>
+<div class="highlight csharp"><pre>
+@<span class="keyword">if</span> (IsOnline)
+{
+    @Online
+}
+<span class="keyword">else</span> 
+{
+    @Offline
+}
+
+</pre></div>
+<p>Because it might be usable to have a service that other components can inject to get the information about the network status, most of the &quot;code-behind&quot; for the <code>&lt;Network /&gt;</code> component just consumes the service <code>NetworkState</code>.</p>
+<div class="highlight csharp"><pre>
+<span class="keyword">public</span> <span class="keyword">partial</span> <span class="keyword">class</span> <span class="identifier">Network</span> : IDisposable
+{
+    [Inject]
+    <span class="keyword">internal</span> NetworkState <span class="identifier">State</span> { <span class="keyword">get</span>; <span class="keyword">set</span>; }
+
+    [Parameter]
+    <span class="keyword">public</span> RenderFragment <span class="identifier">Online</span> { <span class="keyword">get</span>; <span class="keyword">set</span>; }
+
+    [Parameter]
+    <span class="keyword">public</span> RenderFragment <span class="identifier">Offline</span> { <span class="keyword">get</span>; <span class="keyword">set</span>; }
+
+    <span class="keyword">protected</span> <span class="keyword">bool</span> <span class="identifier">IsOnline</span> =&gt; State.IsOnline;
+
+    <span class="keyword">protected</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="identifier">OnInitialized</span>()
+    {
+        <span class="keyword">base</span>.OnInitialized();
+
+        State.StatusChanged += StateHasChanged;
+    }
+
+    <span class="keyword">public</span> <span class="keyword">void</span> <span class="identifier">Dispose</span>()
+    {
+        State.StatusChanged -= StateHasChanged;
+    }
+}
+
+</pre></div>
+<p>The component class declares parameters, injects the service and subscribes on the status chage event. Also it implements a <code>IDisposable</code> to unsubscribe from the event when removed from the UI.</p>
+<h2>Service</h2>
+<p>As we saw in the <code>&lt;Network /&gt;</code> component, the service serves two purposes:</p>
+<ul>
+<li>Get a current status.</li>
+<li>Get a notification when the status changes.</li>
+</ul>
+<div class="highlight csharp"><pre>
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">NetworkState</span>
+{
+    <span class="keyword">public</span> <span class="keyword">event</span> Action StatusChanged;
+
+    <span class="keyword">public</span> NetworkState(IJSRuntime jsRuntime)
+        =&gt; jsRuntime.InvokeVoidAsync(<span class="string">&quot;Network.Initialize&quot;</span>, DotNetObjectReference.Create(<span class="keyword">this</span>));
+
+    [JSInvokable(<span class="string">&quot;Network.StatusChanged&quot;</span>)]
+    <span class="keyword">public</span> <span class="keyword">void</span> <span class="identifier">OnStatusChanged</span>(<span class="keyword">bool</span> isOnline)
+    {
+        <span class="keyword">if</span> (IsOnline != isOnline)
+        {
+            IsOnline = isOnline;
+            StatusChanged?.Invoke();
+        }
+    }
+
+    <span class="keyword">public</span> <span class="keyword">bool</span> <span class="identifier">IsOnline</span> { <span class="keyword">get</span>; <span class="keyword">protected</span> <span class="keyword">set</span>; } = <span class="constant">true</span>;
+}
+
+</pre></div>
+<p>The code is just a C# wrapper around native javascript API. It calls a javascript function in the constructor to bind to javascript events and get the current state. Passing <code>this</code> to the javascript allows it to be called back when there is a change. The function that can be called is <code>OnStatusChanged</code> (marked as <code>[JSInvokable]</code>). It just checks if there is really a change and if it fires the event.</p>
+<blockquote>
+<p>As you will see bellow, this class indirectly binds to javascript events. I'm using this class as a singleton, because it fits well for this kind of a service. If you want other lifecycle (transient or scoped), just implement a <code>IDisposable</code> and call javascript interop to unbind from events.</p>
+</blockquote>
+<h2>Javascript (interop)</h2>
+<p>Lastly, this is the javascript for getting network information.</p>
+<div class="highlight javascript"><pre>
+window.Network = {
+    Initialize: <span class="keyword">function</span> (interop) {
+        <span class="keyword">function</span> handler() {
+            interop.invokeMethodAsync(<span class="string">&quot;Network.StatusChanged&quot;</span>, navigator.onLine);
+        }
+
+        window.addEventListener(<span class="string">&#39;online&#39;</span>, handler);
+        window.addEventListener(<span class="string">&#39;offline&#39;</span>, handler);
+
+        <span class="keyword">if</span> (!navigator.onLine) {
+            handler(navigator.onLine);
+        }
+    }
+};
+
+</pre></div>
+<p>It's very simple. It declares a function to be called when DOM &quot;online&quot; or &quot;offline&quot; event is fired. This function uses passed .NET object (an object reference holding the instance of the <code>NetworkState</code>), calls its JSInvokable method and passes current network status.</p>
+<p>Lastly, it raises the handler if the current status offline (because the <code>NetworkState</code> service optimistically expects we are online - see the last line of the <code>NetworkState</code>).</p>
+<h2>Summary</h2>
+<p>That's is it. Blazor makes it really easy to create a reusable components and if they serve a single purpose (<a target="_blank" class="external-link" href="https://en.wikipedia.org/wiki/Single_responsibility_principle">SRP</a>), you can easily share them between projects.</p>
+<h2>Related files</h2>
+<ul>
+<li><a target="_blank" class="external-link" href="https://github.com/maraf/Money/blob/e35ed6debbfde50c8aebaa504a2f24a0cebc55c7/src/Money.UI.Blazor/Components/Network.razor">Network.razor</a></li>
+<li><a target="_blank" class="external-link" href="https://github.com/maraf/Money/blob/e35ed6debbfde50c8aebaa504a2f24a0cebc55c7/src/Money.UI.Blazor/Components/Network.razor.cs">Network.razor.cs</a></li>
+<li><a target="_blank" class="external-link" href="https://github.com/maraf/Money/blob/e35ed6debbfde50c8aebaa504a2f24a0cebc55c7/src/Money.UI.Blazor/wwwroot/js/site.js#L20-L33">Network part in site.js</a></li>
+</ul>
+
+    </div>
+
+    <div class="folder">
+        <div class="left">
+            Posted on 2019-12-25
+        </div>
+        <div class="right">
+            Written by <a target="_blank" rel="nofollow" href="https://github.com/maraf">Maraf</a>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+        <div class="folder">
+            <div class="comment-heading">
+                <h3>
+                    <span class="hidden">Comments</span>
+                    <span class="glyphicon glyphicon-comment"></span>
+                </h3>
+            
+                To leave a comment, please sign-in at GitHub and
+                <a href="https://github.com/neptuo/com.neptuo/issues/46" target="_blank">
+                    comment on the issue associated with this post.
+                </a>
+            </div>
+            <div id="comments"></div>
+        </div>
+</div>
+
+
+
+
+        </form>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="left">
+                <span>Neptuo &copy; 2010 - 2016</span>
+                
+            </div>
+            <div class="right">
+                <span>Created by <a target="_blank" href="https://mara.neptuo.com">Marek Fišera</a></span>
+                
+            </div>
+            <div class="center">
+                
+    <span><a href="/blog/atom.xml">Atom</a></span>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    </footer>
+
+    <script src="/Scripts/jquery-1.9.1.js"></script>
+    <script src="/Scripts/featherlight.min.js"></script>
+    <script>
+
+        function onSwitcherClicked(e) {
+            var folder = this.parentElement.parentElement;
+            folder.classList.toggle('folder-collapsed');
+        }
+
+        var switchers = document.querySelectorAll('.folder-switch');
+        for (var i = 0; i < switchers.length; i++) {
+            var switcher = switchers[i];
+            switcher.addEventListener('click', onSwitcherClicked);
+        }
+
+        var navbarToggle = document.querySelector("button.navbar-toggle");
+        if (navbarToggle != null) {
+            navbarToggle.addEventListener('click', function (e) {
+                var navbar = document.querySelector("nav");
+                navbar.classList.toggle('navbar-expanded');
+            });
+        }
+
+    </script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-12031460-1', 'auto');
+    </script>
+        <script>
+            ga('send', 'pageview');
+        </script>
+    
+
+        <script src="/Scripts/blogcomments.js"></script>
+        <script>
+
+            load("https://api.github.com/repos/neptuo/com.neptuo/issues/46/comments");
+
+        </script>
+
+    <script type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "url": "http://www.neptuo.com",
+        "logo": "/Content/Images/Logo-220.png"
+        }
+    </script>
+    <!-- <img src="/Content/Images/favicon.png" /> -->
+</body>
+</html>

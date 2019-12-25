@@ -4,7 +4,7 @@
     <title>Neptuo Blog</title>
     <link href="http://www.neptuo.com/blog/atom.xml" rel="self" />
     <link href="http://www.neptuo.com/blog/" />
-    <updated>2019-12-17 20:56:44</updated>
+    <updated>2019-12-25 18:37:04</updated>
     <id>http://www.neptuo.com/blog/</id>
     <author>
         <name>maraf</name>
@@ -115,5 +115,12 @@
             <updated>2019-12-17</updated>
             <id>http://www.neptuo.com/blog/2019/12/kubctl-optimization</id>
             <content type="html">How to save your fingers when managing kubernetes cluster with commnand line tool kubectl.</content>
+        </entry>
+        <entry>
+            <title>Blazor and network status</title>
+            <link href="http://www.neptuo.com/blog/2019/12/blazor-network-status" />
+            <updated>2019-12-25</updated>
+            <id>http://www.neptuo.com/blog/2019/12/blazor-network-status</id>
+            <content type="html">Making Blazor reusable component for PWA application that reacts to disconnection from the internet.</content>
         </entry>
 </feed>

@@ -91,7 +91,7 @@
 
 <div class="container">
     <div class="folder blogpost">
-        <p>Sometimes I want to prevent from closing windows using <code>Alt+F4</code>. It's quite a rate case when I want the window to be closeable (so I can't bind to <code>Window.Closing</code> event and stop it), but I want to disable the <code>Alt+F4</code>. One of these scenarios is my clock showing window, a part of the <a href="https://www.neptuo.com/project/desktop/winrun">WinRun application</a>.</p>
+        <p>Sometimes I want to prevent from closing windows using <code>Alt+F4</code>. It's quite a rate case when I want the window to be closeable (so I can't bind to <code>Window.Closing</code> event and stop it), but I want to disable the <code>Alt+F4</code>. One of these scenarios is my clock showing window, a part of the <a target="_blank" class="external-link" href="https://www.neptuo.com/project/desktop/winrun">WinRun application</a>.</p>
 <p><img src="/Content/Images/Blog/wpf-preventing-alt-f4/winrun-clock.png" alt="WinRun clock showing window" /></p>
 <p>It's not a typical window. It basically acts like a live part of the desktop. It should almost be non-focusable. I'm using <code>Esc</code> to hide it, but sometimes, when it is the last opened window and I want to shutdown the computer using <code>Alt+F4</code>, invoked on the desktop, and instead of having focus on the dekstop I have focus on the clock window. It closes the window... Damn!</p>
 <h3>The code</h3>

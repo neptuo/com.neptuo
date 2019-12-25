@@ -92,9 +92,9 @@
 <div class="container">
     <div class="folder blogpost">
         <blockquote>
-<p><a href="https://github.com/aspnet/Blazor">Blazor</a> is an experimental Web UI framework from Microsoft. There are plenty of posts about so I'm not going to describe it and I'm directly heading to my topic.</p>
+<p><a target="_blank" class="external-link" href="https://github.com/aspnet/Blazor">Blazor</a> is an experimental Web UI framework from Microsoft. There are plenty of posts about so I'm not going to describe it and I'm directly heading to my topic.</p>
 </blockquote>
-<p>Recently I was implementing <a href="https://github.com/maraf/Money/issues/149">confirmation dialogs before deleting</a> an item.</p>
+<p>Recently I was implementing <a target="_blank" class="external-link" href="https://github.com/maraf/Money/issues/149">confirmation dialogs before deleting</a> an item.</p>
 <p><img src="/Content/Images/Blog/blazor-component-parameters/confirm.png" alt="Confirm Dialog in Action" /></p>
 <p>As such dialog should be always the same except for message, I have created a component:</p>
 <pre><code class="language-html">&lt;Confirm Message=&quot;@DeleteCategoryMessage?&quot; YesClick=&quot;OnDeleteConfirmed&quot; bind-IsVisible=&quot;@IsDeleteConfirmVisible&quot; /&gt;
@@ -128,7 +128,7 @@ Then I realized I can refactor it to a class and then I realized I can pass this
 <p>So the final component usage is:</p>
 <pre><code>&lt;Confirm Context=&quot;@Delete&quot; /&gt;
 </code></pre>
-<p>In codebehind I only need to create instance of <a href="https://github.com/maraf/Money/blob/master/src/Money.UI.Blazor/Models/Confirmation/DeleteContext.cs">DeleteContext</a> class:</p>
+<p>In codebehind I only need to create instance of <a target="_blank" class="external-link" href="https://github.com/maraf/Money/blob/master/src/Money.UI.Blazor/Models/Confirmation/DeleteContext.cs">DeleteContext</a> class:</p>
 <div class="highlight csharp"><pre>
 <span class="keyword">protected</span> DeleteContext&lt;CategoryModel&gt; Delete { <span class="keyword">get</span>; }
 
@@ -150,10 +150,10 @@ Then I realized I can refactor it to a class and then I realized I can pass this
 <p>Until last week I have never tough about passing complex objects to components, but it works so easily.
 The complete solution can be found in these files:</p>
 <ul>
-<li><a href="https://github.com/maraf/Money/blob/master/src/Money.UI.Blazor/Components/Confirm.cshtml">Confirm</a> - UI component using Bootstrap modal to show confirmation dialogs.</li>
-<li><a href="https://github.com/maraf/Money/blob/master/src/Money.UI.Blazor/Models/Confirmation/DeleteContext.cs">DeleteContext</a> - model containing boilerplate code for deleting with confirmation.</li>
-<li><a href="https://github.com/maraf/Money/blob/master/src/Money.UI.Blazor/Models/Confirmation/ConfirmContext.cs">ConfirmContext</a> - abstract base class required by <code>Confirm</code> component.</li>
-<li><a href="https://github.com/maraf/Money/blob/master/src/Money.UI.Blazor/Pages/CategoriesBase.cs">CategoriesBase</a> - typical usage.</li>
+<li><a target="_blank" class="external-link" href="https://github.com/maraf/Money/blob/master/src/Money.UI.Blazor/Components/Confirm.cshtml">Confirm</a> - UI component using Bootstrap modal to show confirmation dialogs.</li>
+<li><a target="_blank" class="external-link" href="https://github.com/maraf/Money/blob/master/src/Money.UI.Blazor/Models/Confirmation/DeleteContext.cs">DeleteContext</a> - model containing boilerplate code for deleting with confirmation.</li>
+<li><a target="_blank" class="external-link" href="https://github.com/maraf/Money/blob/master/src/Money.UI.Blazor/Models/Confirmation/ConfirmContext.cs">ConfirmContext</a> - abstract base class required by <code>Confirm</code> component.</li>
+<li><a target="_blank" class="external-link" href="https://github.com/maraf/Money/blob/master/src/Money.UI.Blazor/Pages/CategoriesBase.cs">CategoriesBase</a> - typical usage.</li>
 </ul>
 
     </div>

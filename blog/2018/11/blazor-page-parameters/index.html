@@ -92,9 +92,9 @@
 <div class="container">
     <div class="folder blogpost">
         <blockquote>
-<p><a href="https://github.com/aspnet/Blazor">Blazor</a> is an experimental Web UI framework from Microsoft. There are plenty of posts about so I'm not going to describe it and I'm directly heading to my topic.</p>
+<p><a target="_blank" class="external-link" href="https://github.com/aspnet/Blazor">Blazor</a> is an experimental Web UI framework from Microsoft. There are plenty of posts about so I'm not going to describe it and I'm directly heading to my topic.</p>
 </blockquote>
-<p>Today I was implementing <a href="https://github.com/maraf/Money/issues/124">URL update when month is selected in Money summary</a>.</p>
+<p>Today I was implementing <a target="_blank" class="external-link" href="https://github.com/maraf/Money/issues/124">URL update when month is selected in Money summary</a>.</p>
 <p><img src="/Content/Images/Blog/blazor-page-parameters/tabs.png" alt="Money Summary" /></p>
 <p>Idea is that when a user selects a tab, it updates the URL, and when he navigates back and forward, it works like the &quot;web&quot;.</p>
 <p><img src="/Content/Images/Blog/blazor-page-parameters/tabs-done.png" alt="Money Summary" /></p>
@@ -105,7 +105,7 @@
 <p>By a mistake I created a standard link and passed click on it to the Blazor. And nothing happend. After a while I found that I was loading data in <code>OnInitAsync</code> and that this method wasn't invoked.</p>
 <p>So I tried to move data loading into <code>OnParametersSetAsync</code> and it started to work! When a page links to itself, Blazor doesn't create a new instance of page/component, it reuses the current one and passes it a new set of parameters.</p>
 <h3>A small bug</h3>
-<p>There is a small bug the current version (v0.6.0) which is tracked in <a href="https://github.com/aspnet/Blazor/issues/1108">aspnet/blazor#1108</a>. The parameters are not cleared when they are not present in a new link.
+<p>There is a small bug the current version (v0.6.0) which is tracked in <a target="_blank" class="external-link" href="https://github.com/aspnet/Blazor/issues/1108">aspnet/blazor#1108</a>. The parameters are not cleared when they are not present in a new link.
 Let's show it on a sample. I have two routes in the summary page:</p>
 <pre><code>@page &quot;/&quot;
 @page &quot;/{Year}/{Month}&quot;
@@ -135,8 +135,8 @@ A current workaround is to clear these properties before parameter binding.</p>
 </pre></div>
 <h2>Related files:</h2>
 <ul>
-<li><a href="https://github.com/maraf/Money/blob/master/src/Money.UI.Blazor/Pages/Summary.cshtml">Summary.cshtml</a> - UI for the summary page.</li>
-<li><a href="https://github.com/maraf/Money/blob/master/src/Money.UI.Blazor/Pages/SummaryBase.cs">SummaryBase.cs</a> - Codebehind for the summary page.</li>
+<li><a target="_blank" class="external-link" href="https://github.com/maraf/Money/blob/master/src/Money.UI.Blazor/Pages/Summary.cshtml">Summary.cshtml</a> - UI for the summary page.</li>
+<li><a target="_blank" class="external-link" href="https://github.com/maraf/Money/blob/master/src/Money.UI.Blazor/Pages/SummaryBase.cs">SummaryBase.cs</a> - Codebehind for the summary page.</li>
 </ul>
 
     </div>
