@@ -171,4 +171,15 @@
     <Author>Maraf</Author>
     <GitHubCommentPath>neptuo/com.neptuo/issues/46</GitHubCommentPath>
   </Post>
+  <Post>
+    <Title>Blazor and the magic of App.razor</Title>
+    <Description>
+      Do you think the App.razor is only a placeholder (as I tought for a long time)?
+    </Description>
+    <Url>blazor-app-razor</Url>
+    <FilePath>~/App_Data/Blog/blazor-app-razor.md</FilePath>
+    <ReleaseDate>2020-03-24</ReleaseDate>
+    <Author>Maraf</Author>
+    <GitHubCommentPath>neptuo/com.neptuo/issues/48</GitHubCommentPath>
+  </Post>
 </Posts>
