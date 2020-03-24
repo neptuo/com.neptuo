@@ -174,7 +174,7 @@
   <Post>
     <Title>Blazor and the magic of App.razor</Title>
     <Description>
-      Do you think the App.razor is only a placeholder (as I tought for a long time)?
+      Do you think the App.razor is only a placeholder (as I thought for a long time)?
     </Description>
     <Url>blazor-app-razor</Url>
     <FilePath>~/App_Data/Blog/blazor-app-razor.md</FilePath>
