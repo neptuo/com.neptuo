@@ -1,0 +1,315 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <title>Blazor and the magic of App.razor - Neptuo</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="/Content/Images/favicon.png" />
+
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="/Content/featherlight.min.css" rel="stylesheet" />
+    <link href="/Content/web.css" rel="stylesheet" />
+
+    <link rel="alternate" type="application/rss+xml" title="Neptuo Blog" href="https://www.neptuo.com/blog/atom.xml" />
+</head>
+<body>
+
+    <nav class="navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+            <button class="navbar-toggle">
+                <span class="glyphicon glyphicon-menu-hamburger"></span>
+            </button>
+
+            <ul class="left">
+                    <li>
+        <a href="/">
+            <div class="maintext">
+                Home
+                <span class="glyphicon glyphicon-home"></span>
+            </div>
+            <div class="subtext">How can we help you?</div>
+        </a>
+    </li>
+
+            </ul>
+            <ul class="right">
+                    <li>
+        <a href="/project">
+            <div class="maintext">
+                Projects
+                <span class="glyphicon glyphicon-cloud"></span>
+            </div>
+            <div class="subtext">Projects we are working on</div>
+        </a>
+    </li>
+
+                    <li>
+        <a href="/service">
+            <div class="maintext">
+                Services
+                <span class="glyphicon glyphicon-globe"></span>
+            </div>
+            <div class="subtext">Our services and references</div>
+        </a>
+    </li>
+
+                    <li class="active">
+        <a href="/blog">
+            <div class="maintext">
+                Blog
+                <span class="glyphicon glyphicon-bookmark"></span>
+            </div>
+            <div class="subtext">Thoughts to share</div>
+        </a>
+    </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="body">
+        <form>
+
+            
+
+<div class="intro important blogpost">
+    <div class="intro-content container">
+        <h1>Blazor and the magic of App.razor</h1>
+        <p>
+            
+      Do you think the App.razor is only a placeholder (as I tought for a long time)?
+    
+        </p>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="folder blogpost">
+        <p>For almost two years of playing with Blazor, <code>App.razor</code> (originally <code>App.cshtml</code>) was just a required placeholder to make the application work. This year I have found that it can be really useful and you can realize many application-wide concepts in there.</p>
+<h2>A bit of theory</h2>
+<p>What is <code>App.razor</code> and how does it work? Well, Blazor has concept of &quot;root components&quot; and they are registered in <code>Program.cs</code>.</p>
+<div class="highlight csharp"><pre>
+...
+
+builder.RootComponents.Add&lt;App&gt;(<span class="string">&quot;app&quot;</span>);
+
+...
+
+
+</pre></div>
+<p>A typical line. What it does is that it registers a Blazor component <code>App</code> to be matched with <code>&quot;App&quot;</code>. What is this string literal? Well, you have it your <code>index.html</code>.</p>
+<pre><code class="language-html">...
+&lt;body&gt;
+    &lt;app&gt;
+        Loading...
+    &lt;/app&gt;
+&lt;/body&gt;
+...
+
+</code></pre>
+<p>Yes. Root component registrations map HTML elements from your <code>index.html</code> to Blazor components. This is the bootstrap of your application. You can have as many root components as you want.</p>
+<h2>A default content</h2>
+<p>Now that we know how these root components work, let's look at the typical content of <code>App</code> component.</p>
+<pre><code class="language-html">&lt;Router AppAssembly=&quot;typeof(Program).Assembly&quot;&gt;
+    &lt;Found Context=&quot;routeData&quot;&gt;
+        &lt;RouteView RouteData=&quot;routeData&quot; /&gt;
+    &lt;/Found&gt;
+    &lt;NotFound&gt;
+        Sorry, there's nothing at this address.
+    &lt;/NotFound&gt;
+&lt;/Router&gt;
+
+</code></pre>
+<p>If I simplify it a bit, it uses <code>Router</code> component to parse URL into <code>routeData</code> and if there is a match, it uses <code>RouteView</code> component to dynamicly display a mapped component. Otherwise it shows &quot;Not found&quot; content.</p>
+<p>Ok. When authentication arrived into the Blazor framework, content of the default <code>App.razor</code> changed a bit.</p>
+<pre><code class="language-html">&lt;CascadingAuthenticationState&gt;
+    &lt;Router AppAssembly=&quot;@typeof(Program).Assembly&quot;&gt;
+        &lt;Found Context=&quot;routeData&quot;&gt;
+            &lt;AuthorizeRouteView RouteData=&quot;@routeData&quot; DefaultLayout=&quot;@typeof(MainLayout)&quot;&gt;
+                &lt;NotAuthorized&gt;
+                    Sorry, your are not authorized to view this page.
+                &lt;/NotAuthorized&gt;
+            &lt;/AuthorizeRouteView&gt;
+        &lt;/Found&gt;
+        &lt;NotFound&gt;
+            Sorry, there's nothing at this address.
+        &lt;/NotFound&gt;
+    &lt;/Router&gt;
+&lt;/CascadingAuthenticationState&gt;
+
+</code></pre>
+<p>Now, all content is wrapped in <code>CascadingAuthenticationState</code> component just to provide an instance of <code>AuthenticationState</code>. More importantly from the point of view of this post, <code>RouteView</code> is swapped by <code>AuthorizeRouteView</code> and if the user is not authorized, a &quot;Not authorized&quot; content is shown.</p>
+<p><strong>Do you see the pattern?</strong> Anytime you want to do something application wide, <code>App</code> component is the place to implement it. It doesn't matter on what URL the user is, it applies everywhere.</p>
+<h2>How are we using it now?</h2>
+<p>A snippet of <code>App.razor</code> from the <a target="_blank" class="external-link" href="http://github.com/maraf/Money">Money app</a>.</p>
+<pre><code class="language-html">&lt;CascadingAuthenticationState&gt;
+    &lt;Router AppAssembly=&quot;@typeof(Program).Assembly&quot;&gt;
+        &lt;Found Context=&quot;routeData&quot;&gt;
+            &lt;Network&gt;
+                &lt;Online&gt;
+                    &lt;VersionChecker&gt;
+                        &lt;ApiHubConnectionChecker&gt;
+                            &lt;AuthorizeRouteView RouteData=&quot;routeData&quot; DefaultLayout=&quot;typeof(Layout)&quot;&gt;
+                                &lt;NotAuthorized&gt;
+                                    &lt;Login /&gt;
+                                &lt;/NotAuthorized&gt;
+                                &lt;Authorizing&gt;
+                                    &lt;AuthorizationProgress /&gt;
+                                &lt;/Authorizing&gt;
+                            &lt;/AuthorizeRouteView&gt;
+                        &lt;/ApiHubConnectionChecker&gt;
+                    &lt;/VersionChecker&gt;
+                &lt;/Online&gt;
+                &lt;Offline&gt;
+                    &lt;LayoutView Layout=&quot;@typeof(Layout)&quot;&gt;
+                        &lt;ExpenseBag /&gt;
+                    &lt;/LayoutView&gt;
+                &lt;/Offline&gt;
+            &lt;/Network&gt;
+        &lt;/Found&gt;
+        &lt;NotFound&gt;
+            &lt;LayoutView Layout=&quot;@typeof(Layout)&quot;&gt;
+                &lt;NotFound /&gt;
+            &lt;/LayoutView&gt;
+        &lt;/NotFound&gt;
+    &lt;/Router&gt;
+&lt;/CascadingAuthenticationState&gt;
+
+</code></pre>
+<p>A lot of content. We are using standard <code>CascadingAuthenticationState</code>, <code>Router</code> and <code>AuthorizeRouteView</code>.</p>
+<p>What we have added is:</p>
+<h3>Network status</h3>
+<p>As Money app has some basic offline behavior, we have wrapped <code>AuthorizeRouteView</code> in <code>Network</code> component to check current status and if the user is offline, we display a simplified (means different) UI. This offline UI allows only creation of expsenses. Other functionalities are not supported for now.</p>
+<h3>Version compatibility checking</h3>
+<p>When we added an offline support, a next category of problems appeared. The user can have an older version, we need to ensure that the client app and api versions are aligned. So we are sending the API version in every server response and if incompatibility is detected, the <code>VersionChecker</code> component stops rendering the usual content and a message is displayed instead.</p>
+<h3>SignalR status</h3>
+<p>As the application is implemented using CQRS, we need background SignalR connection to get notifications about changes (= events). If this connection is interrupted, the state of the application might not be correct. So we need to inform the user that something is not working as it should. As with the <code>VersionChecker</code> component, the <code>ApiHubConnectionChecker</code> also displays an error content when something is wrong.</p>
+<h2>Summary</h2>
+<p>For almost two years I completly ignored the <code>App.razor</code>, now I look at it as powerful tool. I'm also working on a non-open project, which is truly single-page app. There are no URLs because based on the global app state, only one screen is valid for all users. Gues what... everything is happening in the <code>App.razor</code>.</p>
+<blockquote>
+<p>When I'm saying 'everything', I mean the <code>App.razor</code> uses plenty of components, but nothing &quot;magical&quot; as routing happens (all components are directly used inside razor files, no &quot;dynamic&quot; loading).</p>
+</blockquote>
+<h3>Referenced files from Money app</h3>
+<ul>
+<li><a target="_blank" class="external-link" href="https://github.com/maraf/Money/tree/c2e058ea19e47a3fd8c47f4e19a807751c1aeef0/src/Money.UI.Blazor/App.razor">App.razor</a></li>
+<li><a target="_blank" class="external-link" href="https://github.com/maraf/Money/tree/c2e058ea19e47a3fd8c47f4e19a807751c1aeef0/src/Money.UI.Blazor/Components/Network.razor">Network.razor</a></li>
+<li><a target="_blank" class="external-link" href="https://github.com/maraf/Money/tree/c2e058ea19e47a3fd8c47f4e19a807751c1aeef0/src/Money.UI.Blazor/Pages/ApiHubConnectionChecker.razor">ApiHubConnectionChecker.razor</a></li>
+<li><a target="_blank" class="external-link" href="https://github.com/maraf/Money/tree/c2e058ea19e47a3fd8c47f4e19a807751c1aeef0/src/Money.UI.Blazor/Pages/VersionChecker.razor">VersionChecker.razor</a></li>
+</ul>
+
+    </div>
+
+    <div class="folder">
+        <div class="left">
+            Posted on 2020-03-24
+        </div>
+        <div class="right">
+            Written by <a target="_blank" rel="nofollow" href="https://github.com/maraf">Maraf</a>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+        <div class="folder">
+            <div class="comment-heading">
+                <h3>
+                    <span class="hidden">Comments</span>
+                    <span class="glyphicon glyphicon-comment"></span>
+                </h3>
+            
+                To leave a comment, please sign-in at GitHub and
+                <a href="https://github.com/neptuo/com.neptuo/issues/48" target="_blank">
+                    comment on the issue associated with this post.
+                </a>
+            </div>
+            <div id="comments"></div>
+        </div>
+</div>
+
+
+
+
+        </form>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="left">
+                <span>Neptuo &copy; 2010 - 2016</span>
+                
+            </div>
+            <div class="right">
+                <span>Created by <a target="_blank" href="https://mara.neptuo.com">Marek Fišera</a></span>
+                
+            </div>
+            <div class="center">
+                
+    <span><a href="/blog/atom.xml">Atom</a></span>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    </footer>
+
+    <script src="/Scripts/jquery-1.9.1.js"></script>
+    <script src="/Scripts/featherlight.min.js"></script>
+    <script>
+
+        function onSwitcherClicked(e) {
+            var folder = this.parentElement.parentElement;
+            folder.classList.toggle('folder-collapsed');
+        }
+
+        var switchers = document.querySelectorAll('.folder-switch');
+        for (var i = 0; i < switchers.length; i++) {
+            var switcher = switchers[i];
+            switcher.addEventListener('click', onSwitcherClicked);
+        }
+
+        var navbarToggle = document.querySelector("button.navbar-toggle");
+        if (navbarToggle != null) {
+            navbarToggle.addEventListener('click', function (e) {
+                var navbar = document.querySelector("nav");
+                navbar.classList.toggle('navbar-expanded');
+            });
+        }
+
+    </script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-12031460-1', 'auto');
+    </script>
+        <script>
+            ga('send', 'pageview');
+        </script>
+    
+
+        <script src="/Scripts/blogcomments.js"></script>
+        <script>
+
+            load("https://api.github.com/repos/neptuo/com.neptuo/issues/48/comments");
+
+        </script>
+
+    <script type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "url": "http://www.neptuo.com",
+        "logo": "/Content/Images/Logo-220.png"
+        }
+    </script>
+    <!-- <img src="/Content/Images/favicon.png" /> -->
+</body>
+</html>

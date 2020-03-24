@@ -4,7 +4,7 @@
     <title>Neptuo Blog</title>
     <link href="http://www.neptuo.com/blog/atom.xml" rel="self" />
     <link href="http://www.neptuo.com/blog/" />
-    <updated>2019-12-25 18:37:04</updated>
+    <updated>2020-03-24 09:30:01</updated>
     <id>http://www.neptuo.com/blog/</id>
     <author>
         <name>maraf</name>
@@ -122,5 +122,12 @@
             <updated>2019-12-25</updated>
             <id>http://www.neptuo.com/blog/2019/12/blazor-network-status</id>
             <content type="html">Making Blazor reusable component for PWA application that reacts to disconnection from the internet.</content>
+        </entry>
+        <entry>
+            <title>Blazor and the magic of App.razor</title>
+            <link href="http://www.neptuo.com/blog/2020/03/blazor-app-razor" />
+            <updated>2020-03-24</updated>
+            <id>http://www.neptuo.com/blog/2020/03/blazor-app-razor</id>
+            <content type="html">Do you think the App.razor is only a placeholder (as I tought for a long time)?</content>
         </entry>
 </feed>
