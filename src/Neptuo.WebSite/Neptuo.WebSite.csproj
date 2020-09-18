@@ -288,8 +288,10 @@
     <Content Include="Content\Images\References\kamelibo.jpg" />
     <Content Include="Content\Images\References\lfplovo.jpg" />
     <Content Include="Content\Images\References\papayateam.jpg" />
+    <Content Include="Content\Images\References\saem.png" />
     <Content Include="Content\Images\References\school.jpg" />
     <Content Include="Content\Images\References\superliga.jpg" />
+    <Content Include="Content\Images\References\syndre.png" />
     <Content Include="Content\Images\References\zs.jpg" />
     <Content Include="Content\Images\References\zus.jpg" />
     <None Include="Content\Stylesheet\ie.scss" />

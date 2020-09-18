@@ -1,6 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Webs>
   <Web>
+    <Title>Syndre Holding Company s.r.o.</Title>
+    <Link>http://www.syndre.com</Link>
+    <Previews>
+      <Preview Link="~/Content/Images/References/syndre.png" />
+    </Previews>
+    <Descriptions>
+      <Description>
+        <Cs>Webová prezentace, čtyři jazykové verze.</Cs>
+        <En>Web presentation, four language versions.</En>
+      </Description>
+      <Description>
+        <Cs>Moderní jednostránkový design.</Cs>
+        <En>Modern single page layout.</En>
+      </Description>
+      <Description>
+        <Cs>Redakční systém is4wfw.</Cs>
+        <En>Content management system is4wfw.</En>
+      </Description>
+    </Descriptions>
+  </Web>
+  <Web>
     <Title>ATELIER SAEM, s.r.o.</Title>
     <Link>http://www.saem.cz</Link>
     <Previews>
