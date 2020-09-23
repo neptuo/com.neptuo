@@ -4,7 +4,7 @@
     <title>Neptuo Blog</title>
     <link href="http://www.neptuo.com/blog/atom.xml" rel="self" />
     <link href="http://www.neptuo.com/blog/" />
-    <updated>2020-09-18 08:01:52</updated>
+    <updated>2020-09-23 08:43:00</updated>
     <id>http://www.neptuo.com/blog/</id>
     <author>
         <name>maraf</name>
@@ -129,5 +129,12 @@
             <updated>2020-03-24</updated>
             <id>http://www.neptuo.com/blog/2020/03/blazor-app-razor</id>
             <content type="html">Do you think the App.razor is only a placeholder (as I thought for a long time)?</content>
+        </entry>
+        <entry>
+            <title>How to extend PHP session?</title>
+            <link href="http://www.neptuo.com/blog/2020/09/php-session" />
+            <updated>2020-09-23</updated>
+            <id>http://www.neptuo.com/blog/2020/09/php-session</id>
+            <content type="html">This is quick tip, out of my tipical blog themes, intended for my future me. Please, make me read this next time I need to make the PHP session last longer.</content>
         </entry>
 </feed>
