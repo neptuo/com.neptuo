@@ -232,6 +232,8 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="App_Data\Blog\blazor-network-status.md" />
+    <Content Include="App_Data\Blog\blazor-app-razor.md" />
+    <Content Include="App_Data\Blog\php-session.md" />
     <None Include="Content\Stylesheet\blog.responsiveness.scss" />
     <None Include="Content\Stylesheet\common.scss" />
     <None Include="Content\Stylesheet\blog.scss" />

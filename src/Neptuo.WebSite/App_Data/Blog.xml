@@ -182,4 +182,15 @@
     <Author>Maraf</Author>
     <GitHubCommentPath>neptuo/com.neptuo/issues/48</GitHubCommentPath>
   </Post>
+  <Post>
+    <Title>How to extend PHP session?</Title>
+    <Description>
+      This is quick tip, out of my tipical blog themes, intended for my future me. Please, make me read this next time I need to make the PHP session last longer.
+    </Description>
+    <Url>php-session</Url>
+    <FilePath>~/App_Data/Blog/php-session.md</FilePath>
+    <ReleaseDate>2020-09-23</ReleaseDate>
+    <Author>Maraf</Author>
+    <GitHubCommentPath>neptuo/com.neptuo/issues/49</GitHubCommentPath>
+  </Post>
 </Posts>
