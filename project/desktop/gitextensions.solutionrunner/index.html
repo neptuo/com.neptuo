@@ -89,10 +89,11 @@
 
 <div class="container">
 
-        <div class="folder" data-search="gitextensions: bundle backuper">
+        <div class="folder" data-search="gitextensions: solution runner">
             <h2 class="folder-heading">
+                    <img src="/Content/Images/Projects/gitextensions-solutionrunner-icon.png" class="folder-icon" />
 
-                <a href="/project/desktop/gitextensions.bundlebackuper">GitExtensions: Bundle Backuper</a>
+                <a href="/project/desktop/gitextensions.solutionrunner">GitExtensions: Solution Runner</a>
             </h2>
             <article>
                 <ul>
@@ -101,19 +102,19 @@
 
                         <li>
                             Source code at
-                            <a target="_blank" href="https://github.com/maraf/GitExtensions.BundleBackuper">
+                            <a target="_blank" href="https://github.com/maraf/GitExtensions.SolutionRunner">
                                 <span>
-https://github.com/maraf/GitExtensions.BundleBackuper                                </span>
+https://github.com/maraf/GitExtensions.SolutionRunner                                </span>
                             </a>.
                         </li>
 
                         <li>
-                            Release of the <a target="_blank" href="https://github.com/maraf/GitExtensions.BundleBackuper/releases">GitExtensions: Bundle Backuper v1.0.0 to download</a>.
+                            Release of the <a target="_blank" href="https://github.com/maraf/GitExtensions.SolutionRunner/releases">GitExtensions: Solution Runner v4.2.1 to download</a>.
                         </li>
 
 
                         <li>
-                            Current version on NuGet at <a target="_blank" href="https://www.nuget.org/packages/GitExtensions.BundleBackuper"><span>nuget.org/packages/GitExtensions.BundleBackuper</span></a>.
+                            Current version on NuGet at <a target="_blank" href="https://www.nuget.org/packages/GitExtensions.SolutionRunner"><span>nuget.org/packages/GitExtensions.SolutionRunner</span></a>.
                         </li>
 
 
@@ -124,14 +125,13 @@ https://github.com/maraf/GitExtensions.BundleBackuper                           
         </div>
                 <div class="folder">
                     <h2 class="folder-heading">Description</h2>
-                    <pre><code>  GIT bundles is a great way to create backups of local branches. This extension for [GitExtensions](https://github.com/gitextensions/gitextensions) creates item in top menu containg all bundles at specified path. Clicking bundle item maps this bundle as remote. Beside this restore operation, it also contains button to create bundle/backup between current branch head and last commit pushed commit.
-</code></pre>
+                    <p>This extension for <a target="_blank" class="external-link" href="https://github.com/gitextensions/gitextensions">GitExtensions</a> adds a list of Visual Studio solution files and VS code workspaces contained in the repository.</p>
 
                 </div>
                 <div class="folder folder-headless">
                     <div class="additional-image-list">
-<a href="/Content/Images/Projects/gitextensions-bundlebackuper-01.png" data-featherlight="image">
-        <img class="additional-image" src="/Content/Images/Projects/gitextensions-bundlebackuper-01.png" />
+<a href="/Content/Images/Projects/gitextensions-solutionrunner-01.png" data-featherlight="image">
+        <img class="additional-image" src="/Content/Images/Projects/gitextensions-solutionrunner-01.png" />
     </a>
                     </div>
                     <div class="clear"></div>
@@ -139,21 +139,93 @@ https://github.com/maraf/GitExtensions.BundleBackuper                           
                 <div class="folder">
                     <h2 class="folder-heading">Version history</h2>
                     <ul class="version">
+                            <li id="v4.2.1">
+                                <strong>v4.2.1</strong>
+                                    <ul>
+
+                                            <li>
+                                                Fixed search performance (credits @MISTikus).
+                                            </li>
+                                    </ul>
+                            </li>
+                            <li id="v4.2.0">
+                                <strong>v4.2.0</strong>
+                                    <ul>
+
+                                            <li>
+                                                Support for opening VSCode workspaces (credits @MISTikus).
+                                            </li>
+                                    </ul>
+                            </li>
+                            <li id="v4.1.0">
+                                <strong>v4.1.0</strong>
+                                    <ul>
+
+                                            <li>
+                                                Open settings from 'Plugins-> Solution Runner` menu (credits @pmiossec).
+                                            </li>
+                                            <li>
+                                                Specify output encoding when searching for solution files (credits @pmiossec).
+                                            </li>
+                                    </ul>
+                            </li>
+                            <li id="v4.0.0">
+                                <strong>v4.0.0</strong>
+                                    <ul>
+
+                                            <li>
+                                                Upgrade to GitExtensions-v3.3.1.
+                                            </li>
+                                            <li>
+                                                Optimize loading time (credits @IEVin).
+                                            </li>
+                                    </ul>
+                            </li>
+                            <li id="v3.0.0">
+                                <strong>v3.0.0</strong>
+                                    <ul>
+
+                                            <li>
+                                                Support for GitExtensions-v3.2.1.
+                                            </li>
+                                    </ul>
+                            </li>
+                            <li id="v2.0.0">
+                                <strong>v2.0.0</strong>
+                                    <ul>
+
+                                            <li>
+                                                Support for GitExtensions-v3.1.
+                                            </li>
+                                    </ul>
+                            </li>
+                            <li id="v1.2.0">
+                                <strong>v1.2.0</strong>
+                                    <ul>
+
+                                            <li>
+                                                Access key (alt+u) for main menu item and first solution name letter for items.
+                                            </li>
+                                    </ul>
+                            </li>
+                            <li id="v1.1.0">
+                                <strong>v1.1.0</strong>
+                                    <ul>
+
+                                            <li>
+                                                Optimize search time.
+                                            </li>
+                                            <li>
+                                                Configuration for defining which executable to start by clicking on solution file.
+                                            </li>
+                                    </ul>
+                            </li>
                             <li id="v1.0.0">
                                 <strong>v1.0.0</strong>
                                     <ul>
 
                                             <li>
-                                                Configure backup and restore path.
-                                            </li>
-                                            <li>
-                                                Main menu contains item with manual backup button and list of available backups.
-                                            </li>
-                                            <li>
-                                                Manual backup create bundle from last pushed commit (to any remote) to HEAD of current branch.
-                                            </li>
-                                            <li>
-                                                Backup restore maps selected bundle as remote.
+                                                Git Extensions main menu item with list of solution files inside current repository.
                                             </li>
                                     </ul>
                             </li>
