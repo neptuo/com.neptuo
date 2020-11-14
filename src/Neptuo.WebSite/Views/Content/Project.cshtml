@@ -109,10 +109,10 @@
                         }
                     }
 
-                    @if (project.Type == "dev")
+                    @if (project.Type == "dev" || project.NugetPackageId != null)
                     {
                         <li>
-                            Current version on NuGet at <a target="_blank" href="https://www.nuget.org/packages/@project.Name"><span>nuget.org/packages/@project.Name</span></a>.
+                            Current version on NuGet at <a target="_blank" href="https://www.nuget.org/packages/@(project.NugetPackageId ?? project.Name)"><span>nuget.org/packages/@(project.NugetPackageId ?? project.Name)</span></a>.
                         </li>
                     }
                     else if (project.Type == "vsix" && String.IsNullOrEmpty(project.DownloadUrl))

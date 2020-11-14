@@ -23,6 +23,7 @@ namespace Neptuo.WebSite.Models.Projects
         public string DocumentationUrl { get; set; }
         public string DownloadUrl { get; set; }
         public string VsixGalleryId { get; set; }
+        public string NugetPackageId { get; set; }
 
         public string Licence { get; set; }
         public string LicenceUrl { get; set; }
