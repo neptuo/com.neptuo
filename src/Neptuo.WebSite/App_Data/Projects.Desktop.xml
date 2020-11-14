@@ -41,11 +41,12 @@ In the bottom there are some checkboxes for setting automatic downloads and etc.
     <Type>desktop</Type>
     <Description>Branch backuping plugin for GitExtensions.</Description>
     <Text Language="Markdown">
-GIT bundles is a great way to create backups of local branches. This extension for [GitExtensions](https://github.com/gitextensions/gitextensions) creates item in top menu containg all bundles at specified path. Clicking bundle item maps this bundle as remote. Beside this restore operation, it also contains button to create bundle/backup between current branch head and last commit pushed commit.
+      GIT bundles is a great way to create backups of local branches. This extension for [GitExtensions](https://github.com/gitextensions/gitextensions) creates item in top menu containg all bundles at specified path. Clicking bundle item maps this bundle as remote. Beside this restore operation, it also contains button to create bundle/backup between current branch head and last commit pushed commit.
     </Text>
     <LocalUrl>gitextensions.bundlebackuper</LocalUrl>
     <ProjectUrl>https://github.com/maraf/GitExtensions.BundleBackuper</ProjectUrl>
     <DownloadUrl>https://github.com/maraf/GitExtensions.BundleBackuper/releases</DownloadUrl>
+    <NugetPackageId>GitExtensions.BundleBackuper</NugetPackageId>
     <Images>
       <Additional>~/Content/Images/Projects/gitextensions-bundlebackuper-01.png</Additional>
     </Images>
@@ -55,6 +56,59 @@ GIT bundles is a great way to create backups of local branches. This extension f
       <Description>Main menu contains item with manual backup button and list of available backups.</Description>
       <Description>Manual backup create bundle from last pushed commit (to any remote) to HEAD of current branch.</Description>
       <Description>Backup restore maps selected bundle as remote.</Description>
+    </Version>
+  </Project>
+  <Project>
+    <Name>GitExtensions: Solution Runner</Name>
+    <Type>desktop</Type>
+    <Description>A Visual Studio solution runner plugin for Git Extensions.</Description>
+    <Icon>~/Content/Images/Projects/gitextensions-solutionrunner-icon.png</Icon>
+    <Text Language="Markdown">This extension for [GitExtensions](https://github.com/gitextensions/gitextensions) adds a list of Visual Studio solution files and VS code workspaces contained in the repository.</Text>
+    <LocalUrl>gitextensions.solutionrunner</LocalUrl>
+    <ProjectUrl>https://github.com/maraf/GitExtensions.SolutionRunner</ProjectUrl>
+    <DownloadUrl>https://github.com/maraf/GitExtensions.SolutionRunner/releases</DownloadUrl>
+    <NugetPackageId>GitExtensions.SolutionRunner</NugetPackageId>
+    <Images>
+      <Additional>~/Content/Images/Projects/gitextensions-solutionrunner-01.png</Additional>
+    </Images>
+    <Version>
+      <Name>v4.2.1</Name>
+      <Description>Fixed search performance (credits @MISTikus).</Description>
+    </Version>
+    <Version>
+      <Name>v4.2.0</Name>
+      <Description>Support for opening VSCode workspaces (credits @MISTikus).</Description>
+    </Version>
+    <Version>
+      <Name>v4.1.0</Name>
+      <Description>Open settings from 'Plugins-> Solution Runner` menu (credits @pmiossec).</Description>
+      <Description>Specify output encoding when searching for solution files (credits @pmiossec).</Description>
+    </Version>
+    <Version>
+      <Name>v4.0.0</Name>
+      <Description>Upgrade to GitExtensions-v3.3.1.</Description>
+      <Description>Optimize loading time (credits @IEVin).</Description>
+    </Version>
+    <Version>
+      <Name>v3.0.0</Name>
+      <Description>Support for GitExtensions-v3.2.1.</Description>
+    </Version>
+    <Version>
+      <Name>v2.0.0</Name>
+      <Description>Support for GitExtensions-v3.1.</Description>
+    </Version>
+    <Version>
+      <Name>v1.2.0</Name>
+      <Description>Access key (alt+u) for main menu item and first solution name letter for items.</Description>
+    </Version>
+    <Version>
+      <Name>v1.1.0</Name>
+      <Description>Optimize search time.</Description>
+      <Description>Configuration for defining which executable to start by clicking on solution file.</Description>
+    </Version>
+    <Version>
+      <Name>v1.0.0</Name>
+      <Description>Git Extensions main menu item with list of solution files inside current repository.</Description>
     </Version>
   </Project>
   <Project>
