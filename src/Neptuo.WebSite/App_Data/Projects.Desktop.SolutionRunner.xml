@@ -33,7 +33,16 @@ To start the application after sign in to the Windows, simple create shortcut in
       <Additional>~/Content/Images/Projects/solution-runner-09.png</Additional>
       <Additional>~/Content/Images/Projects/solution-runner-08.png</Additional>
     </Images>
-
+    
+    <Version>
+      <Name>v1.12.0</Name>
+      <Description>Show preview in VS name.</Description>
+      <Description>Save JSON config intended.</Description>
+      <Description>Add VS command to start Updater.</Description>
+      <Description>High DPI support.</Description>
+      <Description>Custom icon for applications.</Description>
+      <Description>Option to hide console window when starting application.</Description>
+    </Version>
     <Version>
       <Name>v1.11.0</Name>
       <Description>Start experimental instance of Visual Studio.</Description>
