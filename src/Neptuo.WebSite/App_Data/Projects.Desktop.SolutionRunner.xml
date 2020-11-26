@@ -5,6 +5,7 @@
     <Icon>~/Content/Images/Projects/solution-runner-icon.png</Icon>
     <Type>desktop</Type>
     <Description>Keyboard-only designed application for simple and fast opening of Visual Studio solution files.</Description>
+    <PrivacyPolicy>PrivacyPolicies/Default.md</PrivacyPolicy>
     <Text Language="Markdown">
 Keyboard-only designed application for simple and fast opening of Visual Studio solution files. 
 Configuration takes single folder where to look for *.sln files with the option to set prefered Visual Studio version installed on your computer and global (Windows wide) shortcut.

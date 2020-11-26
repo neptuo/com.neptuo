@@ -137,6 +137,7 @@
     <Compile Include="Models\Blogging\PostViewModel.cs" />
     <Compile Include="Models\HttpRequestBaseExtensions.cs" />
     <Compile Include="Models\Index\HomeModel.cs" />
+    <Compile Include="Models\Markdown.cs" />
     <Compile Include="Models\MenuItem.cs" />
     <Compile Include="Models\Projects\ProjectDataService.cs" />
     <Compile Include="Models\Projects\ProjectImageModel.cs" />
@@ -234,6 +235,7 @@
     <Content Include="App_Data\Blog\blazor-network-status.md" />
     <Content Include="App_Data\Blog\blazor-app-razor.md" />
     <Content Include="App_Data\Blog\php-session.md" />
+    <Content Include="App_Data\PrivacyPolicies\Default.md" />
     <None Include="Content\Stylesheet\blog.responsiveness.scss" />
     <None Include="Content\Stylesheet\common.scss" />
     <None Include="Content\Stylesheet\blog.scss" />

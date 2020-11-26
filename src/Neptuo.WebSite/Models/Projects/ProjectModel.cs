@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Xml.Serialization;
@@ -13,6 +14,8 @@ namespace Neptuo.WebSite.Models.Projects
         public string Name { get; set; }
         public string Icon { get; set; }
         public string Description { get; set; }
+
+        public string PrivacyPolicy { get; set; }
 
         public TextModel Text { get; set; }
         public string Type { get; set; }
@@ -46,6 +49,19 @@ namespace Neptuo.WebSite.Models.Projects
         {
             Versions = new List<ProjectVersionModel>();
             Relations = new List<ProjectRelationModel>();
+        }
+
+        public string GetPrivacyPolicy(Func<string, string> pathResolver)
+        {
+            string absolutePath = pathResolver(Path.Combine("~/App_data", PrivacyPolicy));
+            if (File.Exists(absolutePath))
+            {
+                string content = Markdown.Convert(File.ReadAllText(absolutePath));
+                content = content.Replace("{Project.Name}", Name);
+                return content;
+            }
+
+            return String.Empty;
         }
     }
 }

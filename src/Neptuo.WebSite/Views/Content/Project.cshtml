@@ -155,6 +155,13 @@
                             }
                         </li>
                     }
+
+                    @if (Model.IsDetail && project.PrivacyPolicy != null)
+                    {
+                        <li>
+                            <a href="#privacy-policy">Privacy Policy</a>
+                        </li>
+                    }
                 </ul>
             </article>
             <div class="clear"></div>
@@ -229,6 +236,14 @@
                             </li>
                         }
                     </ul>
+                </div>
+            }
+
+            if (project.PrivacyPolicy != null)
+            {
+                <div id="privacy-policy" class="folder">
+                    <h2 class="folder-heading">Privacy Policy</h2>
+                    @Html.Raw(project.GetPrivacyPolicy(Request.MapPath))
                 </div>
             }
         }
