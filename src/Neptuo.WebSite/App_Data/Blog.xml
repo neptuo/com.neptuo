@@ -193,4 +193,15 @@
     <Author>Maraf</Author>
     <GitHubCommentPath>neptuo/com.neptuo/issues/49</GitHubCommentPath>
   </Post>
+  <Post>
+    <Title>Solution Runner v2.0 aka Move to Microsoft Store</Title>
+    <Description>
+      I'm super happy to announce that Solution Runner has been moved from clickonce deployment to Microsoft Store.
+    </Description>
+    <Url>productivity-solution-runner-v2</Url>
+    <FilePath>~/App_Data/Blog/solution-runner-v2.md</FilePath>
+    <ReleaseDate>2020-12-02</ReleaseDate>
+    <Author>Maraf</Author>
+    <GitHubCommentPath>neptuo/com.neptuo/issues/51</GitHubCommentPath>
+  </Post>
 </Posts>
