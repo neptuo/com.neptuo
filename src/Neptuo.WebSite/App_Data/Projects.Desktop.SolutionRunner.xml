@@ -7,10 +7,10 @@
     <Description>Keyboard-only designed application for simple and fast opening of Visual Studio solution files.</Description>
     <PrivacyPolicy>PrivacyPolicies/Default.md</PrivacyPolicy>
     <Text Language="Markdown">
-Keyboard-only designed application for simple and fast opening of Visual Studio solution files. 
+Keyboard-only designed application for simple and fast opening of Visual Studio solution files.
 Configuration takes single folder where to look for *.sln files with the option to set prefered Visual Studio version installed on your computer and global (Windows wide) shortcut.
 
-After setting required configuration, main window will open. Here you can filter solution files from your hard drive and manage favourite ones. 
+After setting required configuration, main window will open. Here you can filter solution files from your hard drive and manage favourite ones.
 By pressing enter, you run a new instance of selected Visual Studio version with the selected solution.
 
 When global hotkey is set, the application is only minimized after opening the solution. So, to update it must first kill it from process list.
@@ -19,7 +19,7 @@ To start the application after sign in to the Windows, simple create shortcut in
     </Text>
     <LocalUrl>solutionrunner</LocalUrl>
     <ProjectUrl>https://github.com/neptuo/Productivity.SolutionRunner</ProjectUrl>
-    <DownloadUrl>http://apps.neptuo.com/solution-runner</DownloadUrl>
+    <DownloadUrl>https://www.microsoft.com/store/productId/9MVTL05WZB3P</DownloadUrl>
     <Relations>
       <Relation Text="Blog post about features and how to setup and use it" Url="http://www.neptuo.com/blog/2017/2/3/productivity-solution-runner" />
     </Relations>
@@ -34,7 +34,13 @@ To start the application after sign in to the Windows, simple create shortcut in
       <Additional>~/Content/Images/Projects/solution-runner-09.png</Additional>
       <Additional>~/Content/Images/Projects/solution-runner-08.png</Additional>
     </Images>
-    
+
+    <Version>
+      <Name>v2.0.0</Name>
+      <Description>#63 - Distribution through Microsoft Store.</Description>
+      <Description>#101 - Running on .NET 5.</Description>
+      <Description>#104 - Import and Export statistics.</Description>
+    </Version>
     <Version>
       <Name>v1.12.0</Name>
       <Description>Show preview in VS name.</Description>
