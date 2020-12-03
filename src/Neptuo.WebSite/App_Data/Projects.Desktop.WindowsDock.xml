@@ -20,14 +20,17 @@
 
     <Version>
       <Name>v1.2.22</Name>
+      <TagName>v1.2.22</TagName>
       <Description>Minor fix (that ugly border around shortcut on main panel vanished).</Description>
     </Version>
     <Version>
       <Name>v1.2.21</Name>
+      <TagName>v1.2.21</TagName>
       <Description>Global hotkeys for shortcuts (for only in combination with Windows key).</Description>
     </Version>
     <Version>
       <Name>v1.1.20</Name>
+      <TagName>v1.1.20</TagName>
       <Description>Configuration for small bubbles on top of shortcuts on main panel.</Description>
       <Description>Basic setting for shortcut icon size.</Description>
     </Version>
@@ -48,10 +51,12 @@
     </Version>
     <Version>
       <Name>v1.0.16</Name>
+      <TagName>v1.0.16</TagName>
       <Description>KeyShortcut to show desktop in Explorer.</Description>
     </Version>
     <Version>
       <Name>v1.0.15</Name>
+      <TagName>v1.0.15</TagName>
       <Description>Added support for pin to right and bottom edge of primary screen.</Description>
     </Version>
     <Version>
@@ -81,6 +86,7 @@
     </Version>
     <Version>
       <Name>v1.0.9</Name>
+      <TagName>v1.0.9</TagName>
       <Description>Added possibility to change (or disable) application hotkeys (Win+W remains as application activation key, but yout can change T,S,B,D,X and Z keys to run extensions and etc.</Description>
     </Version>
     <Version>
@@ -109,6 +115,7 @@
     </Version>
     <Version>
       <Name>v1.0.3</Name>
+      <TagName>v1.0.4</TagName>
       <Description>
         Hotkeys in Shortcuts edit
         <Description>ENTER for opening shortcut detail (also DOUBLECLICK works).</Description>
