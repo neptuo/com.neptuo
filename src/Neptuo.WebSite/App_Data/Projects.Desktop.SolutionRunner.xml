@@ -37,21 +37,24 @@ To start the application after sign in to the Windows, simple create shortcut in
 
     <Version>
       <Name>v2.0.0</Name>
+      <TagName>v2.0.0</TagName>
       <Description>#63 - Distribution through Microsoft Store.</Description>
       <Description>#101 - Running on .NET 5.</Description>
       <Description>#104 - Import and Export statistics.</Description>
     </Version>
     <Version>
       <Name>v1.12.0</Name>
-      <Description>Show preview in VS name.</Description>
-      <Description>Save JSON config intended.</Description>
-      <Description>Add VS command to start Updater.</Description>
-      <Description>High DPI support.</Description>
-      <Description>Custom icon for applications.</Description>
-      <Description>Option to hide console window when starting application.</Description>
+      <TagName>v1.12.0</TagName>
+      <Description>#100 - Show preview in VS name.</Description>
+      <Description>#99 - Save JSON config intended.</Description>
+      <Description>#96 - Add VS command to start Updater.</Description>
+      <Description>#97 - High DPI support.</Description>
+      <Description>#95 - Custom icon for applications.</Description>
+      <Description>#94 - Option to hide console window when starting application.</Description>
     </Version>
     <Version>
       <Name>v1.11.0</Name>
+      <TagName>v1.11.0</TagName>
       <Description>Start experimental instance of Visual Studio.</Description>
       <Description>Add keyboard shortcut for running empty instance.</Description>
       <Description>Add VS Code installed in user profile.</Description>
@@ -59,14 +62,17 @@ To start the application after sign in to the Windows, simple create shortcut in
     </Version>
     <Version>
       <Name>v1.10.2</Name>
+      <TagName>v1.10.2</TagName>
       <Description>Fixed finding Vistual Studio v15.9.5 and higher.</Description>
     </Version>
     <Version>
       <Name>v1.10.1</Name>
+      <TagName>v1.10.1</TagName>
       <Description>Fixed getting stucked when global hotkey and "Dismiss after loosing focus" and "red X" button main windows is clicked.</Description>
     </Version>
     <Version>
       <Name>v1.10.0</Name>
+      <TagName>v1.10.0</TagName>
       <Description>It is quite possible that you would need to unistall previous version and install new one, because our server moved to HTTPS.</Description>
       <Description>Added additional command to all Visual Studios (and Code) which runs new instance as administrator.</Description>
       <Description>Added complex logging. We can now view logs for each query, etc.</Description>
@@ -78,6 +84,7 @@ To start the application after sign in to the Windows, simple create shortcut in
     </Version>
     <Version>
       <Name>v1.9.0</Name>
+      <TagName>v1.9.0</TagName>
       <Description>Added a light theme.</Description>
       <Description>Added an option to show a little badge after solution name with count of projects in the solution file.</Description>
       <Description>Additional application can now contain additional commands. These are Alt + Key1 + Key2 extensions to the additional application. </Description>
@@ -85,6 +92,7 @@ To start the application after sign in to the Windows, simple create shortcut in
     </Version>
     <Version>
       <Name>v1.8.0</Name>
+      <TagName>v1.8.0</TagName>
       <Description>Added automatic detection of Visual Studio Code. It is treated as main application which can be hidden from a configuration window.</Description>
       <Description>Configuration properties are splitted into tabs.</Description>
       <Description>A better control for picking additional application path. From plain textbox to file picker with support for manual path setting.</Description>
@@ -95,6 +103,7 @@ To start the application after sign in to the Windows, simple create shortcut in
     </Version>
     <Version>
       <Name>v1.7.0</Name>
+      <TagName>v1.7.0</TagName>
       <Description>Added context menu for tray-icon.</Description>
       <Description>Added support for select minimal VS version for auto selecting VS version feature.</Description>
       <Description>Added support for hiding VS versions.</Description>
@@ -102,22 +111,26 @@ To start the application after sign in to the Windows, simple create shortcut in
     </Version>
     <Version>
       <Name>v1.6.3</Name>
+      <TagName>v1.6.3</TagName>
       <Description>Fix crashes caused by IO exception while enumerating new directory.</Description>
       <Description>Added support for VS2017 which has different installation path format.</Description>
     </Version>
     <Version>
       <Name>v1.6.2</Name>
+      <TagName>v1.6.2</TagName>
       <Description>Fix showing a directory in the list when directory with dot in a name is added.</Description>
     </Version>
     <Version>
       <Name>v1.6.1</Name>
+      <TagName>v1.6.1</TagName>
       <Description>Changing tray-icon when initializing and displaying intermediate progress bar on task bar.</Description>
       <Description>Fix missing file after moving it with parent directory.</Description>
       <Description>Fix hiding main window after loosing focus if opened by tray-icon.</Description>
       <Description>Fix reseting main window state and position after opening using tray-icon.</Description>
     </Version>
     <Version>
-      <Name>v1.6</Name>
+      <Name>v1.6.0</Name>
+      <TagName>v1.6.0</TagName>
       <Description>Added support for counting application and file statistics with classic pie chart view.</Description>
       <Description>Searching is now instant. Removed delay between typing and actual searching.</Description>
       <Description>Added help popup for a first time setup.</Description>
@@ -130,20 +143,23 @@ To start the application after sign in to the Windows, simple create shortcut in
       <Description>Added hover effect for applications and files.</Description>
     </Version>
     <Version>
-      <Name>v1.5</Name>
+      <Name>v1.5.0</Name>
+      <TagName>v.1.5.0</TagName>
       <Description>Added support for starting after login to the Windows.</Description>
       <Description>Added message displaying current application status (initializing, searching, 'nothing found', etc).</Description>
       <Description>Added options for shortening display path to found solution files. It can whole path, directory path or last directory name.</Description>
       <Description>Fix: Missing favorite items after deleting all text.</Description>
     </Version>
     <Version>
-      <Name>v1.4</Name>
+      <Name>v1.4.0</Name>
+      <TagName>v1.4.0</TagName>
       <Description>Added support for custom application defined in the configuration window.</Description>
       <Description>Added configuration option to enable auto selecting Visual Studio version according to the solution file version.</Description>
       <Description>Fix: Duplicated entries after renaming directory.</Description>
     </Version>
     <Version>
-      <Name>v1.3</Name>
+      <Name>v1.3.0</Name>
+      <TagName>v1.3.0</TagName>
       <Description>Double click on the application starts new instance without file.</Description>
       <Description>Added support for Home and End navigation keys in the list of solution files.</Description>
       <Description>Added support for hiding/closing main window after loosing focus/deactivating.</Description>
@@ -154,11 +170,13 @@ To start the application after sign in to the Windows, simple create shortcut in
       <Description>Fix: Color of a file path in the selected item.</Description>
     </Version>
     <Version>
-      <Name>v1.2</Name>
+      <Name>v1.2.0</Name>
+      <TagName>v1.2.0</TagName>
       <Description>Extend searching in contains mode to support space separated tokens that are matched in the whole solution path.</Description>
     </Version>
     <Version>
-      <Name>v1.1</Name>
+      <Name>v1.1.0</Name>
+      <TagName>v1.1.0</TagName>
       <Description>Configuration property for suggestion count.</Description>
       <Description>Configuration property for searching by 'StartsWith' or 'Contains'.</Description>
       <Description>Added command line parameter '--hidden' for starting application hidden.</Description>
@@ -166,7 +184,8 @@ To start the application after sign in to the Windows, simple create shortcut in
       <Description>Fix: Selecting first suggested item when this one is the only one.</Description>
     </Version>
     <Version>
-      <Name>v1.0</Name>
+      <Name>v1.0.0</Name>
+      <TagName>v1.0.0</TagName>
       <Description>Favourite solution list.</Description>
       <Description>Global hotkey.</Description>
     </Version>
