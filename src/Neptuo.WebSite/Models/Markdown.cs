@@ -12,10 +12,9 @@ namespace Neptuo.WebSite.Models
     {
         public static string Convert(string text)
         {
-            CommonMarkSettings.Default.OutputDelegate = (doc, output, settings) =>
-                        new HtmlFormatter(output, settings).WriteDocument(doc);
+            CommonMarkSettings.Default.OutputDelegate = (doc, output, settings) => new HtmlFormatter(output, settings).WriteDocument(doc);
 
-            string html = CommonMarkConverter.Convert(text);
+            string html = CommonMarkConverter.Convert(text?.Trim());
             return html;
         }
     }

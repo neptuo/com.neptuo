@@ -86,9 +86,7 @@
                                     else
                                     {
                                         @project.ProjectUrl
-                                    }
-                                </span>
-                            </a>.
+                                    }</span></a>.
                         </li>
                     }
 
@@ -159,7 +157,7 @@
                     @if (Model.IsDetail && project.PrivacyPolicy != null)
                     {
                         <li>
-                            <a href="#privacy-policy">Privacy Policy</a>
+                            <a href="#privacy-policy">Privacy Policy</a>.
                         </li>
                     }
                 </ul>
@@ -203,7 +201,16 @@
                         @foreach (var version in project.Versions)
                         {
                             <li id="@version.Name">
-                                <strong>@version.Name</strong>
+                                @if (project.HasReleaseLink() && version.TagName != null)
+                                {
+                                    <a target="_blank" href="@project.ReleaseUrl(version.TagName)">
+                                        <strong>@version.Name</strong>
+                                    </a>
+                                }
+                                else
+                                {
+                                    <strong>@version.Name</strong>
+                                }
                                 @if (version.Descriptions.Count > 0 || !String.IsNullOrEmpty(version.DownloadUrl))
                                 {
                                     <ul>

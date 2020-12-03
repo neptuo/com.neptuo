@@ -63,5 +63,16 @@ namespace Neptuo.WebSite.Models.Projects
 
             return String.Empty;
         }
+
+        public bool HasReleaseLink() 
+            => ProjectUrl.Contains("github.com");
+
+        public string ReleaseUrl(string versionName)
+        {
+            if (HasReleaseLink())
+                return $"{ProjectUrl}/releases/tag/{versionName}";
+
+            return null;
+        }
     }
 }
