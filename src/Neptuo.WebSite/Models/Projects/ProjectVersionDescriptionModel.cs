@@ -10,7 +10,7 @@ namespace Neptuo.WebSite.Models.Projects
     [XmlType("Description")]
     public class ProjectVersionDescriptionModel
     {
-        private static Regex issueRegex = new Regex("(#([0-9])+)", RegexOptions.Compiled);
+        private static Regex issueRegex = new Regex("(#([0-9]+))", RegexOptions.Compiled);
 
         [XmlText]
         public string Content { get; set; }
