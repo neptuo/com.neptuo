@@ -178,6 +178,14 @@ About sticking windows, when you drop window near other window, the dropped wind
     <DownloadUrl>http://apps.neptuo.com/winrun</DownloadUrl>
 
     <Version>
+      <Name>v1.10.0</Name>
+      <Description>#10 - Show notification when window is pinned/unpinned.</Description>
+    </Version>
+    <Version>
+      <Name>v1.9.1</Name>
+      <Description>#9 - Use of proper Win APi to pin window to all desktops (`Windows+Alt+X`).</Description>
+    </Version>
+    <Version>
       <Name>v1.9.0</Name>
       <Description>#5 - Hotkey for pinning active window to all desktops (Windows+Alt+X).</Description>
     </Version>
