@@ -16,6 +16,7 @@ More info coming...
     </Text>
     <LocalUrl>is4wfw</LocalUrl>
     <ProjectUrl>https://github.com/maraf/PHP-WebFramework</ProjectUrl>
+    <DocumentationUrl>http://is4wfw.neptuo.com</DocumentationUrl>
     <Images>
       <Additional>~/Content/Images/Projects/is4wfw-02.png</Additional>
       <Additional>~/Content/Images/Projects/is4wfw-01.png</Additional>
