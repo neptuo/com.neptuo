@@ -70,6 +70,10 @@ In the bottom there are some checkboxes for setting automatic downloads and etc.
       <Additional>~/Content/Images/Projects/gitextensions-solutionrunner-01.png</Additional>
     </Images>
     <Version>
+      <Name>v5.0.0</Name>
+      <Description>#23 - Upgrade to GitExtensions-v3.5.0.</Description>
+    </Version>
+    <Version>
       <Name>v4.2.1</Name>
       <Description>Fixed search performance (credits @MISTikus).</Description>
     </Version>
