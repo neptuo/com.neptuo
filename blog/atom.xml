@@ -4,7 +4,7 @@
     <title>Neptuo Blog</title>
     <link href="http://www.neptuo.com/blog/atom.xml" rel="self" />
     <link href="http://www.neptuo.com/blog/" />
-    <updated>2021-04-26 18:10:48</updated>
+    <updated>2021-10-13 20:03:50</updated>
     <id>http://www.neptuo.com/blog/</id>
     <author>
         <name>maraf</name>
@@ -143,5 +143,12 @@
             <updated>2020-12-02</updated>
             <id>http://www.neptuo.com/blog/2020/12/productivity-solution-runner-v2</id>
             <content type="html">I&#39;m super happy to announce that Solution Runner has been moved from clickonce deployment to Microsoft Store.</content>
+        </entry>
+        <entry>
+            <title>Docker compose sidecars</title>
+            <link href="http://www.neptuo.com/blog/2021/10/docker-compose-sidecars" />
+            <updated>2021-10-13</updated>
+            <id>http://www.neptuo.com/blog/2021/10/docker-compose-sidecars</id>
+            <content type="html">How to use docker containers in compose files to restore dependencies.</content>
         </entry>
 </feed>
