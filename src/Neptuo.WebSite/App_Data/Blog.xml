@@ -204,4 +204,15 @@
     <Author>Maraf</Author>
     <GitHubCommentPath>neptuo/com.neptuo/issues/51</GitHubCommentPath>
   </Post>
+  <Post>
+    <Title>Docker compose sidecars</Title>
+    <Description>
+      How to use docker containers in compose files to restore dependencies.
+    </Description>
+    <Url>docker-compose-sidecars</Url>
+    <FilePath>~/App_Data/Blog/docker-compose-sidecars.md</FilePath>
+    <ReleaseDate>2021-10-13</ReleaseDate>
+    <Author>Maraf</Author>
+    <GitHubCommentPath>neptuo/com.neptuo/issues/52</GitHubCommentPath>
+  </Post>
 </Posts>
