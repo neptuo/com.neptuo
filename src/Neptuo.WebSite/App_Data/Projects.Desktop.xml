@@ -182,6 +182,10 @@ About sticking windows, when you drop window near other window, the dropped wind
     <DownloadUrl>http://apps.neptuo.com/winrun</DownloadUrl>
 
     <Version>
+      <Name>v1.10.1</Name>
+      <Description>#11 - Fix support for pinning on virtual desktops on Windows 11.</Description>
+    </Version>
+    <Version>
       <Name>v1.10.0</Name>
       <Description>#10 - Show notification when window is pinned/unpinned.</Description>
     </Version>
