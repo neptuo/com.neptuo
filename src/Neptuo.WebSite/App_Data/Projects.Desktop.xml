@@ -263,4 +263,28 @@ Type special folder name, browse it using the File Explorer or copy it's path.
       <Description>Copy special folder path.</Description>
     </Version>
   </Project>
+  <Project>
+    <Name>Monitor Input Switcher</Name>
+    <Icon>~/Content/Images/Projects/monitorinputswitcher-icon.png</Icon>
+    <Type>desktop</Type>
+    <Description>Desktop application for browsing Windows special folders.</Description>
+    <Text Language="Markdown">
+Type special folder name, browse it using the File Explorer or copy it's path.
+    </Text>
+    <LocalUrl>monitorinputswitcher</LocalUrl>
+    <ProjectUrl>https://github.com/maraf/MonitorInputSwitcher</ProjectUrl>
+    <DownloadUrl>https://apps.neptuo.com/monitor-input-switcher</DownloadUrl>
+    <Images>
+      <Additional>~/Content/Images/Projects/monitorinputswitcher-01.png</Additional>
+    </Images>
+
+    <Version>
+      <Name>v1.0.0</Name>
+      <Description>Configuration for two machines.</Description>
+      <Description>Single click to switch between them.</Description>
+      <Description>Context menu with per monitor switch.</Description>
+      <Description>Global hotkeys (Win+Alt+O to other machine, Win+Alt+H to this machine).</Description>
+      <Description>Help window.</Description>
+    </Version>
+  </Project>
 </Projects>
