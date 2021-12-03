@@ -215,4 +215,15 @@
     <Author>Maraf</Author>
     <GitHubCommentPath>neptuo/com.neptuo/issues/52</GitHubCommentPath>
   </Post>
+  <Post>
+    <Title>Monitor Input Switcher</Title>
+    <Description>
+      My way to have to two computer and single set accessories.
+    </Description>
+    <Url>monitor-input-switcher</Url>
+    <FilePath>~/App_Data/Blog/monitor-input-switcher.md</FilePath>
+    <ReleaseDate>2021-12-03</ReleaseDate>
+    <Author>Maraf</Author>
+    <GitHubCommentPath>neptuo/com.neptuo/issues/53</GitHubCommentPath>
+  </Post>
 </Posts>
