@@ -4,7 +4,7 @@
     <title>Neptuo Blog</title>
     <link href="http://www.neptuo.com/blog/atom.xml" rel="self" />
     <link href="http://www.neptuo.com/blog/" />
-    <updated>2021-12-03 07:21:07</updated>
+    <updated>2021-12-03 07:21:54</updated>
     <id>http://www.neptuo.com/blog/</id>
     <author>
         <name>maraf</name>
@@ -156,6 +156,6 @@
             <link href="http://www.neptuo.com/blog/2021/12/monitor-input-switcher" />
             <updated>2021-12-03</updated>
             <id>http://www.neptuo.com/blog/2021/12/monitor-input-switcher</id>
-            <content type="html">My way to have two computer and single set accessories.</content>
+            <content type="html">My way to have two computers and single set accessories.</content>
         </entry>
 </feed>
