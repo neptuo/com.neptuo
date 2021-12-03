@@ -92,52 +92,57 @@
 <div class="container">
     <div class="folder blogpost">
         <p>Recently my home setup has changed. I have my own PC with two monitors. After entering a new job, I got a new PC, for work. Then I had to solve a problem.</p>
-<p>How to use my two monitors, single keyboard and mouse with two PCs?</p>
+<p><strong>How to use my two monitors, single keyboard and mouse with two PCs?</strong></p>
 <h2>USB switcher</h2>
-<p>Fro switching USB devices, I bought a <a target="_blank" class="external-link" href="https://www.amazon.com/UGREEN-Selector-Computers-Peripheral-Switcher/dp/B01N6GD9JO">Ugreen USB 3.0 2 in 4 out Sharing KVM Switch Selector</a>.
+<p>For switching USB devices, I bought a <a target="_blank" class="external-link" href="https://www.amazon.com/UGREEN-Selector-Computers-Peripheral-Switcher/dp/B01N6GD9JO">Ugreen USB 3.0 2 in 4 out Sharing KVM Switch Selector</a>.
 It has 4 ports and support switching between two PCs. Exactly what I neeeded.</p>
 <blockquote>
-<p>These a cheaper version supporting USB 2.0. I'm quite sure it will do the job for me...</p>
+<p>There is a cheaper version supporting USB 2.0. I'm quite sure it will do the job for me...</p>
 </blockquote>
-<p>So keyboard, mouse, webcam and bluetooth dongle solved.</p>
+<p>So keyboard, mouse, webcam and bluetooth dongle are solved.</p>
 <h2>Monitor Switcher</h2>
-<p>My two monitors (Dell UltraSharp U2515H) has a lot of input ports. So I plugged HDMI cables to my personal PC and DP cables to my work PC.</p>
+<p>My two monitors (Dell UltraSharp U2515H) have a lot of input ports. So I plugged HDMI cables to my personal PC and DP cables to my work PC.</p>
 <blockquote>
 <p>I love these monitors for coding (higher resolution, but still good readability with 100% scale). The only bad part about them are those touch buttons. I don't understand why there aren't normal buttons that you can find without light.</p>
 </blockquote>
-<p>Thanks to touch buttons, manually inputs became a nightmare. I started to look for a software that could do that for me. Just by clicking an icon.</p>
+<p>Thanks to the touch buttons, switching inputs manually became a nightmare. I started to look for a software that could do that for me. Just by clicking an icon...</p>
 <h3>Dell Monitor Manager</h3>
-<p>Dell provides <a target="_blank" class="external-link" href="https://www.dell.com/support/kbdoc/en-us/000060112/what-is-dell-display-manager">an application for managing their monitors</a>. The UI doesn't work in a way I wanted to - Single click to switch between PCs. Anyway, it accepts command line arguments.</p>
+<p>Dell provides <a target="_blank" class="external-link" href="https://www.dell.com/support/kbdoc/en-us/000060112/what-is-dell-display-manager">an application for managing their monitors</a>, but the UI doesn't work in a way I wanted to (single click to switch between PCs). Anyway, it accepts command line arguments.</p>
 <pre><code>.\ddm.exe /1:SetActiveInput hdmi1
 </code></pre>
-<p>The downside for me was that the application must be running. It must be installed on the PC. And to support my scenario, we would still need to code another application, that will communitace with the Dell's one.</p>
+<p>The downside for me was that the application must be running. It must be installed on the PC. And to support my scenario, I would still need to code another application, that will communicate with the Dell's one.</p>
 <h3>GitHub repositories</h3>
-<p>There is quite some number of custom application for switching monitor input. <a target="_blank" class="external-link" href="https://github.com/search?q=monitor+input+switch">Some examples here...</a></p>
-<h2>Monitor Input Switcher</h2>
-<p>Any way, I decided to write my own. So it works exactly like I want to. Welcome Monitor Input Switcher.</p>
-<p><img src="/Content/Images/Blog/monitor-input-switcher/screenshot.png" alt="Monitor Input Switcher" /></p>
-<p>My Monitor Input Switcher is a tiny application running in the tray. The idea is that you provide it two configurations associated each associated to a machine name.</p>
+<p>There is quite some number of custom application for switching monitor input. <a target="_blank" class="external-link" href="https://github.com/search?q=monitor+input+switch">Some examples here...</a>
+None of them matches my expectations.</p>
+<h2>My own Monitor Input Switcher</h2>
+<p>So, I decided to write my own. So it works exactly like I want to. Welcome Monitor Input Switcher.</p>
+<p><img src="/Content/Images/Blog/monitor-input-switcher/contextmenu.png" alt="Monitor Input Switcher" /></p>
+<p>My Monitor Input Switcher is running in the tray. The idea is that you provide it with two configurations each associated with a machine name.</p>
 <div class="highlight json"><pre>
 {
-  <span class="string">&quot;W&quot;</span>: {
-      <span class="string">&quot;0&quot;</span>: <span class="constant">16</span>,
-      <span class="string">&quot;1&quot;</span>: <span class="constant">16</span>
-  },
   <span class="string">&quot;M&quot;</span>: {
-      <span class="string">&quot;0&quot;</span>: <span class="constant">15</span>,
-      <span class="string">&quot;1&quot;</span>: <span class="constant">17</span>
+      <span class="string">&quot;0&quot;</span>: <span class="constant">15</span>, <span style="color:Green;">// Monitor 0 to input 15 (Dell&#39;s HDMI 1)</span>
+      <span class="string">&quot;1&quot;</span>: <span class="constant">17</span>  <span style="color:Green;">// Monitor 1 to input 17 (Dell&#39;s Display Port)</span>
+  },
+  <span class="string">&quot;W&quot;</span>: {
+      <span class="string">&quot;0&quot;</span>: <span class="constant">16</span>, <span style="color:Green;">// Monitor 0 to input 16 (Dell&#39;s mini Display Port)</span>
+      <span class="string">&quot;1&quot;</span>: <span class="constant">16</span>  <span style="color:Green;">// Monitor 1 to input 16 (Dell&#39;s mini Display Port)</span>
   }
 }
 
 </pre></div>
-<p>My computer names are &quot;M&quot; (my personal) and &quot;W&quot; (work). This configuration is that shared between PCs. Based on the current machine name, the application determines which configuration is for the &quot;current/this PC&quot; and switch is for the &quot;other PC&quot;.</p>
+<blockquote>
+<p>I didn't find a description of what input number maps to what connector on the monitor. So I just interated in a loop to find these.</p>
+</blockquote>
+<p>My computer names are &quot;M&quot; (my personal) and &quot;W&quot; (work). This configuration file is than shared between PCs. Based on the current machine name, the application determines which configuration is for the &quot;current/this PC&quot; and which is for the &quot;other PC&quot;.</p>
 <p>With configuration in place, you can</p>
 <ul>
-<li>Left click or <code>Win+Alt+O</code> to switch all monitors to the &quot;Other PC&quot;.</li>
-<li>Middle click or <code>Win+Alt+H</code> to switch all monitors to the &quot;This PC&quot;.</li>
-<li>Right click to open context menu.</li>
-<li>Switch per-monitor.</li>
+<li><code>Left click</code> or <code>Win+Alt+O</code> to switch all monitors to the &quot;Other PC&quot;.</li>
+<li><code>Middle click</code> or <code>Win+Alt+H</code> to switch all monitors to the &quot;This PC&quot;.</li>
+<li><code>Right click</code> to open context menu.</li>
+<li>Or switch per-monitor.</li>
 </ul>
+<p><img src="/Content/Images/Blog/monitor-input-switcher/help.png" alt="Help window" /></p>
 <h2>Summary</h2>
 <p>Now I can focus on work.</p>
 <h3>Links</h3>
