@@ -1,0 +1,259 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <title>Monitor Input Switcher - Neptuo</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="/Content/Images/favicon.png" />
+
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="/Content/featherlight.min.css" rel="stylesheet" />
+    <link href="/Content/web.css" rel="stylesheet" />
+
+    <link rel="alternate" type="application/rss+xml" title="Neptuo Blog" href="https://www.neptuo.com/blog/atom.xml" />
+</head>
+<body>
+
+    <nav class="navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+            <button class="navbar-toggle">
+                <span class="glyphicon glyphicon-menu-hamburger"></span>
+            </button>
+
+            <ul class="left">
+                    <li>
+        <a href="/">
+            <div class="maintext">
+                Home
+                <span class="glyphicon glyphicon-home"></span>
+            </div>
+            <div class="subtext">How can we help you?</div>
+        </a>
+    </li>
+
+            </ul>
+            <ul class="right">
+                    <li>
+        <a href="/project">
+            <div class="maintext">
+                Projects
+                <span class="glyphicon glyphicon-cloud"></span>
+            </div>
+            <div class="subtext">Projects we are working on</div>
+        </a>
+    </li>
+
+                    <li>
+        <a href="/service">
+            <div class="maintext">
+                Services
+                <span class="glyphicon glyphicon-globe"></span>
+            </div>
+            <div class="subtext">Our services and references</div>
+        </a>
+    </li>
+
+                    <li class="active">
+        <a href="/blog">
+            <div class="maintext">
+                Blog
+                <span class="glyphicon glyphicon-bookmark"></span>
+            </div>
+            <div class="subtext">Thoughts to share</div>
+        </a>
+    </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="body">
+        <form>
+
+            
+
+<div class="intro important blogpost">
+    <div class="intro-content container">
+        <h1>Monitor Input Switcher</h1>
+        <p>
+            
+      My way to have to two computer and single set accessories.
+    
+        </p>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="folder blogpost">
+        <p>Recently my home setup has changed. I have my own PC with two monitors. After entering a new job, I got a new PC, for work. Then I had to solve a problem.</p>
+<p>How to use my two monitors, single keyboard and mouse with two PCs?</p>
+<h2>USB switcher</h2>
+<p>Fro switching USB devices, I bought a <a target="_blank" class="external-link" href="https://www.amazon.com/UGREEN-Selector-Computers-Peripheral-Switcher/dp/B01N6GD9JO">Ugreen USB 3.0 2 in 4 out Sharing KVM Switch Selector</a>.
+It has 4 ports and support switching between two PCs. Exactly what I neeeded.</p>
+<blockquote>
+<p>These a cheaper version supporting USB 2.0. I'm quite sure it will do the job for me...</p>
+</blockquote>
+<p>So keyboard, mouse, webcam and bluetooth dongle solved.</p>
+<h2>Monitor Switcher</h2>
+<p>My two monitors (Dell UltraSharp U2515H) has a lot of input ports. So I plugged HDMI cables to my personal PC and DP cables to my work PC.</p>
+<blockquote>
+<p>I love these monitors for coding (higher resolution, but still good readability with 100% scale). The only bad part about them are those touch buttons. I don't understand why there aren't normal buttons that you can find without light.</p>
+</blockquote>
+<p>Thanks to touch buttons, manually inputs became a nightmare. I started to look for a software that could do that for me. Just by clicking an icon.</p>
+<h3>Dell Monitor Manager</h3>
+<p>Dell provides <a target="_blank" class="external-link" href="https://www.dell.com/support/kbdoc/en-us/000060112/what-is-dell-display-manager">an application for managing their monitors</a>. The UI doesn't work in a way I wanted to - Single click to switch between PCs. Anyway, it accepts command line arguments.</p>
+<pre><code>.\ddm.exe /1:SetActiveInput hdmi1
+</code></pre>
+<p>The downside for me was that the application must be running. It must be installed on the PC. And to support my scenario, we would still need to code another application, that will communitace with the Dell's one.</p>
+<h3>GitHub repositories</h3>
+<p>There is quite some number of custom application for switching monitor input. <a target="_blank" class="external-link" href="https://github.com/search?q=monitor+input+switch">Some examples here...</a></p>
+<h2>Monitor Input Switcher</h2>
+<p>Any way, I decided to write my own. So it works exactly like I want to. Welcome Monitor Input Switcher.</p>
+<p><img src="/Content/Images/Blog/monitor-input-switcher/screenshot.png" alt="Monitor Input Switcher" /></p>
+<p>My Monitor Input Switcher is a tiny application running in the tray. The idea is that you provide it two configurations associated each associated to a machine name.</p>
+<div class="highlight json"><pre>
+{
+  <span class="string">&quot;W&quot;</span>: {
+      <span class="string">&quot;0&quot;</span>: <span class="constant">16</span>,
+      <span class="string">&quot;1&quot;</span>: <span class="constant">16</span>
+  },
+  <span class="string">&quot;M&quot;</span>: {
+      <span class="string">&quot;0&quot;</span>: <span class="constant">15</span>,
+      <span class="string">&quot;1&quot;</span>: <span class="constant">17</span>
+  }
+}
+
+</pre></div>
+<p>My computer names are &quot;M&quot; (my personal) and &quot;W&quot; (work). This configuration is that shared between PCs. Based on the current machine name, the application determines which configuration is for the &quot;current/this PC&quot; and switch is for the &quot;other PC&quot;.</p>
+<p>With configuration in place, you can</p>
+<ul>
+<li>Left click or <code>Win+Alt+O</code> to switch all monitors to the &quot;Other PC&quot;.</li>
+<li>Middle click or <code>Win+Alt+H</code> to switch all monitors to the &quot;This PC&quot;.</li>
+<li>Right click to open context menu.</li>
+<li>Switch per-monitor.</li>
+</ul>
+<h2>Summary</h2>
+<p>Now I can focus on work.</p>
+<h3>Links</h3>
+<ul>
+<li><a target="_blank" class="external-link" href="https://www.neptuo.com/project/desktop/monitorinputswitcher">Documentation</a></li>
+<li><a target="_blank" class="external-link" href="https://github.com/maraf/MonitorInputSwitcher">GitHub repository</a>.</li>
+<li><a target="_blank" class="external-link" href="https://apps.neptuo.com/monitor-input-switcher">Download</a>.</li>
+</ul>
+
+    </div>
+
+    <div class="folder">
+        <div class="left">
+            Posted on 2021-12-03
+        </div>
+        <div class="right">
+            Written by <a target="_blank" rel="nofollow" href="https://github.com/maraf">Maraf</a>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+        <div class="folder">
+            <div class="comment-heading">
+                <h3>
+                    <span class="hidden">Comments</span>
+                    <span class="glyphicon glyphicon-comment"></span>
+                </h3>
+            
+                To leave a comment, please sign-in at GitHub and
+                <a href="https://github.com/neptuo/com.neptuo/issues/53" target="_blank">
+                    comment on the issue associated with this post.
+                </a>
+            </div>
+            <div id="comments"></div>
+        </div>
+</div>
+
+
+
+
+        </form>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="left">
+                <span>Neptuo &copy; 2010 - 2016</span>
+                
+            </div>
+            <div class="right">
+                <span>Created by <a target="_blank" href="https://mara.neptuo.com">Marek Fišera</a></span>
+                
+            </div>
+            <div class="center">
+                
+    <span><a href="/blog/atom.xml">Atom</a></span>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    </footer>
+
+    <script src="/Scripts/jquery-1.9.1.js"></script>
+    <script src="/Scripts/featherlight.min.js"></script>
+    <script>
+
+        function onSwitcherClicked(e) {
+            var folder = this.parentElement.parentElement;
+            folder.classList.toggle('folder-collapsed');
+        }
+
+        var switchers = document.querySelectorAll('.folder-switch');
+        for (var i = 0; i < switchers.length; i++) {
+            var switcher = switchers[i];
+            switcher.addEventListener('click', onSwitcherClicked);
+        }
+
+        var navbarToggle = document.querySelector("button.navbar-toggle");
+        if (navbarToggle != null) {
+            navbarToggle.addEventListener('click', function (e) {
+                var navbar = document.querySelector("nav");
+                navbar.classList.toggle('navbar-expanded');
+            });
+        }
+
+    </script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-12031460-1', 'auto');
+    </script>
+        <script>
+            ga('send', 'pageview');
+        </script>
+    
+
+        <script src="/Scripts/blogcomments.js"></script>
+        <script>
+
+            load("https://api.github.com/repos/neptuo/com.neptuo/issues/53/comments");
+
+        </script>
+
+    <script type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "url": "http://www.neptuo.com",
+        "logo": "/Content/Images/Logo-220.png"
+        }
+    </script>
+    <!-- <img src="/Content/Images/favicon.png" /> -->
+</body>
+</html>

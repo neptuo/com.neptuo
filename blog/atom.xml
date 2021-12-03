@@ -4,7 +4,7 @@
     <title>Neptuo Blog</title>
     <link href="http://www.neptuo.com/blog/atom.xml" rel="self" />
     <link href="http://www.neptuo.com/blog/" />
-    <updated>2021-12-02 07:45:23</updated>
+    <updated>2021-12-03 06:54:05</updated>
     <id>http://www.neptuo.com/blog/</id>
     <author>
         <name>maraf</name>
@@ -150,5 +150,12 @@
             <updated>2021-10-13</updated>
             <id>http://www.neptuo.com/blog/2021/10/docker-compose-sidecars</id>
             <content type="html">How to use docker containers in compose files to restore dependencies.</content>
+        </entry>
+        <entry>
+            <title>Monitor Input Switcher</title>
+            <link href="http://www.neptuo.com/blog/2021/12/monitor-input-switcher" />
+            <updated>2021-12-03</updated>
+            <id>http://www.neptuo.com/blog/2021/12/monitor-input-switcher</id>
+            <content type="html">My way to have to two computer and single set accessories.</content>
         </entry>
 </feed>
