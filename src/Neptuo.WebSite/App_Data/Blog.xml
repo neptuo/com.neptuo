@@ -226,4 +226,15 @@
     <Author>Maraf</Author>
     <GitHubCommentPath>neptuo/com.neptuo/issues/53</GitHubCommentPath>
   </Post>
+  <Post>
+    <Title>(Semi) automatic Blazor publish to GitHub pages</Title>
+    <Description>
+      How to make your life easier by automating publish
+    </Description>
+    <Url>blazor-publish-to-github-pages</Url>
+    <FilePath>~/App_Data/Blog/blazor-publish-to-github-pages.md</FilePath>
+    <ReleaseDate>2022-12-10</ReleaseDate>
+    <Author>Maraf</Author>
+    <GitHubCommentPath>neptuo/com.neptuo/issues/55</GitHubCommentPath>
+  </Post>
 </Posts>
