@@ -21,8 +21,7 @@ on_success:
   - git config --global user.email appveyor@neptuo.com
   - git config --global user.name Appveyor
   - git config --global core.autocrlf true
-  - git remote set-url origin https://$($env:access_token)@github.com/neptuo/com.neptuo.git
-  - git checkout gh-pages
+  - git clone -b gh-pages https://$($env:access_token)@github.com/neptuo/com.neptuo.git
   - git clean -f
   - git rm -rf .
   - xcopy ..\output . /E /R /Y
