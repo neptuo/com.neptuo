@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
 
-    <title>Blazor and complex component parameters - Neptuo</title>
+    <title>(Semi) automatic Blazor publish to GitHub pages - Neptuo</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="/Content/Images/favicon.png" />
 
@@ -79,10 +79,10 @@
 
 <div class="intro important blogpost">
     <div class="intro-content container">
-        <h1>Blazor and complex component parameters</h1>
+        <h1>(Semi) automatic Blazor publish to GitHub pages</h1>
         <p>
             
-      A second tip. So clear and obvious, but it took some time to me to realize.
+      How to make your life easier by automating publish
     
         </p>
     </div>
@@ -91,76 +91,60 @@
 
 <div class="container">
     <div class="folder blogpost">
-        <blockquote>
-<p><a target="_blank" class="external-link" href="https://github.com/aspnet/Blazor">Blazor</a> is an experimental Web UI framework from Microsoft. There are plenty of posts about so I'm not going to describe it and I'm directly heading to my topic.</p>
-</blockquote>
-<p>Recently I was implementing <a target="_blank" class="external-link" href="https://github.com/maraf/Money/issues/149">confirmation dialogs before deleting</a> an item.</p>
-<p><img src="/Content/Images/Blog/blazor-component-parameters/confirm.png" alt="Confirm Dialog in Action" /></p>
-<p>As such dialog should be always the same except for message, I have created a component:</p>
-<pre><code class="language-html">&lt;Confirm Message=&quot;@DeleteCategoryMessage?&quot; YesClick=&quot;OnDeleteConfirmed&quot; bind-IsVisible=&quot;@IsDeleteConfirmVisible&quot; /&gt;
+        <p>GitHub pages is a solid solution for hosting static sites. I use it a lot and as a matter of fact, my very first blog post was about running this site on GitHub pages. I host all of my Blazor wasm apps on GitHub pages. Until recently I was always publishing them manually. You know, build my code, copy content of publish folder to a folder with checkout of the GitHub pages repo, and finally commit.</p>
+<p>But! It is very easy to use GitHub actions to do this tedious process on my behalf. Here is my approach.</p>
+<p>I always have a separate repo for GitHub pages. For example I have <a target="_blank" class="external-link" href="https://github.com/maraf/Money">maraf/Money</a> repo with sources and then I have (two) repos for static sites <a target="_blank" class="external-link" href="https://github.com/maraf/com.neptuo.money.app">maraf/com.neptuo.money.app</a> and <a target="_blank" class="external-link" href="https://github.com/maraf/com.neptuo.money.app.beta">maraf/com.neptuo.money.app.beta</a>.</p>
+<p>In each of these static site repos I have created a GitHub actions workflow file <a target="_blank" class="external-link" href="https://github.com/maraf/com.neptuo.money.app/blob/master/.github/workflows/deploy.yml">deploy.yaml</a>. As mentioned in the title, I use semi-automatic approach, as I want to have a control over what gets published where. I configured the workflow to be triggered manually using <code>workflow_dispatch</code>.</p>
+<h2>Step 0: Input arguments</h2>
+<p>I want to have the ability to select which commit gets published, so I configured the <code>workflow_dispatch</code> to accept one optional argument</p>
+<pre><code>inputs:
+    commitHash:
+    description: 'Commit hash'
+    type: string
 </code></pre>
-<p>A typical 'codebehind' looked like:</p>
-<div class="highlight csharp"><pre>
-<span class="keyword">private</span> IKey <span class="identifier">deleteCategoryKey</span>;
-<span class="keyword">protected</span> <span class="keyword">string</span> DeleteCategoryMessage { <span class="keyword">get</span>; <span class="keyword">set</span>; }
-<span class="keyword">protected</span> <span class="keyword">bool</span> <span class="identifier">IsDeleteConfirmVisible</span> { <span class="keyword">get</span>; <span class="keyword">set</span>; }
-
-<span class="keyword">protected</span> <span class="keyword">void</span> <span class="identifier">OnDeleteButtonClick</span>(Category c) 
-{
-    deleteCategoryKey = c.Key;
-    DeleteCategoryMessage = $<span class="string">&quot;Do you really want to delete category &#39;{c.Name}&#39;&quot;</span>;
-    IsDeleteConfirmVisible = <span class="constant">true</span>;
-}
-
-<span class="keyword">protected</span> async <span class="keyword">void</span> OnDeleteConfirmed() 
-{
-    await DeleteCategoryAsync(deleteCategoryKey);
-
-    deleteCategoryKey = <span class="constant">null</span>;
-    DeleteCategoryMessage = <span class="constant">null</span>;
-    IsDeleteConfirmVisible = <span class="constant">false</span>;
-}
-
-
-</pre></div>
-<p>This would be needed everytime I would want to use confirmation dialog. It would be 90% the same in all use cases.
-Then I realized I can refactor it to a class and then I realized I can pass this whole class to <code>Confirm</code> component.</p>
-<p>So the final component usage is:</p>
-<pre><code>&lt;Confirm Context=&quot;@Delete&quot; /&gt;
+<p>If the argument is not provided, it takes the head of the repo.</p>
+<h2>Step 1: Checkout</h2>
+<p>I use <code>actions/checkout@v3</code> and as I need to checkout a different repo than the current one, it needs a bit configuration</p>
+<pre><code>- name: Checkout
+  uses: actions/checkout@v3 
+  with:
+    repository: 'maraf/Money'
+    ref: '${{ inputs.commitHash }}'
 </code></pre>
-<p>In codebehind I only need to create instance of <a target="_blank" class="external-link" href="https://github.com/maraf/Money/blob/master/src/Money.UI.Blazor/Models/Confirmation/DeleteContext.cs">DeleteContext</a> class:</p>
-<div class="highlight csharp"><pre>
-<span class="keyword">protected</span> DeleteContext&lt;CategoryModel&gt; Delete { <span class="keyword">get</span>; }
-
-<span class="keyword">public</span> <span class="keyword">void</span> <span class="identifier">Initialize</span>() 
-{
-    Delete = <span class="keyword">new</span> DeleteContext&lt;CategoryModel&gt;()
-    Delete.Confirmed += async model =&gt; await DeleteCategoryAsync(model.Key);
-    Delete.MessageFormatter = model =&gt; $<span class="string">&quot;Do you really want to delete category &#39;{model.Name}&#39;?&quot;</span>;
-}
-
-<span class="keyword">protected</span> <span class="keyword">void</span> <span class="identifier">OnDeleteButtonClick</span>(CategoryModel model)
-{
-    Delete.Model = model;
-}
-
-
-</pre></div>
+<h2>Step 2: Setup .NET</h2>
+<p>This one is straightforward</p>
+<pre><code>- name: Setup .NET
+  uses: actions/setup-dotnet@v3
+  with:
+    dotnet-version: '7.0.x'
+</code></pre>
+<h2>Step 3: Install wasm-tools (optional)</h2>
+<p>I want to publish an AOT compiled version, so I need workload <code>wasm-tools</code></p>
+<pre><code>- name: Install wasm-tools
+  run: dotnet workload install wasm-tools
+</code></pre>
+<h2>Step 4: Build the code</h2>
+<p>Again, pretty straightforward. Compile my Blazor project in Release configuration, with AOT and put it in the <code>./artifacts</code> folder. The <code>-p:PublishDomain</code> is my way of generating <code>CNAME</code> file for GitHub pages. You can check it out in the <a target="_blank" class="external-link" href="https://github.com/maraf/Money/blob/master/src/Money.Blazor.Host/Money.Blazor.Host.csproj#L49-L74">Money.Blazor.Host.csproj</a>.</p>
+<pre><code>- name: Build
+  run: dotnet publish ./src/Money.Blazor.Host/Money.Blazor.Host.csproj -c Release -p:PublishDomain=app.money.neptuo.com -p:RunAOTCompilation=true -o ./artifacts
+</code></pre>
+<h2>Step 4: Deploy to GitHub pages</h2>
+<p>Here I'm using <code>JamesIves/github-pages-deploy-action@v4</code> action to do it. There are quite some alternatives, but this one worked for me. It allows me to select which folder deploy to which branch, without need for explicit authentication token (since I'm publishing to the current repo).</p>
+<pre><code>- name: Deploy to GitHub Pages
+  if: success()
+  uses: JamesIves/github-pages-deploy-action@v4
+  with:
+    folder: ./artifacts/wwwroot
+    branch: master
+</code></pre>
 <h2>Summary</h2>
-<p>Until last week I have never tough about passing complex objects to components, but it works so easily.
-The complete solution can be found in these files:</p>
-<ul>
-<li><a target="_blank" class="external-link" href="https://github.com/maraf/Money/blob/master/src/Money.UI.Blazor/Components/Confirm.cshtml">Confirm</a> - UI component using Bootstrap modal to show confirmation dialogs.</li>
-<li><a target="_blank" class="external-link" href="https://github.com/maraf/Money/blob/master/src/Money.UI.Blazor/Models/Confirmation/DeleteContext.cs">DeleteContext</a> - model containing boilerplate code for deleting with confirmation.</li>
-<li><a target="_blank" class="external-link" href="https://github.com/maraf/Money/blob/master/src/Money.UI.Blazor/Models/Confirmation/ConfirmContext.cs">ConfirmContext</a> - abstract base class required by <code>Confirm</code> component.</li>
-<li><a target="_blank" class="external-link" href="https://github.com/maraf/Money/blob/master/src/Money.UI.Blazor/Pages/CategoriesBase.cs">CategoriesBase</a> - typical usage.</li>
-</ul>
+<p>And that's it. It's 30 lines of code that simplifies my life when publishing new version for my Blazor apps. No idea why it took me so long.</p>
 
     </div>
 
     <div class="folder">
         <div class="left">
-            Posted on 2018-06-03
+            Posted on 2022-12-10
         </div>
         <div class="right">
             Written by <a target="_blank" rel="nofollow" href="https://github.com/maraf">Maraf</a>
@@ -168,6 +152,20 @@ The complete solution can be found in these files:</p>
         <div class="clear"></div>
     </div>
 
+        <div class="folder">
+            <div class="comment-heading">
+                <h3>
+                    <span class="hidden">Comments</span>
+                    <span class="glyphicon glyphicon-comment"></span>
+                </h3>
+            
+                To leave a comment, please sign-in at GitHub and
+                <a href="https://github.com/neptuo/com.neptuo/issues/55" target="_blank">
+                    comment on the issue associated with this post.
+                </a>
+            </div>
+            <div id="comments"></div>
+        </div>
 </div>
 
 
@@ -234,6 +232,12 @@ The complete solution can be found in these files:</p>
         </script>
     
 
+        <script src="/Scripts/blogcomments.js"></script>
+        <script>
+
+            load("https://api.github.com/repos/neptuo/com.neptuo/issues/55/comments");
+
+        </script>
 
     <script type="application/ld+json">
         {
