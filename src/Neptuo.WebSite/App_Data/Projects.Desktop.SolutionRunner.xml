@@ -36,6 +36,14 @@ To start the application after sign in to the Windows, simple create shortcut in
     </Images>
 
     <Version>
+      <Name>v2.1.0</Name>
+      <TagName>v2.1.0</TagName>
+      <Description>#116 - Add support for .slnx files (new solution format).</Description>
+      <Description>#114 - Add support for .slnf files (solution filters).</Description>
+      <Description>#109 - Add support .code-workspace files (VS Code workspace).</Description>
+      <Description>#117 - Fix app crashing on start when VS is not installed.</Description>
+    </Version>
+    <Version>
       <Name>v2.0.0</Name>
       <TagName>v2.0.0</TagName>
       <Description>#63 - Distribution through Microsoft Store.</Description>
